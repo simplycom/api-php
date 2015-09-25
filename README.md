@@ -2,7 +2,7 @@
 
 ## Description ##
 
-This package provides an API for the UnoEuro RESTful API
+This package provides a PHP interface to the UnoEuro REST API.
 
 ## Install via Composer ##
 
@@ -26,3 +26,7 @@ from your code:
 ```php
 require 'vendor/autoload.php';
 ```
+
+## Contributing ##
+
+Please submit pull requests, we love you <3
