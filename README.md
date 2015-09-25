@@ -18,6 +18,14 @@ curl -sS https://getcomposer.org/installer | php
 
 You should now have the file `composer.phar` in your project directory.
 
+### Install Dependencies ###
+
+Run in your project root:
+
+```
+php composer.phar require unoeuro/api-php:@dev
+```
+
 ### Require Autoloader ###
 
 After installing the dependencies, you need to require the Composer autoloader
@@ -26,6 +34,16 @@ from your code:
 ```php
 require 'vendor/autoload.php';
 ```
+
+## Usage  ##
+
+```php
+require 'vendor/autoload.php';
+$unoeuro = new UnoEuro\Client('account', 'apikey');
+$products = $unoeuro->get('my/products/');
+var_dump($products);
+```
+
 
 ## Contributing ##
 
