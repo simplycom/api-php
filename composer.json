@@ -1,0 +1,28 @@
+{
+  "name": "unoeuro/api.php",
+  "description": "A PHP library for interacting with the UnoEuro REST API.",
+  "keywords": [
+    "domains",
+    "webhosting",
+    "unoeuro"
+  ],
+  "homepage": "https://www.unoeuro.com",
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Tom Sommer",
+      "email": "ts@unoeuro.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "~6"
+  },
+  "autoload": {
+    "psr-0": {
+      "UnoEuro": "src/"
+    }
+  }
+}
