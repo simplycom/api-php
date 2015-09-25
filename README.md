@@ -26,3 +26,7 @@ from your code:
 ```php
 require 'vendor/autoload.php';
 ```
+
+## Contributing ##
+
+Please submit pull requests, we love you <3
