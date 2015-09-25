@@ -23,7 +23,7 @@ You should now have the file `composer.phar` in your project directory.
 Run in your project root:
 
 ```
-php composer.phar require unoeuro/api-php:@dev
+php composer.phar require unoeuro/api-php
 ```
 
 ### Require Autoloader ###
