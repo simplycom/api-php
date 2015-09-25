@@ -1,5 +1,5 @@
 {
-  "name": "unoeuro/api.php",
+  "name": "unoeuro/api-php",
   "description": "A PHP library for interacting with the UnoEuro REST API.",
   "keywords": [
     "domains",
