@@ -2,7 +2,7 @@
 
 ## Description ##
 
-This package provides an PHP interface to the UnoEuro REST API.
+This package provides a PHP interface to the UnoEuro REST API.
 
 ## Install via Composer ##
 
