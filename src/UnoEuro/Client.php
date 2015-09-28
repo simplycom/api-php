@@ -4,20 +4,21 @@ namespace UnoEuro;
 
 class Client
 {
-    const uri = 'https://api.unoeuro.com/1/';
+    const baseuri = 'https://api.unoeuro.com/1/';
     private $account;
     private $apikey;
 
     public function __construct($account, $apikey)
     {
-        $this->account = $account;
-        $this->apikey = $apikey;
+        $this->account = trim($account);
+        $this->apikey = trim($apikey);
     }
 
     public function request($method = 'GET', $uri, $parameters = array())
     {
 
-        $uri = self::uri . $this->account . '/' . $this->apikey . '/' . $uri;
+        $uri = ltrim($uri, '/');
+        $uri = self::baseuri . $this->account . '/' . $this->apikey . '/' . $uri;
 
         $options = array();
         $options['headers']['User-Agent'] = 'UnoEuro API PHP-Client';
@@ -44,6 +45,6 @@ class Client
 
     public function delete($uri, $parameters = array())
     {
-        return $this->delete('POST', $uri, $parameters);
+        return $this->delete('DELETE', $uri, $parameters);
     }
 }
