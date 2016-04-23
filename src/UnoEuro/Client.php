@@ -45,6 +45,6 @@ class Client
 
     public function delete($uri, $parameters = array())
     {
-        return $this->delete('DELETE', $uri, $parameters);
+        return $this->request('DELETE', $uri, $parameters);
     }
 }
