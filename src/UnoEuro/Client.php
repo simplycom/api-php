@@ -4,7 +4,7 @@ namespace UnoEuro;
 
 class Client
 {
-    const baseuri = 'https://api.unoeuro.com/1/';
+    const baseuri = 'https://api.simply.com/1/';
     private $account;
     private $apikey;
 
