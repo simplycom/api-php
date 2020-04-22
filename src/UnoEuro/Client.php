@@ -21,7 +21,7 @@ class Client
         $uri = self::baseuri . $this->account . '/' . $this->apikey . '/' . $uri;
 
         $options = array();
-        $options['headers']['User-Agent'] = 'UnoEuro API PHP-Client';
+        $options['headers']['User-Agent'] = 'Simply.com API PHP-Client';
         $options['json'] = $parameters;
 
         $client = new \GuzzleHttp\Client();
