@@ -2,7 +2,7 @@
 
 ## Description ##
 
-This package provides a PHP interface to the [Simply.com REST API](https://www.simply.com/docs/api.php).
+This package provides a PHP interface to the [Simply.com REST API](https://www.simply.com/docs/api/).
 
 ## Install via Composer ##
 
