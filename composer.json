@@ -1,18 +1,20 @@
 {
-  "name": "unoeuro/api-php",
-  "description": "A PHP library for interacting with the UnoEuro REST API.",
+  "name": "simplycom/api-php",
+  "description": "A PHP library for interacting with the Simply.com REST API.",
   "keywords": [
     "domains",
     "webhosting",
-    "unoeuro"
+    "hosting",
+    "simply.com",
+    "simply"
   ],
-  "homepage": "https://www.unoeuro.com",
+  "homepage": "https://www.simply.com",
   "type": "library",
   "license": "Apache-2.0",
   "authors": [
     {
       "name": "Tom Sommer",
-      "email": "ts@unoeuro.com"
+      "email": "ts@simply.com"
     }
   ],
   "require": {
