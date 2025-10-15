@@ -1,33 +1,35 @@
 name: Generate PHP SDK
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/generate-sdk.yml
   workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *" # optional: regenerate daily at 03:00 UTC
 
 jobs:
   generate-sdk:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Download OpenAPI spec
         run: |
           curl -sSL https://api.simply.com/2/openapi.json -o openapi.json
 
       - name: Generate PHP SDK
-        run: |
-          docker run --rm \
-            -v "${{ github.workspace }}:/local" \
-            openapitools/openapi-generator-cli generate \
-            -i /local/openapi.json \
-            -g php \
-            -o /local/sdk \
-            --additional-properties=packageName=SimplySDK,invokerPackage=Simply\\SDK
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: php
+          input-spec: openapi.json
+          output-dir: sdk
+          additional-properties: packageName=SimplySDK,invokerPackage=Simply\\SDK
 
       - name: Commit and push SDK
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add sdk
-          git diff --quiet && echo "No changes." || (git commit -m "Update generated SDK" && git push)
+          git diff --quiet && echo "No changes." || (git commit -m "Update generated PHP SDK" && git push)
