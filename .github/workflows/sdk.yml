@@ -33,4 +33,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add php-client
-          git diff --quiet && echo "No changes." || (git commit -m "Update generated PHP SDK" && git push)
+          git commit -m "Update generated PHP SDK"
+          git push
