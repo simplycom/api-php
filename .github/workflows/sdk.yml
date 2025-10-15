@@ -15,16 +15,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download OpenAPI spec
-        run: |
-          curl -sSL https://api.simply.com/2/openapi.json -o openapi.json
-
       - name: Generate PHP SDK
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
           config-file: php-generator-config.yml
           openapi-url: https://api.simply.com/2/openapi.json
+          command-args: -o .
 
       - name: Commit and push SDK
         run: |
