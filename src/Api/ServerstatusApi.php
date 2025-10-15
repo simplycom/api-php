@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderApi
+ * ServerstatusApi
  * PHP version 8.1
  *
  * @package  SimplyCom
@@ -44,13 +44,13 @@ use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderApi Class Doc Comment
+ * ServerstatusApi Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class OrderApi
+class ServerstatusApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class OrderApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'orderDnsService' => [
+        'getServerStatusMessages' => [
             'application/json',
         ],
     ];
@@ -126,40 +126,40 @@ class OrderApi
     }
 
     /**
-     * Operation orderDnsService
+     * Operation getServerStatusMessages
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest orderDnsServiceRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
+     * Retrieve a list of current and past serverstatus messages
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatusMessages'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return object
+     * @return \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
      */
-    public function orderDnsService(
-        \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest,
-        string $contentType = self::contentTypes['orderDnsService'][0]
-    ): array
+    public function getServerStatusMessages(
+        string $contentType = self::contentTypes['getServerStatusMessages'][0]
+    ): \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
     {
-        list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServiceRequest, $contentType);
+        list($response) = $this->getServerStatusMessagesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation orderDnsServiceWithHttpInfo
+     * Operation getServerStatusMessagesWithHttpInfo
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
+     * Retrieve a list of current and past serverstatus messages
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatusMessages'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function orderDnsServiceWithHttpInfo(
-        \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest,
-        string $contentType = self::contentTypes['orderDnsService'][0]
+    public function getServerStatusMessagesWithHttpInfo(
+        string $contentType = self::contentTypes['getServerStatusMessages'][0]
     ): array
     {
-        $request = $this->orderDnsServiceRequest($orderDnsServiceRequest, $contentType);
+        $request = $this->getServerStatusMessagesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -186,7 +186,7 @@ class OrderApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'object',
+                        '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response',
                         $request,
                         $response,
                     );
@@ -207,7 +207,7 @@ class OrderApi
             }
 
             return $this->handleResponseWithDataType(
-                'object',
+                '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response',
                 $request,
                 $response,
             );
@@ -216,7 +216,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -228,20 +228,20 @@ class OrderApi
     }
 
     /**
-     * Operation orderDnsServiceAsync
+     * Operation getServerStatusMessagesAsync
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
+     * Retrieve a list of current and past serverstatus messages
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatusMessages'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function orderDnsServiceAsync(
-        \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest,
-        string $contentType = self::contentTypes['orderDnsService'][0]
+    public function getServerStatusMessagesAsync(
+        string $contentType = self::contentTypes['getServerStatusMessages'][0]
     ): PromiseInterface
     {
-        return $this->orderDnsServiceAsyncWithHttpInfo($orderDnsServiceRequest, $contentType)
+        return $this->getServerStatusMessagesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -250,21 +250,21 @@ class OrderApi
     }
 
     /**
-     * Operation orderDnsServiceAsyncWithHttpInfo
+     * Operation getServerStatusMessagesAsyncWithHttpInfo
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
+     * Retrieve a list of current and past serverstatus messages
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatusMessages'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function orderDnsServiceAsyncWithHttpInfo(
-        \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest,
-        string $contentType = self::contentTypes['orderDnsService'][0]
+    public function getServerStatusMessagesAsyncWithHttpInfo(
+        string $contentType = self::contentTypes['getServerStatusMessages'][0]
     ): PromiseInterface
     {
-        $returnType = 'object';
-        $request = $this->orderDnsServiceRequest($orderDnsServiceRequest, $contentType);
+        $returnType = '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response';
+        $request = $this->getServerStatusMessagesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -303,29 +303,20 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'orderDnsService'
+     * Create request for operation 'getServerStatusMessages'
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatusMessages'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function orderDnsServiceRequest(
-        \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest,
-        string $contentType = self::contentTypes['orderDnsService'][0]
+    public function getServerStatusMessagesRequest(
+        string $contentType = self::contentTypes['getServerStatusMessages'][0]
     ): Request
     {
 
-        // verify the required parameter 'orderDnsServiceRequest' is set
-        if ($orderDnsServiceRequest === null || (is_array($orderDnsServiceRequest) && count($orderDnsServiceRequest) === 0)) {
-            throw new InvalidArgumentException(
-                'Missing the required parameter $orderDnsServiceRequest when calling orderDnsService'
-            );
-        }
 
-
-        $resourcePath = '/my/order/dnsservice';
+        $resourcePath = '/my/serverstatus/messages/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -343,14 +334,7 @@ class OrderApi
         );
 
         // for model (json/xml)
-        if (isset($orderDnsServiceRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($orderDnsServiceRequest));
-            } else {
-                $httpBody = $orderDnsServiceRequest;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -393,7 +377,7 @@ class OrderApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -77,23 +77,22 @@ All URIs are relative to *https://api.simply.com/2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BillingApi* | [**getInvoices**](docs/Api/BillingApi.md#getinvoices) | **GET** /my/invoices | 
-*DNSApi* | [**getDnsRecords**](docs/Api/DNSApi.md#getdnsrecords) | **GET** /my/products/{object}/dns/records | Retrieve DNS records for a specific object
 *DefaultApi* | [**domaincheck**](docs/Api/DefaultApi.md#domaincheck) | **GET** /my/domaincheck/{domain} | 
 *DnsApi* | [**addDnsRecord**](docs/Api/DnsApi.md#adddnsrecord) | **POST** /my/products/{object}/dns/records | Add new DNS record to a product DNS zone
 *DnsApi* | [**ddnsHelper**](docs/Api/DnsApi.md#ddnshelper) | **POST** /ddns/ | 
 *DnsApi* | [**deleteDnsRecord**](docs/Api/DnsApi.md#deletednsrecord) | **DELETE** /my/products/{object}/dns/records/{record_id} | Removes DNS record from a product DNS zone
 *DnsApi* | [**dyndns**](docs/Api/DnsApi.md#dyndns) | **GET** /dyndns/ | 
+*DnsApi* | [**getDnsRecords**](docs/Api/DnsApi.md#getdnsrecords) | **GET** /my/products/{object}/dns/records | Retrieve DNS records for a specific object
 *DnsApi* | [**getDnsZone**](docs/Api/DnsApi.md#getdnszone) | **GET** /my/products/{object}/dns | 
 *DnsApi* | [**reloadDnsZone**](docs/Api/DnsApi.md#reloaddnszone) | **POST** /my/products/{object}/dns/reload | Force-reload a DNS zone - Usually not necessary
 *DnsApi* | [**updateDnsRecord**](docs/Api/DnsApi.md#updatednsrecord) | **PUT** /my/products/{object}/dns/records/{record_id} | Updates a DNS record in a product DNS zone
 *DocumentationApi* | [**aa199985c8f25b391406c7aa6d0582e3**](docs/Api/DocumentationApi.md#aa199985c8f25b391406c7aa6d0582e3) | **GET** /openapi.json | OpenAPI JSON file that describes the API
-*OrderApi* | [**call3db09c5bcfacbbba537a8872997b010e**](docs/Api/OrderApi.md#call3db09c5bcfacbbba537a8872997b010e) | **POST** /my/order/dnsservice | 
+*OrderApi* | [**orderDnsService**](docs/Api/OrderApi.md#orderdnsservice) | **POST** /my/order/dnsservice | 
 *ProductsApi* | [**getProductList**](docs/Api/ProductsApi.md#getproductlist) | **GET** /my/products | 
-*ServerStatusApi* | [**getServerStatusMessages**](docs/Api/ServerStatusApi.md#getserverstatusmessages) | **GET** /my/serverstatus/messages/ | Retrieve a list of current and past serverstatus messages
+*ServerstatusApi* | [**getServerStatusMessages**](docs/Api/ServerstatusApi.md#getserverstatusmessages) | **GET** /my/serverstatus/messages/ | Retrieve a list of current and past serverstatus messages
 
 ## Models
 
-- [3db09c5bcfacbbba537a8872997b010eRequest](docs/Model/3db09c5bcfacbbba537a8872997b010eRequest.md)
 - [AddDnsRecord200Response](docs/Model/AddDnsRecord200Response.md)
 - [AddDnsRecord200ResponseRecordInner](docs/Model/AddDnsRecord200ResponseRecordInner.md)
 - [AddDnsRecordRequest](docs/Model/AddDnsRecordRequest.md)
@@ -112,6 +111,7 @@ Class | Method | HTTP request | Description
 - [GetProductList200ResponseProductsInnerUsernames](docs/Model/GetProductList200ResponseProductsInnerUsernames.md)
 - [GetServerStatusMessages200Response](docs/Model/GetServerStatusMessages200Response.md)
 - [GetServerStatusMessages200ResponseMessagesInner](docs/Model/GetServerStatusMessages200ResponseMessagesInner.md)
+- [OrderDnsServiceRequest](docs/Model/OrderDnsServiceRequest.md)
 
 ## Authorization
 

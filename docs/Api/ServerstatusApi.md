@@ -1,21 +1,19 @@
-# SimplyCom\OrderApi
+# SimplyCom\ServerstatusApi
 
 All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**orderDnsService()**](OrderApi.md#orderDnsService) | **POST** /my/order/dnsservice |  |
+| [**getServerStatusMessages()**](ServerstatusApi.md#getServerStatusMessages) | **GET** /my/serverstatus/messages/ | Retrieve a list of current and past serverstatus messages |
 
 
-## `orderDnsService()`
+## `getServerStatusMessages()`
 
 ```php
-orderDnsService($orderDnsServiceRequest): object
+getServerStatusMessages(): \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
 ```
 
-
-
-Order a domain, requires working credit card on account if payment is needed.
+Retrieve a list of current and past serverstatus messages
 
 ### Example
 
@@ -30,31 +28,28 @@ $config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Api\OrderApi(
+$apiInstance = new SimplyCom\Api\ServerstatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$orderDnsServiceRequest = new \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest(); // \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest
 
 try {
-    $result = $apiInstance->orderDnsService($orderDnsServiceRequest);
+    $result = $apiInstance->getServerStatusMessages();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->orderDnsService: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ServerstatusApi->getServerStatusMessages: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **orderDnsServiceRequest** | [**\SimplyCom\SimplyCom\Model\OrderDnsServiceRequest**](../Model/OrderDnsServiceRequest.md)|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response**](../Model/GetServerStatusMessages200Response.md)
 
 ### Authorization
 
@@ -62,7 +57,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
