@@ -3,7 +3,7 @@
  * Configuration
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,14 +24,14 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk;
+namespace SimplyCom;
 
 use InvalidArgumentException;
 
 /**
  * Configuration Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -424,7 +424,7 @@ class Configuration
      */
     public static function toDebugReport(): string
     {
-        $report  = 'PHP SDK (SimplyCom\Sdk) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (SimplyCom) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 2.1.1' . PHP_EOL;

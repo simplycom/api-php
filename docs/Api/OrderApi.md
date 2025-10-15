@@ -1,4 +1,4 @@
-# SimplyCom\Sdk\OrderApi
+# SimplyCom\OrderApi
 
 All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
 
@@ -25,18 +25,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\OrderApi(
+$apiInstance = new SimplyCom\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$_3db09c5bcfacbbba537a8872997b010eRequest = new \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest(); // \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest
+$_3db09c5bcfacbbba537a8872997b010eRequest = new \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest(); // \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest
 
 try {
     $result = $apiInstance->call3db09c5bcfacbbba537a8872997b010e($_3db09c5bcfacbbba537a8872997b010eRequest);
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **_3db09c5bcfacbbba537a8872997b010eRequest** | [**\SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest**](../Model/3db09c5bcfacbbba537a8872997b010eRequest.md)|  | |
+| **_3db09c5bcfacbbba537a8872997b010eRequest** | [**\SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest**](../Model/3db09c5bcfacbbba537a8872997b010eRequest.md)|  | |
 
 ### Return type
 

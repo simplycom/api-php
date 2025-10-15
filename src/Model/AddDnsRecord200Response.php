@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ObjectSerializer;
 
 /**
  * AddDnsRecord200Response Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class AddDnsRecord200Response implements ModelInterface, ArrayAccess, JsonSerial
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'record' => '\SimplyCom\Sdk\Model\AddDnsRecord200ResponseRecordInner[]'
+        'record' => '\SimplyCom\SimplyCom\Model\AddDnsRecord200ResponseRecordInner[]'
     ];
 
     /**
@@ -358,7 +358,7 @@ class AddDnsRecord200Response implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets record
      *
-     * @return \SimplyCom\Sdk\Model\AddDnsRecord200ResponseRecordInner[]|null
+     * @return \SimplyCom\SimplyCom\Model\AddDnsRecord200ResponseRecordInner[]|null
      */
     public function getRecord(): ?array
     {
@@ -368,7 +368,7 @@ class AddDnsRecord200Response implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets record
      *
-     * @param \SimplyCom\Sdk\Model\AddDnsRecord200ResponseRecordInner[]|null $record record
+     * @param \SimplyCom\SimplyCom\Model\AddDnsRecord200ResponseRecordInner[]|null $record record
      *
      * @return $this
      */

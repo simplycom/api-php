@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ObjectSerializer;
 
 /**
  * GetProductList200ResponseProductsInner Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
@@ -62,10 +62,10 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
         'name' => 'string',
         'autorenew' => 'bool',
         'cancelled' => 'bool',
-        'domain' => '\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerDomain',
-        'product' => '\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerProduct',
-        'usernames' => '\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerUsernames',
-        'servers' => '\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServers'
+        'domain' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain',
+        'product' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct',
+        'usernames' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames',
+        'servers' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServers'
     ];
 
     /**
@@ -447,9 +447,9 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Gets domain
      *
-     * @return \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerDomain|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain|null
      */
-    public function getDomain(): ?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerDomain
+    public function getDomain(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain
     {
         return $this->container['domain'];
     }
@@ -457,11 +457,11 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Sets domain
      *
-     * @param \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerDomain|null $domain domain
+     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain|null $domain domain
      *
      * @return $this
      */
-    public function setDomain(?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerDomain $domain): static
+    public function setDomain(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain $domain): static
     {
         if (is_null($domain)) {
             throw new InvalidArgumentException('non-nullable domain cannot be null');
@@ -474,9 +474,9 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Gets product
      *
-     * @return \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerProduct|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct|null
      */
-    public function getProduct(): ?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerProduct
+    public function getProduct(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct
     {
         return $this->container['product'];
     }
@@ -484,11 +484,11 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Sets product
      *
-     * @param \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerProduct|null $product product
+     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct|null $product product
      *
      * @return $this
      */
-    public function setProduct(?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerProduct $product): static
+    public function setProduct(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct $product): static
     {
         if (is_null($product)) {
             throw new InvalidArgumentException('non-nullable product cannot be null');
@@ -501,9 +501,9 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Gets usernames
      *
-     * @return \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerUsernames|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames|null
      */
-    public function getUsernames(): ?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerUsernames
+    public function getUsernames(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames
     {
         return $this->container['usernames'];
     }
@@ -511,11 +511,11 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Sets usernames
      *
-     * @param \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerUsernames|null $usernames usernames
+     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames|null $usernames usernames
      *
      * @return $this
      */
-    public function setUsernames(?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerUsernames $usernames): static
+    public function setUsernames(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames $usernames): static
     {
         if (is_null($usernames)) {
             array_push($this->openAPINullablesSetToNull, 'usernames');
@@ -535,9 +535,9 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Gets servers
      *
-     * @return \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServers|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServers|null
      */
-    public function getServers(): ?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServers
+    public function getServers(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServers
     {
         return $this->container['servers'];
     }
@@ -545,11 +545,11 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     /**
      * Sets servers
      *
-     * @param \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServers|null $servers servers
+     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServers|null $servers servers
      *
      * @return $this
      */
-    public function setServers(?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServers $servers): static
+    public function setServers(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServers $servers): static
     {
         if (is_null($servers)) {
             array_push($this->openAPINullablesSetToNull, 'servers');

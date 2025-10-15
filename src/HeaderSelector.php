@@ -3,7 +3,7 @@
  * HeaderSelector
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,12 +24,12 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk;
+namespace SimplyCom;
 
 /**
  * HeaderSelector Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -3,7 +3,7 @@
  * BillingApi
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Api;
+namespace SimplyCom\SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -37,16 +37,16 @@ use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use SimplyCom\Sdk\ApiException;
-use SimplyCom\Sdk\Configuration;
-use SimplyCom\Sdk\HeaderSelector;
-use SimplyCom\Sdk\FormDataProcessor;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ApiException;
+use SimplyCom\Configuration;
+use SimplyCom\HeaderSelector;
+use SimplyCom\FormDataProcessor;
+use SimplyCom\ObjectSerializer;
 
 /**
  * BillingApi Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -132,11 +132,11 @@ class BillingApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Sdk\Model\GetInvoices200Response
+     * @return \SimplyCom\SimplyCom\Model\GetInvoices200Response
      */
     public function getInvoices(
         string $contentType = self::contentTypes['getInvoices'][0]
-    ): \SimplyCom\Sdk\Model\GetInvoices200Response
+    ): \SimplyCom\SimplyCom\Model\GetInvoices200Response
     {
         list($response) = $this->getInvoicesWithHttpInfo($contentType);
         return $response;
@@ -149,7 +149,7 @@ class BillingApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Sdk\Model\GetInvoices200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetInvoices200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoicesWithHttpInfo(
         string $contentType = self::contentTypes['getInvoices'][0]
@@ -182,7 +182,7 @@ class BillingApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Sdk\Model\GetInvoices200Response',
+                        '\SimplyCom\SimplyCom\Model\GetInvoices200Response',
                         $request,
                         $response,
                     );
@@ -203,7 +203,7 @@ class BillingApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Sdk\Model\GetInvoices200Response',
+                '\SimplyCom\SimplyCom\Model\GetInvoices200Response',
                 $request,
                 $response,
             );
@@ -212,7 +212,7 @@ class BillingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Sdk\Model\GetInvoices200Response',
+                        '\SimplyCom\SimplyCom\Model\GetInvoices200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -255,7 +255,7 @@ class BillingApi
         string $contentType = self::contentTypes['getInvoices'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Sdk\Model\GetInvoices200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\GetInvoices200Response';
         $request = $this->getInvoicesRequest($contentType);
 
         return $this->client

@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ObjectSerializer;
 
 /**
  * GetServerStatusMessages200Response Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'messages' => '\SimplyCom\Sdk\Model\GetServerStatusMessages200ResponseMessagesInner[]'
+        'messages' => '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]'
     ];
 
     /**
@@ -358,7 +358,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
     /**
      * Gets messages
      *
-     * @return \SimplyCom\Sdk\Model\GetServerStatusMessages200ResponseMessagesInner[]|null
+     * @return \SimplyCom\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]|null
      */
     public function getMessages(): ?array
     {
@@ -368,7 +368,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
     /**
      * Sets messages
      *
-     * @param \SimplyCom\Sdk\Model\GetServerStatusMessages200ResponseMessagesInner[]|null $messages messages
+     * @param \SimplyCom\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]|null $messages messages
      *
      * @return $this
      */

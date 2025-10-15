@@ -3,7 +3,7 @@
  * DnsApi
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Api;
+namespace SimplyCom\SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -37,16 +37,16 @@ use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use SimplyCom\Sdk\ApiException;
-use SimplyCom\Sdk\Configuration;
-use SimplyCom\Sdk\HeaderSelector;
-use SimplyCom\Sdk\FormDataProcessor;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ApiException;
+use SimplyCom\Configuration;
+use SimplyCom\HeaderSelector;
+use SimplyCom\FormDataProcessor;
+use SimplyCom\ObjectSerializer;
 
 /**
  * DnsApi Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -149,18 +149,18 @@ class DnsApi
      * Add new DNS record to a product DNS zone
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnsRecord'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Sdk\Model\AddDnsRecord200Response
+     * @return \SimplyCom\SimplyCom\Model\AddDnsRecord200Response
      */
     public function addDnsRecord(
         string $object,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['addDnsRecord'][0]
-    ): \SimplyCom\Sdk\Model\AddDnsRecord200Response
+    ): \SimplyCom\SimplyCom\Model\AddDnsRecord200Response
     {
         list($response) = $this->addDnsRecordWithHttpInfo($object, $addDnsRecordRequest, $contentType);
         return $response;
@@ -172,16 +172,16 @@ class DnsApi
      * Add new DNS record to a product DNS zone
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnsRecord'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Sdk\Model\AddDnsRecord200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\AddDnsRecord200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function addDnsRecordWithHttpInfo(
         string $object,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['addDnsRecord'][0]
     ): array
     {
@@ -212,7 +212,7 @@ class DnsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Sdk\Model\AddDnsRecord200Response',
+                        '\SimplyCom\SimplyCom\Model\AddDnsRecord200Response',
                         $request,
                         $response,
                     );
@@ -233,7 +233,7 @@ class DnsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Sdk\Model\AddDnsRecord200Response',
+                '\SimplyCom\SimplyCom\Model\AddDnsRecord200Response',
                 $request,
                 $response,
             );
@@ -242,7 +242,7 @@ class DnsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Sdk\Model\AddDnsRecord200Response',
+                        '\SimplyCom\SimplyCom\Model\AddDnsRecord200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -259,7 +259,7 @@ class DnsApi
      * Add new DNS record to a product DNS zone
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnsRecord'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -267,7 +267,7 @@ class DnsApi
      */
     public function addDnsRecordAsync(
         string $object,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['addDnsRecord'][0]
     ): PromiseInterface
     {
@@ -285,7 +285,7 @@ class DnsApi
      * Add new DNS record to a product DNS zone
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnsRecord'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -293,11 +293,11 @@ class DnsApi
      */
     public function addDnsRecordAsyncWithHttpInfo(
         string $object,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['addDnsRecord'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Sdk\Model\AddDnsRecord200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\AddDnsRecord200Response';
         $request = $this->addDnsRecordRequest($object, $addDnsRecordRequest, $contentType);
 
         return $this->client
@@ -340,7 +340,7 @@ class DnsApi
      * Create request for operation 'addDnsRecord'
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnsRecord'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -348,7 +348,7 @@ class DnsApi
      */
     public function addDnsRecordRequest(
         string $object,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['addDnsRecord'][0]
     ): Request
     {
@@ -765,13 +765,13 @@ class DnsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Sdk\Model\DeleteDnsRecord200Response
+     * @return \SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response
      */
     public function deleteDnsRecord(
         string $object,
         int $recordId,
         string $contentType = self::contentTypes['deleteDnsRecord'][0]
-    ): \SimplyCom\Sdk\Model\DeleteDnsRecord200Response
+    ): \SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response
     {
         list($response) = $this->deleteDnsRecordWithHttpInfo($object, $recordId, $contentType);
         return $response;
@@ -788,7 +788,7 @@ class DnsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Sdk\Model\DeleteDnsRecord200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteDnsRecordWithHttpInfo(
         string $object,
@@ -823,7 +823,7 @@ class DnsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Sdk\Model\DeleteDnsRecord200Response',
+                        '\SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response',
                         $request,
                         $response,
                     );
@@ -844,7 +844,7 @@ class DnsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Sdk\Model\DeleteDnsRecord200Response',
+                '\SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response',
                 $request,
                 $response,
             );
@@ -853,7 +853,7 @@ class DnsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Sdk\Model\DeleteDnsRecord200Response',
+                        '\SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -908,7 +908,7 @@ class DnsApi
         string $contentType = self::contentTypes['deleteDnsRecord'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Sdk\Model\DeleteDnsRecord200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response';
         $request = $this->deleteDnsRecordRequest($object, $recordId, $contentType);
 
         return $this->client
@@ -1947,7 +1947,7 @@ class DnsApi
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
      * @param  int $recordId The id of a DNS record in a DNS zone. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDnsRecord'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1957,7 +1957,7 @@ class DnsApi
     public function updateDnsRecord(
         string $object,
         int $recordId,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
     ): array
     {
@@ -1972,7 +1972,7 @@ class DnsApi
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
      * @param  int $recordId The id of a DNS record in a DNS zone. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDnsRecord'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1982,7 +1982,7 @@ class DnsApi
     public function updateDnsRecordWithHttpInfo(
         string $object,
         int $recordId,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
     ): array
     {
@@ -2061,7 +2061,7 @@ class DnsApi
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
      * @param  int $recordId The id of a DNS record in a DNS zone. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDnsRecord'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -2070,7 +2070,7 @@ class DnsApi
     public function updateDnsRecordAsync(
         string $object,
         int $recordId,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
     ): PromiseInterface
     {
@@ -2089,7 +2089,7 @@ class DnsApi
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
      * @param  int $recordId The id of a DNS record in a DNS zone. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDnsRecord'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -2098,7 +2098,7 @@ class DnsApi
     public function updateDnsRecordAsyncWithHttpInfo(
         string $object,
         int $recordId,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
     ): PromiseInterface
     {
@@ -2146,7 +2146,7 @@ class DnsApi
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
      * @param  int $recordId The id of a DNS record in a DNS zone. (required)
-     * @param  \SimplyCom\Sdk\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsRecordRequest|null $addDnsRecordRequest (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDnsRecord'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -2155,7 +2155,7 @@ class DnsApi
     public function updateDnsRecordRequest(
         string $object,
         int $recordId,
-        ?\SimplyCom\Sdk\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
+        ?\SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest = null,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
     ): Request
     {

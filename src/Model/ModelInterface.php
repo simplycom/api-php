@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk\Model
+ * @package  SimplyCom\SimplyCom\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,12 +25,12 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package SimplyCom\Sdk\Model
+ * @package SimplyCom\SimplyCom\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

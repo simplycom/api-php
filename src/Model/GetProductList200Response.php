@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ObjectSerializer;
 
 /**
  * GetProductList200Response Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class GetProductList200Response implements ModelInterface, ArrayAccess, JsonSeri
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'products' => '\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInner[]'
+        'products' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInner[]'
     ];
 
     /**
@@ -358,7 +358,7 @@ class GetProductList200Response implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets products
      *
-     * @return \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInner[]|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInner[]|null
      */
     public function getProducts(): ?array
     {
@@ -368,7 +368,7 @@ class GetProductList200Response implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets products
      *
-     * @param \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInner[]|null $products products
+     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInner[]|null $products products
      *
      * @return $this
      */

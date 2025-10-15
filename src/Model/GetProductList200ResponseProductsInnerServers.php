@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ObjectSerializer;
 
 /**
  * GetProductList200ResponseProductsInnerServers Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'webserver' => '\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServersWebserver'
+        'webserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver'
     ];
 
     /**
@@ -290,9 +290,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
     /**
      * Gets webserver
      *
-     * @return \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServersWebserver|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null
      */
-    public function getWebserver(): ?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServersWebserver
+    public function getWebserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver
     {
         return $this->container['webserver'];
     }
@@ -300,11 +300,11 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
     /**
      * Sets webserver
      *
-     * @param \SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServersWebserver|null $webserver webserver
+     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null $webserver webserver
      *
      * @return $this
      */
-    public function setWebserver(?\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServersWebserver $webserver): static
+    public function setWebserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver $webserver): static
     {
         if (is_null($webserver)) {
             throw new InvalidArgumentException('non-nullable webserver cannot be null');

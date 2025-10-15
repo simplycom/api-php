@@ -3,7 +3,7 @@
  * ServerStatusApi
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Api;
+namespace SimplyCom\SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -37,16 +37,16 @@ use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use SimplyCom\Sdk\ApiException;
-use SimplyCom\Sdk\Configuration;
-use SimplyCom\Sdk\HeaderSelector;
-use SimplyCom\Sdk\FormDataProcessor;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ApiException;
+use SimplyCom\Configuration;
+use SimplyCom\HeaderSelector;
+use SimplyCom\FormDataProcessor;
+use SimplyCom\ObjectSerializer;
 
 /**
  * ServerStatusApi Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -134,11 +134,11 @@ class ServerStatusApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Sdk\Model\GetServerStatusMessages200Response
+     * @return \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
      */
     public function getServerStatusMessages(
         string $contentType = self::contentTypes['getServerStatusMessages'][0]
-    ): \SimplyCom\Sdk\Model\GetServerStatusMessages200Response
+    ): \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
     {
         list($response) = $this->getServerStatusMessagesWithHttpInfo($contentType);
         return $response;
@@ -153,7 +153,7 @@ class ServerStatusApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Sdk\Model\GetServerStatusMessages200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerStatusMessagesWithHttpInfo(
         string $contentType = self::contentTypes['getServerStatusMessages'][0]
@@ -186,7 +186,7 @@ class ServerStatusApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Sdk\Model\GetServerStatusMessages200Response',
+                        '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response',
                         $request,
                         $response,
                     );
@@ -207,7 +207,7 @@ class ServerStatusApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Sdk\Model\GetServerStatusMessages200Response',
+                '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response',
                 $request,
                 $response,
             );
@@ -216,7 +216,7 @@ class ServerStatusApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Sdk\Model\GetServerStatusMessages200Response',
+                        '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -263,7 +263,7 @@ class ServerStatusApi
         string $contentType = self::contentTypes['getServerStatusMessages'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Sdk\Model\GetServerStatusMessages200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response';
         $request = $this->getServerStatusMessagesRequest($contentType);
 
         return $this->client

@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,14 +25,14 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk;
+namespace SimplyCom;
 
 use ArrayAccess;
 use DateTime;
 use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Message\StreamInterface;
 use SplFileObject;
-use SimplyCom\Sdk\Model\ModelInterface;
+use SimplyCom\SimplyCom\Model\ModelInterface;
 
 class FormDataProcessor
 {

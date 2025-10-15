@@ -3,7 +3,7 @@
  * DocumentationApi
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Api;
+namespace SimplyCom\SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -37,16 +37,16 @@ use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use SimplyCom\Sdk\ApiException;
-use SimplyCom\Sdk\Configuration;
-use SimplyCom\Sdk\HeaderSelector;
-use SimplyCom\Sdk\FormDataProcessor;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ApiException;
+use SimplyCom\Configuration;
+use SimplyCom\HeaderSelector;
+use SimplyCom\FormDataProcessor;
+use SimplyCom\ObjectSerializer;
 
 /**
  * DocumentationApi Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

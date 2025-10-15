@@ -1,4 +1,4 @@
-# SimplyCom\Sdk\DocumentationApi
+# SimplyCom\DocumentationApi
 
 All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
 
@@ -23,7 +23,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DocumentationApi(
+$apiInstance = new SimplyCom\Api\DocumentationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

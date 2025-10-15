@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,17 +25,17 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk;
+namespace SimplyCom;
 
 use DateTimeInterface;
 use DateTime;
 use GuzzleHttp\Psr7\Utils;
-use SimplyCom\Sdk\Model\ModelInterface;
+use SimplyCom\SimplyCom\Model\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -499,7 +499,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\SimplyCom\Sdk\Model\\' . $data->{$discriminator};
+                $subclass = '\SimplyCom\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }

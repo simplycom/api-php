@@ -32,10 +32,10 @@
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
-        "psr-4": { "SimplyCom\\Sdk\\" : "src/" }
+        "psr-4": { "SimplyCom\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "SimplyCom\\Sdk\\Test\\" : "tests/" }
+        "psr-4": { "SimplyCom\\Test\\" : "tests/" }
     },
     "scripts": {
         "test": [

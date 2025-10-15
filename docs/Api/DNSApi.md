@@ -1,4 +1,4 @@
-# SimplyCom\Sdk\DNSApi
+# SimplyCom\DNSApi
 
 All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `getDnsRecords()`
 
 ```php
-getDnsRecords($object): \SimplyCom\Sdk\Model\GetDnsRecords200Response
+getDnsRecords($object): \SimplyCom\SimplyCom\Model\GetDnsRecords200Response
 ```
 
 Retrieve DNS records for a specific object
@@ -23,12 +23,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DNSApi(
+$apiInstance = new SimplyCom\Api\DNSApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -52,7 +52,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\Sdk\Model\GetDnsRecords200Response**](../Model/GetDnsRecords200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetDnsRecords200Response**](../Model/GetDnsRecords200Response.md)
 
 ### Authorization
 

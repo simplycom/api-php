@@ -3,7 +3,7 @@
  * OrderApi
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Api;
+namespace SimplyCom\SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -37,16 +37,16 @@ use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use SimplyCom\Sdk\ApiException;
-use SimplyCom\Sdk\Configuration;
-use SimplyCom\Sdk\HeaderSelector;
-use SimplyCom\Sdk\FormDataProcessor;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ApiException;
+use SimplyCom\Configuration;
+use SimplyCom\HeaderSelector;
+use SimplyCom\FormDataProcessor;
+use SimplyCom\ObjectSerializer;
 
 /**
  * OrderApi Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -128,7 +128,7 @@ class OrderApi
     /**
      * Operation call3db09c5bcfacbbba537a8872997b010e
      *
-     * @param  \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest _3db09c5bcfacbbba537a8872997b010eRequest (required)
+     * @param  \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest _3db09c5bcfacbbba537a8872997b010eRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -136,7 +136,7 @@ class OrderApi
      * @return object
      */
     public function call3db09c5bcfacbbba537a8872997b010e(
-        \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
+        \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
         string $contentType = self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'][0]
     ): array
     {
@@ -147,7 +147,7 @@ class OrderApi
     /**
      * Operation call3db09c5bcfacbbba537a8872997b010eWithHttpInfo
      *
-     * @param  \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
+     * @param  \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -155,7 +155,7 @@ class OrderApi
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function call3db09c5bcfacbbba537a8872997b010eWithHttpInfo(
-        \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
+        \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
         string $contentType = self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'][0]
     ): array
     {
@@ -230,14 +230,14 @@ class OrderApi
     /**
      * Operation call3db09c5bcfacbbba537a8872997b010eAsync
      *
-     * @param  \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
+     * @param  \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function call3db09c5bcfacbbba537a8872997b010eAsync(
-        \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
+        \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
         string $contentType = self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'][0]
     ): PromiseInterface
     {
@@ -252,14 +252,14 @@ class OrderApi
     /**
      * Operation call3db09c5bcfacbbba537a8872997b010eAsyncWithHttpInfo
      *
-     * @param  \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
+     * @param  \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function call3db09c5bcfacbbba537a8872997b010eAsyncWithHttpInfo(
-        \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
+        \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
         string $contentType = self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'][0]
     ): PromiseInterface
     {
@@ -305,14 +305,14 @@ class OrderApi
     /**
      * Create request for operation 'call3db09c5bcfacbbba537a8872997b010e'
      *
-     * @param  \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
+     * @param  \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function call3db09c5bcfacbbba537a8872997b010eRequest(
-        \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
+        \SimplyCom\SimplyCom\Model\3db09c5bcfacbbba537a8872997b010eRequest $_3db09c5bcfacbbba537a8872997b010eRequest,
         string $contentType = self::contentTypes['call3db09c5bcfacbbba537a8872997b010e'][0]
     ): Request
     {

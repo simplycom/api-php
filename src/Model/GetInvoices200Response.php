@@ -4,7 +4,7 @@
  *
  * PHP version 8.1
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\Sdk\Model;
+namespace SimplyCom\SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
-use SimplyCom\Sdk\ObjectSerializer;
+use SimplyCom\ObjectSerializer;
 
 /**
  * GetInvoices200Response Class Doc Comment
  *
- * @package  SimplyCom\Sdk
+ * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class GetInvoices200Response implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'invoices' => '\SimplyCom\Sdk\Model\GetInvoices200ResponseInvoicesInner[]'
+        'invoices' => '\SimplyCom\SimplyCom\Model\GetInvoices200ResponseInvoicesInner[]'
     ];
 
     /**
@@ -358,7 +358,7 @@ class GetInvoices200Response implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets invoices
      *
-     * @return \SimplyCom\Sdk\Model\GetInvoices200ResponseInvoicesInner[]|null
+     * @return \SimplyCom\SimplyCom\Model\GetInvoices200ResponseInvoicesInner[]|null
      */
     public function getInvoices(): ?array
     {
@@ -368,7 +368,7 @@ class GetInvoices200Response implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets invoices
      *
-     * @param \SimplyCom\Sdk\Model\GetInvoices200ResponseInvoicesInner[]|null $invoices invoices
+     * @param \SimplyCom\SimplyCom\Model\GetInvoices200ResponseInvoicesInner[]|null $invoices invoices
      *
      * @return $this
      */

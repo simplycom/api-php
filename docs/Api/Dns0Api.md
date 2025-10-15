@@ -1,4 +1,4 @@
-# SimplyCom\Sdk\DnsApi
+# SimplyCom\DnsApi
 
 All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
 
@@ -16,7 +16,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `addDnsRecord()`
 
 ```php
-addDnsRecord($object, $addDnsRecordRequest): \SimplyCom\Sdk\Model\AddDnsRecord200Response
+addDnsRecord($object, $addDnsRecordRequest): \SimplyCom\SimplyCom\Model\AddDnsRecord200Response
 ```
 
 Add new DNS record to a product DNS zone
@@ -29,19 +29,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$addDnsRecordRequest = new \SimplyCom\Sdk\Model\AddDnsRecordRequest(); // \SimplyCom\Sdk\Model\AddDnsRecordRequest
+$addDnsRecordRequest = new \SimplyCom\SimplyCom\Model\AddDnsRecordRequest(); // \SimplyCom\SimplyCom\Model\AddDnsRecordRequest
 
 try {
     $result = $apiInstance->addDnsRecord($object, $addDnsRecordRequest);
@@ -56,11 +56,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addDnsRecordRequest** | [**\SimplyCom\Sdk\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
+| **addDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\SimplyCom\Sdk\Model\AddDnsRecord200Response**](../Model/AddDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\AddDnsRecord200Response**](../Model/AddDnsRecord200Response.md)
 
 ### Authorization
 
@@ -93,12 +93,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -147,7 +147,7 @@ void (empty response body)
 ## `deleteDnsRecord()`
 
 ```php
-deleteDnsRecord($object, $recordId): \SimplyCom\Sdk\Model\DeleteDnsRecord200Response
+deleteDnsRecord($object, $recordId): \SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response
 ```
 
 Removes DNS record from a product DNS zone
@@ -160,12 +160,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -191,7 +191,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\Sdk\Model\DeleteDnsRecord200Response**](../Model/DeleteDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response**](../Model/DeleteDnsRecord200Response.md)
 
 ### Authorization
 
@@ -224,12 +224,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -290,12 +290,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -350,12 +350,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -410,12 +410,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
+$apiInstance = new SimplyCom\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -423,7 +423,7 @@ $apiInstance = new SimplyCom\Sdk\Api\DnsApi(
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
 $recordId = 56; // int | The id of a DNS record in a DNS zone.
-$addDnsRecordRequest = new \SimplyCom\Sdk\Model\AddDnsRecordRequest(); // \SimplyCom\Sdk\Model\AddDnsRecordRequest
+$addDnsRecordRequest = new \SimplyCom\SimplyCom\Model\AddDnsRecordRequest(); // \SimplyCom\SimplyCom\Model\AddDnsRecordRequest
 
 try {
     $result = $apiInstance->updateDnsRecord($object, $recordId, $addDnsRecordRequest);
@@ -439,7 +439,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
 | **recordId** | **int**| The id of a DNS record in a DNS zone. | |
-| **addDnsRecordRequest** | [**\SimplyCom\Sdk\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
+| **addDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
 
 ### Return type
 
