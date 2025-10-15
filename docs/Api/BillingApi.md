@@ -1,4 +1,4 @@
-# SimplySDK\BillingApi
+# SimplyCom\Sdk\BillingApi
 
 billing
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `getInvoices()`
 
 ```php
-getInvoices(): \SimplySDK\Model\GetInvoices200Response
+getInvoices(): \SimplyCom\Sdk\Model\GetInvoices200Response
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\BillingApi(
+$apiInstance = new SimplyCom\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplySDK\Model\GetInvoices200Response**](../Model/GetInvoices200Response.md)
+[**\SimplyCom\Sdk\Model\GetInvoices200Response**](../Model/GetInvoices200Response.md)
 
 ### Authorization
 

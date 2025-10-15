@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional]
 **autorenew** | **bool** |  | [optional]
 **cancelled** | **bool** |  | [optional]
-**domain** | [**\SimplySDK\Model\GetProductList200ResponseProductsInnerDomain**](GetProductList200ResponseProductsInnerDomain.md) |  | [optional]
-**product** | [**\SimplySDK\Model\GetProductList200ResponseProductsInnerProduct**](GetProductList200ResponseProductsInnerProduct.md) |  | [optional]
-**usernames** | [**\SimplySDK\Model\GetProductList200ResponseProductsInnerUsernames**](GetProductList200ResponseProductsInnerUsernames.md) |  | [optional]
-**servers** | [**\SimplySDK\Model\GetProductList200ResponseProductsInnerServers**](GetProductList200ResponseProductsInnerServers.md) |  | [optional]
+**domain** | [**\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerDomain**](GetProductList200ResponseProductsInnerDomain.md) |  | [optional]
+**product** | [**\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerProduct**](GetProductList200ResponseProductsInnerProduct.md) |  | [optional]
+**usernames** | [**\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerUsernames**](GetProductList200ResponseProductsInnerUsernames.md) |  | [optional]
+**servers** | [**\SimplyCom\Sdk\Model\GetProductList200ResponseProductsInnerServers**](GetProductList200ResponseProductsInnerServers.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

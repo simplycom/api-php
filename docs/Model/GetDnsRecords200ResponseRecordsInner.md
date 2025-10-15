@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**record_id** | **int** |  | [optional]
+**recordId** | **int** |  | [optional]
 **name** | **string** |  | [optional]
 **ttl** | **int** |  | [optional]
 **data** | **string** |  | [optional]

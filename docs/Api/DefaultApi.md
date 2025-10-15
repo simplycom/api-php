@@ -1,4 +1,4 @@
-# SimplySDK\DefaultApi
+# SimplyCom\Sdk\DefaultApi
 
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DefaultApi(
+$apiInstance = new SimplyCom\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

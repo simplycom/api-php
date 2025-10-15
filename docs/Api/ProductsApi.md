@@ -1,4 +1,4 @@
-# SimplySDK\ProductsApi
+# SimplyCom\Sdk\ProductsApi
 
 products
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `getProductList()`
 
 ```php
-getProductList(): \SimplySDK\Model\GetProductList200Response
+getProductList(): \SimplyCom\Sdk\Model\GetProductList200Response
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\ProductsApi(
+$apiInstance = new SimplyCom\Sdk\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplySDK\Model\GetProductList200Response**](../Model/GetProductList200Response.md)
+[**\SimplyCom\Sdk\Model\GetProductList200Response**](../Model/GetProductList200Response.md)
 
 ### Authorization
 

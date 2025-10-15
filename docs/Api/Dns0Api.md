@@ -1,4 +1,4 @@
-# SimplySDK\DnsApi
+# SimplyCom\Sdk\DnsApi
 
 dns
 
@@ -18,7 +18,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `addDnsRecord()`
 
 ```php
-addDnsRecord($object, $add_dns_record_request): \SimplySDK\Model\AddDnsRecord200Response
+addDnsRecord($object, $addDnsRecordRequest): \SimplyCom\Sdk\Model\AddDnsRecord200Response
 ```
 
 Add new DNS record to a product DNS zone
@@ -31,22 +31,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$add_dns_record_request = new \SimplySDK\Model\AddDnsRecordRequest(); // \SimplySDK\Model\AddDnsRecordRequest
+$addDnsRecordRequest = new \SimplyCom\Sdk\Model\AddDnsRecordRequest(); // \SimplyCom\Sdk\Model\AddDnsRecordRequest
 
 try {
-    $result = $apiInstance->addDnsRecord($object, $add_dns_record_request);
+    $result = $apiInstance->addDnsRecord($object, $addDnsRecordRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->addDnsRecord: ', $e->getMessage(), PHP_EOL;
@@ -58,11 +58,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **add_dns_record_request** | [**\SimplySDK\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
+| **addDnsRecordRequest** | [**\SimplyCom\Sdk\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\SimplySDK\Model\AddDnsRecord200Response**](../Model/AddDnsRecord200Response.md)
+[**\SimplyCom\Sdk\Model\AddDnsRecord200Response**](../Model/AddDnsRecord200Response.md)
 
 ### Authorization
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -149,7 +149,7 @@ void (empty response body)
 ## `deleteDnsRecord()`
 
 ```php
-deleteDnsRecord($object, $record_id): \SimplySDK\Model\DeleteDnsRecord200Response
+deleteDnsRecord($object, $recordId): \SimplyCom\Sdk\Model\DeleteDnsRecord200Response
 ```
 
 Removes DNS record from a product DNS zone
@@ -162,22 +162,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$record_id = 56; // int | The id of a DNS record in a DNS zone.
+$recordId = 56; // int | The id of a DNS record in a DNS zone.
 
 try {
-    $result = $apiInstance->deleteDnsRecord($object, $record_id);
+    $result = $apiInstance->deleteDnsRecord($object, $recordId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->deleteDnsRecord: ', $e->getMessage(), PHP_EOL;
@@ -189,11 +189,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **record_id** | **int**| The id of a DNS record in a DNS zone. | |
+| **recordId** | **int**| The id of a DNS record in a DNS zone. | |
 
 ### Return type
 
-[**\SimplySDK\Model\DeleteDnsRecord200Response**](../Model/DeleteDnsRecord200Response.md)
+[**\SimplyCom\Sdk\Model\DeleteDnsRecord200Response**](../Model/DeleteDnsRecord200Response.md)
 
 ### Authorization
 
@@ -226,12 +226,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -292,12 +292,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -352,12 +352,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -399,7 +399,7 @@ try {
 ## `updateDnsRecord()`
 
 ```php
-updateDnsRecord($object, $record_id, $add_dns_record_request): object
+updateDnsRecord($object, $recordId, $addDnsRecordRequest): object
 ```
 
 Updates a DNS record in a product DNS zone
@@ -412,23 +412,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\DnsApi(
+$apiInstance = new SimplyCom\Sdk\Api\DnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$record_id = 56; // int | The id of a DNS record in a DNS zone.
-$add_dns_record_request = new \SimplySDK\Model\AddDnsRecordRequest(); // \SimplySDK\Model\AddDnsRecordRequest
+$recordId = 56; // int | The id of a DNS record in a DNS zone.
+$addDnsRecordRequest = new \SimplyCom\Sdk\Model\AddDnsRecordRequest(); // \SimplyCom\Sdk\Model\AddDnsRecordRequest
 
 try {
-    $result = $apiInstance->updateDnsRecord($object, $record_id, $add_dns_record_request);
+    $result = $apiInstance->updateDnsRecord($object, $recordId, $addDnsRecordRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->updateDnsRecord: ', $e->getMessage(), PHP_EOL;
@@ -440,8 +440,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **record_id** | **int**| The id of a DNS record in a DNS zone. | |
-| **add_dns_record_request** | [**\SimplySDK\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
+| **recordId** | **int**| The id of a DNS record in a DNS zone. | |
+| **addDnsRecordRequest** | [**\SimplyCom\Sdk\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
 
 ### Return type
 

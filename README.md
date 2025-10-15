@@ -1,4 +1,4 @@
-# SimplySDK
+# Simply.com SDK
 
 Documentation for this API can be found on https://www.simply.com/docs/api/
 
@@ -35,7 +35,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/SimplySDK/vendor/autoload.php');
+require_once('/path/to/Simply.com SDK/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -49,12 +49,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\BillingApi(
+$apiInstance = new SimplyCom\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

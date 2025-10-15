@@ -1,4 +1,5 @@
 {
+    "name": "simplycom/php-sdk",
     "description": "Documentation for this API can be found on https://www.simply.com/docs/api/",
     "keywords": [
         "openapitools",
@@ -30,9 +31,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "SimplySDK\\" : "lib/" }
+        "psr-4": { "SimplyCom\\Sdk\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "SimplySDK\\Test\\" : "test/" }
+        "psr-4": { "SimplyCom\\Sdk\\Test\\" : "test/" }
     }
 }

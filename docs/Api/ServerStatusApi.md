@@ -1,4 +1,4 @@
-# SimplySDK\ServerStatusApi
+# SimplyCom\Sdk\ServerStatusApi
 
 ServerStatus
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `getServerStatusMessages()`
 
 ```php
-getServerStatusMessages(): \SimplySDK\Model\GetServerStatusMessages200Response
+getServerStatusMessages(): \SimplyCom\Sdk\Model\GetServerStatusMessages200Response
 ```
 
 Retrieve a list of current and past serverstatus messages
@@ -25,12 +25,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: basicAuth
-$config = SimplySDK\Configuration::getDefaultConfiguration()
+$config = SimplyCom\Sdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new SimplySDK\Api\ServerStatusApi(
+$apiInstance = new SimplyCom\Sdk\Api\ServerStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplySDK\Model\GetServerStatusMessages200Response**](../Model/GetServerStatusMessages200Response.md)
+[**\SimplyCom\Sdk\Model\GetServerStatusMessages200Response**](../Model/GetServerStatusMessages200Response.md)
 
 ### Authorization
 
