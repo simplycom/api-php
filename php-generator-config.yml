@@ -4,3 +4,4 @@ overwrite: true
 composerPackageName: simplycom/php-sdk
 variableNamingConvention: camelCase
 srcBasePath: src
+modelDocs: false
