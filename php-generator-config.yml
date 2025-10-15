@@ -1,0 +1,3 @@
+packageName: Simply.com SDK
+invokerPackage: SimplyCom\Sdk
+overwrite: true
