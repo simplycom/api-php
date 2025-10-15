@@ -1,4 +1,4 @@
-packageName: Simply.com SDK
+packageName: SimplyCom-php
 invokerPackage: SimplyCom
 modelPackage: SimplyCom\Model
 apiPackage: SimplyCom\Api
