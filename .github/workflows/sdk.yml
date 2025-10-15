@@ -23,13 +23,14 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
-          input-spec: openapi.json
-          output-dir: sdk
-          additional-properties: packageName=SimplySDK,invokerPackage=Simply\\SDK
+          openapi-url: https://api.simply.com/2/openapi.json
+          command-args: >
+            -o php-client
+            --additional-properties=packageName=SimplySDK,invokerPackage=Simply\\SDK,overwrite=true
 
       - name: Commit and push SDK
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add sdk
+          git add php-client
           git diff --quiet && echo "No changes." || (git commit -m "Update generated PHP SDK" && git push)
