@@ -1,4 +1,4 @@
-# Simply.com SDK
+# SimplyCom-php
 
 Documentation for this API can be found on https://www.simply.com/docs/api/
 
@@ -35,7 +35,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/Simply.com SDK/vendor/autoload.php');
+require_once('/path/to/SimplyCom-php/vendor/autoload.php');
 ```
 
 ## Getting Started
