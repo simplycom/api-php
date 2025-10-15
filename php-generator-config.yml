@@ -7,4 +7,5 @@ composerPackageName: simplycom/php-sdk
 variableNamingConvention: camelCase
 srcBasePath: src
 modelDocs: false
+apiDocs: false
 enablePostProcessFile: true
