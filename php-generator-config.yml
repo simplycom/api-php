@@ -1,7 +1,10 @@
 packageName: Simply.com SDK
-invokerPackage: SimplyCom\Sdk
+invokerPackage: SimplyCom
+modelPackage: SimplyCom\Model
+apiPackage: SimplyCom\Api
 overwrite: true
 composerPackageName: simplycom/php-sdk
 variableNamingConvention: camelCase
 srcBasePath: src
 modelDocs: false
+enablePostProcessFile: true
