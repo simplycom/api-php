@@ -12,7 +12,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 ## `call3db09c5bcfacbbba537a8872997b010e()`
 
 ```php
-call3db09c5bcfacbbba537a8872997b010e($_3db09c5bcfacbbba537a8872997b010e_request): object
+call3db09c5bcfacbbba537a8872997b010e($_3db09c5bcfacbbba537a8872997b010eRequest): object
 ```
 
 
@@ -38,10 +38,10 @@ $apiInstance = new SimplyCom\Sdk\Api\OrderApi(
     new GuzzleHttp\Client(),
     $config
 );
-$_3db09c5bcfacbbba537a8872997b010e_request = new \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest(); // \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest
+$_3db09c5bcfacbbba537a8872997b010eRequest = new \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest(); // \SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest
 
 try {
-    $result = $apiInstance->call3db09c5bcfacbbba537a8872997b010e($_3db09c5bcfacbbba537a8872997b010e_request);
+    $result = $apiInstance->call3db09c5bcfacbbba537a8872997b010e($_3db09c5bcfacbbba537a8872997b010eRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->call3db09c5bcfacbbba537a8872997b010e: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +52,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **_3db09c5bcfacbbba537a8872997b010e_request** | [**\SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest**](../Model/3db09c5bcfacbbba537a8872997b010eRequest.md)|  | |
+| **_3db09c5bcfacbbba537a8872997b010eRequest** | [**\SimplyCom\Sdk\Model\3db09c5bcfacbbba537a8872997b010eRequest**](../Model/3db09c5bcfacbbba537a8872997b010eRequest.md)|  | |
 
 ### Return type
 
