@@ -8,3 +8,5 @@ variableNamingConvention: camelCase
 srcBasePath: src
 enablePostProcessFile: true
 hideGenerationTimestamp: true
+gitUserId: simplycom
+gitRepoId: api-php
