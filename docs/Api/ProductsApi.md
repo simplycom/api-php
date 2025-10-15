@@ -1,7 +1,5 @@
 # SimplyCom\Sdk\ProductsApi
 
-products
-
 All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
