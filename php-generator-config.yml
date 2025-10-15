@@ -9,3 +9,4 @@ srcBasePath: src
 modelDocs: false
 apiDocs: false
 enablePostProcessFile: true
+hideGenerationTimestamp: true
