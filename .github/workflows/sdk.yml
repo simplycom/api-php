@@ -23,10 +23,8 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php
+          config-file: php-generator-config.yml
           openapi-url: https://api.simply.com/2/openapi.json
-          command-args: >
-            -o .
-            --additional-properties=packageName=SimplySDK,invokerPackage=Simply\\SDK,overwrite=true
 
       - name: Commit and push SDK
         run: |
