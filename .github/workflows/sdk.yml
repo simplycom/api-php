@@ -18,7 +18,7 @@ jobs:
       - name: Generate PHP SDK
         uses: openapi-generators/openapitools-generator-action@v1
         with:
-          generator: php
+          generator: php-nextgen
           config-file: php-generator-config.yml
           openapi-url: https://api.simply.com/2/openapi.json
           command-args: -o .
