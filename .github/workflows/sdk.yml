@@ -23,10 +23,8 @@ jobs:
           openapi-url: https://api.simply.com/2/openapi.json
           command-args: -o .
 
-      - name: Commit and push SDK
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add .
-          git commit -a -m "Update generated PHP SDK"
-          git push
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: master
+          commit_message: Update API
