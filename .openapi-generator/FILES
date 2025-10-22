@@ -12,7 +12,7 @@ docs/Api/OrderApi.md
 docs/Api/ProductsApi.md
 docs/Api/ServerstatusApi.md
 docs/Model/AddDnsRecord200Response.md
-docs/Model/AddDnsRecord200ResponseRecordInner.md
+docs/Model/AddDnsRecord200ResponseRecord.md
 docs/Model/AddDnsRecordRequest.md
 docs/Model/DeleteDnsRecord200Response.md
 docs/Model/GetDnsRecords200Response.md
@@ -44,7 +44,7 @@ src/Configuration.php
 src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/AddDnsRecord200Response.php
-src/Model/AddDnsRecord200ResponseRecordInner.php
+src/Model/AddDnsRecord200ResponseRecord.php
 src/Model/AddDnsRecordRequest.php
 src/Model/DeleteDnsRecord200Response.php
 src/Model/GetDnsRecords200Response.php
@@ -64,3 +64,4 @@ src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/ModelInterface.php
 src/Model/OrderDnsServiceRequest.php
 src/ObjectSerializer.php
+tests/Model/AddDnsRecord200ResponseRecordTest.php

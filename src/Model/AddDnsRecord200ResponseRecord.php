@@ -1,6 +1,6 @@
 <?php
 /**
- * GetServerStatusMessages200Response
+ * AddDnsRecord200ResponseRecord
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetServerStatusMessages200Response Class Doc Comment
+ * AddDnsRecord200ResponseRecord Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class AddDnsRecord200ResponseRecord implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'getServerStatusMessages_200_response';
+    protected static string $openAPIModelName = 'addDnsRecord_200_response_record';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'messages' => '\SimplyCom\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]'
+        'id' => 'int'
     ];
 
     /**
@@ -69,9 +67,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'messages' => null
+        'id' => null
     ];
 
     /**
@@ -80,9 +76,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'messages' => false
+        'id' => false
     ];
 
     /**
@@ -171,9 +165,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'messages' => 'messages'
+        'id' => 'id'
     ];
 
     /**
@@ -182,9 +174,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'messages' => 'setMessages'
+        'id' => 'setId'
     ];
 
     /**
@@ -193,9 +183,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'messages' => 'getMessages'
+        'id' => 'getId'
     ];
 
     /**
@@ -254,9 +242,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('messages', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -302,82 +288,28 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets status
+     * Gets id
      *
      * @return int|null
      */
-    public function getStatus(): ?int
+    public function getId(): ?int
     {
-        return $this->container['status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status
+     * Sets id
      *
-     * @param int|null $status status
+     * @param int|null $id ID of the added record
      *
      * @return $this
      */
-    public function setStatus(?int $status): static
+    public function setId(?int $id): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($id)) {
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage(): ?string
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message message
-     *
-     * @return $this
-     */
-    public function setMessage(?string $message): static
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets messages
-     *
-     * @return \SimplyCom\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]|null
-     */
-    public function getMessages(): ?array
-    {
-        return $this->container['messages'];
-    }
-
-    /**
-     * Sets messages
-     *
-     * @param \SimplyCom\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]|null $messages messages
-     *
-     * @return $this
-     */
-    public function setMessages(?array $messages): static
-    {
-        if (is_null($messages)) {
-            throw new InvalidArgumentException('non-nullable messages cannot be null');
-        }
-        $this->container['messages'] = $messages;
+        $this->container['id'] = $id;
 
         return $this;
     }
