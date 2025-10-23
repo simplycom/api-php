@@ -64,4 +64,3 @@ src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/ModelInterface.php
 src/Model/OrderDnsServiceRequest.php
 src/ObjectSerializer.php
-tests/Model/AddDnsRecord200ResponseRecordTest.php
