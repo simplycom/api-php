@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cleanup old client
+        run: rm -rf src/
+
       - name: Generate PHP SDK
         uses: openapi-generators/openapitools-generator-action@v1
         with:
