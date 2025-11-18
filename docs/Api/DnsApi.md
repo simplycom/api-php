@@ -4,14 +4,14 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addDnsRecord()**](DnsApi.md#addDnsRecord) | **POST** /my/products/{object}/dns/records | Add new DNS record to a product DNS zone |
-| [**ddnsHelper()**](DnsApi.md#ddnsHelper) | **POST** /ddns/ |  |
-| [**deleteDnsRecord()**](DnsApi.md#deleteDnsRecord) | **DELETE** /my/products/{object}/dns/records/{record_id} | Removes DNS record from a product DNS zone |
+| [**addDnsRecord()**](DnsApi.md#addDnsRecord) | **POST** /my/products/{object}/dns/records/ | Add new DNS record to a product DNS zone |
+| [**ddnsHelper()**](DnsApi.md#ddnsHelper) | **GET** /ddns/ |  |
+| [**deleteDnsRecord()**](DnsApi.md#deleteDnsRecord) | **DELETE** /my/products/{object}/dns/records/{record_id}/ | Removes DNS record from a product DNS zone |
 | [**dyndns()**](DnsApi.md#dyndns) | **GET** /dyndns/ |  |
-| [**getDnsRecords()**](DnsApi.md#getDnsRecords) | **GET** /my/products/{object}/dns/records | Retrieve DNS records for a specific object |
-| [**getDnsZone()**](DnsApi.md#getDnsZone) | **GET** /my/products/{object}/dns |  |
-| [**reloadDnsZone()**](DnsApi.md#reloadDnsZone) | **POST** /my/products/{object}/dns/reload | Force-reload a DNS zone - Usually not necessary |
-| [**updateDnsRecord()**](DnsApi.md#updateDnsRecord) | **PUT** /my/products/{object}/dns/records/{record_id} | Updates a DNS record in a product DNS zone |
+| [**getDnsRecords()**](DnsApi.md#getDnsRecords) | **GET** /my/products/{object}/dns/records/ | Retrieve DNS records for a specific object |
+| [**getDnsZone()**](DnsApi.md#getDnsZone) | **GET** /my/products/{object}/dns/ |  |
+| [**reloadDnsZone()**](DnsApi.md#reloadDnsZone) | **POST** /my/products/{object}/dns/reload/ | Force-reload a DNS zone - Usually not necessary |
+| [**updateDnsRecord()**](DnsApi.md#updateDnsRecord) | **PUT** /my/products/{object}/dns/records/{record_id}/ | Updates a DNS record in a product DNS zone |
 
 
 ## `addDnsRecord()`

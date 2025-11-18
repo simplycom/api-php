@@ -4,7 +4,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getProductList()**](ProductsApi.md#getProductList) | **GET** /my/products |  |
+| [**getProductList()**](ProductsApi.md#getProductList) | **GET** /my/products/ |  |
 
 
 ## `getProductList()`
