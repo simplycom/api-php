@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 *DnsApi* | [**reloadDnsZone**](docs/Api/DnsApi.md#reloaddnszone) | **POST** /my/products/{object}/dns/reload/ | Force-reload a DNS zone - Usually not necessary
 *DnsApi* | [**updateDnsRecord**](docs/Api/DnsApi.md#updatednsrecord) | **PUT** /my/products/{object}/dns/records/{record_id}/ | Updates a DNS record in a product DNS zone
 *DocumentationApi* | [**call22ec05f39cd3b5c3f50243706718b55d**](docs/Api/DocumentationApi.md#call22ec05f39cd3b5c3f50243706718b55d) | **GET** /openapi.json | OpenAPI JSON file that describes the API
+*MailApi* | [**addMailAccount**](docs/Api/MailApi.md#addmailaccount) | **POST** /my/products/{object}/mail/accounts/ | Add new Mail account to a product
 *OrderApi* | [**orderDnsService**](docs/Api/OrderApi.md#orderdnsservice) | **POST** /my/order/dnsservice/ | 
 *ProductsApi* | [**getProductList**](docs/Api/ProductsApi.md#getproductlist) | **GET** /my/products/ | 
 *ServerstatusApi* | [**getServerStatusMessages**](docs/Api/ServerstatusApi.md#getserverstatusmessages) | **GET** /my/serverstatus/messages/ | Retrieve a list of current and past serverstatus messages
@@ -96,6 +97,7 @@ Class | Method | HTTP request | Description
 - [AddDnsRecord200Response](docs/Model/AddDnsRecord200Response.md)
 - [AddDnsRecord200ResponseRecord](docs/Model/AddDnsRecord200ResponseRecord.md)
 - [AddDnsRecordRequest](docs/Model/AddDnsRecordRequest.md)
+- [AddMailAccountRequest](docs/Model/AddMailAccountRequest.md)
 - [DeleteDnsRecord200Response](docs/Model/DeleteDnsRecord200Response.md)
 - [GetDnsRecords200Response](docs/Model/GetDnsRecords200Response.md)
 - [GetDnsRecords200ResponseRecordsInner](docs/Model/GetDnsRecords200ResponseRecordsInner.md)

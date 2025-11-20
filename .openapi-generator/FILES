@@ -8,12 +8,14 @@ docs/Api/BillingApi.md
 docs/Api/DefaultApi.md
 docs/Api/DnsApi.md
 docs/Api/DocumentationApi.md
+docs/Api/MailApi.md
 docs/Api/OrderApi.md
 docs/Api/ProductsApi.md
 docs/Api/ServerstatusApi.md
 docs/Model/AddDnsRecord200Response.md
 docs/Model/AddDnsRecord200ResponseRecord.md
 docs/Model/AddDnsRecordRequest.md
+docs/Model/AddMailAccountRequest.md
 docs/Model/DeleteDnsRecord200Response.md
 docs/Model/GetDnsRecords200Response.md
 docs/Model/GetDnsRecords200ResponseRecordsInner.md
@@ -36,6 +38,7 @@ src/Api/BillingApi.php
 src/Api/DefaultApi.php
 src/Api/DnsApi.php
 src/Api/DocumentationApi.php
+src/Api/MailApi.php
 src/Api/OrderApi.php
 src/Api/ProductsApi.php
 src/Api/ServerstatusApi.php
@@ -46,6 +49,7 @@ src/HeaderSelector.php
 src/Model/AddDnsRecord200Response.php
 src/Model/AddDnsRecord200ResponseRecord.php
 src/Model/AddDnsRecordRequest.php
+src/Model/AddMailAccountRequest.php
 src/Model/DeleteDnsRecord200Response.php
 src/Model/GetDnsRecords200Response.php
 src/Model/GetDnsRecords200ResponseRecordsInner.php
@@ -64,3 +68,5 @@ src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/ModelInterface.php
 src/Model/OrderDnsServiceRequest.php
 src/ObjectSerializer.php
+tests/Api/MailApiTest.php
+tests/Model/AddMailAccountRequestTest.php
