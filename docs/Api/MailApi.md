@@ -4,16 +4,18 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addMailAccount()**](MailApi.md#addMailAccount) | **POST** /my/products/{object}/mail/accounts/ | Add new Mail account to a product |
+| [**addMailAccount()**](MailApi.md#addMailAccount) | **POST** /my/products/{object}/mail/accounts/ | Add new mail account to a product |
 
 
 ## `addMailAccount()`
 
 ```php
-addMailAccount($object, $addMailAccountRequest)
+addMailAccount($object, $addMailAccountRequest): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
 ```
 
-Add new Mail account to a product
+Add new mail account to a product
+
+Creates a new email account for the product. The email address will be username@domain. The account will be created with the product's default mail quota.
 
 ### Example
 
@@ -38,7 +40,8 @@ $object = example.com; // string | The product handle/UUID, as found in the /my/
 $addMailAccountRequest = new \SimplyCom\SimplyCom\Model\AddMailAccountRequest(); // \SimplyCom\SimplyCom\Model\AddMailAccountRequest
 
 try {
-    $apiInstance->addMailAccount($object, $addMailAccountRequest);
+    $result = $apiInstance->addMailAccount($object, $addMailAccountRequest);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MailApi->addMailAccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -49,11 +52,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addMailAccountRequest** | [**\SimplyCom\SimplyCom\Model\AddMailAccountRequest**](../Model/AddMailAccountRequest.md)|  | [optional] |
+| **addMailAccountRequest** | [**\SimplyCom\SimplyCom\Model\AddMailAccountRequest**](../Model/AddMailAccountRequest.md)|  | |
 
 ### Return type
 
-void (empty response body)
+[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
 
 ### Authorization
 
@@ -62,7 +65,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

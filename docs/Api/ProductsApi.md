@@ -4,7 +4,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getProductList()**](ProductsApi.md#getProductList) | **GET** /my/products/ |  |
+| [**getProductList()**](ProductsApi.md#getProductList) | **GET** /my/products/ | Retrieve list of products |
 
 
 ## `getProductList()`
@@ -13,9 +13,9 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 getProductList(): \SimplyCom\SimplyCom\Model\GetProductList200Response
 ```
 
+Retrieve list of products
 
-
-Retrieve list of all products on a given account
+Retrieve list of all active products on the account, including hosting packages, domains, and DNS services. Products are ordered by handle.
 
 ### Example
 

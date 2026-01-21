@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | This is the object that should be used in further API calls | [optional]
-**name** | **string** |  | [optional]
-**autorenew** | **bool** |  | [optional]
-**cancelled** | **bool** |  | [optional]
+**object** | **string** | Product identifier to be used in further API calls (e.g., for DNS endpoints) | [optional]
+**objectUri** | **string** | The base URL for the product object in API calls | [optional]
+**name** | **string** | Product name/handle | [optional]
+**autorenew** | **bool** | Whether the product is set to auto-renew | [optional]
+**cancelled** | **bool** | Whether the product has been cancelled | [optional]
 **domain** | [**\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain**](GetProductList200ResponseProductsInnerDomain.md) |  | [optional]
 **product** | [**\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct**](GetProductList200ResponseProductsInnerProduct.md) |  | [optional]
 **usernames** | [**\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames**](GetProductList200ResponseProductsInnerUsernames.md) |  | [optional]

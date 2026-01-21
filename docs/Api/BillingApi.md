@@ -4,7 +4,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getInvoices()**](BillingApi.md#getInvoices) | **GET** /my/invoices/ |  |
+| [**getInvoices()**](BillingApi.md#getInvoices) | **GET** /my/invoices/ | Retrieve list of invoices |
 
 
 ## `getInvoices()`
@@ -13,9 +13,9 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 getInvoices(): \SimplyCom\SimplyCom\Model\GetInvoices200Response
 ```
 
+Retrieve list of invoices
 
-
-Retrieve list of all invoices
+Retrieve list of all paid, credited, and refunded invoices for the account. Invoices are returned in reverse chronological order (newest first).
 
 ### Example
 

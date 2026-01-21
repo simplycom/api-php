@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **int** |  | [optional]
 **message** | **string** |  | [optional]
-**records** | [**\SimplyCom\SimplyCom\Model\GetDnsRecords200ResponseRecordsInner[]**](GetDnsRecords200ResponseRecordsInner.md) |  | [optional]
+**records** | [**\SimplyCom\SimplyCom\Model\GetDnsRecords200ResponseRecordsInner[]**](GetDnsRecords200ResponseRecordsInner.md) | Array of DNS records in the zone | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

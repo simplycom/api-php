@@ -4,13 +4,13 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**call22ec05f39cd3b5c3f50243706718b55d()**](DocumentationApi.md#call22ec05f39cd3b5c3f50243706718b55d) | **GET** /openapi.json | OpenAPI JSON file that describes the API |
+| [**call256e4ac7a9c56843cf5ae63394373a90()**](DocumentationApi.md#call256e4ac7a9c56843cf5ae63394373a90) | **GET** /openapi.json | OpenAPI JSON file that describes the API |
 
 
-## `call22ec05f39cd3b5c3f50243706718b55d()`
+## `call256e4ac7a9c56843cf5ae63394373a90()`
 
 ```php
-call22ec05f39cd3b5c3f50243706718b55d(): object
+call256e4ac7a9c56843cf5ae63394373a90(): object
 ```
 
 OpenAPI JSON file that describes the API
@@ -30,10 +30,10 @@ $apiInstance = new SimplyCom\Api\DocumentationApi(
 );
 
 try {
-    $result = $apiInstance->call22ec05f39cd3b5c3f50243706718b55d();
+    $result = $apiInstance->call256e4ac7a9c56843cf5ae63394373a90();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentationApi->call22ec05f39cd3b5c3f50243706718b55d: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentationApi->call256e4ac7a9c56843cf5ae63394373a90: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

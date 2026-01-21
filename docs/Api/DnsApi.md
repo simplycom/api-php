@@ -5,13 +5,13 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addDnsRecord()**](DnsApi.md#addDnsRecord) | **POST** /my/products/{object}/dns/records/ | Add new DNS record to a product DNS zone |
-| [**ddnsHelper()**](DnsApi.md#ddnsHelper) | **GET** /ddns/ |  |
-| [**deleteDnsRecord()**](DnsApi.md#deleteDnsRecord) | **DELETE** /my/products/{object}/dns/records/{record_id}/ | Removes DNS record from a product DNS zone |
-| [**dyndns()**](DnsApi.md#dyndns) | **GET** /dyndns/ |  |
-| [**getDnsRecords()**](DnsApi.md#getDnsRecords) | **GET** /my/products/{object}/dns/records/ | Retrieve DNS records for a specific object |
-| [**getDnsZone()**](DnsApi.md#getDnsZone) | **GET** /my/products/{object}/dns/ |  |
-| [**reloadDnsZone()**](DnsApi.md#reloadDnsZone) | **POST** /my/products/{object}/dns/reload/ | Force-reload a DNS zone - Usually not necessary |
-| [**updateDnsRecord()**](DnsApi.md#updateDnsRecord) | **PUT** /my/products/{object}/dns/records/{record_id}/ | Updates a DNS record in a product DNS zone |
+| [**ddnsHelper()**](DnsApi.md#ddnsHelper) | **GET** /ddns/ | Dynamic DNS helper endpoint |
+| [**deleteDnsRecord()**](DnsApi.md#deleteDnsRecord) | **DELETE** /my/products/{object}/dns/records/{record_id}/ | Remove DNS record from a product DNS zone |
+| [**dyndns()**](DnsApi.md#dyndns) | **GET** /dyndns/ | DynDNS protocol-compatible endpoint |
+| [**getDnsRecords()**](DnsApi.md#getDnsRecords) | **GET** /my/products/{object}/dns/records/ | Retrieve all DNS records for a product |
+| [**getDnsZone()**](DnsApi.md#getDnsZone) | **GET** /my/products/{object}/dns/ | Retrieve DNS zone metadata |
+| [**reloadDnsZone()**](DnsApi.md#reloadDnsZone) | **POST** /my/products/{object}/dns/reload/ | Force-reload a DNS zone |
+| [**updateDnsRecord()**](DnsApi.md#updateDnsRecord) | **PUT** /my/products/{object}/dns/records/{record_id}/ | Update a DNS record in a product DNS zone |
 
 
 ## `addDnsRecord()`
@@ -21,6 +21,8 @@ addDnsRecord($object, $addDnsRecordRequest): \SimplyCom\SimplyCom\Model\AddDnsRe
 ```
 
 Add new DNS record to a product DNS zone
+
+Creates a new DNS record in the DNS zone. Supports all common record types including A, AAAA, CNAME, MX, TXT, SRV, and more.
 
 ### Example
 
@@ -57,7 +59,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
+| **addDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | |
 
 ### Return type
 
@@ -79,12 +81,12 @@ try {
 ## `ddnsHelper()`
 
 ```php
-ddnsHelper($hostname, $domain, $record, $myip, $ttl)
+ddnsHelper($hostname, $domain, $record, $myip, $ttl): string
 ```
 
+Dynamic DNS helper endpoint
 
-
-DDNS helper
+User-friendly DDNS endpoint that provides human-readable responses. For DynDNS protocol compatibility, use the /dyndns/ endpoint instead.
 
 ### Example
 
@@ -105,14 +107,15 @@ $apiInstance = new SimplyCom\Api\DnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$hostname = home.example.com; // string | The full hostname you wish to create/update. Domain and record will be inferred from this
+$hostname = home.example.com; // string | The full hostname you wish to create/update. Domain and record will be inferred from this.
 $domain = example.com; // string | The domain you wish to update. Overrides data from hostname parameter.
-$record = home; // string | The name of the generated DNS record you wish to create/update on the domain. Affects data from hostname parameter.
-$myip = 127.0.0.1; // string | The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. We recommend leaving this parameter blank
-$ttl = 360; // int | The TTL of the generated DNS record
+$record = home; // string | The name of the DNS record you wish to create/update on the domain. Overrides data inferred from hostname parameter.
+$myip = 127.0.0.1; // string | The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. We recommend leaving this parameter blank.
+$ttl = 360; // int | The TTL (Time To Live) of the generated DNS record in seconds. Defaults to 3600.
 
 try {
-    $apiInstance->ddnsHelper($hostname, $domain, $record, $myip, $ttl);
+    $result = $apiInstance->ddnsHelper($hostname, $domain, $record, $myip, $ttl);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->ddnsHelper: ', $e->getMessage(), PHP_EOL;
 }
@@ -122,15 +125,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **hostname** | **string**| The full hostname you wish to create/update. Domain and record will be inferred from this | |
+| **hostname** | **string**| The full hostname you wish to create/update. Domain and record will be inferred from this. | |
 | **domain** | **string**| The domain you wish to update. Overrides data from hostname parameter. | [optional] |
-| **record** | **string**| The name of the generated DNS record you wish to create/update on the domain. Affects data from hostname parameter. | [optional] |
-| **myip** | **string**| The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. We recommend leaving this parameter blank | [optional] |
-| **ttl** | **int**| The TTL of the generated DNS record | [optional] |
+| **record** | **string**| The name of the DNS record you wish to create/update on the domain. Overrides data inferred from hostname parameter. | [optional] |
+| **myip** | **string**| The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. We recommend leaving this parameter blank. | [optional] |
+| **ttl** | **int**| The TTL (Time To Live) of the generated DNS record in seconds. Defaults to 3600. | [optional] [default to 3600] |
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -139,7 +142,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `text/plain`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -148,10 +151,12 @@ void (empty response body)
 ## `deleteDnsRecord()`
 
 ```php
-deleteDnsRecord($object, $recordId): \SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response
+deleteDnsRecord($object, $recordId): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
 ```
 
-Removes DNS record from a product DNS zone
+Remove DNS record from a product DNS zone
+
+Deletes a specific DNS record by its ID. The DNS zone will be automatically reloaded after deletion.
 
 ### Example
 
@@ -192,7 +197,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\DeleteDnsRecord200Response**](../Model/DeleteDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
 
 ### Authorization
 
@@ -213,9 +218,9 @@ try {
 dyndns($hostname, $myip, $domain): string
 ```
 
+DynDNS protocol-compatible endpoint
 
-
-Dyndns lookalike endpoint, directly emulates dyndns.
+Dyndns-compatible endpoint that emulates DynDNS protocol responses and functionality. Supports both IPv4 and IPv6 addresses.
 
 ### Example
 
@@ -236,8 +241,8 @@ $apiInstance = new SimplyCom\Api\DnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$hostname = home.example.com; // string | The full hostname you wish to create/update. Domain and record will be inferred from this
-$myip = 127.0.0.1; // string | The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided.
+$hostname = home.example.com; // string | The full hostname you wish to create/update. Domain and record will be inferred from this.
+$myip = 127.0.0.1; // string | The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. We recommend leaving this parameter blank.
 $domain = example.com; // string | Domain to change records on, must be used if domain cannot be inferred from hostname or if incorrectly inferred. Overrides data from hostname parameter.
 
 try {
@@ -252,8 +257,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **hostname** | **string**| The full hostname you wish to create/update. Domain and record will be inferred from this | |
-| **myip** | **string**| The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. | [optional] |
+| **hostname** | **string**| The full hostname you wish to create/update. Domain and record will be inferred from this. | |
+| **myip** | **string**| The IP address to be set. Will automatically use the client IP (REMOTE_ADDR) if this parameter is not provided. We recommend leaving this parameter blank. | [optional] |
 | **domain** | **string**| Domain to change records on, must be used if domain cannot be inferred from hostname or if incorrectly inferred. Overrides data from hostname parameter. | [optional] |
 
 ### Return type
@@ -279,7 +284,9 @@ try {
 getDnsRecords($object): \SimplyCom\SimplyCom\Model\GetDnsRecords200Response
 ```
 
-Retrieve DNS records for a specific object
+Retrieve all DNS records for a product
+
+Returns a complete list of all DNS records in the zone, including A, AAAA, CNAME, MX, TXT, SRV, and other record types.
 
 ### Example
 
@@ -336,12 +343,12 @@ try {
 ## `getDnsZone()`
 
 ```php
-getDnsZone($object): object
+getDnsZone($object): \SimplyCom\SimplyCom\Model\GetDnsZone200Response
 ```
 
+Retrieve DNS zone metadata
 
-
-Retrieve meta information about a DNS zone for a product
+Retrieve meta information about a DNS zone for a product, including zone name and configuration.
 
 ### Example
 
@@ -380,7 +387,7 @@ try {
 
 ### Return type
 
-**object**
+[**\SimplyCom\SimplyCom\Model\GetDnsZone200Response**](../Model/GetDnsZone200Response.md)
 
 ### Authorization
 
@@ -398,10 +405,12 @@ try {
 ## `reloadDnsZone()`
 
 ```php
-reloadDnsZone($object): object
+reloadDnsZone($object): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
 ```
 
-Force-reload a DNS zone - Usually not necessary
+Force-reload a DNS zone
+
+Manually triggers a DNS zone reload. Usually not necessary as zone reloads happen automatically after record modifications.
 
 ### Example
 
@@ -440,7 +449,7 @@ try {
 
 ### Return type
 
-**object**
+[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
 
 ### Authorization
 
@@ -458,10 +467,12 @@ try {
 ## `updateDnsRecord()`
 
 ```php
-updateDnsRecord($object, $recordId, $addDnsRecordRequest): object
+updateDnsRecord($object, $recordId, $updateDnsRecordRequest): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
 ```
 
-Updates a DNS record in a product DNS zone
+Update a DNS record in a product DNS zone
+
+Updates an existing DNS record. All fields should be provided, as this is a full update operation. The DNS zone will be automatically reloaded if changes are detected.
 
 ### Example
 
@@ -484,10 +495,10 @@ $apiInstance = new SimplyCom\Api\DnsApi(
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
 $recordId = 56; // int | The id of a DNS record in a DNS zone.
-$addDnsRecordRequest = new \SimplyCom\SimplyCom\Model\AddDnsRecordRequest(); // \SimplyCom\SimplyCom\Model\AddDnsRecordRequest
+$updateDnsRecordRequest = new \SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest(); // \SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest
 
 try {
-    $result = $apiInstance->updateDnsRecord($object, $recordId, $addDnsRecordRequest);
+    $result = $apiInstance->updateDnsRecord($object, $recordId, $updateDnsRecordRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->updateDnsRecord: ', $e->getMessage(), PHP_EOL;
@@ -500,11 +511,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
 | **recordId** | **int**| The id of a DNS record in a DNS zone. | |
-| **addDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | [optional] |
+| **updateDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest**](../Model/UpdateDnsRecordRequest.md)|  | |
 
 ### Return type
 
-**object**
+[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
 
 ### Authorization
 

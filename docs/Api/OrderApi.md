@@ -4,18 +4,18 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**orderDnsService()**](OrderApi.md#orderDnsService) | **POST** /my/order/dnsservice/ |  |
+| [**orderDnsService()**](OrderApi.md#orderDnsService) | **POST** /my/order/dnsservice/ | Order a DNS service with optional domain registration/transfer |
 
 
 ## `orderDnsService()`
 
 ```php
-orderDnsService($orderDnsServiceRequest): object
+orderDnsService($orderDnsServiceRequest): \SimplyCom\SimplyCom\Model\OrderDnsService200Response
 ```
 
+Order a DNS service with optional domain registration/transfer
 
-
-Order a domain, requires working credit card on account if payment is needed.
+Order a DNS service, optionally registering or transferring a domain. If payment is required, a working credit card must be on file. The order will be processed immediately if payment succeeds.
 
 ### Example
 
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-**object**
+[**\SimplyCom\SimplyCom\Model\OrderDnsService200Response**](../Model/OrderDnsService200Response.md)
 
 ### Authorization
 

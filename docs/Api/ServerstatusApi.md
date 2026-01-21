@@ -4,7 +4,7 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getServerStatusMessages()**](ServerstatusApi.md#getServerStatusMessages) | **GET** /my/serverstatus/messages/ | Retrieve a list of current and past serverstatus messages |
+| [**getServerStatusMessages()**](ServerstatusApi.md#getServerStatusMessages) | **GET** /my/serverstatus/messages/ | Retrieve server status messages |
 
 
 ## `getServerStatusMessages()`
@@ -13,7 +13,9 @@ All URIs are relative to https://api.simply.com/2, except if the operation defin
 getServerStatusMessages(): \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
 ```
 
-Retrieve a list of current and past serverstatus messages
+Retrieve server status messages
+
+Retrieve a list of current and past server status messages, including planned maintenance and incidents. Returns messages from the last 6 months.
 
 ### Example
 
