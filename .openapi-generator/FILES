@@ -32,6 +32,8 @@ docs/Model/GetProductList200ResponseProductsInner.md
 docs/Model/GetProductList200ResponseProductsInnerDomain.md
 docs/Model/GetProductList200ResponseProductsInnerProduct.md
 docs/Model/GetProductList200ResponseProductsInnerServers.md
+docs/Model/GetProductList200ResponseProductsInnerServersFtpserver.md
+docs/Model/GetProductList200ResponseProductsInnerServersSshserver.md
 docs/Model/GetProductList200ResponseProductsInnerServersWebserver.md
 docs/Model/GetProductList200ResponseProductsInnerUsernames.md
 docs/Model/GetServerStatusMessages200Response.md
@@ -76,6 +78,8 @@ src/Model/GetProductList200ResponseProductsInner.php
 src/Model/GetProductList200ResponseProductsInnerDomain.php
 src/Model/GetProductList200ResponseProductsInnerProduct.php
 src/Model/GetProductList200ResponseProductsInnerServers.php
+src/Model/GetProductList200ResponseProductsInnerServersFtpserver.php
+src/Model/GetProductList200ResponseProductsInnerServersSshserver.php
 src/Model/GetProductList200ResponseProductsInnerServersWebserver.php
 src/Model/GetProductList200ResponseProductsInnerUsernames.php
 src/Model/GetServerStatusMessages200Response.php
@@ -88,15 +92,5 @@ src/Model/OrderDnsServiceRequest.php
 src/Model/UpdateDnsRecord200Response.php
 src/Model/UpdateDnsRecordRequest.php
 src/ObjectSerializer.php
-tests/Api/DomainsApiTest.php
-tests/Model/AddDnsRecord400ResponseTest.php
-tests/Model/AddMailAccount400ResponseTest.php
-tests/Model/Domaincheck200ResponseDomainTest.php
-tests/Model/Domaincheck200ResponseTest.php
-tests/Model/GetDnsZone200ResponseTest.php
-tests/Model/GetDnsZone200ResponseZoneTest.php
-tests/Model/OrderDnsService200ResponseOrderTest.php
-tests/Model/OrderDnsService200ResponseTest.php
-tests/Model/OrderDnsService400ResponseTest.php
-tests/Model/UpdateDnsRecord200ResponseTest.php
-tests/Model/UpdateDnsRecordRequestTest.php
+tests/Model/GetProductList200ResponseProductsInnerServersFtpserverTest.php
+tests/Model/GetProductList200ResponseProductsInnerServersSshserverTest.php

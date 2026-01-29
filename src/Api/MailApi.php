@@ -142,7 +142,7 @@ class MailApi
         string $object,
         \SimplyCom\SimplyCom\Model\AddMailAccountRequest $addMailAccountRequest,
         string $contentType = self::contentTypes['addMailAccount'][0]
-    ): ?\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response|\SimplyCom\SimplyCom\Model\AddMailAccount400Response
+    ): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response|\SimplyCom\SimplyCom\Model\AddMailAccount400Response|null
     {
         list($response) = $this->addMailAccountWithHttpInfo($object, $addMailAccountRequest, $contentType);
         return $response;

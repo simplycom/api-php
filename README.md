@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 - [GetProductList200ResponseProductsInnerDomain](docs/Model/GetProductList200ResponseProductsInnerDomain.md)
 - [GetProductList200ResponseProductsInnerProduct](docs/Model/GetProductList200ResponseProductsInnerProduct.md)
 - [GetProductList200ResponseProductsInnerServers](docs/Model/GetProductList200ResponseProductsInnerServers.md)
+- [GetProductList200ResponseProductsInnerServersFtpserver](docs/Model/GetProductList200ResponseProductsInnerServersFtpserver.md)
+- [GetProductList200ResponseProductsInnerServersSshserver](docs/Model/GetProductList200ResponseProductsInnerServersSshserver.md)
 - [GetProductList200ResponseProductsInnerServersWebserver](docs/Model/GetProductList200ResponseProductsInnerServersWebserver.md)
 - [GetProductList200ResponseProductsInnerUsernames](docs/Model/GetProductList200ResponseProductsInnerUsernames.md)
 - [GetServerStatusMessages200Response](docs/Model/GetServerStatusMessages200Response.md)

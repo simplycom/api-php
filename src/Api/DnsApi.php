@@ -163,7 +163,7 @@ class DnsApi
         string $object,
         \SimplyCom\SimplyCom\Model\AddDnsRecordRequest $addDnsRecordRequest,
         string $contentType = self::contentTypes['addDnsRecord'][0]
-    ): ?\SimplyCom\SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\SimplyCom\Model\AddDnsRecord400Response
+    ): \SimplyCom\SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\SimplyCom\Model\AddDnsRecord400Response|null
     {
         list($response) = $this->addDnsRecordWithHttpInfo($object, $addDnsRecordRequest, $contentType);
         return $response;
@@ -1552,7 +1552,7 @@ class DnsApi
     public function getDnsRecords(
         string $object,
         string $contentType = self::contentTypes['getDnsRecords'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\SimplyCom\Model\GetDnsRecords404Response
+    ): \SimplyCom\SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\SimplyCom\Model\GetDnsRecords404Response|null
     {
         list($response) = $this->getDnsRecordsWithHttpInfo($object, $contentType);
         return $response;
@@ -2422,7 +2422,7 @@ class DnsApi
         int $recordId,
         \SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest $updateDnsRecordRequest,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
-    ): ?\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response|\SimplyCom\SimplyCom\Model\AddDnsRecord400Response
+    ): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response|\SimplyCom\SimplyCom\Model\AddDnsRecord400Response|null
     {
         list($response) = $this->updateDnsRecordWithHttpInfo($object, $recordId, $updateDnsRecordRequest, $contentType);
         return $response;

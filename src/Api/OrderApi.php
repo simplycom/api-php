@@ -140,7 +140,7 @@ class OrderApi
     public function orderDnsService(
         \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest $orderDnsServiceRequest,
         string $contentType = self::contentTypes['orderDnsService'][0]
-    ): ?\SimplyCom\SimplyCom\Model\OrderDnsService200Response|\SimplyCom\SimplyCom\Model\OrderDnsService400Response
+    ): \SimplyCom\SimplyCom\Model\OrderDnsService200Response|\SimplyCom\SimplyCom\Model\OrderDnsService400Response|null
     {
         list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServiceRequest, $contentType);
         return $response;

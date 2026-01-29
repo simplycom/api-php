@@ -1,6 +1,6 @@
 <?php
 /**
- * GetProductList200ResponseProductsInnerServers
+ * GetProductList200ResponseProductsInnerServersFtpserver
  *
  * PHP version 8.1
  *
@@ -34,15 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetProductList200ResponseProductsInnerServers Class Doc Comment
+ * GetProductList200ResponseProductsInnerServersFtpserver Class Doc Comment
  *
- * @description Server information (only present for hosting products)
+ * @description FTP server information
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetProductList200ResponseProductsInnerServers implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerServersFtpserver implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_servers';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_servers_ftpserver';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'webserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver',
-        'ftpserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver',
-        'sshserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver'
+        'username' => 'string',
+        'hostname' => 'string',
+        'ip' => 'string'
     ];
 
     /**
@@ -70,9 +70,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'webserver' => null,
-        'ftpserver' => null,
-        'sshserver' => null
+        'username' => null,
+        'hostname' => null,
+        'ip' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'webserver' => false,
-        'ftpserver' => false,
-        'sshserver' => false
+        'username' => false,
+        'hostname' => false,
+        'ip' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'webserver' => 'webserver',
-        'ftpserver' => 'ftpserver',
-        'sshserver' => 'sshserver'
+        'username' => 'username',
+        'hostname' => 'hostname',
+        'ip' => 'ip'
     ];
 
     /**
@@ -183,9 +183,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $setters = [
-        'webserver' => 'setWebserver',
-        'ftpserver' => 'setFtpserver',
-        'sshserver' => 'setSshserver'
+        'username' => 'setUsername',
+        'hostname' => 'setHostname',
+        'ip' => 'setIp'
     ];
 
     /**
@@ -194,9 +194,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $getters = [
-        'webserver' => 'getWebserver',
-        'ftpserver' => 'getFtpserver',
-        'sshserver' => 'getSshserver'
+        'username' => 'getUsername',
+        'hostname' => 'getHostname',
+        'ip' => 'getIp'
     ];
 
     /**
@@ -255,9 +255,9 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('webserver', $data ?? [], null);
-        $this->setIfExists('ftpserver', $data ?? [], null);
-        $this->setIfExists('sshserver', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
+        $this->setIfExists('ip', $data ?? [], null);
     }
 
     /**
@@ -303,82 +303,82 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
 
 
     /**
-     * Gets webserver
+     * Gets username
      *
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null
+     * @return string|null
      */
-    public function getWebserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver
+    public function getUsername(): ?string
     {
-        return $this->container['webserver'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets webserver
+     * Sets username
      *
-     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null $webserver webserver
+     * @param string|null $username FTP username
      *
      * @return $this
      */
-    public function setWebserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver $webserver): static
+    public function setUsername(?string $username): static
     {
-        if (is_null($webserver)) {
-            throw new InvalidArgumentException('non-nullable webserver cannot be null');
+        if (is_null($username)) {
+            throw new InvalidArgumentException('non-nullable username cannot be null');
         }
-        $this->container['webserver'] = $webserver;
+        $this->container['username'] = $username;
 
         return $this;
     }
 
     /**
-     * Gets ftpserver
+     * Gets hostname
      *
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver|null
+     * @return string|null
      */
-    public function getFtpserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver
+    public function getHostname(): ?string
     {
-        return $this->container['ftpserver'];
+        return $this->container['hostname'];
     }
 
     /**
-     * Sets ftpserver
+     * Sets hostname
      *
-     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver|null $ftpserver ftpserver
+     * @param string|null $hostname Server hostname
      *
      * @return $this
      */
-    public function setFtpserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver $ftpserver): static
+    public function setHostname(?string $hostname): static
     {
-        if (is_null($ftpserver)) {
-            throw new InvalidArgumentException('non-nullable ftpserver cannot be null');
+        if (is_null($hostname)) {
+            throw new InvalidArgumentException('non-nullable hostname cannot be null');
         }
-        $this->container['ftpserver'] = $ftpserver;
+        $this->container['hostname'] = $hostname;
 
         return $this;
     }
 
     /**
-     * Gets sshserver
+     * Gets ip
      *
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver|null
+     * @return string|null
      */
-    public function getSshserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver
+    public function getIp(): ?string
     {
-        return $this->container['sshserver'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets sshserver
+     * Sets ip
      *
-     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver|null $sshserver sshserver
+     * @param string|null $ip Server IP address
      *
      * @return $this
      */
-    public function setSshserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver $sshserver): static
+    public function setIp(?string $ip): static
     {
-        if (is_null($sshserver)) {
-            throw new InvalidArgumentException('non-nullable sshserver cannot be null');
+        if (is_null($ip)) {
+            throw new InvalidArgumentException('non-nullable ip cannot be null');
         }
-        $this->container['sshserver'] = $sshserver;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
