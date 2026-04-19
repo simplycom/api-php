@@ -72,43 +72,48 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://api.simply.com/2*
+All URIs are relative to *https://api.simply.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BillingApi* | [**getInvoices**](docs/Api/BillingApi.md#getinvoices) | **GET** /my/invoices/ | Retrieve list of invoices
-*DnsApi* | [**addDnsRecord**](docs/Api/DnsApi.md#adddnsrecord) | **POST** /my/products/{object}/dns/records/ | Add new DNS record to a product DNS zone
-*DnsApi* | [**ddnsHelper**](docs/Api/DnsApi.md#ddnshelper) | **GET** /ddns/ | Dynamic DNS helper endpoint
-*DnsApi* | [**deleteDnsRecord**](docs/Api/DnsApi.md#deletednsrecord) | **DELETE** /my/products/{object}/dns/records/{record_id}/ | Remove DNS record from a product DNS zone
-*DnsApi* | [**dyndns**](docs/Api/DnsApi.md#dyndns) | **GET** /dyndns/ | DynDNS protocol-compatible endpoint
-*DnsApi* | [**getDnsRecords**](docs/Api/DnsApi.md#getdnsrecords) | **GET** /my/products/{object}/dns/records/ | Retrieve all DNS records for a product
-*DnsApi* | [**getDnsZone**](docs/Api/DnsApi.md#getdnszone) | **GET** /my/products/{object}/dns/ | Retrieve DNS zone metadata
-*DnsApi* | [**reloadDnsZone**](docs/Api/DnsApi.md#reloaddnszone) | **POST** /my/products/{object}/dns/reload/ | Force-reload a DNS zone
-*DnsApi* | [**updateDnsRecord**](docs/Api/DnsApi.md#updatednsrecord) | **PUT** /my/products/{object}/dns/records/{record_id}/ | Update a DNS record in a product DNS zone
-*DocumentationApi* | [**call256e4ac7a9c56843cf5ae63394373a90**](docs/Api/DocumentationApi.md#call256e4ac7a9c56843cf5ae63394373a90) | **GET** /openapi.json | OpenAPI JSON file that describes the API
-*DomainsApi* | [**domaincheck**](docs/Api/DomainsApi.md#domaincheck) | **GET** /my/domaincheck/{domain}/ | Check domain availability
-*MailApi* | [**addMailAccount**](docs/Api/MailApi.md#addmailaccount) | **POST** /my/products/{object}/mail/accounts/ | Add new mail account to a product
-*OrderApi* | [**orderDnsService**](docs/Api/OrderApi.md#orderdnsservice) | **POST** /my/order/dnsservice/ | Order a DNS service with optional domain registration/transfer
-*ProductsApi* | [**getProductList**](docs/Api/ProductsApi.md#getproductlist) | **GET** /my/products/ | Retrieve list of products
-*ServerstatusApi* | [**getServerStatusMessages**](docs/Api/ServerstatusApi.md#getserverstatusmessages) | **GET** /my/serverstatus/messages/ | Retrieve server status messages
+*BillingApi* | [**getInvoices**](docs/Api/BillingApi.md#getinvoices) | **GET** /2/my/invoices/ | Retrieve list of invoices
+*DnsApi* | [**addDnsRecord**](docs/Api/DnsApi.md#adddnsrecord) | **POST** /2/my/products/{object}/dns/records/ | Add new DNS record to a product DNS zone
+*DnsApi* | [**ddnsHelper**](docs/Api/DnsApi.md#ddnshelper) | **GET** /2/ddns/ | Dynamic DNS helper endpoint
+*DnsApi* | [**deleteDnsRecord**](docs/Api/DnsApi.md#deletednsrecord) | **DELETE** /2/my/products/{object}/dns/records/{record_id}/ | Remove DNS record from a product DNS zone
+*DnsApi* | [**dyndns**](docs/Api/DnsApi.md#dyndns) | **GET** /2/dyndns/ | DynDNS protocol-compatible endpoint
+*DnsApi* | [**getDnsRecords**](docs/Api/DnsApi.md#getdnsrecords) | **GET** /2/my/products/{object}/dns/records/ | Retrieve all DNS records for a product
+*DnsApi* | [**getDnsZone**](docs/Api/DnsApi.md#getdnszone) | **GET** /2/my/products/{object}/dns/ | Retrieve DNS zone metadata
+*DnsApi* | [**reloadDnsZone**](docs/Api/DnsApi.md#reloaddnszone) | **POST** /2/my/products/{object}/dns/reload/ | Force-reload a DNS zone
+*DnsApi* | [**updateDnsRecord**](docs/Api/DnsApi.md#updatednsrecord) | **PUT** /2/my/products/{object}/dns/records/{record_id}/ | Update a DNS record in a product DNS zone
+*DomainsApi* | [**domaincheck**](docs/Api/DomainsApi.md#domaincheck) | **GET** /2/my/domaincheck/{domain}/ | Check domain availability
+*MailApi* | [**addMailAccount**](docs/Api/MailApi.md#addmailaccount) | **POST** /2/my/products/{object}/mail/accounts/ | Add new mail account to a product
+*OrderApi* | [**orderDnsService**](docs/Api/OrderApi.md#orderdnsservice) | **POST** /2/my/order/dnsservice/ | Order a DNS service with optional domain registration/transfer
+*ProductsApi* | [**getProductList**](docs/Api/ProductsApi.md#getproductlist) | **GET** /2/my/products/ | Retrieve list of products
+*RegistryApi* | [**getDnssecKeys**](docs/Api/RegistryApi.md#getdnsseckeys) | **GET** /2/my/products/{object}/dnssec/ | Retrieve DNSSEC keys registered on a domain
+*RegistryApi* | [**getNameservers**](docs/Api/RegistryApi.md#getnameservers) | **GET** /2/my/products/{object}/nameservers/ | Retrieve the current nameservers of a domain
+*ServerstatusApi* | [**getServerStatusMessages**](docs/Api/ServerstatusApi.md#getserverstatusmessages) | **GET** /2/my/serverstatus/messages/ | Retrieve server status messages
 
 ## Models
 
 - [AddDnsRecord200Response](docs/Model/AddDnsRecord200Response.md)
 - [AddDnsRecord200ResponseRecord](docs/Model/AddDnsRecord200ResponseRecord.md)
 - [AddDnsRecord400Response](docs/Model/AddDnsRecord400Response.md)
-- [AddDnsRecordRequest](docs/Model/AddDnsRecordRequest.md)
-- [AddMailAccount400Response](docs/Model/AddMailAccount400Response.md)
-- [AddMailAccountRequest](docs/Model/AddMailAccountRequest.md)
+- [AddMailAccountPayload](docs/Model/AddMailAccountPayload.md)
+- [DnsRecordPayload](docs/Model/DnsRecordPayload.md)
+- [DnsRecordType](docs/Model/DnsRecordType.md)
 - [Domaincheck200Response](docs/Model/Domaincheck200Response.md)
 - [Domaincheck200ResponseDomain](docs/Model/Domaincheck200ResponseDomain.md)
+- [ErrorResponse](docs/Model/ErrorResponse.md)
 - [GetDnsRecords200Response](docs/Model/GetDnsRecords200Response.md)
 - [GetDnsRecords200ResponseRecordsInner](docs/Model/GetDnsRecords200ResponseRecordsInner.md)
 - [GetDnsRecords404Response](docs/Model/GetDnsRecords404Response.md)
 - [GetDnsZone200Response](docs/Model/GetDnsZone200Response.md)
 - [GetDnsZone200ResponseZone](docs/Model/GetDnsZone200ResponseZone.md)
+- [GetDnssecKeys200Response](docs/Model/GetDnssecKeys200Response.md)
+- [GetDnssecKeys200ResponseDnssecKeysInner](docs/Model/GetDnssecKeys200ResponseDnssecKeysInner.md)
 - [GetInvoices200Response](docs/Model/GetInvoices200Response.md)
 - [GetInvoices200ResponseInvoicesInner](docs/Model/GetInvoices200ResponseInvoicesInner.md)
+- [GetNameservers200Response](docs/Model/GetNameservers200Response.md)
 - [GetProductList200Response](docs/Model/GetProductList200Response.md)
 - [GetProductList200ResponseProductsInner](docs/Model/GetProductList200ResponseProductsInner.md)
 - [GetProductList200ResponseProductsInnerDomain](docs/Model/GetProductList200ResponseProductsInnerDomain.md)
@@ -123,9 +128,8 @@ Class | Method | HTTP request | Description
 - [OrderDnsService200Response](docs/Model/OrderDnsService200Response.md)
 - [OrderDnsService200ResponseOrder](docs/Model/OrderDnsService200ResponseOrder.md)
 - [OrderDnsService400Response](docs/Model/OrderDnsService400Response.md)
-- [OrderDnsServiceRequest](docs/Model/OrderDnsServiceRequest.md)
-- [UpdateDnsRecord200Response](docs/Model/UpdateDnsRecord200Response.md)
-- [UpdateDnsRecordRequest](docs/Model/UpdateDnsRecordRequest.md)
+- [OrderDnsServicePayload](docs/Model/OrderDnsServicePayload.md)
+- [SuccessResponse](docs/Model/SuccessResponse.md)
 
 ## Authorization
 
@@ -150,6 +154,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.2.1`
-    - Generator version: `7.20.0-SNAPSHOT`
+- API version: `2.3.0`
+    - Generator version: `7.22.0-SNAPSHOT`
 - Build package: `org.openapitools.codegen.languages.PhpNextgenClientCodegen`

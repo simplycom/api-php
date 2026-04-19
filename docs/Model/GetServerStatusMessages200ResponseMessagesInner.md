@@ -1,4 +1,4 @@
-# # GetServerStatusMessages200ResponseMessagesInner
+# GetServerStatusMessages200ResponseMessagesInner
 
 ## Properties
 

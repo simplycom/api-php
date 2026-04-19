@@ -1,4 +1,4 @@
-# # GetDnsRecords200Response
+# GetDnsRecords200Response
 
 ## Properties
 

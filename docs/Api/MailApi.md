@@ -1,16 +1,16 @@
 # SimplyCom\MailApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addMailAccount()**](MailApi.md#addMailAccount) | **POST** /my/products/{object}/mail/accounts/ | Add new mail account to a product |
+| [**addMailAccount()**](MailApi.md#addMailAccount) | **POST** /2/my/products/{object}/mail/accounts/ | Add new mail account to a product |
 
 
 ## `addMailAccount()`
 
 ```php
-addMailAccount($object, $addMailAccountRequest): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
+addMailAccount($object, $addMailAccountPayload): \SimplyCom\SimplyCom\Model\SuccessResponse
 ```
 
 Add new mail account to a product
@@ -37,10 +37,10 @@ $apiInstance = new SimplyCom\Api\MailApi(
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$addMailAccountRequest = new \SimplyCom\SimplyCom\Model\AddMailAccountRequest(); // \SimplyCom\SimplyCom\Model\AddMailAccountRequest
+$addMailAccountPayload = new \SimplyCom\SimplyCom\Model\AddMailAccountPayload(); // \SimplyCom\SimplyCom\Model\AddMailAccountPayload
 
 try {
-    $result = $apiInstance->addMailAccount($object, $addMailAccountRequest);
+    $result = $apiInstance->addMailAccount($object, $addMailAccountPayload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MailApi->addMailAccount: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addMailAccountRequest** | [**\SimplyCom\SimplyCom\Model\AddMailAccountRequest**](../Model/AddMailAccountRequest.md)|  | |
+| **addMailAccountPayload** | [**\SimplyCom\SimplyCom\Model\AddMailAccountPayload**](../Model/AddMailAccountPayload.md)|  | |
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 

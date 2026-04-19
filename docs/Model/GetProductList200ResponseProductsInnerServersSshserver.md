@@ -1,4 +1,4 @@
-# # GetProductList200ResponseProductsInnerServersSshserver
+# GetProductList200ResponseProductsInnerServersSshserver
 
 ## Properties
 

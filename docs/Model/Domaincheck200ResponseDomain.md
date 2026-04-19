@@ -1,4 +1,4 @@
-# # Domaincheck200ResponseDomain
+# Domaincheck200ResponseDomain
 
 ## Properties
 

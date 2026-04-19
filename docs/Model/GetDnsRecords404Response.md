@@ -1,4 +1,4 @@
-# # GetDnsRecords404Response
+# GetDnsRecords404Response
 
 ## Properties
 

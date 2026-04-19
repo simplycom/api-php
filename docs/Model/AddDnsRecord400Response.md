@@ -1,4 +1,4 @@
-# # AddDnsRecord400Response
+# AddDnsRecord400Response
 
 ## Properties
 

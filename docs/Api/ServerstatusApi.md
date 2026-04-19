@@ -1,10 +1,10 @@
 # SimplyCom\ServerstatusApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getServerStatusMessages()**](ServerstatusApi.md#getServerStatusMessages) | **GET** /my/serverstatus/messages/ | Retrieve server status messages |
+| [**getServerStatusMessages()**](ServerstatusApi.md#getServerStatusMessages) | **GET** /2/my/serverstatus/messages/ | Retrieve server status messages |
 
 
 ## `getServerStatusMessages()`

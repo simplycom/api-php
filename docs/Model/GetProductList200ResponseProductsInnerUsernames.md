@@ -1,4 +1,4 @@
-# # GetProductList200ResponseProductsInnerUsernames
+# GetProductList200ResponseProductsInnerUsernames
 
 ## Properties
 

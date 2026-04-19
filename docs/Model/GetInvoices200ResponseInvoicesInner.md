@@ -1,4 +1,4 @@
-# # GetInvoices200ResponseInvoicesInner
+# GetInvoices200ResponseInvoicesInner
 
 ## Properties
 

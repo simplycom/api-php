@@ -1,4 +1,4 @@
-# # AddDnsRecord200ResponseRecord
+# AddDnsRecord200ResponseRecord
 
 ## Properties
 

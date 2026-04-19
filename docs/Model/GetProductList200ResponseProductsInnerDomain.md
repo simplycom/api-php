@@ -1,4 +1,4 @@
-# # GetProductList200ResponseProductsInnerDomain
+# GetProductList200ResponseProductsInnerDomain
 
 ## Properties
 

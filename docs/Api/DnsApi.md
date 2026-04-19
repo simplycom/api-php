@@ -1,23 +1,23 @@
 # SimplyCom\DnsApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addDnsRecord()**](DnsApi.md#addDnsRecord) | **POST** /my/products/{object}/dns/records/ | Add new DNS record to a product DNS zone |
-| [**ddnsHelper()**](DnsApi.md#ddnsHelper) | **GET** /ddns/ | Dynamic DNS helper endpoint |
-| [**deleteDnsRecord()**](DnsApi.md#deleteDnsRecord) | **DELETE** /my/products/{object}/dns/records/{record_id}/ | Remove DNS record from a product DNS zone |
-| [**dyndns()**](DnsApi.md#dyndns) | **GET** /dyndns/ | DynDNS protocol-compatible endpoint |
-| [**getDnsRecords()**](DnsApi.md#getDnsRecords) | **GET** /my/products/{object}/dns/records/ | Retrieve all DNS records for a product |
-| [**getDnsZone()**](DnsApi.md#getDnsZone) | **GET** /my/products/{object}/dns/ | Retrieve DNS zone metadata |
-| [**reloadDnsZone()**](DnsApi.md#reloadDnsZone) | **POST** /my/products/{object}/dns/reload/ | Force-reload a DNS zone |
-| [**updateDnsRecord()**](DnsApi.md#updateDnsRecord) | **PUT** /my/products/{object}/dns/records/{record_id}/ | Update a DNS record in a product DNS zone |
+| [**addDnsRecord()**](DnsApi.md#addDnsRecord) | **POST** /2/my/products/{object}/dns/records/ | Add new DNS record to a product DNS zone |
+| [**ddnsHelper()**](DnsApi.md#ddnsHelper) | **GET** /2/ddns/ | Dynamic DNS helper endpoint |
+| [**deleteDnsRecord()**](DnsApi.md#deleteDnsRecord) | **DELETE** /2/my/products/{object}/dns/records/{record_id}/ | Remove DNS record from a product DNS zone |
+| [**dyndns()**](DnsApi.md#dyndns) | **GET** /2/dyndns/ | DynDNS protocol-compatible endpoint |
+| [**getDnsRecords()**](DnsApi.md#getDnsRecords) | **GET** /2/my/products/{object}/dns/records/ | Retrieve all DNS records for a product |
+| [**getDnsZone()**](DnsApi.md#getDnsZone) | **GET** /2/my/products/{object}/dns/ | Retrieve DNS zone metadata |
+| [**reloadDnsZone()**](DnsApi.md#reloadDnsZone) | **POST** /2/my/products/{object}/dns/reload/ | Force-reload a DNS zone |
+| [**updateDnsRecord()**](DnsApi.md#updateDnsRecord) | **PUT** /2/my/products/{object}/dns/records/{record_id}/ | Update a DNS record in a product DNS zone |
 
 
 ## `addDnsRecord()`
 
 ```php
-addDnsRecord($object, $addDnsRecordRequest): \SimplyCom\SimplyCom\Model\AddDnsRecord200Response
+addDnsRecord($object, $dnsRecordPayload): \SimplyCom\SimplyCom\Model\AddDnsRecord200Response
 ```
 
 Add new DNS record to a product DNS zone
@@ -44,10 +44,10 @@ $apiInstance = new SimplyCom\Api\DnsApi(
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$addDnsRecordRequest = new \SimplyCom\SimplyCom\Model\AddDnsRecordRequest(); // \SimplyCom\SimplyCom\Model\AddDnsRecordRequest
+$dnsRecordPayload = new \SimplyCom\SimplyCom\Model\DnsRecordPayload(); // \SimplyCom\SimplyCom\Model\DnsRecordPayload
 
 try {
-    $result = $apiInstance->addDnsRecord($object, $addDnsRecordRequest);
+    $result = $apiInstance->addDnsRecord($object, $dnsRecordPayload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->addDnsRecord: ', $e->getMessage(), PHP_EOL;
@@ -59,7 +59,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\AddDnsRecordRequest**](../Model/AddDnsRecordRequest.md)|  | |
+| **dnsRecordPayload** | [**\SimplyCom\SimplyCom\Model\DnsRecordPayload**](../Model/DnsRecordPayload.md)|  | |
 
 ### Return type
 
@@ -151,7 +151,7 @@ try {
 ## `deleteDnsRecord()`
 
 ```php
-deleteDnsRecord($object, $recordId): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
+deleteDnsRecord($object, $recordId): \SimplyCom\SimplyCom\Model\SuccessResponse
 ```
 
 Remove DNS record from a product DNS zone
@@ -197,7 +197,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ try {
 ## `reloadDnsZone()`
 
 ```php
-reloadDnsZone($object): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
+reloadDnsZone($object): \SimplyCom\SimplyCom\Model\SuccessResponse
 ```
 
 Force-reload a DNS zone
@@ -449,7 +449,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ try {
 ## `updateDnsRecord()`
 
 ```php
-updateDnsRecord($object, $recordId, $updateDnsRecordRequest): \SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response
+updateDnsRecord($object, $recordId, $dnsRecordPayload): \SimplyCom\SimplyCom\Model\SuccessResponse
 ```
 
 Update a DNS record in a product DNS zone
@@ -495,10 +495,10 @@ $apiInstance = new SimplyCom\Api\DnsApi(
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
 $recordId = 56; // int | The id of a DNS record in a DNS zone.
-$updateDnsRecordRequest = new \SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest(); // \SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest
+$dnsRecordPayload = new \SimplyCom\SimplyCom\Model\DnsRecordPayload(); // \SimplyCom\SimplyCom\Model\DnsRecordPayload
 
 try {
-    $result = $apiInstance->updateDnsRecord($object, $recordId, $updateDnsRecordRequest);
+    $result = $apiInstance->updateDnsRecord($object, $recordId, $dnsRecordPayload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DnsApi->updateDnsRecord: ', $e->getMessage(), PHP_EOL;
@@ -511,11 +511,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
 | **recordId** | **int**| The id of a DNS record in a DNS zone. | |
-| **updateDnsRecordRequest** | [**\SimplyCom\SimplyCom\Model\UpdateDnsRecordRequest**](../Model/UpdateDnsRecordRequest.md)|  | |
+| **dnsRecordPayload** | [**\SimplyCom\SimplyCom\Model\DnsRecordPayload**](../Model/DnsRecordPayload.md)|  | |
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\UpdateDnsRecord200Response**](../Model/UpdateDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 

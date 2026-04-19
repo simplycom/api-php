@@ -1,4 +1,4 @@
-# # GetDnsZone200ResponseZone
+# GetDnsZone200ResponseZone
 
 ## Properties
 

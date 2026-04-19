@@ -1,4 +1,4 @@
-# # GetProductList200ResponseProductsInnerServersFtpserver
+# GetProductList200ResponseProductsInnerServersFtpserver
 
 ## Properties
 

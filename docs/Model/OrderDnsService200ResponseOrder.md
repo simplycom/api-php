@@ -1,4 +1,4 @@
-# # OrderDnsService200ResponseOrder
+# OrderDnsService200ResponseOrder
 
 ## Properties
 

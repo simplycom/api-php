@@ -1,10 +1,10 @@
 # SimplyCom\BillingApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getInvoices()**](BillingApi.md#getInvoices) | **GET** /my/invoices/ | Retrieve list of invoices |
+| [**getInvoices()**](BillingApi.md#getInvoices) | **GET** /2/my/invoices/ | Retrieve list of invoices |
 
 
 ## `getInvoices()`

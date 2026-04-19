@@ -1,16 +1,16 @@
 # SimplyCom\OrderApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**orderDnsService()**](OrderApi.md#orderDnsService) | **POST** /my/order/dnsservice/ | Order a DNS service with optional domain registration/transfer |
+| [**orderDnsService()**](OrderApi.md#orderDnsService) | **POST** /2/my/order/dnsservice/ | Order a DNS service with optional domain registration/transfer |
 
 
 ## `orderDnsService()`
 
 ```php
-orderDnsService($orderDnsServiceRequest): \SimplyCom\SimplyCom\Model\OrderDnsService200Response
+orderDnsService($orderDnsServicePayload): \SimplyCom\SimplyCom\Model\OrderDnsService200Response
 ```
 
 Order a DNS service with optional domain registration/transfer
@@ -36,10 +36,10 @@ $apiInstance = new SimplyCom\Api\OrderApi(
     new GuzzleHttp\Client(),
     $config
 );
-$orderDnsServiceRequest = new \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest(); // \SimplyCom\SimplyCom\Model\OrderDnsServiceRequest
+$orderDnsServicePayload = new \SimplyCom\SimplyCom\Model\OrderDnsServicePayload(); // \SimplyCom\SimplyCom\Model\OrderDnsServicePayload
 
 try {
-    $result = $apiInstance->orderDnsService($orderDnsServiceRequest);
+    $result = $apiInstance->orderDnsService($orderDnsServicePayload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->orderDnsService: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **orderDnsServiceRequest** | [**\SimplyCom\SimplyCom\Model\OrderDnsServiceRequest**](../Model/OrderDnsServiceRequest.md)|  | |
+| **orderDnsServicePayload** | [**\SimplyCom\SimplyCom\Model\OrderDnsServicePayload**](../Model/OrderDnsServicePayload.md)|  | |
 
 ### Return type
 

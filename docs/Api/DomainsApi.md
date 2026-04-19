@@ -1,10 +1,10 @@
 # SimplyCom\DomainsApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**domaincheck()**](DomainsApi.md#domaincheck) | **GET** /my/domaincheck/{domain}/ | Check domain availability |
+| [**domaincheck()**](DomainsApi.md#domaincheck) | **GET** /2/my/domaincheck/{domain}/ | Check domain availability |
 
 
 ## `domaincheck()`

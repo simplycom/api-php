@@ -1,4 +1,4 @@
-# # OrderDnsService400Response
+# OrderDnsService400Response
 
 ## Properties
 

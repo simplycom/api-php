@@ -1,4 +1,4 @@
-# # GetProductList200ResponseProductsInnerProduct
+# GetProductList200ResponseProductsInnerProduct
 
 ## Properties
 

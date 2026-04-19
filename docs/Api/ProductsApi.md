@@ -1,10 +1,10 @@
 # SimplyCom\ProductsApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getProductList()**](ProductsApi.md#getProductList) | **GET** /my/products/ | Retrieve list of products |
+| [**getProductList()**](ProductsApi.md#getProductList) | **GET** /2/my/products/ | Retrieve list of products |
 
 
 ## `getProductList()`
