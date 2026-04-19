@@ -23,7 +23,7 @@ jobs:
         with:
           generator: php-nextgen
           config-file: php-generator-config.yml
-          openapi-url: https://api.simply.com/2/openapi.json
+          openapi-url: https://api.simply.com/2/doc.json
           command-args: -o .
 
       - name: Commit
