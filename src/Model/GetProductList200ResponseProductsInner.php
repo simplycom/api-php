@@ -97,7 +97,7 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
         'domain' => false,
         'product' => false,
         'usernames' => true,
-        'servers' => true
+        'servers' => false
     ];
 
     /**
@@ -528,14 +528,7 @@ class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAcc
     public function setServers(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServers $servers): static
     {
         if (is_null($servers)) {
-            array_push($this->openAPINullablesSetToNull, 'servers');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('servers', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable servers cannot be null');
         }
         $this->container['servers'] = $servers;
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * GetProductList200ResponseProductsInnerServers
+ * AddDnsSecKeyPayload
  *
  * PHP version 8.1
  *
@@ -34,15 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetProductList200ResponseProductsInnerServers Class Doc Comment
+ * AddDnsSecKeyPayload Class Doc Comment
  *
- * @description Server information. Web/FTP/SSH entries are only present for hosting products.
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetProductList200ResponseProductsInnerServers implements ModelInterface, ArrayAccess, JsonSerializable
+class AddDnsSecKeyPayload implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_servers';
+    protected static string $openAPIModelName = 'AddDnsSecKeyPayload';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +58,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'nameservers' => 'string[]',
-        'webserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver',
-        'ftpserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver',
-        'sshserver' => '\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver'
+        'type' => 'string',
+        'data' => 'string'
     ];
 
     /**
@@ -71,10 +68,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'nameservers' => null,
-        'webserver' => null,
-        'ftpserver' => null,
-        'sshserver' => null
+        'type' => null,
+        'data' => null
     ];
 
     /**
@@ -83,10 +78,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'nameservers' => false,
-        'webserver' => true,
-        'ftpserver' => true,
-        'sshserver' => true
+        'type' => false,
+        'data' => false
     ];
 
     /**
@@ -165,10 +158,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'nameservers' => 'nameservers',
-        'webserver' => 'webserver',
-        'ftpserver' => 'ftpserver',
-        'sshserver' => 'sshserver'
+        'type' => 'type',
+        'data' => 'data'
     ];
 
     /**
@@ -177,10 +168,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $setters = [
-        'nameservers' => 'setNameservers',
-        'webserver' => 'setWebserver',
-        'ftpserver' => 'setFtpserver',
-        'sshserver' => 'setSshserver'
+        'type' => 'setType',
+        'data' => 'setData'
     ];
 
     /**
@@ -189,10 +178,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      * @var array<string, string>
      */
     protected static array $getters = [
-        'nameservers' => 'getNameservers',
-        'webserver' => 'getWebserver',
-        'ftpserver' => 'getFtpserver',
-        'sshserver' => 'getSshserver'
+        'type' => 'getType',
+        'data' => 'getData'
     ];
 
     /**
@@ -227,6 +214,21 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DS = 'ds';
+    public const TYPE_DNSKEY = 'dnskey';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public static function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DS,
+            self::TYPE_DNSKEY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -242,10 +244,8 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('nameservers', $data ?? [], null);
-        $this->setIfExists('webserver', $data ?? [], null);
-        $this->setIfExists('ftpserver', $data ?? [], null);
-        $this->setIfExists('sshserver', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -273,6 +273,21 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = self::getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -286,130 +301,65 @@ class GetProductList200ResponseProductsInnerServers implements ModelInterface, A
 
 
     /**
-     * Gets nameservers
+     * Gets type
      *
-     * @return string[]|null
+     * @return string
      */
-    public function getNameservers(): ?array
+    public function getType(): string
     {
-        return $this->container['nameservers'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets nameservers
+     * Sets type
      *
-     * @param string[]|null $nameservers Simply.com nameservers currently assigned to the domain in our system. Does not query the registry.
+     * @param string $type DNSSEC record type
      *
      * @return $this
      */
-    public function setNameservers(?array $nameservers): static
+    public function setType(string $type): static
     {
-        if (is_null($nameservers)) {
-            throw new InvalidArgumentException('non-nullable nameservers cannot be null');
+        if (is_null($type)) {
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['nameservers'] = $nameservers;
+        $allowedValues = self::getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets webserver
+     * Gets data
      *
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null
+     * @return string
      */
-    public function getWebserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver
+    public function getData(): string
     {
-        return $this->container['webserver'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets webserver
+     * Sets data
      *
-     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null $webserver webserver
+     * @param string $data Zone-file formatted record data. For DS: \"keytag algorithm digestType digest\". For DNSKEY: \"flags protocol algorithm pubkey\".
      *
      * @return $this
      */
-    public function setWebserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver $webserver): static
+    public function setData(string $data): static
     {
-        if (is_null($webserver)) {
-            array_push($this->openAPINullablesSetToNull, 'webserver');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webserver', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($data)) {
+            throw new InvalidArgumentException('non-nullable data cannot be null');
         }
-        $this->container['webserver'] = $webserver;
-
-        return $this;
-    }
-
-    /**
-     * Gets ftpserver
-     *
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver|null
-     */
-    public function getFtpserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver
-    {
-        return $this->container['ftpserver'];
-    }
-
-    /**
-     * Sets ftpserver
-     *
-     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver|null $ftpserver ftpserver
-     *
-     * @return $this
-     */
-    public function setFtpserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver $ftpserver): static
-    {
-        if (is_null($ftpserver)) {
-            array_push($this->openAPINullablesSetToNull, 'ftpserver');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ftpserver', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['ftpserver'] = $ftpserver;
-
-        return $this;
-    }
-
-    /**
-     * Gets sshserver
-     *
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver|null
-     */
-    public function getSshserver(): ?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver
-    {
-        return $this->container['sshserver'];
-    }
-
-    /**
-     * Sets sshserver
-     *
-     * @param \SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver|null $sshserver sshserver
-     *
-     * @return $this
-     */
-    public function setSshserver(?\SimplyCom\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver $sshserver): static
-    {
-        if (is_null($sshserver)) {
-            array_push($this->openAPINullablesSetToNull, 'sshserver');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sshserver', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['sshserver'] = $sshserver;
+        $this->container['data'] = $data;
 
         return $this;
     }

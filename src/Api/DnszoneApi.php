@@ -1,6 +1,6 @@
 <?php
 /**
- * DnsApi
+ * DnszoneApi
  * PHP version 8.1
  *
  * @package  SimplyCom
@@ -44,13 +44,13 @@ use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
- * DnsApi Class Doc Comment
+ * DnszoneApi Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DnsApi
+class DnszoneApi
 {
     /**
      * @var ClientInterface

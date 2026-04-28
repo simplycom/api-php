@@ -74,10 +74,19 @@ class RegistryApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'addDnssecKey' => [
+            'application/json',
+        ],
         'getDnssecKeys' => [
             'application/json',
         ],
         'getNameservers' => [
+            'application/json',
+        ],
+        'removeDnssec' => [
+            'application/json',
+        ],
+        'setNameservers' => [
             'application/json',
         ],
     ];
@@ -126,6 +135,328 @@ class RegistryApi
     public function getConfig(): Configuration
     {
         return $this->config;
+    }
+
+    /**
+     * Operation addDnssecKey
+     *
+     * Add a DNSSEC key to a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload addDnsSecKeyPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+     */
+    public function addDnssecKey(
+        string $object,
+        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        string $contentType = self::contentTypes['addDnssecKey'][0]
+    ): \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+    {
+        list($response) = $this->addDnssecKeyWithHttpInfo($object, $addDnsSecKeyPayload, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation addDnssecKeyWithHttpInfo
+     *
+     * Add a DNSSEC key to a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addDnssecKeyWithHttpInfo(
+        string $object,
+        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        string $contentType = self::contentTypes['addDnssecKey'][0]
+    ): array
+    {
+        $request = $this->addDnssecKeyRequest($object, $addDnsSecKeyPayload, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addDnssecKeyAsync
+     *
+     * Add a DNSSEC key to a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function addDnssecKeyAsync(
+        string $object,
+        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        string $contentType = self::contentTypes['addDnssecKey'][0]
+    ): PromiseInterface
+    {
+        return $this->addDnssecKeyAsyncWithHttpInfo($object, $addDnsSecKeyPayload, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addDnssecKeyAsyncWithHttpInfo
+     *
+     * Add a DNSSEC key to a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function addDnssecKeyAsyncWithHttpInfo(
+        string $object,
+        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        string $contentType = self::contentTypes['addDnssecKey'][0]
+    ): PromiseInterface
+    {
+        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $request = $this->addDnssecKeyRequest($object, $addDnsSecKeyPayload, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addDnssecKey'
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function addDnssecKeyRequest(
+        string $object,
+        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        string $contentType = self::contentTypes['addDnssecKey'][0]
+    ): Request
+    {
+
+        // verify the required parameter 'object' is set
+        if ($object === null || (is_array($object) && count($object) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $object when calling addDnssecKey'
+            );
+        }
+
+        // verify the required parameter 'addDnsSecKeyPayload' is set
+        if ($addDnsSecKeyPayload === null || (is_array($addDnsSecKeyPayload) && count($addDnsSecKeyPayload) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $addDnsSecKeyPayload when calling addDnssecKey'
+            );
+        }
+
+
+        $resourcePath = '/2/my/products/{object}/registry/dnssec/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($object !== null) {
+            $resourcePath = str_replace(
+                '{object}',
+                ObjectSerializer::toPathValue($object),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($addDnsSecKeyPayload)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($addDnsSecKeyPayload));
+            } else {
+                $httpBody = $addDnsSecKeyPayload;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -336,7 +667,7 @@ class RegistryApi
         }
 
 
-        $resourcePath = '/2/my/products/{object}/dnssec/';
+        $resourcePath = '/2/my/products/{object}/registry/dnssec/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -620,7 +951,7 @@ class RegistryApi
         }
 
 
-        $resourcePath = '/2/my/products/{object}/nameservers/';
+        $resourcePath = '/2/my/products/{object}/registry/nameservers/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -690,6 +1021,612 @@ class RegistryApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removeDnssec
+     *
+     * Remove all DNSSEC keys from a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDnssec'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|null
+     */
+    public function removeDnssec(
+        string $object,
+        string $contentType = self::contentTypes['removeDnssec'][0]
+    ): ?\SimplyCom\SimplyCom\Model\SuccessResponse
+    {
+        list($response) = $this->removeDnssecWithHttpInfo($object, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation removeDnssecWithHttpInfo
+     *
+     * Remove all DNSSEC keys from a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDnssec'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeDnssecWithHttpInfo(
+        string $object,
+        string $contentType = self::contentTypes['removeDnssec'][0]
+    ): array
+    {
+        $request = $this->removeDnssecRequest($object, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        $request,
+                        $response,
+                    );
+            }
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeDnssecAsync
+     *
+     * Remove all DNSSEC keys from a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDnssec'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function removeDnssecAsync(
+        string $object,
+        string $contentType = self::contentTypes['removeDnssec'][0]
+    ): PromiseInterface
+    {
+        return $this->removeDnssecAsyncWithHttpInfo($object, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removeDnssecAsyncWithHttpInfo
+     *
+     * Remove all DNSSEC keys from a domain
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDnssec'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function removeDnssecAsyncWithHttpInfo(
+        string $object,
+        string $contentType = self::contentTypes['removeDnssec'][0]
+    ): PromiseInterface
+    {
+        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $request = $this->removeDnssecRequest($object, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removeDnssec'
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDnssec'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function removeDnssecRequest(
+        string $object,
+        string $contentType = self::contentTypes['removeDnssec'][0]
+    ): Request
+    {
+
+        // verify the required parameter 'object' is set
+        if ($object === null || (is_array($object) && count($object) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $object when calling removeDnssec'
+            );
+        }
+
+
+        $resourcePath = '/2/my/products/{object}/registry/dnssec/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($object !== null) {
+            $resourcePath = str_replace(
+                '{object}',
+                ObjectSerializer::toPathValue($object),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setNameservers
+     *
+     * Set the nameservers of a domain at the registry
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload setNameserversPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+     */
+    public function setNameservers(
+        string $object,
+        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        string $contentType = self::contentTypes['setNameservers'][0]
+    ): \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+    {
+        list($response) = $this->setNameserversWithHttpInfo($object, $setNameserversPayload, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation setNameserversWithHttpInfo
+     *
+     * Set the nameservers of a domain at the registry
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setNameserversWithHttpInfo(
+        string $object,
+        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        string $contentType = self::contentTypes['setNameservers'][0]
+    ): array
+    {
+        $request = $this->setNameserversRequest($object, $setNameserversPayload, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setNameserversAsync
+     *
+     * Set the nameservers of a domain at the registry
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function setNameserversAsync(
+        string $object,
+        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        string $contentType = self::contentTypes['setNameservers'][0]
+    ): PromiseInterface
+    {
+        return $this->setNameserversAsyncWithHttpInfo($object, $setNameserversPayload, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setNameserversAsyncWithHttpInfo
+     *
+     * Set the nameservers of a domain at the registry
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function setNameserversAsyncWithHttpInfo(
+        string $object,
+        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        string $contentType = self::contentTypes['setNameservers'][0]
+    ): PromiseInterface
+    {
+        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $request = $this->setNameserversRequest($object, $setNameserversPayload, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setNameservers'
+     *
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setNameserversRequest(
+        string $object,
+        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        string $contentType = self::contentTypes['setNameservers'][0]
+    ): Request
+    {
+
+        // verify the required parameter 'object' is set
+        if ($object === null || (is_array($object) && count($object) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $object when calling setNameservers'
+            );
+        }
+
+        // verify the required parameter 'setNameserversPayload' is set
+        if ($setNameserversPayload === null || (is_array($setNameserversPayload) && count($setNameserversPayload) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $setNameserversPayload when calling setNameservers'
+            );
+        }
+
+
+        $resourcePath = '/2/my/products/{object}/registry/nameservers/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($object !== null) {
+            $resourcePath = str_replace(
+                '{object}',
+                ObjectSerializer::toPathValue($object),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($setNameserversPayload)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($setNameserversPayload));
+            } else {
+                $httpBody = $setNameserversPayload;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
