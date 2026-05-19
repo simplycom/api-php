@@ -5,6 +5,7 @@
 README.md
 composer.json
 docs/Api/BillingApi.md
+docs/Api/DatabaseApi.md
 docs/Api/DnszoneApi.md
 docs/Api/DomainsApi.md
 docs/Api/MailApi.md
@@ -31,6 +32,8 @@ docs/Model/GetDnssecKeys200Response.md
 docs/Model/GetDnssecKeys200ResponseDnssecKeysInner.md
 docs/Model/GetInvoices200Response.md
 docs/Model/GetInvoices200ResponseInvoicesInner.md
+docs/Model/GetMysqlDatabases200Response.md
+docs/Model/GetMysqlDatabases200ResponseDatabasesInner.md
 docs/Model/GetNameservers200Response.md
 docs/Model/GetProductList200Response.md
 docs/Model/GetProductList200ResponseProductsInner.md
@@ -52,6 +55,7 @@ docs/Model/SuccessResponse.md
 git_push.sh
 phpunit.xml.dist
 src/Api/BillingApi.php
+src/Api/DatabaseApi.php
 src/Api/DnszoneApi.php
 src/Api/DomainsApi.php
 src/Api/MailApi.php
@@ -82,6 +86,8 @@ src/Model/GetDnssecKeys200Response.php
 src/Model/GetDnssecKeys200ResponseDnssecKeysInner.php
 src/Model/GetInvoices200Response.php
 src/Model/GetInvoices200ResponseInvoicesInner.php
+src/Model/GetMysqlDatabases200Response.php
+src/Model/GetMysqlDatabases200ResponseDatabasesInner.php
 src/Model/GetNameservers200Response.php
 src/Model/GetProductList200Response.php
 src/Model/GetProductList200ResponseProductsInner.php
@@ -102,6 +108,6 @@ src/Model/OrderDnsServicePayload.php
 src/Model/SetNameserversPayload.php
 src/Model/SuccessResponse.php
 src/ObjectSerializer.php
-tests/Api/DnszoneApiTest.php
-tests/Model/AddDnsSecKeyPayloadTest.php
-tests/Model/SetNameserversPayloadTest.php
+tests/Api/DatabaseApiTest.php
+tests/Model/GetMysqlDatabases200ResponseDatabasesInnerTest.php
+tests/Model/GetMysqlDatabases200ResponseTest.php

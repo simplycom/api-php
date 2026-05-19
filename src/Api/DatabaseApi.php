@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductsApi
+ * DatabaseApi
  * PHP version 8.1
  *
  * @package  SimplyCom
@@ -44,13 +44,13 @@ use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ProductsApi Class Doc Comment
+ * DatabaseApi Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProductsApi
+class DatabaseApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class ProductsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getProductList' => [
+        'getMysqlDatabases' => [
             'application/json',
         ],
     ];
@@ -126,40 +126,44 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductList
+     * Operation getMysqlDatabases
      *
-     * Retrieve list of products
+     * List MySQL databases for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMysqlDatabases'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200Response|null
+     * @return \SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response|null
      */
-    public function getProductList(
-        string $contentType = self::contentTypes['getProductList'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetProductList200Response
+    public function getMysqlDatabases(
+        string $object,
+        string $contentType = self::contentTypes['getMysqlDatabases'][0]
+    ): ?\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response
     {
-        list($response) = $this->getProductListWithHttpInfo($contentType);
+        list($response) = $this->getMysqlDatabasesWithHttpInfo($object, $contentType);
         return $response;
     }
 
     /**
-     * Operation getProductListWithHttpInfo
+     * Operation getMysqlDatabasesWithHttpInfo
      *
-     * Retrieve list of products
+     * List MySQL databases for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMysqlDatabases'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetProductList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductListWithHttpInfo(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getMysqlDatabasesWithHttpInfo(
+        string $object,
+        string $contentType = self::contentTypes['getMysqlDatabases'][0]
     ): array
     {
-        $request = $this->getProductListRequest($contentType);
+        $request = $this->getMysqlDatabasesRequest($object, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -186,7 +190,7 @@ class ProductsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetProductList200Response',
+                        '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response',
                         $request,
                         $response,
                     );
@@ -207,7 +211,7 @@ class ProductsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetProductList200Response',
+                '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response',
                 $request,
                 $response,
             );
@@ -216,7 +220,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetProductList200Response',
+                        '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -228,20 +232,22 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductListAsync
+     * Operation getMysqlDatabasesAsync
      *
-     * Retrieve list of products
+     * List MySQL databases for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMysqlDatabases'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function getProductListAsync(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getMysqlDatabasesAsync(
+        string $object,
+        string $contentType = self::contentTypes['getMysqlDatabases'][0]
     ): PromiseInterface
     {
-        return $this->getProductListAsyncWithHttpInfo($contentType)
+        return $this->getMysqlDatabasesAsyncWithHttpInfo($object, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -250,21 +256,23 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductListAsyncWithHttpInfo
+     * Operation getMysqlDatabasesAsyncWithHttpInfo
      *
-     * Retrieve list of products
+     * List MySQL databases for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMysqlDatabases'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function getProductListAsyncWithHttpInfo(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getMysqlDatabasesAsyncWithHttpInfo(
+        string $object,
+        string $contentType = self::contentTypes['getMysqlDatabases'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetProductList200Response';
-        $request = $this->getProductListRequest($contentType);
+        $returnType = '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response';
+        $request = $this->getMysqlDatabasesRequest($object, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -303,20 +311,29 @@ class ProductsApi
     }
 
     /**
-     * Create request for operation 'getProductList'
+     * Create request for operation 'getMysqlDatabases'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMysqlDatabases'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductListRequest(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getMysqlDatabasesRequest(
+        string $object,
+        string $contentType = self::contentTypes['getMysqlDatabases'][0]
     ): Request
     {
 
+        // verify the required parameter 'object' is set
+        if ($object === null || (is_array($object) && count($object) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $object when calling getMysqlDatabases'
+            );
+        }
 
-        $resourcePath = '/2/my/products/';
+
+        $resourcePath = '/2/my/products/{object}/databases/mysql/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -325,6 +342,14 @@ class ProductsApi
 
 
 
+        // path params
+        if ($object !== null) {
+            $resourcePath = str_replace(
+                '{object}',
+                ObjectSerializer::toPathValue($object),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(

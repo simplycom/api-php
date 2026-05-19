@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsService400Response
+ * GetMysqlDatabases200ResponseDatabasesInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsService400Response Class Doc Comment
+ * GetMysqlDatabases200ResponseDatabasesInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSerializable
+class GetMysqlDatabases200ResponseDatabasesInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'orderDnsService_400_response';
+    protected static string $openAPIModelName = 'getMysqlDatabases_200_response_databases_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'error' => 'string'
+        'hostname' => 'string',
+        'port' => 'int',
+        'username' => 'string',
+        'database' => 'string'
     ];
 
     /**
@@ -67,7 +70,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'error' => null
+        'hostname' => null,
+        'port' => null,
+        'username' => null,
+        'database' => null
     ];
 
     /**
@@ -76,7 +82,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'error' => false
+        'hostname' => false,
+        'port' => false,
+        'username' => false,
+        'database' => false
     ];
 
     /**
@@ -155,7 +164,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'error' => 'error'
+        'hostname' => 'hostname',
+        'port' => 'port',
+        'username' => 'username',
+        'database' => 'database'
     ];
 
     /**
@@ -164,7 +176,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $setters = [
-        'error' => 'setError'
+        'hostname' => 'setHostname',
+        'port' => 'setPort',
+        'username' => 'setUsername',
+        'database' => 'setDatabase'
     ];
 
     /**
@@ -173,7 +188,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $getters = [
-        'error' => 'getError'
+        'hostname' => 'getHostname',
+        'port' => 'getPort',
+        'username' => 'getUsername',
+        'database' => 'getDatabase'
     ];
 
     /**
@@ -223,7 +241,10 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
+        $this->setIfExists('port', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('database', $data ?? [], null);
     }
 
     /**
@@ -264,28 +285,109 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets error
+     * Gets hostname
      *
      * @return string|null
      */
-    public function getError(): ?string
+    public function getHostname(): ?string
     {
-        return $this->container['error'];
+        return $this->container['hostname'];
     }
 
     /**
-     * Sets error
+     * Sets hostname
      *
-     * @param string|null $error error
+     * @param string|null $hostname hostname
      *
      * @return $this
      */
-    public function setError(?string $error): static
+    public function setHostname(?string $hostname): static
     {
-        if (is_null($error)) {
-            throw new InvalidArgumentException('non-nullable error cannot be null');
+        if (is_null($hostname)) {
+            throw new InvalidArgumentException('non-nullable hostname cannot be null');
         }
-        $this->container['error'] = $error;
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets port
+     *
+     * @return int|null
+     */
+    public function getPort(): ?int
+    {
+        return $this->container['port'];
+    }
+
+    /**
+     * Sets port
+     *
+     * @param int|null $port port
+     *
+     * @return $this
+     */
+    public function setPort(?int $port): static
+    {
+        if (is_null($port)) {
+            throw new InvalidArgumentException('non-nullable port cannot be null');
+        }
+        $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string|null
+     */
+    public function getUsername(): ?string
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string|null $username username
+     *
+     * @return $this
+     */
+    public function setUsername(?string $username): static
+    {
+        if (is_null($username)) {
+            throw new InvalidArgumentException('non-nullable username cannot be null');
+        }
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets database
+     *
+     * @return string|null
+     */
+    public function getDatabase(): ?string
+    {
+        return $this->container['database'];
+    }
+
+    /**
+     * Sets database
+     *
+     * @param string|null $database database
+     *
+     * @return $this
+     */
+    public function setDatabase(?string $database): static
+    {
+        if (is_null($database)) {
+            throw new InvalidArgumentException('non-nullable database cannot be null');
+        }
+        $this->container['database'] = $database;
 
         return $this;
     }

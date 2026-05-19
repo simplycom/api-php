@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsService400Response
+ * GetMysqlDatabases200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsService400Response Class Doc Comment
+ * GetMysqlDatabases200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSerializable
+class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'orderDnsService_400_response';
+    protected static string $openAPIModelName = 'getMysqlDatabases_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'error' => 'string'
+        'status' => 'int',
+        'message' => 'string',
+        'databases' => '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]'
     ];
 
     /**
@@ -67,7 +69,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'error' => null
+        'status' => null,
+        'message' => null,
+        'databases' => null
     ];
 
     /**
@@ -76,7 +80,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'error' => false
+        'status' => false,
+        'message' => false,
+        'databases' => false
     ];
 
     /**
@@ -155,7 +161,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'error' => 'error'
+        'status' => 'status',
+        'message' => 'message',
+        'databases' => 'databases'
     ];
 
     /**
@@ -164,7 +172,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $setters = [
-        'error' => 'setError'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'databases' => 'setDatabases'
     ];
 
     /**
@@ -173,7 +183,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $getters = [
-        'error' => 'getError'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'databases' => 'getDatabases'
     ];
 
     /**
@@ -223,7 +235,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('databases', $data ?? [], null);
     }
 
     /**
@@ -264,28 +278,82 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets error
+     * Gets status
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getError(): ?string
+    public function getStatus(): ?int
     {
-        return $this->container['error'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets error
+     * Sets status
      *
-     * @param string|null $error error
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setError(?string $error): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($error)) {
-            throw new InvalidArgumentException('non-nullable error cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['error'] = $error;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage(): ?string
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return $this
+     */
+    public function setMessage(?string $message): static
+    {
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets databases
+     *
+     * @return \SimplyCom\SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null
+     */
+    public function getDatabases(): ?array
+    {
+        return $this->container['databases'];
+    }
+
+    /**
+     * Sets databases
+     *
+     * @param \SimplyCom\SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null $databases databases
+     *
+     * @return $this
+     */
+    public function setDatabases(?array $databases): static
+    {
+        if (is_null($databases)) {
+            throw new InvalidArgumentException('non-nullable databases cannot be null');
+        }
+        $this->container['databases'] = $databases;
 
         return $this;
     }
