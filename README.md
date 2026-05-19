@@ -148,10 +148,6 @@ $http = new Guzzle(['timeout' => 10.0]);
 $simply = new Client('S123456', 'your-api-key', $http);
 ```
 
-## Generated code
-
-The `src/Api/` and `src/Model/` classes in this repository are generated from the [Simply.com OpenAPI spec](https://api.simply.com/2/doc.json) using [OpenAPI Generator](https://openapi-generator.tech/) (`php-nextgen`). Hand-edits to those directories will be overwritten on the next regeneration.
-
 ## License
 
 See [LICENSE](LICENSE).
