@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cleanup old client
-        run: rm -rf src/
+        run: rm -rf src/Api src/Model docs
 
       - name: Generate PHP SDK
         uses: openapi-generators/openapitools-generator-action@v1
@@ -21,7 +21,7 @@ jobs:
           generator: php-nextgen
           config-file: php-generator-config.yml
           openapi-url: https://api.simply.com/2/doc.json
-          command-args: -o .
+          command-args: -o . --global-property=apiDocs=false,modelDocs=false,apiTests=false,modelTests=false
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
