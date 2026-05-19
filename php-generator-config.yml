@@ -1,7 +1,7 @@
 packageName: SimplyCom-php
 invokerPackage: SimplyCom
-modelPackage: SimplyCom\Model
-apiPackage: SimplyCom\Api
+modelPackage: Model
+apiPackage: Api
 overwrite: true
 composerPackageName: simplycom/php-sdk
 variableNamingConvention: camelCase

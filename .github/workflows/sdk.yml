@@ -1,12 +1,9 @@
 name: Generate PHP SDK
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/generate-sdk.yml
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
 
 jobs:
   generate-sdk:
@@ -29,5 +26,4 @@ jobs:
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          branch: master
           commit_message: Update API
