@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -59,9 +59,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'nameservers' => 'string[]',
-        'webserver' => '\SimplyCom\SimplyCom\Model\WebServer',
-        'ftpserver' => '\SimplyCom\SimplyCom\Model\FtpServer',
-        'sshserver' => '\SimplyCom\SimplyCom\Model\SshServer'
+        'webserver' => '\SimplyCom\Model\WebServer',
+        'ftpserver' => '\SimplyCom\Model\FtpServer',
+        'sshserver' => '\SimplyCom\Model\SshServer'
     ];
 
     /**
@@ -317,9 +317,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets webserver
      *
-     * @return \SimplyCom\SimplyCom\Model\WebServer|null
+     * @return \SimplyCom\Model\WebServer|null
      */
-    public function getWebserver(): ?\SimplyCom\SimplyCom\Model\WebServer
+    public function getWebserver(): ?\SimplyCom\Model\WebServer
     {
         return $this->container['webserver'];
     }
@@ -327,11 +327,11 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets webserver
      *
-     * @param \SimplyCom\SimplyCom\Model\WebServer|null $webserver Web server information (only present for hosting products)
+     * @param \SimplyCom\Model\WebServer|null $webserver Web server information (only present for hosting products)
      *
      * @return $this
      */
-    public function setWebserver(?\SimplyCom\SimplyCom\Model\WebServer $webserver): static
+    public function setWebserver(?\SimplyCom\Model\WebServer $webserver): static
     {
         if (is_null($webserver)) {
             array_push($this->openAPINullablesSetToNull, 'webserver');
@@ -351,9 +351,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets ftpserver
      *
-     * @return \SimplyCom\SimplyCom\Model\FtpServer|null
+     * @return \SimplyCom\Model\FtpServer|null
      */
-    public function getFtpserver(): ?\SimplyCom\SimplyCom\Model\FtpServer
+    public function getFtpserver(): ?\SimplyCom\Model\FtpServer
     {
         return $this->container['ftpserver'];
     }
@@ -361,11 +361,11 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets ftpserver
      *
-     * @param \SimplyCom\SimplyCom\Model\FtpServer|null $ftpserver FTP server information (only present for hosting products)
+     * @param \SimplyCom\Model\FtpServer|null $ftpserver FTP server information (only present for hosting products)
      *
      * @return $this
      */
-    public function setFtpserver(?\SimplyCom\SimplyCom\Model\FtpServer $ftpserver): static
+    public function setFtpserver(?\SimplyCom\Model\FtpServer $ftpserver): static
     {
         if (is_null($ftpserver)) {
             array_push($this->openAPINullablesSetToNull, 'ftpserver');
@@ -385,9 +385,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets sshserver
      *
-     * @return \SimplyCom\SimplyCom\Model\SshServer|null
+     * @return \SimplyCom\Model\SshServer|null
      */
-    public function getSshserver(): ?\SimplyCom\SimplyCom\Model\SshServer
+    public function getSshserver(): ?\SimplyCom\Model\SshServer
     {
         return $this->container['sshserver'];
     }
@@ -395,11 +395,11 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets sshserver
      *
-     * @param \SimplyCom\SimplyCom\Model\SshServer|null $sshserver SSH server information (only present for hosting products). Add public-key manually through Simply.com Controlpanel.
+     * @param \SimplyCom\Model\SshServer|null $sshserver SSH server information (only present for hosting products). Add public-key manually through Simply.com Controlpanel.
      *
      * @return $this
      */
-    public function setSshserver(?\SimplyCom\SimplyCom\Model\SshServer $sshserver): static
+    public function setSshserver(?\SimplyCom\Model\SshServer $sshserver): static
     {
         if (is_null($sshserver)) {
             array_push($this->openAPINullablesSetToNull, 'sshserver');

@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'invoices' => '\SimplyCom\SimplyCom\Model\Invoice[]'
+        'invoices' => '\SimplyCom\Model\Invoice[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets invoices
      *
-     * @return \SimplyCom\SimplyCom\Model\Invoice[]
+     * @return \SimplyCom\Model\Invoice[]
      */
     public function getInvoices(): array
     {
@@ -353,7 +353,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets invoices
      *
-     * @param \SimplyCom\SimplyCom\Model\Invoice[] $invoices Array of invoices
+     * @param \SimplyCom\Model\Invoice[] $invoices Array of invoices
      *
      * @return $this
      */

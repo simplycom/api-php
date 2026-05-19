@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'domain' => '\SimplyCom\SimplyCom\Model\DomainAvailability'
+        'domain' => '\SimplyCom\Model\DomainAvailability'
     ];
 
     /**
@@ -343,9 +343,9 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets domain
      *
-     * @return \SimplyCom\SimplyCom\Model\DomainAvailability
+     * @return \SimplyCom\Model\DomainAvailability
      */
-    public function getDomain(): \SimplyCom\SimplyCom\Model\DomainAvailability
+    public function getDomain(): \SimplyCom\Model\DomainAvailability
     {
         return $this->container['domain'];
     }
@@ -353,11 +353,11 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets domain
      *
-     * @param \SimplyCom\SimplyCom\Model\DomainAvailability $domain domain
+     * @param \SimplyCom\Model\DomainAvailability $domain domain
      *
      * @return $this
      */
-    public function setDomain(\SimplyCom\SimplyCom\Model\DomainAvailability $domain): static
+    public function setDomain(\SimplyCom\Model\DomainAvailability $domain): static
     {
         if (is_null($domain)) {
             throw new InvalidArgumentException('non-nullable domain cannot be null');

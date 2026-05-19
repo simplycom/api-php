@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'record' => '\SimplyCom\SimplyCom\Model\NewDnsRecord'
+        'record' => '\SimplyCom\Model\NewDnsRecord'
     ];
 
     /**
@@ -343,9 +343,9 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets record
      *
-     * @return \SimplyCom\SimplyCom\Model\NewDnsRecord
+     * @return \SimplyCom\Model\NewDnsRecord
      */
-    public function getRecord(): \SimplyCom\SimplyCom\Model\NewDnsRecord
+    public function getRecord(): \SimplyCom\Model\NewDnsRecord
     {
         return $this->container['record'];
     }
@@ -353,11 +353,11 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets record
      *
-     * @param \SimplyCom\SimplyCom\Model\NewDnsRecord $record record
+     * @param \SimplyCom\Model\NewDnsRecord $record record
      *
      * @return $this
      */
-    public function setRecord(\SimplyCom\SimplyCom\Model\NewDnsRecord $record): static
+    public function setRecord(\SimplyCom\Model\NewDnsRecord $record): static
     {
         if (is_null($record)) {
             throw new InvalidArgumentException('non-nullable record cannot be null');

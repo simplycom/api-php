@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'zone' => '\SimplyCom\SimplyCom\Model\DnsZoneInfo'
+        'zone' => '\SimplyCom\Model\DnsZoneInfo'
     ];
 
     /**
@@ -343,9 +343,9 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets zone
      *
-     * @return \SimplyCom\SimplyCom\Model\DnsZoneInfo
+     * @return \SimplyCom\Model\DnsZoneInfo
      */
-    public function getZone(): \SimplyCom\SimplyCom\Model\DnsZoneInfo
+    public function getZone(): \SimplyCom\Model\DnsZoneInfo
     {
         return $this->container['zone'];
     }
@@ -353,11 +353,11 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets zone
      *
-     * @param \SimplyCom\SimplyCom\Model\DnsZoneInfo $zone zone
+     * @param \SimplyCom\Model\DnsZoneInfo $zone zone
      *
      * @return $this
      */
-    public function setZone(\SimplyCom\SimplyCom\Model\DnsZoneInfo $zone): static
+    public function setZone(\SimplyCom\Model\DnsZoneInfo $zone): static
     {
         if (is_null($zone)) {
             throw new InvalidArgumentException('non-nullable zone cannot be null');

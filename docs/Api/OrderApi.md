@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `orderDnsService()`
 
 ```php
-orderDnsService($orderDnsServicePayload): \SimplyCom\SimplyCom\Model\OrderDnsServiceResponse
+orderDnsService($orderDnsServicePayload): \SimplyCom\Model\OrderDnsServiceResponse
 ```
 
 Order a DNS service with optional domain registration/transfer
@@ -36,7 +36,7 @@ $apiInstance = new SimplyCom\Api\OrderApi(
     new GuzzleHttp\Client(),
     $config
 );
-$orderDnsServicePayload = new \SimplyCom\SimplyCom\Model\OrderDnsServicePayload(); // \SimplyCom\SimplyCom\Model\OrderDnsServicePayload
+$orderDnsServicePayload = new \SimplyCom\Model\OrderDnsServicePayload(); // \SimplyCom\Model\OrderDnsServicePayload
 
 try {
     $result = $apiInstance->orderDnsService($orderDnsServicePayload);
@@ -50,11 +50,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **orderDnsServicePayload** | [**\SimplyCom\SimplyCom\Model\OrderDnsServicePayload**](../Model/OrderDnsServicePayload.md)|  | |
+| **orderDnsServicePayload** | [**\SimplyCom\Model\OrderDnsServicePayload**](../Model/OrderDnsServicePayload.md)|  | |
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\OrderDnsServiceResponse**](../Model/OrderDnsServiceResponse.md)
+[**\SimplyCom\Model\OrderDnsServiceResponse**](../Model/OrderDnsServiceResponse.md)
 
 ### Authorization
 

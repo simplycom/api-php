@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Api;
+namespace SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -131,18 +131,18 @@ class MailApi
      * Add new mail account to a product
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload addMailAccountPayload (required)
+     * @param  \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload addMailAccountPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMailAccount'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
      */
     public function addMailAccount(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
+        \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
         string $contentType = self::contentTypes['addMailAccount'][0]
-    ): \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
     {
         list($response) = $this->addMailAccountWithHttpInfo($object, $addMailAccountPayload, $contentType);
         return $response;
@@ -154,16 +154,16 @@ class MailApi
      * Add new mail account to a product
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
+     * @param  \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMailAccount'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addMailAccountWithHttpInfo(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
+        \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
         string $contentType = self::contentTypes['addMailAccount'][0]
     ): array
     {
@@ -194,13 +194,13 @@ class MailApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -221,7 +221,7 @@ class MailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                '\SimplyCom\Model\SuccessResponse',
                 $request,
                 $response,
             );
@@ -230,7 +230,7 @@ class MailApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -238,7 +238,7 @@ class MailApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -255,7 +255,7 @@ class MailApi
      * Add new mail account to a product
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
+     * @param  \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMailAccount'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -263,7 +263,7 @@ class MailApi
      */
     public function addMailAccountAsync(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
+        \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
         string $contentType = self::contentTypes['addMailAccount'][0]
     ): PromiseInterface
     {
@@ -281,7 +281,7 @@ class MailApi
      * Add new mail account to a product
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
+     * @param  \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMailAccount'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -289,11 +289,11 @@ class MailApi
      */
     public function addMailAccountAsyncWithHttpInfo(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
+        \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
         string $contentType = self::contentTypes['addMailAccount'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $returnType = '\SimplyCom\Model\SuccessResponse';
         $request = $this->addMailAccountRequest($object, $addMailAccountPayload, $contentType);
 
         return $this->client
@@ -336,7 +336,7 @@ class MailApi
      * Create request for operation 'addMailAccount'
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
+     * @param  \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMailAccount'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -344,7 +344,7 @@ class MailApi
      */
     public function addMailAccountRequest(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
+        \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
         string $contentType = self::contentTypes['addMailAccount'][0]
     ): Request
     {

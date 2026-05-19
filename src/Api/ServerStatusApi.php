@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Api;
+namespace SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -134,11 +134,11 @@ class ServerStatusApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse|null
+     * @return \SimplyCom\Model\GetServerStatusMessagesResponse|null
      */
     public function getServerStatusMessages(
         string $contentType = self::contentTypes['getServerStatusMessages'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse
+    ): ?\SimplyCom\Model\GetServerStatusMessagesResponse
     {
         list($response) = $this->getServerStatusMessagesWithHttpInfo($contentType);
         return $response;
@@ -153,7 +153,7 @@ class ServerStatusApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\GetServerStatusMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerStatusMessagesWithHttpInfo(
         string $contentType = self::contentTypes['getServerStatusMessages'][0]
@@ -186,7 +186,7 @@ class ServerStatusApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse',
+                        '\SimplyCom\Model\GetServerStatusMessagesResponse',
                         $request,
                         $response,
                     );
@@ -207,7 +207,7 @@ class ServerStatusApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse',
+                '\SimplyCom\Model\GetServerStatusMessagesResponse',
                 $request,
                 $response,
             );
@@ -216,7 +216,7 @@ class ServerStatusApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse',
+                        '\SimplyCom\Model\GetServerStatusMessagesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -263,7 +263,7 @@ class ServerStatusApi
         string $contentType = self::contentTypes['getServerStatusMessages'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse';
+        $returnType = '\SimplyCom\Model\GetServerStatusMessagesResponse';
         $request = $this->getServerStatusMessagesRequest($contentType);
 
         return $this->client

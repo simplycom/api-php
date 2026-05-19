@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'order' => '\SimplyCom\SimplyCom\Model\OrderInfo'
+        'order' => '\SimplyCom\Model\OrderInfo'
     ];
 
     /**
@@ -340,9 +340,9 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets order
      *
-     * @return \SimplyCom\SimplyCom\Model\OrderInfo|null
+     * @return \SimplyCom\Model\OrderInfo|null
      */
-    public function getOrder(): ?\SimplyCom\SimplyCom\Model\OrderInfo
+    public function getOrder(): ?\SimplyCom\Model\OrderInfo
     {
         return $this->container['order'];
     }
@@ -350,11 +350,11 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets order
      *
-     * @param \SimplyCom\SimplyCom\Model\OrderInfo|null $order Order information (only present if payment was required)
+     * @param \SimplyCom\Model\OrderInfo|null $order Order information (only present if payment was required)
      *
      * @return $this
      */
-    public function setOrder(?\SimplyCom\SimplyCom\Model\OrderInfo $order): static
+    public function setOrder(?\SimplyCom\Model\OrderInfo $order): static
     {
         if (is_null($order)) {
             array_push($this->openAPINullablesSetToNull, 'order');

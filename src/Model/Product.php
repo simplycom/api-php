@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -62,10 +62,10 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
         'objectUri' => 'string',
         'name' => 'string',
         'cancelled' => 'bool',
-        'domain' => '\SimplyCom\SimplyCom\Model\ProductDomain',
-        'product' => '\SimplyCom\SimplyCom\Model\ProductService',
-        'servers' => '\SimplyCom\SimplyCom\Model\ProductServers',
-        'usernames' => '\SimplyCom\SimplyCom\Model\ProductUsernames'
+        'domain' => '\SimplyCom\Model\ProductDomain',
+        'product' => '\SimplyCom\Model\ProductService',
+        'servers' => '\SimplyCom\Model\ProductServers',
+        'usernames' => '\SimplyCom\Model\ProductUsernames'
     ];
 
     /**
@@ -444,9 +444,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets domain
      *
-     * @return \SimplyCom\SimplyCom\Model\ProductDomain
+     * @return \SimplyCom\Model\ProductDomain
      */
-    public function getDomain(): \SimplyCom\SimplyCom\Model\ProductDomain
+    public function getDomain(): \SimplyCom\Model\ProductDomain
     {
         return $this->container['domain'];
     }
@@ -454,11 +454,11 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets domain
      *
-     * @param \SimplyCom\SimplyCom\Model\ProductDomain $domain domain
+     * @param \SimplyCom\Model\ProductDomain $domain domain
      *
      * @return $this
      */
-    public function setDomain(\SimplyCom\SimplyCom\Model\ProductDomain $domain): static
+    public function setDomain(\SimplyCom\Model\ProductDomain $domain): static
     {
         if (is_null($domain)) {
             throw new InvalidArgumentException('non-nullable domain cannot be null');
@@ -471,9 +471,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets product
      *
-     * @return \SimplyCom\SimplyCom\Model\ProductService
+     * @return \SimplyCom\Model\ProductService
      */
-    public function getProduct(): \SimplyCom\SimplyCom\Model\ProductService
+    public function getProduct(): \SimplyCom\Model\ProductService
     {
         return $this->container['product'];
     }
@@ -481,11 +481,11 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets product
      *
-     * @param \SimplyCom\SimplyCom\Model\ProductService $product product
+     * @param \SimplyCom\Model\ProductService $product product
      *
      * @return $this
      */
-    public function setProduct(\SimplyCom\SimplyCom\Model\ProductService $product): static
+    public function setProduct(\SimplyCom\Model\ProductService $product): static
     {
         if (is_null($product)) {
             throw new InvalidArgumentException('non-nullable product cannot be null');
@@ -498,9 +498,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets servers
      *
-     * @return \SimplyCom\SimplyCom\Model\ProductServers
+     * @return \SimplyCom\Model\ProductServers
      */
-    public function getServers(): \SimplyCom\SimplyCom\Model\ProductServers
+    public function getServers(): \SimplyCom\Model\ProductServers
     {
         return $this->container['servers'];
     }
@@ -508,11 +508,11 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets servers
      *
-     * @param \SimplyCom\SimplyCom\Model\ProductServers $servers servers
+     * @param \SimplyCom\Model\ProductServers $servers servers
      *
      * @return $this
      */
-    public function setServers(\SimplyCom\SimplyCom\Model\ProductServers $servers): static
+    public function setServers(\SimplyCom\Model\ProductServers $servers): static
     {
         if (is_null($servers)) {
             throw new InvalidArgumentException('non-nullable servers cannot be null');
@@ -525,9 +525,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets usernames
      *
-     * @return \SimplyCom\SimplyCom\Model\ProductUsernames|null
+     * @return \SimplyCom\Model\ProductUsernames|null
      */
-    public function getUsernames(): ?\SimplyCom\SimplyCom\Model\ProductUsernames
+    public function getUsernames(): ?\SimplyCom\Model\ProductUsernames
     {
         return $this->container['usernames'];
     }
@@ -535,11 +535,11 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets usernames
      *
-     * @param \SimplyCom\SimplyCom\Model\ProductUsernames|null $usernames Service access usernames (only present for hosting products)
+     * @param \SimplyCom\Model\ProductUsernames|null $usernames Service access usernames (only present for hosting products)
      *
      * @return $this
      */
-    public function setUsernames(?\SimplyCom\SimplyCom\Model\ProductUsernames $usernames): static
+    public function setUsernames(?\SimplyCom\Model\ProductUsernames $usernames): static
     {
         if (is_null($usernames)) {
             array_push($this->openAPINullablesSetToNull, 'usernames');

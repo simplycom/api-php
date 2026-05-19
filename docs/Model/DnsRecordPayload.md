@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**\SimplyCom\SimplyCom\Model\DnsRecordType**](DnsRecordType.md) |  |
+**type** | [**\SimplyCom\Model\DnsRecordType**](DnsRecordType.md) |  |
 **name** | **string** | The hostname or label for the DNS record |
 **data** | **string** | The record data (IP address, hostname, text value, etc.) |
 **ttl** | **int** | Time To Live in seconds. Defaults to zone default if not specified. | [optional]

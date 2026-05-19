@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Api;
+namespace SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -143,18 +143,18 @@ class RegistryApi
      * Add a DNSSEC key to a domain
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload addDnsSecKeyPayload (required)
+     * @param  \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload addDnsSecKeyPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
      */
     public function addDnssecKey(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
         string $contentType = self::contentTypes['addDnssecKey'][0]
-    ): \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
     {
         list($response) = $this->addDnssecKeyWithHttpInfo($object, $addDnsSecKeyPayload, $contentType);
         return $response;
@@ -166,16 +166,16 @@ class RegistryApi
      * Add a DNSSEC key to a domain
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addDnssecKeyWithHttpInfo(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
         string $contentType = self::contentTypes['addDnssecKey'][0]
     ): array
     {
@@ -206,13 +206,13 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -233,7 +233,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                '\SimplyCom\Model\SuccessResponse',
                 $request,
                 $response,
             );
@@ -242,7 +242,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,7 +250,7 @@ class RegistryApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -267,7 +267,7 @@ class RegistryApi
      * Add a DNSSEC key to a domain
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -275,7 +275,7 @@ class RegistryApi
      */
     public function addDnssecKeyAsync(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
         string $contentType = self::contentTypes['addDnssecKey'][0]
     ): PromiseInterface
     {
@@ -293,7 +293,7 @@ class RegistryApi
      * Add a DNSSEC key to a domain
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -301,11 +301,11 @@ class RegistryApi
      */
     public function addDnssecKeyAsyncWithHttpInfo(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
         string $contentType = self::contentTypes['addDnssecKey'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $returnType = '\SimplyCom\Model\SuccessResponse';
         $request = $this->addDnssecKeyRequest($object, $addDnsSecKeyPayload, $contentType);
 
         return $this->client
@@ -348,7 +348,7 @@ class RegistryApi
      * Create request for operation 'addDnssecKey'
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
+     * @param  \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDnssecKey'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -356,7 +356,7 @@ class RegistryApi
      */
     public function addDnssecKeyRequest(
         string $object,
-        \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
+        \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
         string $contentType = self::contentTypes['addDnssecKey'][0]
     ): Request
     {
@@ -469,12 +469,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetDnssecKeysResponse|null
+     * @return \SimplyCom\Model\GetDnssecKeysResponse|null
      */
     public function getDnssecKeys(
         string $object,
         string $contentType = self::contentTypes['getDnssecKeys'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse
+    ): ?\SimplyCom\Model\GetDnssecKeysResponse
     {
         list($response) = $this->getDnssecKeysWithHttpInfo($object, $contentType);
         return $response;
@@ -490,7 +490,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetDnssecKeysResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\GetDnssecKeysResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDnssecKeysWithHttpInfo(
         string $object,
@@ -524,7 +524,7 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse',
+                        '\SimplyCom\Model\GetDnssecKeysResponse',
                         $request,
                         $response,
                     );
@@ -545,7 +545,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse',
+                '\SimplyCom\Model\GetDnssecKeysResponse',
                 $request,
                 $response,
             );
@@ -554,7 +554,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse',
+                        '\SimplyCom\Model\GetDnssecKeysResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -605,7 +605,7 @@ class RegistryApi
         string $contentType = self::contentTypes['getDnssecKeys'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse';
+        $returnType = '\SimplyCom\Model\GetDnssecKeysResponse';
         $request = $this->getDnssecKeysRequest($object, $contentType);
 
         return $this->client
@@ -753,12 +753,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetNameserversResponse|null
+     * @return \SimplyCom\Model\GetNameserversResponse|null
      */
     public function getNameservers(
         string $object,
         string $contentType = self::contentTypes['getNameservers'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetNameserversResponse
+    ): ?\SimplyCom\Model\GetNameserversResponse
     {
         list($response) = $this->getNameserversWithHttpInfo($object, $contentType);
         return $response;
@@ -774,7 +774,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetNameserversResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\GetNameserversResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNameserversWithHttpInfo(
         string $object,
@@ -808,7 +808,7 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetNameserversResponse',
+                        '\SimplyCom\Model\GetNameserversResponse',
                         $request,
                         $response,
                     );
@@ -829,7 +829,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetNameserversResponse',
+                '\SimplyCom\Model\GetNameserversResponse',
                 $request,
                 $response,
             );
@@ -838,7 +838,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetNameserversResponse',
+                        '\SimplyCom\Model\GetNameserversResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -889,7 +889,7 @@ class RegistryApi
         string $contentType = self::contentTypes['getNameservers'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetNameserversResponse';
+        $returnType = '\SimplyCom\Model\GetNameserversResponse';
         $request = $this->getNameserversRequest($object, $contentType);
 
         return $this->client
@@ -1037,12 +1037,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|null
      */
     public function removeDnssec(
         string $object,
         string $contentType = self::contentTypes['removeDnssec'][0]
-    ): ?\SimplyCom\SimplyCom\Model\SuccessResponse
+    ): ?\SimplyCom\Model\SuccessResponse
     {
         list($response) = $this->removeDnssecWithHttpInfo($object, $contentType);
         return $response;
@@ -1058,7 +1058,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\SuccessResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function removeDnssecWithHttpInfo(
         string $object,
@@ -1092,7 +1092,7 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $request,
                         $response,
                     );
@@ -1113,7 +1113,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                '\SimplyCom\Model\SuccessResponse',
                 $request,
                 $response,
             );
@@ -1122,7 +1122,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1173,7 +1173,7 @@ class RegistryApi
         string $contentType = self::contentTypes['removeDnssec'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $returnType = '\SimplyCom\Model\SuccessResponse';
         $request = $this->removeDnssecRequest($object, $contentType);
 
         return $this->client
@@ -1317,18 +1317,18 @@ class RegistryApi
      * Set the nameservers of a domain at the registry
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload setNameserversPayload (required)
+     * @param  \SimplyCom\Model\SetNameserversPayload $setNameserversPayload setNameserversPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
      */
     public function setNameservers(
         string $object,
-        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        \SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
         string $contentType = self::contentTypes['setNameservers'][0]
-    ): \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
     {
         list($response) = $this->setNameserversWithHttpInfo($object, $setNameserversPayload, $contentType);
         return $response;
@@ -1340,16 +1340,16 @@ class RegistryApi
      * Set the nameservers of a domain at the registry
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  \SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\SuccessResponse|\SimplyCom\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function setNameserversWithHttpInfo(
         string $object,
-        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        \SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
         string $contentType = self::contentTypes['setNameservers'][0]
     ): array
     {
@@ -1380,13 +1380,13 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -1407,7 +1407,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                '\SimplyCom\Model\SuccessResponse',
                 $request,
                 $response,
             );
@@ -1416,7 +1416,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\SuccessResponse',
+                        '\SimplyCom\Model\SuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1424,7 +1424,7 @@ class RegistryApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1441,7 +1441,7 @@ class RegistryApi
      * Set the nameservers of a domain at the registry
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  \SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -1449,7 +1449,7 @@ class RegistryApi
      */
     public function setNameserversAsync(
         string $object,
-        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        \SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
         string $contentType = self::contentTypes['setNameservers'][0]
     ): PromiseInterface
     {
@@ -1467,7 +1467,7 @@ class RegistryApi
      * Set the nameservers of a domain at the registry
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  \SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -1475,11 +1475,11 @@ class RegistryApi
      */
     public function setNameserversAsyncWithHttpInfo(
         string $object,
-        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        \SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
         string $contentType = self::contentTypes['setNameservers'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\SuccessResponse';
+        $returnType = '\SimplyCom\Model\SuccessResponse';
         $request = $this->setNameserversRequest($object, $setNameserversPayload, $contentType);
 
         return $this->client
@@ -1522,7 +1522,7 @@ class RegistryApi
      * Create request for operation 'setNameservers'
      *
      * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
-     * @param  \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
+     * @param  \SimplyCom\Model\SetNameserversPayload $setNameserversPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setNameservers'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -1530,7 +1530,7 @@ class RegistryApi
      */
     public function setNameserversRequest(
         string $object,
-        \SimplyCom\SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
+        \SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
         string $contentType = self::contentTypes['setNameservers'][0]
     ): Request
     {

@@ -32,7 +32,7 @@ use DateTime;
 use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Message\StreamInterface;
 use SplFileObject;
-use SimplyCom\SimplyCom\Model\ModelInterface;
+use SimplyCom\Model\ModelInterface;
 
 class FormDataProcessor
 {

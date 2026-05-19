@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Api;
+namespace SimplyCom\Api;
 
 use InvalidArgumentException;
 use GuzzleHttp\Client;
@@ -130,17 +130,17 @@ class OrderApi
      *
      * Order a DNS service with optional domain registration/transfer
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload orderDnsServicePayload (required)
+     * @param  \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload orderDnsServicePayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\Model\ErrorResponse|null
      */
     public function orderDnsService(
-        \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
+        \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
-    ): \SimplyCom\SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\Model\ErrorResponse|null
     {
         list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServicePayload, $contentType);
         return $response;
@@ -151,15 +151,15 @@ class OrderApi
      *
      * Order a DNS service with optional domain registration/transfer
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
+     * @param  \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderDnsServiceWithHttpInfo(
-        \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
+        \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): array
     {
@@ -190,13 +190,13 @@ class OrderApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\OrderDnsServiceResponse',
+                        '\SimplyCom\Model\OrderDnsServiceResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -217,7 +217,7 @@ class OrderApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\OrderDnsServiceResponse',
+                '\SimplyCom\Model\OrderDnsServiceResponse',
                 $request,
                 $response,
             );
@@ -226,7 +226,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\OrderDnsServiceResponse',
+                        '\SimplyCom\Model\OrderDnsServiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -234,7 +234,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,14 +250,14 @@ class OrderApi
      *
      * Order a DNS service with optional domain registration/transfer
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
+     * @param  \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function orderDnsServiceAsync(
-        \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
+        \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): PromiseInterface
     {
@@ -274,18 +274,18 @@ class OrderApi
      *
      * Order a DNS service with optional domain registration/transfer
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
+     * @param  \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function orderDnsServiceAsyncWithHttpInfo(
-        \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
+        \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\OrderDnsServiceResponse';
+        $returnType = '\SimplyCom\Model\OrderDnsServiceResponse';
         $request = $this->orderDnsServiceRequest($orderDnsServicePayload, $contentType);
 
         return $this->client
@@ -327,14 +327,14 @@ class OrderApi
     /**
      * Create request for operation 'orderDnsService'
      *
-     * @param  \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
+     * @param  \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderDnsService'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function orderDnsServiceRequest(
-        \SimplyCom\SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
+        \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): Request
     {

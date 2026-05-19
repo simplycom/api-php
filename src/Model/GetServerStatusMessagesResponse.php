@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'messages' => '\SimplyCom\SimplyCom\Model\ServerStatusMessage[]'
+        'messages' => '\SimplyCom\Model\ServerStatusMessage[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     /**
      * Gets messages
      *
-     * @return \SimplyCom\SimplyCom\Model\ServerStatusMessage[]
+     * @return \SimplyCom\Model\ServerStatusMessage[]
      */
     public function getMessages(): array
     {
@@ -353,7 +353,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     /**
      * Sets messages
      *
-     * @param \SimplyCom\SimplyCom\Model\ServerStatusMessage[] $messages Array of server status messages
+     * @param \SimplyCom\Model\ServerStatusMessage[] $messages Array of server status messages
      *
      * @return $this
      */

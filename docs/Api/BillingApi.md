@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `getInvoices()`
 
 ```php
-getInvoices(): \SimplyCom\SimplyCom\Model\GetInvoicesResponse
+getInvoices(): \SimplyCom\Model\GetInvoicesResponse
 ```
 
 Retrieve list of invoices
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetInvoicesResponse**](../Model/GetInvoicesResponse.md)
+[**\SimplyCom\Model\GetInvoicesResponse**](../Model/GetInvoicesResponse.md)
 
 ### Authorization
 

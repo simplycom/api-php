@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `getServerStatusMessages()`
 
 ```php
-getServerStatusMessages(): \SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse
+getServerStatusMessages(): \SimplyCom\Model\GetServerStatusMessagesResponse
 ```
 
 Retrieve server status messages
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse**](../Model/GetServerStatusMessagesResponse.md)
+[**\SimplyCom\Model\GetServerStatusMessagesResponse**](../Model/GetServerStatusMessagesResponse.md)
 
 ### Authorization
 

@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'databases' => '\SimplyCom\SimplyCom\Model\MysqlDatabase[]'
+        'databases' => '\SimplyCom\Model\MysqlDatabase[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets databases
      *
-     * @return \SimplyCom\SimplyCom\Model\MysqlDatabase[]
+     * @return \SimplyCom\Model\MysqlDatabase[]
      */
     public function getDatabases(): array
     {
@@ -353,7 +353,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets databases
      *
-     * @param \SimplyCom\SimplyCom\Model\MysqlDatabase[] $databases databases
+     * @param \SimplyCom\Model\MysqlDatabase[] $databases databases
      *
      * @return $this
      */

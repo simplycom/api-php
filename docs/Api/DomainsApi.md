@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `domaincheck()`
 
 ```php
-domaincheck($domain): \SimplyCom\SimplyCom\Model\DomaincheckResponse
+domaincheck($domain): \SimplyCom\Model\DomaincheckResponse
 ```
 
 Check domain availability
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\DomaincheckResponse**](../Model/DomaincheckResponse.md)
+[**\SimplyCom\Model\DomaincheckResponse**](../Model/DomaincheckResponse.md)
 
 ### Authorization
 

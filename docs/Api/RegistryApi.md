@@ -14,7 +14,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `addDnssecKey()`
 
 ```php
-addDnssecKey($object, $addDnsSecKeyPayload): \SimplyCom\SimplyCom\Model\SuccessResponse
+addDnssecKey($object, $addDnsSecKeyPayload): \SimplyCom\Model\SuccessResponse
 ```
 
 Add a DNSSEC key to a domain
@@ -41,7 +41,7 @@ $apiInstance = new SimplyCom\Api\RegistryApi(
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$addDnsSecKeyPayload = new \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload(); // \SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload
+$addDnsSecKeyPayload = new \SimplyCom\Model\AddDnsSecKeyPayload(); // \SimplyCom\Model\AddDnsSecKeyPayload
 
 try {
     $result = $apiInstance->addDnssecKey($object, $addDnsSecKeyPayload);
@@ -56,11 +56,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addDnsSecKeyPayload** | [**\SimplyCom\SimplyCom\Model\AddDnsSecKeyPayload**](../Model/AddDnsSecKeyPayload.md)|  | |
+| **addDnsSecKeyPayload** | [**\SimplyCom\Model\AddDnsSecKeyPayload**](../Model/AddDnsSecKeyPayload.md)|  | |
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
+[**\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ try {
 ## `getDnssecKeys()`
 
 ```php
-getDnssecKeys($object): \SimplyCom\SimplyCom\Model\GetDnssecKeysResponse
+getDnssecKeys($object): \SimplyCom\Model\GetDnssecKeysResponse
 ```
 
 Retrieve DNSSEC keys registered on a domain
@@ -122,7 +122,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse**](../Model/GetDnssecKeysResponse.md)
+[**\SimplyCom\Model\GetDnssecKeysResponse**](../Model/GetDnssecKeysResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ try {
 ## `getNameservers()`
 
 ```php
-getNameservers($object): \SimplyCom\SimplyCom\Model\GetNameserversResponse
+getNameservers($object): \SimplyCom\Model\GetNameserversResponse
 ```
 
 Retrieve the current nameservers of a domain
@@ -184,7 +184,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetNameserversResponse**](../Model/GetNameserversResponse.md)
+[**\SimplyCom\Model\GetNameserversResponse**](../Model/GetNameserversResponse.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ try {
 ## `removeDnssec()`
 
 ```php
-removeDnssec($object): \SimplyCom\SimplyCom\Model\SuccessResponse
+removeDnssec($object): \SimplyCom\Model\SuccessResponse
 ```
 
 Remove all DNSSEC keys from a domain
@@ -246,7 +246,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
+[**\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ try {
 ## `setNameservers()`
 
 ```php
-setNameservers($object, $setNameserversPayload): \SimplyCom\SimplyCom\Model\SuccessResponse
+setNameservers($object, $setNameserversPayload): \SimplyCom\Model\SuccessResponse
 ```
 
 Set the nameservers of a domain at the registry
@@ -291,7 +291,7 @@ $apiInstance = new SimplyCom\Api\RegistryApi(
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$setNameserversPayload = new \SimplyCom\SimplyCom\Model\SetNameserversPayload(); // \SimplyCom\SimplyCom\Model\SetNameserversPayload
+$setNameserversPayload = new \SimplyCom\Model\SetNameserversPayload(); // \SimplyCom\Model\SetNameserversPayload
 
 try {
     $result = $apiInstance->setNameservers($object, $setNameserversPayload);
@@ -306,11 +306,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **setNameserversPayload** | [**\SimplyCom\SimplyCom\Model\SetNameserversPayload**](../Model/SetNameserversPayload.md)|  | |
+| **setNameserversPayload** | [**\SimplyCom\Model\SetNameserversPayload**](../Model/SetNameserversPayload.md)|  | |
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
+[**\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 

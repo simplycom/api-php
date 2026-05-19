@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'products' => '\SimplyCom\SimplyCom\Model\Product[]'
+        'products' => '\SimplyCom\Model\Product[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets products
      *
-     * @return \SimplyCom\SimplyCom\Model\Product[]
+     * @return \SimplyCom\Model\Product[]
      */
     public function getProducts(): array
     {
@@ -353,7 +353,7 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets products
      *
-     * @param \SimplyCom\SimplyCom\Model\Product[] $products Array of products
+     * @param \SimplyCom\Model\Product[] $products Array of products
      *
      * @return $this
      */

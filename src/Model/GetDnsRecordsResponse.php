@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'records' => '\SimplyCom\SimplyCom\Model\DnsRecord[]'
+        'records' => '\SimplyCom\Model\DnsRecord[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets records
      *
-     * @return \SimplyCom\SimplyCom\Model\DnsRecord[]
+     * @return \SimplyCom\Model\DnsRecord[]
      */
     public function getRecords(): array
     {
@@ -353,7 +353,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets records
      *
-     * @param \SimplyCom\SimplyCom\Model\DnsRecord[] $records Array of DNS records in the zone
+     * @param \SimplyCom\Model\DnsRecord[] $records Array of DNS records in the zone
      *
      * @return $this
      */

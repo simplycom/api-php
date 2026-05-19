@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -60,7 +60,7 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'dnssecKeys' => '\SimplyCom\SimplyCom\Model\DnssecKey[]'
+        'dnssecKeys' => '\SimplyCom\Model\DnssecKey[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets dnssecKeys
      *
-     * @return \SimplyCom\SimplyCom\Model\DnssecKey[]
+     * @return \SimplyCom\Model\DnssecKey[]
      */
     public function getDnssecKeys(): array
     {
@@ -353,7 +353,7 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets dnssecKeys
      *
-     * @param \SimplyCom\SimplyCom\Model\DnssecKey[] $dnssecKeys DNSSEC keys published at the registry
+     * @param \SimplyCom\Model\DnssecKey[] $dnssecKeys DNSSEC keys published at the registry
      *
      * @return $this
      */

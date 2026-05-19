@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `addMailAccount()`
 
 ```php
-addMailAccount($object, $addMailAccountPayload): \SimplyCom\SimplyCom\Model\SuccessResponse
+addMailAccount($object, $addMailAccountPayload): \SimplyCom\Model\SuccessResponse
 ```
 
 Add new mail account to a product
@@ -37,7 +37,7 @@ $apiInstance = new SimplyCom\Api\MailApi(
     $config
 );
 $object = example.com; // string | The product handle/UUID, as found in the /my/products/ endpoint.
-$addMailAccountPayload = new \SimplyCom\SimplyCom\Model\AddMailAccountPayload(); // \SimplyCom\SimplyCom\Model\AddMailAccountPayload
+$addMailAccountPayload = new \SimplyCom\Model\AddMailAccountPayload(); // \SimplyCom\Model\AddMailAccountPayload
 
 try {
     $result = $apiInstance->addMailAccount($object, $addMailAccountPayload);
@@ -52,11 +52,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **object** | **string**| The product handle/UUID, as found in the /my/products/ endpoint. | |
-| **addMailAccountPayload** | [**\SimplyCom\SimplyCom\Model\AddMailAccountPayload**](../Model/AddMailAccountPayload.md)|  | |
+| **addMailAccountPayload** | [**\SimplyCom\Model\AddMailAccountPayload**](../Model/AddMailAccountPayload.md)|  | |
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
+[**\SimplyCom\Model\SuccessResponse**](../Model/SuccessResponse.md)
 
 ### Authorization
 

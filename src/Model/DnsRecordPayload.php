@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace SimplyCom\SimplyCom\Model;
+namespace SimplyCom\Model;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -58,7 +58,7 @@ class DnsRecordPayload implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'type' => '\SimplyCom\SimplyCom\Model\DnsRecordType',
+        'type' => '\SimplyCom\Model\DnsRecordType',
         'name' => 'string',
         'data' => 'string',
         'ttl' => 'int',
@@ -310,9 +310,9 @@ class DnsRecordPayload implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets type
      *
-     * @return \SimplyCom\SimplyCom\Model\DnsRecordType
+     * @return \SimplyCom\Model\DnsRecordType
      */
-    public function getType(): \SimplyCom\SimplyCom\Model\DnsRecordType
+    public function getType(): \SimplyCom\Model\DnsRecordType
     {
         return $this->container['type'];
     }
@@ -320,11 +320,11 @@ class DnsRecordPayload implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets type
      *
-     * @param \SimplyCom\SimplyCom\Model\DnsRecordType $type type
+     * @param \SimplyCom\Model\DnsRecordType $type type
      *
      * @return $this
      */
-    public function setType(\SimplyCom\SimplyCom\Model\DnsRecordType $type): static
+    public function setType(\SimplyCom\Model\DnsRecordType $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
