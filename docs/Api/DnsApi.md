@@ -17,7 +17,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `addDnsRecord()`
 
 ```php
-addDnsRecord($object, $dnsRecordPayload): \SimplyCom\SimplyCom\Model\AddDnsRecord200Response
+addDnsRecord($object, $dnsRecordPayload): \SimplyCom\SimplyCom\Model\AddDnsRecordResponse
 ```
 
 Add new DNS record to a product DNS zone
@@ -63,7 +63,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\AddDnsRecord200Response**](../Model/AddDnsRecord200Response.md)
+[**\SimplyCom\SimplyCom\Model\AddDnsRecordResponse**](../Model/AddDnsRecordResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ try {
 ## `getDnsRecords()`
 
 ```php
-getDnsRecords($object): \SimplyCom\SimplyCom\Model\GetDnsRecords200Response
+getDnsRecords($object): \SimplyCom\SimplyCom\Model\GetDnsRecordsResponse
 ```
 
 Retrieve all DNS records for a product
@@ -325,7 +325,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetDnsRecords200Response**](../Model/GetDnsRecords200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetDnsRecordsResponse**](../Model/GetDnsRecordsResponse.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ try {
 ## `getDnsZone()`
 
 ```php
-getDnsZone($object): \SimplyCom\SimplyCom\Model\GetDnsZone200Response
+getDnsZone($object): \SimplyCom\SimplyCom\Model\GetDnsZoneResponse
 ```
 
 Retrieve DNS zone metadata
@@ -387,7 +387,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetDnsZone200Response**](../Model/GetDnsZone200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetDnsZoneResponse**](../Model/GetDnsZoneResponse.md)
 
 ### Authorization
 

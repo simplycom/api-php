@@ -78,7 +78,7 @@ try {
 ## `getDnssecKeys()`
 
 ```php
-getDnssecKeys($object): \SimplyCom\SimplyCom\Model\GetDnssecKeys200Response
+getDnssecKeys($object): \SimplyCom\SimplyCom\Model\GetDnssecKeysResponse
 ```
 
 Retrieve DNSSEC keys registered on a domain
@@ -122,7 +122,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetDnssecKeys200Response**](../Model/GetDnssecKeys200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse**](../Model/GetDnssecKeysResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ try {
 ## `getNameservers()`
 
 ```php
-getNameservers($object): \SimplyCom\SimplyCom\Model\GetNameservers200Response
+getNameservers($object): \SimplyCom\SimplyCom\Model\GetNameserversResponse
 ```
 
 Retrieve the current nameservers of a domain
@@ -184,7 +184,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetNameservers200Response**](../Model/GetNameservers200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetNameserversResponse**](../Model/GetNameserversResponse.md)
 
 ### Authorization
 

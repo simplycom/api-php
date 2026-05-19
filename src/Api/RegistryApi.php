@@ -469,12 +469,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetDnssecKeys200Response|null
+     * @return \SimplyCom\SimplyCom\Model\GetDnssecKeysResponse|null
      */
     public function getDnssecKeys(
         string $object,
         string $contentType = self::contentTypes['getDnssecKeys'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetDnssecKeys200Response
+    ): ?\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse
     {
         list($response) = $this->getDnssecKeysWithHttpInfo($object, $contentType);
         return $response;
@@ -490,7 +490,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetDnssecKeys200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetDnssecKeysResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDnssecKeysWithHttpInfo(
         string $object,
@@ -524,7 +524,7 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetDnssecKeys200Response',
+                        '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse',
                         $request,
                         $response,
                     );
@@ -545,7 +545,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetDnssecKeys200Response',
+                '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse',
                 $request,
                 $response,
             );
@@ -554,7 +554,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetDnssecKeys200Response',
+                        '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -605,7 +605,7 @@ class RegistryApi
         string $contentType = self::contentTypes['getDnssecKeys'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetDnssecKeys200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\GetDnssecKeysResponse';
         $request = $this->getDnssecKeysRequest($object, $contentType);
 
         return $this->client
@@ -753,12 +753,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetNameservers200Response|null
+     * @return \SimplyCom\SimplyCom\Model\GetNameserversResponse|null
      */
     public function getNameservers(
         string $object,
         string $contentType = self::contentTypes['getNameservers'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetNameservers200Response
+    ): ?\SimplyCom\SimplyCom\Model\GetNameserversResponse
     {
         list($response) = $this->getNameserversWithHttpInfo($object, $contentType);
         return $response;
@@ -774,7 +774,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetNameservers200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetNameserversResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNameserversWithHttpInfo(
         string $object,
@@ -808,7 +808,7 @@ class RegistryApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetNameservers200Response',
+                        '\SimplyCom\SimplyCom\Model\GetNameserversResponse',
                         $request,
                         $response,
                     );
@@ -829,7 +829,7 @@ class RegistryApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetNameservers200Response',
+                '\SimplyCom\SimplyCom\Model\GetNameserversResponse',
                 $request,
                 $response,
             );
@@ -838,7 +838,7 @@ class RegistryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetNameservers200Response',
+                        '\SimplyCom\SimplyCom\Model\GetNameserversResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -889,7 +889,7 @@ class RegistryApi
         string $contentType = self::contentTypes['getNameservers'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetNameservers200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\GetNameserversResponse';
         $request = $this->getNameserversRequest($object, $contentType);
 
         return $this->client

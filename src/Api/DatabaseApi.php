@@ -135,12 +135,12 @@ class DatabaseApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response|null
+     * @return \SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse|null
      */
     public function getMysqlDatabases(
         string $object,
         string $contentType = self::contentTypes['getMysqlDatabases'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response
+    ): ?\SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse
     {
         list($response) = $this->getMysqlDatabasesWithHttpInfo($object, $contentType);
         return $response;
@@ -156,7 +156,7 @@ class DatabaseApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMysqlDatabasesWithHttpInfo(
         string $object,
@@ -190,7 +190,7 @@ class DatabaseApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response',
+                        '\SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse',
                         $request,
                         $response,
                     );
@@ -211,7 +211,7 @@ class DatabaseApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response',
+                '\SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse',
                 $request,
                 $response,
             );
@@ -220,7 +220,7 @@ class DatabaseApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response',
+                        '\SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -271,7 +271,7 @@ class DatabaseApi
         string $contentType = self::contentTypes['getMysqlDatabases'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse';
         $request = $this->getMysqlDatabasesRequest($object, $contentType);
 
         return $this->client

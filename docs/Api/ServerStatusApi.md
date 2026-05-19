@@ -1,19 +1,21 @@
 # SimplyCom\ServerStatusApi
 
-All URIs are relative to https://api.simply.com/2, except if the operation defines another base path.
+All URIs are relative to https://api.simply.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getServerStatusMessages()**](ServerStatusApi.md#getServerStatusMessages) | **GET** /my/serverstatus/messages/ | Retrieve a list of current and past serverstatus messages |
+| [**getServerStatusMessages()**](ServerStatusApi.md#getServerStatusMessages) | **GET** /2/my/serverstatus/messages/ | Retrieve server status messages |
 
 
 ## `getServerStatusMessages()`
 
 ```php
-getServerStatusMessages(): \SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response
+getServerStatusMessages(): \SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse
 ```
 
-Retrieve a list of current and past serverstatus messages
+Retrieve server status messages
+
+Retrieve a list of current and past server status messages, including planned maintenance and incidents. Returns messages from the last 6 months.
 
 ### Example
 
@@ -49,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetServerStatusMessages200Response**](../Model/GetServerStatusMessages200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetServerStatusMessagesResponse**](../Model/GetServerStatusMessagesResponse.md)
 
 ### Authorization
 

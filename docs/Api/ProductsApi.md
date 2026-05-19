@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `getProductList()`
 
 ```php
-getProductList(): \SimplyCom\SimplyCom\Model\GetProductList200Response
+getProductList(): \SimplyCom\SimplyCom\Model\GetProductListResponse
 ```
 
 Retrieve list of products
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetProductList200Response**](../Model/GetProductList200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetProductListResponse**](../Model/GetProductListResponse.md)
 
 ### Authorization
 

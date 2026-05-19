@@ -134,11 +134,11 @@ class ProductsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\SimplyCom\Model\GetProductList200Response|null
+     * @return \SimplyCom\SimplyCom\Model\GetProductListResponse|null
      */
     public function getProductList(
         string $contentType = self::contentTypes['getProductList'][0]
-    ): ?\SimplyCom\SimplyCom\Model\GetProductList200Response
+    ): ?\SimplyCom\SimplyCom\Model\GetProductListResponse
     {
         list($response) = $this->getProductListWithHttpInfo($contentType);
         return $response;
@@ -153,7 +153,7 @@ class ProductsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\SimplyCom\Model\GetProductList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\SimplyCom\Model\GetProductListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductListWithHttpInfo(
         string $contentType = self::contentTypes['getProductList'][0]
@@ -186,7 +186,7 @@ class ProductsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\SimplyCom\Model\GetProductList200Response',
+                        '\SimplyCom\SimplyCom\Model\GetProductListResponse',
                         $request,
                         $response,
                     );
@@ -207,7 +207,7 @@ class ProductsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\SimplyCom\Model\GetProductList200Response',
+                '\SimplyCom\SimplyCom\Model\GetProductListResponse',
                 $request,
                 $response,
             );
@@ -216,7 +216,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\SimplyCom\Model\GetProductList200Response',
+                        '\SimplyCom\SimplyCom\Model\GetProductListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -263,7 +263,7 @@ class ProductsApi
         string $contentType = self::contentTypes['getProductList'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\SimplyCom\Model\GetProductList200Response';
+        $returnType = '\SimplyCom\SimplyCom\Model\GetProductListResponse';
         $request = $this->getProductListRequest($contentType);
 
         return $this->client

@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `orderDnsService()`
 
 ```php
-orderDnsService($orderDnsServicePayload): \SimplyCom\SimplyCom\Model\OrderDnsService200Response
+orderDnsService($orderDnsServicePayload): \SimplyCom\SimplyCom\Model\OrderDnsServiceResponse
 ```
 
 Order a DNS service with optional domain registration/transfer
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\OrderDnsService200Response**](../Model/OrderDnsService200Response.md)
+[**\SimplyCom\SimplyCom\Model\OrderDnsServiceResponse**](../Model/OrderDnsServiceResponse.md)
 
 ### Authorization
 

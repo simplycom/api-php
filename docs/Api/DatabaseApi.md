@@ -10,7 +10,7 @@ All URIs are relative to https://api.simply.com, except if the operation defines
 ## `getMysqlDatabases()`
 
 ```php
-getMysqlDatabases($object): \SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response
+getMysqlDatabases($object): \SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse
 ```
 
 List MySQL databases for a product
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\SimplyCom\SimplyCom\Model\GetMysqlDatabases200Response**](../Model/GetMysqlDatabases200Response.md)
+[**\SimplyCom\SimplyCom\Model\GetMysqlDatabasesResponse**](../Model/GetMysqlDatabasesResponse.md)
 
 ### Authorization
 
