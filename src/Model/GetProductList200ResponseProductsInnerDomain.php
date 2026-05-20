@@ -1,6 +1,6 @@
 <?php
 /**
- * GetProductListResponse
+ * GetProductList200ResponseProductsInnerDomain
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetProductListResponse Class Doc Comment
+ * GetProductList200ResponseProductsInnerDomain Class Doc Comment
  *
+ * @description Domain information for the product
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerDomain implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetProductListResponse';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_domain';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +59,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'products' => '\SimplyCom\Model\Product[]'
+        'name' => 'string',
+        'nameIdn' => 'string',
+        'managed' => 'bool',
+        'dateRenewdate' => '\DateTime'
     ];
 
     /**
@@ -69,9 +71,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'products' => null
+        'name' => null,
+        'nameIdn' => null,
+        'managed' => null,
+        'dateRenewdate' => 'date-time'
     ];
 
     /**
@@ -80,9 +83,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'products' => false
+        'name' => false,
+        'nameIdn' => false,
+        'managed' => false,
+        'dateRenewdate' => true
     ];
 
     /**
@@ -161,9 +165,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'products' => 'products'
+        'name' => 'name',
+        'nameIdn' => 'name_idn',
+        'managed' => 'managed',
+        'dateRenewdate' => 'date_renewdate'
     ];
 
     /**
@@ -172,9 +177,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'products' => 'setProducts'
+        'name' => 'setName',
+        'nameIdn' => 'setNameIdn',
+        'managed' => 'setManaged',
+        'dateRenewdate' => 'setDateRenewdate'
     ];
 
     /**
@@ -183,9 +189,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'products' => 'getProducts'
+        'name' => 'getName',
+        'nameIdn' => 'getNameIdn',
+        'managed' => 'getManaged',
+        'dateRenewdate' => 'getDateRenewdate'
     ];
 
     /**
@@ -235,9 +242,10 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('products', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('nameIdn', $data ?? [], null);
+        $this->setIfExists('managed', $data ?? [], null);
+        $this->setIfExists('dateRenewdate', $data ?? [], null);
     }
 
     /**
@@ -265,15 +273,6 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['products'] === null) {
-            $invalidProperties[] = "'products' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +286,116 @@ class GetProductListResponse implements ModelInterface, ArrayAccess, JsonSeriali
 
 
     /**
-     * Gets status
+     * Gets name
      *
-     * @return int
+     * @return string|null
      */
-    public function getStatus(): int
+    public function getName(): ?string
     {
-        return $this->container['status'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets status
+     * Sets name
      *
-     * @param int $status status
+     * @param string|null $name ASCII domain name
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setName(?string $name): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets nameIdn
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getNameIdn(): ?string
     {
-        return $this->container['message'];
+        return $this->container['nameIdn'];
     }
 
     /**
-     * Sets message
+     * Sets nameIdn
      *
-     * @param string $message message
+     * @param string|null $nameIdn Internationalized domain name (IDN)
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setNameIdn(?string $nameIdn): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($nameIdn)) {
+            throw new InvalidArgumentException('non-nullable nameIdn cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['nameIdn'] = $nameIdn;
 
         return $this;
     }
 
     /**
-     * Gets products
+     * Gets managed
      *
-     * @return \SimplyCom\Model\Product[]
+     * @return bool|null
      */
-    public function getProducts(): array
+    public function getManaged(): ?bool
     {
-        return $this->container['products'];
+        return $this->container['managed'];
     }
 
     /**
-     * Sets products
+     * Sets managed
      *
-     * @param \SimplyCom\Model\Product[] $products Array of products
+     * @param bool|null $managed Whether the domain is registered and managed by Simply.com
      *
      * @return $this
      */
-    public function setProducts(array $products): static
+    public function setManaged(?bool $managed): static
     {
-        if (is_null($products)) {
-            throw new InvalidArgumentException('non-nullable products cannot be null');
+        if (is_null($managed)) {
+            throw new InvalidArgumentException('non-nullable managed cannot be null');
         }
-        $this->container['products'] = $products;
+        $this->container['managed'] = $managed;
+
+        return $this;
+    }
+
+    /**
+     * Gets dateRenewdate
+     *
+     * @return \DateTime|null
+     */
+    public function getDateRenewdate(): ?\DateTime
+    {
+        return $this->container['dateRenewdate'];
+    }
+
+    /**
+     * Sets dateRenewdate
+     *
+     * @param \DateTime|null $dateRenewdate Next renewal date for the domain (null if not managed)
+     *
+     * @return $this
+     */
+    public function setDateRenewdate(?\DateTime $dateRenewdate): static
+    {
+        if (is_null($dateRenewdate)) {
+            array_push($this->openAPINullablesSetToNull, 'dateRenewdate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dateRenewdate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dateRenewdate'] = $dateRenewdate;
 
         return $this;
     }

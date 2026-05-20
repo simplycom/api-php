@@ -1,6 +1,6 @@
 <?php
 /**
- * FtpServer
+ * GetDnsZone200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * FtpServer Class Doc Comment
+ * GetDnsZone200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
+class GetDnsZone200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'FtpServer';
+    protected static string $openAPIModelName = 'getDnsZone_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'username' => 'string',
-        'hostname' => 'string',
-        'ip' => 'string'
+        'status' => 'int',
+        'message' => 'string',
+        'zone' => '\SimplyCom\Model\GetDnsZone200ResponseZone'
     ];
 
     /**
@@ -69,9 +69,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'username' => null,
-        'hostname' => null,
-        'ip' => null
+        'status' => null,
+        'message' => null,
+        'zone' => null
     ];
 
     /**
@@ -80,9 +80,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'username' => false,
-        'hostname' => false,
-        'ip' => false
+        'status' => false,
+        'message' => false,
+        'zone' => false
     ];
 
     /**
@@ -161,9 +161,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'username' => 'username',
-        'hostname' => 'hostname',
-        'ip' => 'ip'
+        'status' => 'status',
+        'message' => 'message',
+        'zone' => 'zone'
     ];
 
     /**
@@ -172,9 +172,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'username' => 'setUsername',
-        'hostname' => 'setHostname',
-        'ip' => 'setIp'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'zone' => 'setZone'
     ];
 
     /**
@@ -183,9 +183,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'username' => 'getUsername',
-        'hostname' => 'getHostname',
-        'ip' => 'getIp'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'zone' => 'getZone'
     ];
 
     /**
@@ -235,9 +235,9 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('hostname', $data ?? [], null);
-        $this->setIfExists('ip', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('zone', $data ?? [], null);
     }
 
     /**
@@ -265,15 +265,6 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
-        }
-        if ($this->container['hostname'] === null) {
-            $invalidProperties[] = "'hostname' can't be null";
-        }
-        if ($this->container['ip'] === null) {
-            $invalidProperties[] = "'ip' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +278,82 @@ class FtpServer implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets username
+     * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getUsername(): string
+    public function getStatus(): ?int
     {
-        return $this->container['username'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets username
+     * Sets status
      *
-     * @param string $username FTP username
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setUsername(string $username): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($username)) {
-            throw new InvalidArgumentException('non-nullable username cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['username'] = $username;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets hostname
+     * Gets message
      *
-     * @return string
+     * @return string|null
      */
-    public function getHostname(): string
+    public function getMessage(): ?string
     {
-        return $this->container['hostname'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets hostname
+     * Sets message
      *
-     * @param string $hostname Server hostname
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setHostname(string $hostname): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($hostname)) {
-            throw new InvalidArgumentException('non-nullable hostname cannot be null');
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['hostname'] = $hostname;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets ip
+     * Gets zone
      *
-     * @return string
+     * @return \SimplyCom\Model\GetDnsZone200ResponseZone|null
      */
-    public function getIp(): string
+    public function getZone(): ?\SimplyCom\Model\GetDnsZone200ResponseZone
     {
-        return $this->container['ip'];
+        return $this->container['zone'];
     }
 
     /**
-     * Sets ip
+     * Sets zone
      *
-     * @param string $ip Server IP address
+     * @param \SimplyCom\Model\GetDnsZone200ResponseZone|null $zone zone
      *
      * @return $this
      */
-    public function setIp(string $ip): static
+    public function setZone(?\SimplyCom\Model\GetDnsZone200ResponseZone $zone): static
     {
-        if (is_null($ip)) {
-            throw new InvalidArgumentException('non-nullable ip cannot be null');
+        if (is_null($zone)) {
+            throw new InvalidArgumentException('non-nullable zone cannot be null');
         }
-        $this->container['ip'] = $ip;
+        $this->container['zone'] = $zone;
 
         return $this;
     }

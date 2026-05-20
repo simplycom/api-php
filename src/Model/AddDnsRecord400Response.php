@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductDomain
+ * AddDnsRecord400Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ProductDomain Class Doc Comment
+ * AddDnsRecord400Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
+class AddDnsRecord400Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'ProductDomain';
+    protected static string $openAPIModelName = 'addDnsRecord_400_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'name' => 'string',
-        'nameIdn' => 'string',
-        'managed' => 'bool',
-        'dateRenewdate' => '\DateTime'
+        'error' => 'string'
     ];
 
     /**
@@ -70,10 +67,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'name' => null,
-        'nameIdn' => null,
-        'managed' => null,
-        'dateRenewdate' => 'date-time'
+        'error' => null
     ];
 
     /**
@@ -82,10 +76,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'name' => false,
-        'nameIdn' => false,
-        'managed' => false,
-        'dateRenewdate' => true
+        'error' => false
     ];
 
     /**
@@ -164,10 +155,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'name' => 'name',
-        'nameIdn' => 'name_idn',
-        'managed' => 'managed',
-        'dateRenewdate' => 'date_renewdate'
+        'error' => 'error'
     ];
 
     /**
@@ -176,10 +164,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'name' => 'setName',
-        'nameIdn' => 'setNameIdn',
-        'managed' => 'setManaged',
-        'dateRenewdate' => 'setDateRenewdate'
+        'error' => 'setError'
     ];
 
     /**
@@ -188,10 +173,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'name' => 'getName',
-        'nameIdn' => 'getNameIdn',
-        'managed' => 'getManaged',
-        'dateRenewdate' => 'getDateRenewdate'
+        'error' => 'getError'
     ];
 
     /**
@@ -241,10 +223,7 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('nameIdn', $data ?? [], null);
-        $this->setIfExists('managed', $data ?? [], null);
-        $this->setIfExists('dateRenewdate', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
     }
 
     /**
@@ -272,15 +251,6 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['nameIdn'] === null) {
-            $invalidProperties[] = "'nameIdn' can't be null";
-        }
-        if ($this->container['managed'] === null) {
-            $invalidProperties[] = "'managed' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -294,116 +264,28 @@ class ProductDomain implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets error
      *
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getError(): ?string
     {
-        return $this->container['name'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets name
+     * Sets error
      *
-     * @param string $name ASCII domain name
+     * @param string|null $error error
      *
      * @return $this
      */
-    public function setName(string $name): static
+    public function setError(?string $error): static
     {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($error)) {
+            throw new InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets nameIdn
-     *
-     * @return string
-     */
-    public function getNameIdn(): string
-    {
-        return $this->container['nameIdn'];
-    }
-
-    /**
-     * Sets nameIdn
-     *
-     * @param string $nameIdn Internationalized domain name (IDN)
-     *
-     * @return $this
-     */
-    public function setNameIdn(string $nameIdn): static
-    {
-        if (is_null($nameIdn)) {
-            throw new InvalidArgumentException('non-nullable nameIdn cannot be null');
-        }
-        $this->container['nameIdn'] = $nameIdn;
-
-        return $this;
-    }
-
-    /**
-     * Gets managed
-     *
-     * @return bool
-     */
-    public function getManaged(): bool
-    {
-        return $this->container['managed'];
-    }
-
-    /**
-     * Sets managed
-     *
-     * @param bool $managed Whether the domain is registered and managed by Simply.com
-     *
-     * @return $this
-     */
-    public function setManaged(bool $managed): static
-    {
-        if (is_null($managed)) {
-            throw new InvalidArgumentException('non-nullable managed cannot be null');
-        }
-        $this->container['managed'] = $managed;
-
-        return $this;
-    }
-
-    /**
-     * Gets dateRenewdate
-     *
-     * @return \DateTime|null
-     */
-    public function getDateRenewdate(): ?\DateTime
-    {
-        return $this->container['dateRenewdate'];
-    }
-
-    /**
-     * Sets dateRenewdate
-     *
-     * @param \DateTime|null $dateRenewdate Next renewal date for the domain (null if not managed)
-     *
-     * @return $this
-     */
-    public function setDateRenewdate(?\DateTime $dateRenewdate): static
-    {
-        if (is_null($dateRenewdate)) {
-            array_push($this->openAPINullablesSetToNull, 'dateRenewdate');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dateRenewdate', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['dateRenewdate'] = $dateRenewdate;
+        $this->container['error'] = $error;
 
         return $this;
     }

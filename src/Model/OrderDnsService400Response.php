@@ -1,6 +1,6 @@
 <?php
 /**
- * Invoice
+ * OrderDnsService400Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * Invoice Class Doc Comment
+ * OrderDnsService400Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
+class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'Invoice';
+    protected static string $openAPIModelName = 'orderDnsService_400_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'date' => '\DateTime',
-        'invoiceno' => 'string',
-        'subject' => 'string',
-        'amount' => 'float',
-        'currency' => 'string',
-        'transactionno' => 'string',
-        'reference' => 'string'
+        'error' => 'string'
     ];
 
     /**
@@ -73,13 +67,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'date' => 'date-time',
-        'invoiceno' => null,
-        'subject' => null,
-        'amount' => 'float',
-        'currency' => null,
-        'transactionno' => null,
-        'reference' => null
+        'error' => null
     ];
 
     /**
@@ -88,13 +76,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'date' => false,
-        'invoiceno' => false,
-        'subject' => false,
-        'amount' => false,
-        'currency' => false,
-        'transactionno' => false,
-        'reference' => true
+        'error' => false
     ];
 
     /**
@@ -173,13 +155,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'date' => 'date',
-        'invoiceno' => 'invoiceno',
-        'subject' => 'subject',
-        'amount' => 'amount',
-        'currency' => 'currency',
-        'transactionno' => 'transactionno',
-        'reference' => 'reference'
+        'error' => 'error'
     ];
 
     /**
@@ -188,13 +164,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'date' => 'setDate',
-        'invoiceno' => 'setInvoiceno',
-        'subject' => 'setSubject',
-        'amount' => 'setAmount',
-        'currency' => 'setCurrency',
-        'transactionno' => 'setTransactionno',
-        'reference' => 'setReference'
+        'error' => 'setError'
     ];
 
     /**
@@ -203,13 +173,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'date' => 'getDate',
-        'invoiceno' => 'getInvoiceno',
-        'subject' => 'getSubject',
-        'amount' => 'getAmount',
-        'currency' => 'getCurrency',
-        'transactionno' => 'getTransactionno',
-        'reference' => 'getReference'
+        'error' => 'getError'
     ];
 
     /**
@@ -259,13 +223,7 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('invoiceno', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('transactionno', $data ?? [], null);
-        $this->setIfExists('reference', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
     }
 
     /**
@@ -293,24 +251,6 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['invoiceno'] === null) {
-            $invalidProperties[] = "'invoiceno' can't be null";
-        }
-        if ($this->container['subject'] === null) {
-            $invalidProperties[] = "'subject' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['transactionno'] === null) {
-            $invalidProperties[] = "'transactionno' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -324,197 +264,28 @@ class Invoice implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets date
-     *
-     * @return \DateTime
-     */
-    public function getDate(): \DateTime
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime $date Payment date
-     *
-     * @return $this
-     */
-    public function setDate(\DateTime $date): static
-    {
-        if (is_null($date)) {
-            throw new InvalidArgumentException('non-nullable date cannot be null');
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoiceno
-     *
-     * @return string
-     */
-    public function getInvoiceno(): string
-    {
-        return $this->container['invoiceno'];
-    }
-
-    /**
-     * Sets invoiceno
-     *
-     * @param string $invoiceno Invoice number
-     *
-     * @return $this
-     */
-    public function setInvoiceno(string $invoiceno): static
-    {
-        if (is_null($invoiceno)) {
-            throw new InvalidArgumentException('non-nullable invoiceno cannot be null');
-        }
-        $this->container['invoiceno'] = $invoiceno;
-
-        return $this;
-    }
-
-    /**
-     * Gets subject
-     *
-     * @return string
-     */
-    public function getSubject(): string
-    {
-        return $this->container['subject'];
-    }
-
-    /**
-     * Sets subject
-     *
-     * @param string $subject Invoice subject/description
-     *
-     * @return $this
-     */
-    public function setSubject(string $subject): static
-    {
-        if (is_null($subject)) {
-            throw new InvalidArgumentException('non-nullable subject cannot be null');
-        }
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return float
-     */
-    public function getAmount(): float
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param float $amount Invoice amount
-     *
-     * @return $this
-     */
-    public function setAmount(float $amount): static
-    {
-        if (is_null($amount)) {
-            throw new InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency(): string
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Currency code (ISO 4217)
-     *
-     * @return $this
-     */
-    public function setCurrency(string $currency): static
-    {
-        if (is_null($currency)) {
-            throw new InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets transactionno
-     *
-     * @return string
-     */
-    public function getTransactionno(): string
-    {
-        return $this->container['transactionno'];
-    }
-
-    /**
-     * Sets transactionno
-     *
-     * @param string $transactionno Payment transaction number
-     *
-     * @return $this
-     */
-    public function setTransactionno(string $transactionno): static
-    {
-        if (is_null($transactionno)) {
-            throw new InvalidArgumentException('non-nullable transactionno cannot be null');
-        }
-        $this->container['transactionno'] = $transactionno;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference
+     * Gets error
      *
      * @return string|null
      */
-    public function getReference(): ?string
+    public function getError(): ?string
     {
-        return $this->container['reference'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets reference
+     * Sets error
      *
-     * @param string|null $reference Product reference/handle
+     * @param string|null $error error
      *
      * @return $this
      */
-    public function setReference(?string $reference): static
+    public function setError(?string $error): static
     {
-        if (is_null($reference)) {
-            array_push($this->openAPINullablesSetToNull, 'reference');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reference', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($error)) {
+            throw new InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['reference'] = $reference;
+        $this->container['error'] = $error;
 
         return $this;
     }

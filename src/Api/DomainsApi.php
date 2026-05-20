@@ -135,12 +135,12 @@ class DomainsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\DomaincheckResponse|null
+     * @return \SimplyCom\Model\Domaincheck200Response|null
      */
     public function domaincheck(
         string $domain,
         string $contentType = self::contentTypes['domaincheck'][0]
-    ): ?\SimplyCom\Model\DomaincheckResponse
+    ): ?\SimplyCom\Model\Domaincheck200Response
     {
         list($response) = $this->domaincheckWithHttpInfo($domain, $contentType);
         return $response;
@@ -156,7 +156,7 @@ class DomainsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\DomaincheckResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\Domaincheck200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function domaincheckWithHttpInfo(
         string $domain,
@@ -190,7 +190,7 @@ class DomainsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\DomaincheckResponse',
+                        '\SimplyCom\Model\Domaincheck200Response',
                         $request,
                         $response,
                     );
@@ -211,7 +211,7 @@ class DomainsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Model\DomaincheckResponse',
+                '\SimplyCom\Model\Domaincheck200Response',
                 $request,
                 $response,
             );
@@ -220,7 +220,7 @@ class DomainsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\DomaincheckResponse',
+                        '\SimplyCom\Model\Domaincheck200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -271,7 +271,7 @@ class DomainsApi
         string $contentType = self::contentTypes['domaincheck'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Model\DomaincheckResponse';
+        $returnType = '\SimplyCom\Model\Domaincheck200Response';
         $request = $this->domaincheckRequest($domain, $contentType);
 
         return $this->client

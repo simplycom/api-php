@@ -1,6 +1,6 @@
 <?php
 /**
- * MysqlDatabase
+ * OrderDnsService200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * MysqlDatabase Class Doc Comment
+ * OrderDnsService200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
+class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'MysqlDatabase';
+    protected static string $openAPIModelName = 'orderDnsService_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'hostname' => 'string',
-        'port' => 'int',
-        'username' => 'string',
-        'database' => 'string'
+        'status' => 'int',
+        'message' => 'string',
+        'order' => '\SimplyCom\Model\OrderDnsService200ResponseOrder'
     ];
 
     /**
@@ -70,10 +69,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'hostname' => null,
-        'port' => null,
-        'username' => null,
-        'database' => null
+        'status' => null,
+        'message' => null,
+        'order' => null
     ];
 
     /**
@@ -82,10 +80,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'hostname' => false,
-        'port' => false,
-        'username' => false,
-        'database' => false
+        'status' => false,
+        'message' => false,
+        'order' => true
     ];
 
     /**
@@ -164,10 +161,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'hostname' => 'hostname',
-        'port' => 'port',
-        'username' => 'username',
-        'database' => 'database'
+        'status' => 'status',
+        'message' => 'message',
+        'order' => 'order'
     ];
 
     /**
@@ -176,10 +172,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'hostname' => 'setHostname',
-        'port' => 'setPort',
-        'username' => 'setUsername',
-        'database' => 'setDatabase'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'order' => 'setOrder'
     ];
 
     /**
@@ -188,10 +183,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'hostname' => 'getHostname',
-        'port' => 'getPort',
-        'username' => 'getUsername',
-        'database' => 'getDatabase'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'order' => 'getOrder'
     ];
 
     /**
@@ -241,10 +235,9 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('hostname', $data ?? [], null);
-        $this->setIfExists('port', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('database', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('order', $data ?? [], null);
     }
 
     /**
@@ -272,18 +265,6 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['hostname'] === null) {
-            $invalidProperties[] = "'hostname' can't be null";
-        }
-        if ($this->container['port'] === null) {
-            $invalidProperties[] = "'port' can't be null";
-        }
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
-        }
-        if ($this->container['database'] === null) {
-            $invalidProperties[] = "'database' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,109 +278,89 @@ class MysqlDatabase implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets hostname
+     * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getHostname(): string
+    public function getStatus(): ?int
     {
-        return $this->container['hostname'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets hostname
+     * Sets status
      *
-     * @param string $hostname MySQL server hostname
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setHostname(string $hostname): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($hostname)) {
-            throw new InvalidArgumentException('non-nullable hostname cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['hostname'] = $hostname;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets port
+     * Gets message
      *
-     * @return int
+     * @return string|null
      */
-    public function getPort(): int
+    public function getMessage(): ?string
     {
-        return $this->container['port'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets port
+     * Sets message
      *
-     * @param int $port MySQL server port
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setPort(int $port): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($port)) {
-            throw new InvalidArgumentException('non-nullable port cannot be null');
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['port'] = $port;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets username
+     * Gets order
      *
-     * @return string
+     * @return \SimplyCom\Model\OrderDnsService200ResponseOrder|null
      */
-    public function getUsername(): string
+    public function getOrder(): ?\SimplyCom\Model\OrderDnsService200ResponseOrder
     {
-        return $this->container['username'];
+        return $this->container['order'];
     }
 
     /**
-     * Sets username
+     * Sets order
      *
-     * @param string $username MySQL username
+     * @param \SimplyCom\Model\OrderDnsService200ResponseOrder|null $order order
      *
      * @return $this
      */
-    public function setUsername(string $username): static
+    public function setOrder(?\SimplyCom\Model\OrderDnsService200ResponseOrder $order): static
     {
-        if (is_null($username)) {
-            throw new InvalidArgumentException('non-nullable username cannot be null');
+        if (is_null($order)) {
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets database
-     *
-     * @return string
-     */
-    public function getDatabase(): string
-    {
-        return $this->container['database'];
-    }
-
-    /**
-     * Sets database
-     *
-     * @param string $database Database name
-     *
-     * @return $this
-     */
-    public function setDatabase(string $database): static
-    {
-        if (is_null($database)) {
-            throw new InvalidArgumentException('non-nullable database cannot be null');
-        }
-        $this->container['database'] = $database;
+        $this->container['order'] = $order;
 
         return $this;
     }

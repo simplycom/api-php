@@ -1,6 +1,6 @@
 <?php
 /**
- * GetInvoicesResponse
+ * GetProductList200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetInvoicesResponse Class Doc Comment
+ * GetProductList200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetInvoicesResponse';
+    protected static string $openAPIModelName = 'getProductList_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'invoices' => '\SimplyCom\Model\Invoice[]'
+        'products' => '\SimplyCom\Model\GetProductList200ResponseProductsInner[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $openAPIFormats = [
         'status' => null,
         'message' => null,
-        'invoices' => null
+        'products' => null
     ];
 
     /**
@@ -82,7 +82,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $openAPINullables = [
         'status' => false,
         'message' => false,
-        'invoices' => false
+        'products' => false
     ];
 
     /**
@@ -163,7 +163,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $attributeMap = [
         'status' => 'status',
         'message' => 'message',
-        'invoices' => 'invoices'
+        'products' => 'products'
     ];
 
     /**
@@ -174,7 +174,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $setters = [
         'status' => 'setStatus',
         'message' => 'setMessage',
-        'invoices' => 'setInvoices'
+        'products' => 'setProducts'
     ];
 
     /**
@@ -185,7 +185,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     protected static array $getters = [
         'status' => 'getStatus',
         'message' => 'getMessage',
-        'invoices' => 'getInvoices'
+        'products' => 'getProducts'
     ];
 
     /**
@@ -237,7 +237,7 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('invoices', $data ?? [], null);
+        $this->setIfExists('products', $data ?? [], null);
     }
 
     /**
@@ -265,15 +265,6 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['invoices'] === null) {
-            $invalidProperties[] = "'invoices' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -289,9 +280,9 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets status
      *
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->container['status'];
     }
@@ -299,11 +290,11 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets status
      *
-     * @param int $status status
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setStatus(?int $status): static
     {
         if (is_null($status)) {
             throw new InvalidArgumentException('non-nullable status cannot be null');
@@ -316,9 +307,9 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->container['message'];
     }
@@ -326,11 +317,11 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setMessage(?string $message): static
     {
         if (is_null($message)) {
             throw new InvalidArgumentException('non-nullable message cannot be null');
@@ -341,28 +332,28 @@ class GetInvoicesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     }
 
     /**
-     * Gets invoices
+     * Gets products
      *
-     * @return \SimplyCom\Model\Invoice[]
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInner[]|null
      */
-    public function getInvoices(): array
+    public function getProducts(): ?array
     {
-        return $this->container['invoices'];
+        return $this->container['products'];
     }
 
     /**
-     * Sets invoices
+     * Sets products
      *
-     * @param \SimplyCom\Model\Invoice[] $invoices Array of invoices
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInner[]|null $products Array of products
      *
      * @return $this
      */
-    public function setInvoices(array $invoices): static
+    public function setProducts(?array $products): static
     {
-        if (is_null($invoices)) {
-            throw new InvalidArgumentException('non-nullable invoices cannot be null');
+        if (is_null($products)) {
+            throw new InvalidArgumentException('non-nullable products cannot be null');
         }
-        $this->container['invoices'] = $invoices;
+        $this->container['products'] = $products;
 
         return $this;
     }

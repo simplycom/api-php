@@ -1,6 +1,6 @@
 <?php
 /**
- * DomaincheckResponse
+ * GetProductList200ResponseProductsInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * DomaincheckResponse Class Doc Comment
+ * GetProductList200ResponseProductsInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'DomaincheckResponse';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'domain' => '\SimplyCom\Model\DomainAvailability'
+        'object' => 'string',
+        'objectUri' => 'string',
+        'name' => 'string',
+        'cancelled' => 'bool',
+        'domain' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain',
+        'product' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct',
+        'usernames' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames',
+        'servers' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerServers'
     ];
 
     /**
@@ -69,9 +74,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'domain' => null
+        'object' => null,
+        'objectUri' => null,
+        'name' => null,
+        'cancelled' => null,
+        'domain' => null,
+        'product' => null,
+        'usernames' => null,
+        'servers' => null
     ];
 
     /**
@@ -80,9 +90,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'domain' => false
+        'object' => false,
+        'objectUri' => false,
+        'name' => false,
+        'cancelled' => false,
+        'domain' => false,
+        'product' => false,
+        'usernames' => true,
+        'servers' => false
     ];
 
     /**
@@ -161,9 +176,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'domain' => 'domain'
+        'object' => 'object',
+        'objectUri' => 'object_uri',
+        'name' => 'name',
+        'cancelled' => 'cancelled',
+        'domain' => 'domain',
+        'product' => 'product',
+        'usernames' => 'usernames',
+        'servers' => 'servers'
     ];
 
     /**
@@ -172,9 +192,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'domain' => 'setDomain'
+        'object' => 'setObject',
+        'objectUri' => 'setObjectUri',
+        'name' => 'setName',
+        'cancelled' => 'setCancelled',
+        'domain' => 'setDomain',
+        'product' => 'setProduct',
+        'usernames' => 'setUsernames',
+        'servers' => 'setServers'
     ];
 
     /**
@@ -183,9 +208,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'domain' => 'getDomain'
+        'object' => 'getObject',
+        'objectUri' => 'getObjectUri',
+        'name' => 'getName',
+        'cancelled' => 'getCancelled',
+        'domain' => 'getDomain',
+        'product' => 'getProduct',
+        'usernames' => 'getUsernames',
+        'servers' => 'getServers'
     ];
 
     /**
@@ -235,9 +265,14 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('objectUri', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('cancelled', $data ?? [], null);
         $this->setIfExists('domain', $data ?? [], null);
+        $this->setIfExists('product', $data ?? [], null);
+        $this->setIfExists('usernames', $data ?? [], null);
+        $this->setIfExists('servers', $data ?? [], null);
     }
 
     /**
@@ -265,15 +300,6 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['domain'] === null) {
-            $invalidProperties[] = "'domain' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,55 +313,109 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
 
 
     /**
-     * Gets status
+     * Gets object
      *
-     * @return int
+     * @return string|null
      */
-    public function getStatus(): int
+    public function getObject(): ?string
     {
-        return $this->container['status'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets status
+     * Sets object
      *
-     * @param int $status status
+     * @param string|null $object Product identifier to be used in further API calls (e.g., for DNS endpoints)
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setObject(?string $object): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($object)) {
+            throw new InvalidArgumentException('non-nullable object cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['object'] = $object;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets objectUri
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getObjectUri(): ?string
     {
-        return $this->container['message'];
+        return $this->container['objectUri'];
     }
 
     /**
-     * Sets message
+     * Sets objectUri
      *
-     * @param string $message message
+     * @param string|null $objectUri The base URL for the product object in API calls
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setObjectUri(?string $objectUri): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($objectUri)) {
+            throw new InvalidArgumentException('non-nullable objectUri cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['objectUri'] = $objectUri;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Product name/handle
+     *
+     * @return $this
+     */
+    public function setName(?string $name): static
+    {
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancelled
+     *
+     * @return bool|null
+     */
+    public function getCancelled(): ?bool
+    {
+        return $this->container['cancelled'];
+    }
+
+    /**
+     * Sets cancelled
+     *
+     * @param bool|null $cancelled Whether the product has been cancelled
+     *
+     * @return $this
+     */
+    public function setCancelled(?bool $cancelled): static
+    {
+        if (is_null($cancelled)) {
+            throw new InvalidArgumentException('non-nullable cancelled cannot be null');
+        }
+        $this->container['cancelled'] = $cancelled;
 
         return $this;
     }
@@ -343,9 +423,9 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets domain
      *
-     * @return \SimplyCom\Model\DomainAvailability
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerDomain|null
      */
-    public function getDomain(): \SimplyCom\Model\DomainAvailability
+    public function getDomain(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain
     {
         return $this->container['domain'];
     }
@@ -353,16 +433,104 @@ class DomaincheckResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets domain
      *
-     * @param \SimplyCom\Model\DomainAvailability $domain domain
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerDomain|null $domain domain
      *
      * @return $this
      */
-    public function setDomain(\SimplyCom\Model\DomainAvailability $domain): static
+    public function setDomain(?\SimplyCom\Model\GetProductList200ResponseProductsInnerDomain $domain): static
     {
         if (is_null($domain)) {
             throw new InvalidArgumentException('non-nullable domain cannot be null');
         }
         $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets product
+     *
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerProduct|null
+     */
+    public function getProduct(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct
+    {
+        return $this->container['product'];
+    }
+
+    /**
+     * Sets product
+     *
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerProduct|null $product product
+     *
+     * @return $this
+     */
+    public function setProduct(?\SimplyCom\Model\GetProductList200ResponseProductsInnerProduct $product): static
+    {
+        if (is_null($product)) {
+            throw new InvalidArgumentException('non-nullable product cannot be null');
+        }
+        $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets usernames
+     *
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames|null
+     */
+    public function getUsernames(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames
+    {
+        return $this->container['usernames'];
+    }
+
+    /**
+     * Sets usernames
+     *
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames|null $usernames usernames
+     *
+     * @return $this
+     */
+    public function setUsernames(?\SimplyCom\Model\GetProductList200ResponseProductsInnerUsernames $usernames): static
+    {
+        if (is_null($usernames)) {
+            array_push($this->openAPINullablesSetToNull, 'usernames');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('usernames', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['usernames'] = $usernames;
+
+        return $this;
+    }
+
+    /**
+     * Gets servers
+     *
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerServers|null
+     */
+    public function getServers(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerServers
+    {
+        return $this->container['servers'];
+    }
+
+    /**
+     * Sets servers
+     *
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerServers|null $servers servers
+     *
+     * @return $this
+     */
+    public function setServers(?\SimplyCom\Model\GetProductList200ResponseProductsInnerServers $servers): static
+    {
+        if (is_null($servers)) {
+            throw new InvalidArgumentException('non-nullable servers cannot be null');
+        }
+        $this->container['servers'] = $servers;
 
         return $this;
     }

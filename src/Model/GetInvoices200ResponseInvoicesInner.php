@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDnsZoneResponse
+ * GetInvoices200ResponseInvoicesInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetDnsZoneResponse Class Doc Comment
+ * GetInvoices200ResponseInvoicesInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetInvoices200ResponseInvoicesInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetDnsZoneResponse';
+    protected static string $openAPIModelName = 'getInvoices_200_response_invoices_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'zone' => '\SimplyCom\Model\DnsZoneInfo'
+        'date' => '\DateTime',
+        'invoiceno' => 'string',
+        'reference' => 'string',
+        'subject' => 'string',
+        'amount' => 'float',
+        'currency' => 'string',
+        'transactionno' => 'string'
     ];
 
     /**
@@ -69,9 +73,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'zone' => null
+        'date' => 'date-time',
+        'invoiceno' => null,
+        'reference' => null,
+        'subject' => null,
+        'amount' => 'float',
+        'currency' => null,
+        'transactionno' => null
     ];
 
     /**
@@ -80,9 +88,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'zone' => false
+        'date' => false,
+        'invoiceno' => false,
+        'reference' => true,
+        'subject' => false,
+        'amount' => false,
+        'currency' => false,
+        'transactionno' => false
     ];
 
     /**
@@ -161,9 +173,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'zone' => 'zone'
+        'date' => 'date',
+        'invoiceno' => 'invoiceno',
+        'reference' => 'reference',
+        'subject' => 'subject',
+        'amount' => 'amount',
+        'currency' => 'currency',
+        'transactionno' => 'transactionno'
     ];
 
     /**
@@ -172,9 +188,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'zone' => 'setZone'
+        'date' => 'setDate',
+        'invoiceno' => 'setInvoiceno',
+        'reference' => 'setReference',
+        'subject' => 'setSubject',
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency',
+        'transactionno' => 'setTransactionno'
     ];
 
     /**
@@ -183,9 +203,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'zone' => 'getZone'
+        'date' => 'getDate',
+        'invoiceno' => 'getInvoiceno',
+        'reference' => 'getReference',
+        'subject' => 'getSubject',
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency',
+        'transactionno' => 'getTransactionno'
     ];
 
     /**
@@ -235,9 +259,13 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('zone', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('invoiceno', $data ?? [], null);
+        $this->setIfExists('reference', $data ?? [], null);
+        $this->setIfExists('subject', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('transactionno', $data ?? [], null);
     }
 
     /**
@@ -265,15 +293,6 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['zone'] === null) {
-            $invalidProperties[] = "'zone' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +306,197 @@ class GetDnsZoneResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
 
     /**
-     * Gets status
+     * Gets date
      *
-     * @return int
+     * @return \DateTime|null
      */
-    public function getStatus(): int
+    public function getDate(): ?\DateTime
     {
-        return $this->container['status'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets status
+     * Sets date
      *
-     * @param int $status status
+     * @param \DateTime|null $date Payment date
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setDate(?\DateTime $date): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($date)) {
+            throw new InvalidArgumentException('non-nullable date cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['date'] = $date;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets invoiceno
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getInvoiceno(): ?string
     {
-        return $this->container['message'];
+        return $this->container['invoiceno'];
     }
 
     /**
-     * Sets message
+     * Sets invoiceno
      *
-     * @param string $message message
+     * @param string|null $invoiceno Invoice number
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setInvoiceno(?string $invoiceno): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($invoiceno)) {
+            throw new InvalidArgumentException('non-nullable invoiceno cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['invoiceno'] = $invoiceno;
 
         return $this;
     }
 
     /**
-     * Gets zone
+     * Gets reference
      *
-     * @return \SimplyCom\Model\DnsZoneInfo
+     * @return string|null
      */
-    public function getZone(): \SimplyCom\Model\DnsZoneInfo
+    public function getReference(): ?string
     {
-        return $this->container['zone'];
+        return $this->container['reference'];
     }
 
     /**
-     * Sets zone
+     * Sets reference
      *
-     * @param \SimplyCom\Model\DnsZoneInfo $zone zone
+     * @param string|null $reference Product reference/handle
      *
      * @return $this
      */
-    public function setZone(\SimplyCom\Model\DnsZoneInfo $zone): static
+    public function setReference(?string $reference): static
     {
-        if (is_null($zone)) {
-            throw new InvalidArgumentException('non-nullable zone cannot be null');
+        if (is_null($reference)) {
+            array_push($this->openAPINullablesSetToNull, 'reference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reference', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['zone'] = $zone;
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string|null
+     */
+    public function getSubject(): ?string
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string|null $subject Invoice subject/description
+     *
+     * @return $this
+     */
+    public function setSubject(?string $subject): static
+    {
+        if (is_null($subject)) {
+            throw new InvalidArgumentException('non-nullable subject cannot be null');
+        }
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return float|null
+     */
+    public function getAmount(): ?float
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param float|null $amount Invoice amount
+     *
+     * @return $this
+     */
+    public function setAmount(?float $amount): static
+    {
+        if (is_null($amount)) {
+            throw new InvalidArgumentException('non-nullable amount cannot be null');
+        }
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Currency code (ISO 4217)
+     *
+     * @return $this
+     */
+    public function setCurrency(?string $currency): static
+    {
+        if (is_null($currency)) {
+            throw new InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactionno
+     *
+     * @return string|null
+     */
+    public function getTransactionno(): ?string
+    {
+        return $this->container['transactionno'];
+    }
+
+    /**
+     * Sets transactionno
+     *
+     * @param string|null $transactionno Payment transaction number
+     *
+     * @return $this
+     */
+    public function setTransactionno(?string $transactionno): static
+    {
+        if (is_null($transactionno)) {
+            throw new InvalidArgumentException('non-nullable transactionno cannot be null');
+        }
+        $this->container['transactionno'] = $transactionno;
 
         return $this;
     }

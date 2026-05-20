@@ -1,6 +1,6 @@
 <?php
 /**
- * ServerStatusMessage
+ * GetProductList200ResponseProductsInnerServers
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ServerStatusMessage Class Doc Comment
+ * GetProductList200ResponseProductsInnerServers Class Doc Comment
  *
+ * @description Server information. Web/FTP/SSH entries are only present for hosting products.
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerServers implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'ServerStatusMessage';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_servers';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +59,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'text' => 'string',
-        'dateStart' => '\DateTime',
-        'dateEnd' => '\DateTime',
-        'type' => 'string'
+        'nameservers' => 'string[]',
+        'webserver' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver',
+        'ftpserver' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver',
+        'sshserver' => '\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver'
     ];
 
     /**
@@ -70,10 +71,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'text' => null,
-        'dateStart' => 'date-time',
-        'dateEnd' => 'date-time',
-        'type' => null
+        'nameservers' => null,
+        'webserver' => null,
+        'ftpserver' => null,
+        'sshserver' => null
     ];
 
     /**
@@ -82,10 +83,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'text' => false,
-        'dateStart' => false,
-        'dateEnd' => true,
-        'type' => true
+        'nameservers' => false,
+        'webserver' => true,
+        'ftpserver' => true,
+        'sshserver' => true
     ];
 
     /**
@@ -164,10 +165,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'text' => 'text',
-        'dateStart' => 'date_start',
-        'dateEnd' => 'date_end',
-        'type' => 'type'
+        'nameservers' => 'nameservers',
+        'webserver' => 'webserver',
+        'ftpserver' => 'ftpserver',
+        'sshserver' => 'sshserver'
     ];
 
     /**
@@ -176,10 +177,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $setters = [
-        'text' => 'setText',
-        'dateStart' => 'setDateStart',
-        'dateEnd' => 'setDateEnd',
-        'type' => 'setType'
+        'nameservers' => 'setNameservers',
+        'webserver' => 'setWebserver',
+        'ftpserver' => 'setFtpserver',
+        'sshserver' => 'setSshserver'
     ];
 
     /**
@@ -188,10 +189,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $getters = [
-        'text' => 'getText',
-        'dateStart' => 'getDateStart',
-        'dateEnd' => 'getDateEnd',
-        'type' => 'getType'
+        'nameservers' => 'getNameservers',
+        'webserver' => 'getWebserver',
+        'ftpserver' => 'getFtpserver',
+        'sshserver' => 'getSshserver'
     ];
 
     /**
@@ -241,10 +242,10 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('dateStart', $data ?? [], null);
-        $this->setIfExists('dateEnd', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('nameservers', $data ?? [], null);
+        $this->setIfExists('webserver', $data ?? [], null);
+        $this->setIfExists('ftpserver', $data ?? [], null);
+        $this->setIfExists('sshserver', $data ?? [], null);
     }
 
     /**
@@ -272,12 +273,6 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
-        }
-        if ($this->container['dateStart'] === null) {
-            $invalidProperties[] = "'dateStart' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -291,123 +286,130 @@ class ServerStatusMessage implements ModelInterface, ArrayAccess, JsonSerializab
 
 
     /**
-     * Gets text
+     * Gets nameservers
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getText(): string
+    public function getNameservers(): ?array
     {
-        return $this->container['text'];
+        return $this->container['nameservers'];
     }
 
     /**
-     * Sets text
+     * Sets nameservers
      *
-     * @param string $text Message content in markdown format
+     * @param string[]|null $nameservers Simply.com nameservers currently assigned to the domain in our system. Does not query the registry.
      *
      * @return $this
      */
-    public function setText(string $text): static
+    public function setNameservers(?array $nameservers): static
     {
-        if (is_null($text)) {
-            throw new InvalidArgumentException('non-nullable text cannot be null');
+        if (is_null($nameservers)) {
+            throw new InvalidArgumentException('non-nullable nameservers cannot be null');
         }
-        $this->container['text'] = $text;
+        $this->container['nameservers'] = $nameservers;
 
         return $this;
     }
 
     /**
-     * Gets dateStart
+     * Gets webserver
      *
-     * @return \DateTime
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null
      */
-    public function getDateStart(): \DateTime
+    public function getWebserver(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver
     {
-        return $this->container['dateStart'];
+        return $this->container['webserver'];
     }
 
     /**
-     * Sets dateStart
+     * Sets webserver
      *
-     * @param \DateTime $dateStart Start date/time of the event
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver|null $webserver webserver
      *
      * @return $this
      */
-    public function setDateStart(\DateTime $dateStart): static
+    public function setWebserver(?\SimplyCom\Model\GetProductList200ResponseProductsInnerServersWebserver $webserver): static
     {
-        if (is_null($dateStart)) {
-            throw new InvalidArgumentException('non-nullable dateStart cannot be null');
-        }
-        $this->container['dateStart'] = $dateStart;
-
-        return $this;
-    }
-
-    /**
-     * Gets dateEnd
-     *
-     * @return \DateTime|null
-     */
-    public function getDateEnd(): ?\DateTime
-    {
-        return $this->container['dateEnd'];
-    }
-
-    /**
-     * Sets dateEnd
-     *
-     * @param \DateTime|null $dateEnd End date/time of the event (null if ongoing)
-     *
-     * @return $this
-     */
-    public function setDateEnd(?\DateTime $dateEnd): static
-    {
-        if (is_null($dateEnd)) {
-            array_push($this->openAPINullablesSetToNull, 'dateEnd');
+        if (is_null($webserver)) {
+            array_push($this->openAPINullablesSetToNull, 'webserver');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dateEnd', $nullablesSetToNull);
+            $index = array_search('webserver', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['dateEnd'] = $dateEnd;
+        $this->container['webserver'] = $webserver;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets ftpserver
      *
-     * @return string|null
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver|null
      */
-    public function getType(): ?string
+    public function getFtpserver(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver
     {
-        return $this->container['type'];
+        return $this->container['ftpserver'];
     }
 
     /**
-     * Sets type
+     * Sets ftpserver
      *
-     * @param string|null $type Type of message (\"planned\" for scheduled maintenance, omitted for incidents)
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver|null $ftpserver ftpserver
      *
      * @return $this
      */
-    public function setType(?string $type): static
+    public function setFtpserver(?\SimplyCom\Model\GetProductList200ResponseProductsInnerServersFtpserver $ftpserver): static
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
+        if (is_null($ftpserver)) {
+            array_push($this->openAPINullablesSetToNull, 'ftpserver');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
+            $index = array_search('ftpserver', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['type'] = $type;
+        $this->container['ftpserver'] = $ftpserver;
+
+        return $this;
+    }
+
+    /**
+     * Gets sshserver
+     *
+     * @return \SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver|null
+     */
+    public function getSshserver(): ?\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver
+    {
+        return $this->container['sshserver'];
+    }
+
+    /**
+     * Sets sshserver
+     *
+     * @param \SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver|null $sshserver sshserver
+     *
+     * @return $this
+     */
+    public function setSshserver(?\SimplyCom\Model\GetProductList200ResponseProductsInnerServersSshserver $sshserver): static
+    {
+        if (is_null($sshserver)) {
+            array_push($this->openAPINullablesSetToNull, 'sshserver');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sshserver', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['sshserver'] = $sshserver;
 
         return $this;
     }

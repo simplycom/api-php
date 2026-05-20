@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderInfo
+ * GetProductList200ResponseProductsInnerServersWebserver
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderInfo Class Doc Comment
+ * GetProductList200ResponseProductsInnerServersWebserver Class Doc Comment
  *
+ * @description Web server information
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerServersWebserver implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'OrderInfo';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_servers_webserver';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +59,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'paymentId' => 'int'
+        'hostname' => 'string',
+        'ip' => 'string'
     ];
 
     /**
@@ -67,7 +69,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'paymentId' => null
+        'hostname' => null,
+        'ip' => null
     ];
 
     /**
@@ -76,7 +79,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'paymentId' => false
+        'hostname' => false,
+        'ip' => false
     ];
 
     /**
@@ -155,7 +159,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'paymentId' => 'payment_id'
+        'hostname' => 'hostname',
+        'ip' => 'ip'
     ];
 
     /**
@@ -164,7 +169,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'paymentId' => 'setPaymentId'
+        'hostname' => 'setHostname',
+        'ip' => 'setIp'
     ];
 
     /**
@@ -173,7 +179,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'paymentId' => 'getPaymentId'
+        'hostname' => 'getHostname',
+        'ip' => 'getIp'
     ];
 
     /**
@@ -223,7 +230,8 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('paymentId', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
+        $this->setIfExists('ip', $data ?? [], null);
     }
 
     /**
@@ -251,9 +259,6 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['paymentId'] === null) {
-            $invalidProperties[] = "'paymentId' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -267,28 +272,55 @@ class OrderInfo implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets paymentId
+     * Gets hostname
      *
-     * @return int
+     * @return string|null
      */
-    public function getPaymentId(): int
+    public function getHostname(): ?string
     {
-        return $this->container['paymentId'];
+        return $this->container['hostname'];
     }
 
     /**
-     * Sets paymentId
+     * Sets hostname
      *
-     * @param int $paymentId Payment ID for the order
+     * @param string|null $hostname Server hostname
      *
      * @return $this
      */
-    public function setPaymentId(int $paymentId): static
+    public function setHostname(?string $hostname): static
     {
-        if (is_null($paymentId)) {
-            throw new InvalidArgumentException('non-nullable paymentId cannot be null');
+        if (is_null($hostname)) {
+            throw new InvalidArgumentException('non-nullable hostname cannot be null');
         }
-        $this->container['paymentId'] = $paymentId;
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return string|null
+     */
+    public function getIp(): ?string
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string|null $ip Server IP address
+     *
+     * @return $this
+     */
+    public function setIp(?string $ip): static
+    {
+        if (is_null($ip)) {
+            throw new InvalidArgumentException('non-nullable ip cannot be null');
+        }
+        $this->container['ip'] = $ip;
 
         return $this;
     }

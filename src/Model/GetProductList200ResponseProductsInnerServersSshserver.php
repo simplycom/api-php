@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsServiceResponse
+ * GetProductList200ResponseProductsInnerServersSshserver
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsServiceResponse Class Doc Comment
+ * GetProductList200ResponseProductsInnerServersSshserver Class Doc Comment
  *
+ * @description SSH server information. Add public-key manually through Simply.com Controlpanel.
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerServersSshserver implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'OrderDnsServiceResponse';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_servers_sshserver';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +59,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'order' => '\SimplyCom\Model\OrderInfo'
+        'auth' => 'string',
+        'username' => 'string',
+        'hostname' => 'string',
+        'ip' => 'string'
     ];
 
     /**
@@ -69,9 +71,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'order' => null
+        'auth' => null,
+        'username' => null,
+        'hostname' => null,
+        'ip' => null
     ];
 
     /**
@@ -80,9 +83,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'order' => true
+        'auth' => false,
+        'username' => false,
+        'hostname' => false,
+        'ip' => false
     ];
 
     /**
@@ -161,9 +165,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'order' => 'order'
+        'auth' => 'auth',
+        'username' => 'username',
+        'hostname' => 'hostname',
+        'ip' => 'ip'
     ];
 
     /**
@@ -172,9 +177,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'order' => 'setOrder'
+        'auth' => 'setAuth',
+        'username' => 'setUsername',
+        'hostname' => 'setHostname',
+        'ip' => 'setIp'
     ];
 
     /**
@@ -183,9 +189,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'order' => 'getOrder'
+        'auth' => 'getAuth',
+        'username' => 'getUsername',
+        'hostname' => 'getHostname',
+        'ip' => 'getIp'
     ];
 
     /**
@@ -235,9 +242,10 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('order', $data ?? [], null);
+        $this->setIfExists('auth', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
+        $this->setIfExists('ip', $data ?? [], null);
     }
 
     /**
@@ -265,12 +273,6 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -284,89 +286,109 @@ class OrderDnsServiceResponse implements ModelInterface, ArrayAccess, JsonSerial
 
 
     /**
-     * Gets status
+     * Gets auth
      *
-     * @return int
+     * @return string|null
      */
-    public function getStatus(): int
+    public function getAuth(): ?string
     {
-        return $this->container['status'];
+        return $this->container['auth'];
     }
 
     /**
-     * Sets status
+     * Sets auth
      *
-     * @param int $status status
+     * @param string|null $auth Authentication method
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setAuth(?string $auth): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($auth)) {
+            throw new InvalidArgumentException('non-nullable auth cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['auth'] = $auth;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets username
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getUsername(): ?string
     {
-        return $this->container['message'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets message
+     * Sets username
      *
-     * @param string $message message
+     * @param string|null $username SSH username
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setUsername(?string $username): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($username)) {
+            throw new InvalidArgumentException('non-nullable username cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['username'] = $username;
 
         return $this;
     }
 
     /**
-     * Gets order
+     * Gets hostname
      *
-     * @return \SimplyCom\Model\OrderInfo|null
+     * @return string|null
      */
-    public function getOrder(): ?\SimplyCom\Model\OrderInfo
+    public function getHostname(): ?string
     {
-        return $this->container['order'];
+        return $this->container['hostname'];
     }
 
     /**
-     * Sets order
+     * Sets hostname
      *
-     * @param \SimplyCom\Model\OrderInfo|null $order Order information (only present if payment was required)
+     * @param string|null $hostname Server hostname
      *
      * @return $this
      */
-    public function setOrder(?\SimplyCom\Model\OrderInfo $order): static
+    public function setHostname(?string $hostname): static
     {
-        if (is_null($order)) {
-            array_push($this->openAPINullablesSetToNull, 'order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($hostname)) {
+            throw new InvalidArgumentException('non-nullable hostname cannot be null');
         }
-        $this->container['order'] = $order;
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return string|null
+     */
+    public function getIp(): ?string
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string|null $ip Server IP address
+     *
+     * @return $this
+     */
+    public function setIp(?string $ip): static
+    {
+        if (is_null($ip)) {
+            throw new InvalidArgumentException('non-nullable ip cannot be null');
+        }
+        $this->container['ip'] = $ip;
 
         return $this;
     }

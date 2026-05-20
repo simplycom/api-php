@@ -1,6 +1,6 @@
 <?php
 /**
- * DnsRecord
+ * GetProductList200ResponseProductsInnerUsernames
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * DnsRecord Class Doc Comment
+ * GetProductList200ResponseProductsInnerUsernames Class Doc Comment
  *
+ * @description Service access usernames (only present for hosting products)
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerUsernames implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'DnsRecord';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_usernames';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +59,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'recordId' => 'int',
-        'name' => 'string',
-        'ttl' => 'int',
-        'data' => 'string',
-        'type' => 'string',
-        'priority' => 'int',
-        'comment' => 'string'
+        'ftp' => 'string',
+        'ssh' => 'string',
+        'mysql' => 'string',
+        'mssql' => 'string'
     ];
 
     /**
@@ -73,13 +71,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'recordId' => null,
-        'name' => null,
-        'ttl' => null,
-        'data' => null,
-        'type' => null,
-        'priority' => null,
-        'comment' => null
+        'ftp' => null,
+        'ssh' => null,
+        'mysql' => null,
+        'mssql' => null
     ];
 
     /**
@@ -88,13 +83,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'recordId' => false,
-        'name' => false,
-        'ttl' => false,
-        'data' => false,
-        'type' => false,
-        'priority' => true,
-        'comment' => true
+        'ftp' => false,
+        'ssh' => false,
+        'mysql' => false,
+        'mssql' => false
     ];
 
     /**
@@ -173,13 +165,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'recordId' => 'record_id',
-        'name' => 'name',
-        'ttl' => 'ttl',
-        'data' => 'data',
-        'type' => 'type',
-        'priority' => 'priority',
-        'comment' => 'comment'
+        'ftp' => 'ftp',
+        'ssh' => 'ssh',
+        'mysql' => 'mysql',
+        'mssql' => 'mssql'
     ];
 
     /**
@@ -188,13 +177,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'recordId' => 'setRecordId',
-        'name' => 'setName',
-        'ttl' => 'setTtl',
-        'data' => 'setData',
-        'type' => 'setType',
-        'priority' => 'setPriority',
-        'comment' => 'setComment'
+        'ftp' => 'setFtp',
+        'ssh' => 'setSsh',
+        'mysql' => 'setMysql',
+        'mssql' => 'setMssql'
     ];
 
     /**
@@ -203,13 +189,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'recordId' => 'getRecordId',
-        'name' => 'getName',
-        'ttl' => 'getTtl',
-        'data' => 'getData',
-        'type' => 'getType',
-        'priority' => 'getPriority',
-        'comment' => 'getComment'
+        'ftp' => 'getFtp',
+        'ssh' => 'getSsh',
+        'mysql' => 'getMysql',
+        'mssql' => 'getMssql'
     ];
 
     /**
@@ -259,13 +242,10 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('recordId', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('ttl', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('priority', $data ?? [], null);
-        $this->setIfExists('comment', $data ?? [], null);
+        $this->setIfExists('ftp', $data ?? [], null);
+        $this->setIfExists('ssh', $data ?? [], null);
+        $this->setIfExists('mysql', $data ?? [], null);
+        $this->setIfExists('mssql', $data ?? [], null);
     }
 
     /**
@@ -293,21 +273,6 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['recordId'] === null) {
-            $invalidProperties[] = "'recordId' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['ttl'] === null) {
-            $invalidProperties[] = "'ttl' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -321,204 +286,109 @@ class DnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets recordId
-     *
-     * @return int
-     */
-    public function getRecordId(): int
-    {
-        return $this->container['recordId'];
-    }
-
-    /**
-     * Sets recordId
-     *
-     * @param int $recordId Unique identifier for the DNS record
-     *
-     * @return $this
-     */
-    public function setRecordId(int $recordId): static
-    {
-        if (is_null($recordId)) {
-            throw new InvalidArgumentException('non-nullable recordId cannot be null');
-        }
-        $this->container['recordId'] = $recordId;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The hostname or label for the DNS record
-     *
-     * @return $this
-     */
-    public function setName(string $name): static
-    {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets ttl
-     *
-     * @return int
-     */
-    public function getTtl(): int
-    {
-        return $this->container['ttl'];
-    }
-
-    /**
-     * Sets ttl
-     *
-     * @param int $ttl Time To Live in seconds
-     *
-     * @return $this
-     */
-    public function setTtl(int $ttl): static
-    {
-        if (is_null($ttl)) {
-            throw new InvalidArgumentException('non-nullable ttl cannot be null');
-        }
-        $this->container['ttl'] = $ttl;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return string
-     */
-    public function getData(): string
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param string $data The record data (IP address, hostname, text value, etc.)
-     *
-     * @return $this
-     */
-    public function setData(string $data): static
-    {
-        if (is_null($data)) {
-            throw new InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType(): string
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type DNS record type
-     *
-     * @return $this
-     */
-    public function setType(string $type): static
-    {
-        if (is_null($type)) {
-            throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets priority
-     *
-     * @return int|null
-     */
-    public function getPriority(): ?int
-    {
-        return $this->container['priority'];
-    }
-
-    /**
-     * Sets priority
-     *
-     * @param int|null $priority Priority value (used for MX and SRV records)
-     *
-     * @return $this
-     */
-    public function setPriority(?int $priority): static
-    {
-        if (is_null($priority)) {
-            array_push($this->openAPINullablesSetToNull, 'priority');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('priority', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['priority'] = $priority;
-
-        return $this;
-    }
-
-    /**
-     * Gets comment
+     * Gets ftp
      *
      * @return string|null
      */
-    public function getComment(): ?string
+    public function getFtp(): ?string
     {
-        return $this->container['comment'];
+        return $this->container['ftp'];
     }
 
     /**
-     * Sets comment
+     * Sets ftp
      *
-     * @param string|null $comment Optional comment for the DNS record
+     * @param string|null $ftp FTP username
      *
      * @return $this
      */
-    public function setComment(?string $comment): static
+    public function setFtp(?string $ftp): static
     {
-        if (is_null($comment)) {
-            array_push($this->openAPINullablesSetToNull, 'comment');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('comment', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($ftp)) {
+            throw new InvalidArgumentException('non-nullable ftp cannot be null');
         }
-        $this->container['comment'] = $comment;
+        $this->container['ftp'] = $ftp;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssh
+     *
+     * @return string|null
+     */
+    public function getSsh(): ?string
+    {
+        return $this->container['ssh'];
+    }
+
+    /**
+     * Sets ssh
+     *
+     * @param string|null $ssh SSH username
+     *
+     * @return $this
+     */
+    public function setSsh(?string $ssh): static
+    {
+        if (is_null($ssh)) {
+            throw new InvalidArgumentException('non-nullable ssh cannot be null');
+        }
+        $this->container['ssh'] = $ssh;
+
+        return $this;
+    }
+
+    /**
+     * Gets mysql
+     *
+     * @return string|null
+     */
+    public function getMysql(): ?string
+    {
+        return $this->container['mysql'];
+    }
+
+    /**
+     * Sets mysql
+     *
+     * @param string|null $mysql MySQL username
+     *
+     * @return $this
+     */
+    public function setMysql(?string $mysql): static
+    {
+        if (is_null($mysql)) {
+            throw new InvalidArgumentException('non-nullable mysql cannot be null');
+        }
+        $this->container['mysql'] = $mysql;
+
+        return $this;
+    }
+
+    /**
+     * Gets mssql
+     *
+     * @return string|null
+     */
+    public function getMssql(): ?string
+    {
+        return $this->container['mssql'];
+    }
+
+    /**
+     * Sets mssql
+     *
+     * @param string|null $mssql MSSQL username
+     *
+     * @return $this
+     */
+    public function setMssql(?string $mssql): static
+    {
+        if (is_null($mssql)) {
+            throw new InvalidArgumentException('non-nullable mssql cannot be null');
+        }
+        $this->container['mssql'] = $mssql;
 
         return $this;
     }

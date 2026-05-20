@@ -1,6 +1,6 @@
 <?php
 /**
- * DnssecKey
+ * GetServerStatusMessages200ResponseMessagesInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * DnssecKey Class Doc Comment
+ * GetServerStatusMessages200ResponseMessagesInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
+class GetServerStatusMessages200ResponseMessagesInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'DnssecKey';
+    protected static string $openAPIModelName = 'getServerStatusMessages_200_response_messages_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'type' => 'string',
-        'data' => 'string'
+        'text' => 'string',
+        'dateStart' => '\DateTime',
+        'dateEnd' => '\DateTime',
+        'type' => 'string'
     ];
 
     /**
@@ -68,8 +70,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'type' => null,
-        'data' => null
+        'text' => null,
+        'dateStart' => 'date-time',
+        'dateEnd' => 'date-time',
+        'type' => null
     ];
 
     /**
@@ -78,8 +82,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'type' => false,
-        'data' => false
+        'text' => false,
+        'dateStart' => false,
+        'dateEnd' => true,
+        'type' => true
     ];
 
     /**
@@ -158,8 +164,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'type' => 'type',
-        'data' => 'data'
+        'text' => 'text',
+        'dateStart' => 'date_start',
+        'dateEnd' => 'date_end',
+        'type' => 'type'
     ];
 
     /**
@@ -168,8 +176,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'type' => 'setType',
-        'data' => 'setData'
+        'text' => 'setText',
+        'dateStart' => 'setDateStart',
+        'dateEnd' => 'setDateEnd',
+        'type' => 'setType'
     ];
 
     /**
@@ -178,8 +188,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'type' => 'getType',
-        'data' => 'getData'
+        'text' => 'getText',
+        'dateStart' => 'getDateStart',
+        'dateEnd' => 'getDateEnd',
+        'type' => 'getType'
     ];
 
     /**
@@ -214,21 +226,6 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_DS = 'ds';
-    public const TYPE_DNSKEY = 'dnskey';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_DS,
-            self::TYPE_DNSKEY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -244,8 +241,10 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('dateStart', $data ?? [], null);
+        $this->setIfExists('dateEnd', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -273,21 +272,6 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -301,11 +285,99 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText(): ?string
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text Message content in markdown format
+     *
+     * @return $this
+     */
+    public function setText(?string $text): static
+    {
+        if (is_null($text)) {
+            throw new InvalidArgumentException('non-nullable text cannot be null');
+        }
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets dateStart
+     *
+     * @return \DateTime|null
+     */
+    public function getDateStart(): ?\DateTime
+    {
+        return $this->container['dateStart'];
+    }
+
+    /**
+     * Sets dateStart
+     *
+     * @param \DateTime|null $dateStart Start date/time of the event
+     *
+     * @return $this
+     */
+    public function setDateStart(?\DateTime $dateStart): static
+    {
+        if (is_null($dateStart)) {
+            throw new InvalidArgumentException('non-nullable dateStart cannot be null');
+        }
+        $this->container['dateStart'] = $dateStart;
+
+        return $this;
+    }
+
+    /**
+     * Gets dateEnd
+     *
+     * @return \DateTime|null
+     */
+    public function getDateEnd(): ?\DateTime
+    {
+        return $this->container['dateEnd'];
+    }
+
+    /**
+     * Sets dateEnd
+     *
+     * @param \DateTime|null $dateEnd End date/time of the event (null if ongoing)
+     *
+     * @return $this
+     */
+    public function setDateEnd(?\DateTime $dateEnd): static
+    {
+        if (is_null($dateEnd)) {
+            array_push($this->openAPINullablesSetToNull, 'dateEnd');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dateEnd', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dateEnd'] = $dateEnd;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->container['type'];
     }
@@ -313,53 +385,23 @@ class DnssecKey implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Record type
+     * @param string|null $type Type of message (planned for scheduled maintenance, or omitted for incidents)
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(?string $type): static
     {
         if (is_null($type)) {
-            throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return string
-     */
-    public function getData(): string
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param string $data Zone-file formatted record data
-     *
-     * @return $this
-     */
-    public function setData(string $data): static
-    {
-        if (is_null($data)) {
-            throw new InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
 
         return $this;
     }

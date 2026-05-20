@@ -1,6 +1,6 @@
 <?php
 /**
- * GetNameserversResponse
+ * AddDnsRecord200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetNameserversResponse Class Doc Comment
+ * AddDnsRecord200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class AddDnsRecord200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetNameserversResponse';
+    protected static string $openAPIModelName = 'addDnsRecord_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'nameservers' => 'string[]'
+        'record' => '\SimplyCom\Model\AddDnsRecord200ResponseRecord'
     ];
 
     /**
@@ -71,7 +71,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $openAPIFormats = [
         'status' => null,
         'message' => null,
-        'nameservers' => null
+        'record' => null
     ];
 
     /**
@@ -82,7 +82,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $openAPINullables = [
         'status' => false,
         'message' => false,
-        'nameservers' => false
+        'record' => false
     ];
 
     /**
@@ -163,7 +163,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $attributeMap = [
         'status' => 'status',
         'message' => 'message',
-        'nameservers' => 'nameservers'
+        'record' => 'record'
     ];
 
     /**
@@ -174,7 +174,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $setters = [
         'status' => 'setStatus',
         'message' => 'setMessage',
-        'nameservers' => 'setNameservers'
+        'record' => 'setRecord'
     ];
 
     /**
@@ -185,7 +185,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     protected static array $getters = [
         'status' => 'getStatus',
         'message' => 'getMessage',
-        'nameservers' => 'getNameservers'
+        'record' => 'getRecord'
     ];
 
     /**
@@ -237,7 +237,7 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('nameservers', $data ?? [], null);
+        $this->setIfExists('record', $data ?? [], null);
     }
 
     /**
@@ -265,15 +265,6 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['nameservers'] === null) {
-            $invalidProperties[] = "'nameservers' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -289,9 +280,9 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets status
      *
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->container['status'];
     }
@@ -299,11 +290,11 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets status
      *
-     * @param int $status status
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setStatus(?int $status): static
     {
         if (is_null($status)) {
             throw new InvalidArgumentException('non-nullable status cannot be null');
@@ -316,9 +307,9 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->container['message'];
     }
@@ -326,11 +317,11 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setMessage(?string $message): static
     {
         if (is_null($message)) {
             throw new InvalidArgumentException('non-nullable message cannot be null');
@@ -341,28 +332,28 @@ class GetNameserversResponse implements ModelInterface, ArrayAccess, JsonSeriali
     }
 
     /**
-     * Gets nameservers
+     * Gets record
      *
-     * @return string[]
+     * @return \SimplyCom\Model\AddDnsRecord200ResponseRecord|null
      */
-    public function getNameservers(): array
+    public function getRecord(): ?\SimplyCom\Model\AddDnsRecord200ResponseRecord
     {
-        return $this->container['nameservers'];
+        return $this->container['record'];
     }
 
     /**
-     * Sets nameservers
+     * Sets record
      *
-     * @param string[] $nameservers Nameservers reported by the registry
+     * @param \SimplyCom\Model\AddDnsRecord200ResponseRecord|null $record record
      *
      * @return $this
      */
-    public function setNameservers(array $nameservers): static
+    public function setRecord(?\SimplyCom\Model\AddDnsRecord200ResponseRecord $record): static
     {
-        if (is_null($nameservers)) {
-            throw new InvalidArgumentException('non-nullable nameservers cannot be null');
+        if (is_null($record)) {
+            throw new InvalidArgumentException('non-nullable record cannot be null');
         }
-        $this->container['nameservers'] = $nameservers;
+        $this->container['record'] = $record;
 
         return $this;
     }

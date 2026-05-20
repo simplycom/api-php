@@ -1,6 +1,6 @@
 <?php
 /**
- * GetServerStatusMessagesResponse
+ * GetMysqlDatabases200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetServerStatusMessagesResponse Class Doc Comment
+ * GetMysqlDatabases200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetServerStatusMessagesResponse';
+    protected static string $openAPIModelName = 'getMysqlDatabases_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'messages' => '\SimplyCom\Model\ServerStatusMessage[]'
+        'databases' => '\SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $openAPIFormats = [
         'status' => null,
         'message' => null,
-        'messages' => null
+        'databases' => null
     ];
 
     /**
@@ -82,7 +82,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $openAPINullables = [
         'status' => false,
         'message' => false,
-        'messages' => false
+        'databases' => false
     ];
 
     /**
@@ -163,7 +163,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $attributeMap = [
         'status' => 'status',
         'message' => 'message',
-        'messages' => 'messages'
+        'databases' => 'databases'
     ];
 
     /**
@@ -174,7 +174,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $setters = [
         'status' => 'setStatus',
         'message' => 'setMessage',
-        'messages' => 'setMessages'
+        'databases' => 'setDatabases'
     ];
 
     /**
@@ -185,7 +185,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     protected static array $getters = [
         'status' => 'getStatus',
         'message' => 'getMessage',
-        'messages' => 'getMessages'
+        'databases' => 'getDatabases'
     ];
 
     /**
@@ -237,7 +237,7 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('messages', $data ?? [], null);
+        $this->setIfExists('databases', $data ?? [], null);
     }
 
     /**
@@ -265,15 +265,6 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['messages'] === null) {
-            $invalidProperties[] = "'messages' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -289,9 +280,9 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     /**
      * Gets status
      *
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->container['status'];
     }
@@ -299,11 +290,11 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     /**
      * Sets status
      *
-     * @param int $status status
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setStatus(?int $status): static
     {
         if (is_null($status)) {
             throw new InvalidArgumentException('non-nullable status cannot be null');
@@ -316,9 +307,9 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->container['message'];
     }
@@ -326,11 +317,11 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setMessage(?string $message): static
     {
         if (is_null($message)) {
             throw new InvalidArgumentException('non-nullable message cannot be null');
@@ -341,28 +332,28 @@ class GetServerStatusMessagesResponse implements ModelInterface, ArrayAccess, Js
     }
 
     /**
-     * Gets messages
+     * Gets databases
      *
-     * @return \SimplyCom\Model\ServerStatusMessage[]
+     * @return \SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null
      */
-    public function getMessages(): array
+    public function getDatabases(): ?array
     {
-        return $this->container['messages'];
+        return $this->container['databases'];
     }
 
     /**
-     * Sets messages
+     * Sets databases
      *
-     * @param \SimplyCom\Model\ServerStatusMessage[] $messages Array of server status messages
+     * @param \SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null $databases databases
      *
      * @return $this
      */
-    public function setMessages(array $messages): static
+    public function setDatabases(?array $databases): static
     {
-        if (is_null($messages)) {
-            throw new InvalidArgumentException('non-nullable messages cannot be null');
+        if (is_null($databases)) {
+            throw new InvalidArgumentException('non-nullable databases cannot be null');
         }
-        $this->container['messages'] = $messages;
+        $this->container['databases'] = $databases;
 
         return $this;
     }

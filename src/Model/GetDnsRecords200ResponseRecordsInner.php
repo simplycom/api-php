@@ -1,6 +1,6 @@
 <?php
 /**
- * AddDnsRecordResponse
+ * GetDnsRecords200ResponseRecordsInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * AddDnsRecordResponse Class Doc Comment
+ * GetDnsRecords200ResponseRecordsInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetDnsRecords200ResponseRecordsInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'AddDnsRecordResponse';
+    protected static string $openAPIModelName = 'getDnsRecords_200_response_records_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'record' => '\SimplyCom\Model\NewDnsRecord'
+        'recordId' => 'int',
+        'name' => 'string',
+        'ttl' => 'int',
+        'data' => 'string',
+        'type' => 'string',
+        'priority' => 'int',
+        'comment' => 'string'
     ];
 
     /**
@@ -69,9 +73,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'record' => null
+        'recordId' => null,
+        'name' => null,
+        'ttl' => null,
+        'data' => null,
+        'type' => null,
+        'priority' => null,
+        'comment' => null
     ];
 
     /**
@@ -80,9 +88,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'record' => false
+        'recordId' => false,
+        'name' => false,
+        'ttl' => false,
+        'data' => false,
+        'type' => false,
+        'priority' => true,
+        'comment' => true
     ];
 
     /**
@@ -161,9 +173,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'record' => 'record'
+        'recordId' => 'record_id',
+        'name' => 'name',
+        'ttl' => 'ttl',
+        'data' => 'data',
+        'type' => 'type',
+        'priority' => 'priority',
+        'comment' => 'comment'
     ];
 
     /**
@@ -172,9 +188,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'record' => 'setRecord'
+        'recordId' => 'setRecordId',
+        'name' => 'setName',
+        'ttl' => 'setTtl',
+        'data' => 'setData',
+        'type' => 'setType',
+        'priority' => 'setPriority',
+        'comment' => 'setComment'
     ];
 
     /**
@@ -183,9 +203,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'record' => 'getRecord'
+        'recordId' => 'getRecordId',
+        'name' => 'getName',
+        'ttl' => 'getTtl',
+        'data' => 'getData',
+        'type' => 'getType',
+        'priority' => 'getPriority',
+        'comment' => 'getComment'
     ];
 
     /**
@@ -235,9 +259,13 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('record', $data ?? [], null);
+        $this->setIfExists('recordId', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('ttl', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('priority', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
     }
 
     /**
@@ -265,15 +293,6 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['record'] === null) {
-            $invalidProperties[] = "'record' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +306,204 @@ class AddDnsRecordResponse implements ModelInterface, ArrayAccess, JsonSerializa
 
 
     /**
-     * Gets status
+     * Gets recordId
      *
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getRecordId(): ?int
     {
-        return $this->container['status'];
+        return $this->container['recordId'];
     }
 
     /**
-     * Sets status
+     * Sets recordId
      *
-     * @param int $status status
+     * @param int|null $recordId Unique identifier for the DNS record
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setRecordId(?int $recordId): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($recordId)) {
+            throw new InvalidArgumentException('non-nullable recordId cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['recordId'] = $recordId;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets name
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getName(): ?string
     {
-        return $this->container['message'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets message
+     * Sets name
      *
-     * @param string $message message
+     * @param string|null $name The hostname or label for the DNS record
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setName(?string $name): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets record
+     * Gets ttl
      *
-     * @return \SimplyCom\Model\NewDnsRecord
+     * @return int|null
      */
-    public function getRecord(): \SimplyCom\Model\NewDnsRecord
+    public function getTtl(): ?int
     {
-        return $this->container['record'];
+        return $this->container['ttl'];
     }
 
     /**
-     * Sets record
+     * Sets ttl
      *
-     * @param \SimplyCom\Model\NewDnsRecord $record record
+     * @param int|null $ttl Time To Live in seconds
      *
      * @return $this
      */
-    public function setRecord(\SimplyCom\Model\NewDnsRecord $record): static
+    public function setTtl(?int $ttl): static
     {
-        if (is_null($record)) {
-            throw new InvalidArgumentException('non-nullable record cannot be null');
+        if (is_null($ttl)) {
+            throw new InvalidArgumentException('non-nullable ttl cannot be null');
         }
-        $this->container['record'] = $record;
+        $this->container['ttl'] = $ttl;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return string|null
+     */
+    public function getData(): ?string
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param string|null $data The record data (IP address, hostname, text value, etc.)
+     *
+     * @return $this
+     */
+    public function setData(?string $data): static
+    {
+        if (is_null($data)) {
+            throw new InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type DNS record type
+     *
+     * @return $this
+     */
+    public function setType(?string $type): static
+    {
+        if (is_null($type)) {
+            throw new InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return int|null
+     */
+    public function getPriority(): ?int
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param int|null $priority Priority value (used for MX and SRV records)
+     *
+     * @return $this
+     */
+    public function setPriority(?int $priority): static
+    {
+        if (is_null($priority)) {
+            array_push($this->openAPINullablesSetToNull, 'priority');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('priority', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment(): ?string
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment Optional comment for the DNS record
+     *
+     * @return $this
+     */
+    public function setComment(?string $comment): static
+    {
+        if (is_null($comment)) {
+            array_push($this->openAPINullablesSetToNull, 'comment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('comment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['comment'] = $comment;
 
         return $this;
     }

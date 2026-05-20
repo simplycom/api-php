@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductServers
+ * GetServerStatusMessages200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ProductServers Class Doc Comment
+ * GetServerStatusMessages200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
+class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'ProductServers';
+    protected static string $openAPIModelName = 'getServerStatusMessages_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'nameservers' => 'string[]',
-        'webserver' => '\SimplyCom\Model\WebServer',
-        'ftpserver' => '\SimplyCom\Model\FtpServer',
-        'sshserver' => '\SimplyCom\Model\SshServer'
+        'status' => 'int',
+        'message' => 'string',
+        'messages' => '\SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]'
     ];
 
     /**
@@ -70,10 +69,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'nameservers' => null,
-        'webserver' => null,
-        'ftpserver' => null,
-        'sshserver' => null
+        'status' => null,
+        'message' => null,
+        'messages' => null
     ];
 
     /**
@@ -82,10 +80,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'nameservers' => false,
-        'webserver' => true,
-        'ftpserver' => true,
-        'sshserver' => true
+        'status' => false,
+        'message' => false,
+        'messages' => false
     ];
 
     /**
@@ -164,10 +161,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'nameservers' => 'nameservers',
-        'webserver' => 'webserver',
-        'ftpserver' => 'ftpserver',
-        'sshserver' => 'sshserver'
+        'status' => 'status',
+        'message' => 'message',
+        'messages' => 'messages'
     ];
 
     /**
@@ -176,10 +172,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'nameservers' => 'setNameservers',
-        'webserver' => 'setWebserver',
-        'ftpserver' => 'setFtpserver',
-        'sshserver' => 'setSshserver'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'messages' => 'setMessages'
     ];
 
     /**
@@ -188,10 +183,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'nameservers' => 'getNameservers',
-        'webserver' => 'getWebserver',
-        'ftpserver' => 'getFtpserver',
-        'sshserver' => 'getSshserver'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'messages' => 'getMessages'
     ];
 
     /**
@@ -241,10 +235,9 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('nameservers', $data ?? [], null);
-        $this->setIfExists('webserver', $data ?? [], null);
-        $this->setIfExists('ftpserver', $data ?? [], null);
-        $this->setIfExists('sshserver', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('messages', $data ?? [], null);
     }
 
     /**
@@ -272,9 +265,6 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['nameservers'] === null) {
-            $invalidProperties[] = "'nameservers' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -288,130 +278,82 @@ class ProductServers implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets nameservers
+     * Gets status
      *
-     * @return string[]
+     * @return int|null
      */
-    public function getNameservers(): array
+    public function getStatus(): ?int
     {
-        return $this->container['nameservers'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets nameservers
+     * Sets status
      *
-     * @param string[] $nameservers Simply.com nameservers currently assigned to the domain in our system. Does not query the registry.
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setNameservers(array $nameservers): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($nameservers)) {
-            throw new InvalidArgumentException('non-nullable nameservers cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['nameservers'] = $nameservers;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets webserver
+     * Gets message
      *
-     * @return \SimplyCom\Model\WebServer|null
+     * @return string|null
      */
-    public function getWebserver(): ?\SimplyCom\Model\WebServer
+    public function getMessage(): ?string
     {
-        return $this->container['webserver'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets webserver
+     * Sets message
      *
-     * @param \SimplyCom\Model\WebServer|null $webserver Web server information (only present for hosting products)
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setWebserver(?\SimplyCom\Model\WebServer $webserver): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($webserver)) {
-            array_push($this->openAPINullablesSetToNull, 'webserver');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webserver', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['webserver'] = $webserver;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets ftpserver
+     * Gets messages
      *
-     * @return \SimplyCom\Model\FtpServer|null
+     * @return \SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]|null
      */
-    public function getFtpserver(): ?\SimplyCom\Model\FtpServer
+    public function getMessages(): ?array
     {
-        return $this->container['ftpserver'];
+        return $this->container['messages'];
     }
 
     /**
-     * Sets ftpserver
+     * Sets messages
      *
-     * @param \SimplyCom\Model\FtpServer|null $ftpserver FTP server information (only present for hosting products)
+     * @param \SimplyCom\Model\GetServerStatusMessages200ResponseMessagesInner[]|null $messages Array of server status messages
      *
      * @return $this
      */
-    public function setFtpserver(?\SimplyCom\Model\FtpServer $ftpserver): static
+    public function setMessages(?array $messages): static
     {
-        if (is_null($ftpserver)) {
-            array_push($this->openAPINullablesSetToNull, 'ftpserver');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ftpserver', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($messages)) {
+            throw new InvalidArgumentException('non-nullable messages cannot be null');
         }
-        $this->container['ftpserver'] = $ftpserver;
-
-        return $this;
-    }
-
-    /**
-     * Gets sshserver
-     *
-     * @return \SimplyCom\Model\SshServer|null
-     */
-    public function getSshserver(): ?\SimplyCom\Model\SshServer
-    {
-        return $this->container['sshserver'];
-    }
-
-    /**
-     * Sets sshserver
-     *
-     * @param \SimplyCom\Model\SshServer|null $sshserver SSH server information (only present for hosting products). Add public-key manually through Simply.com Controlpanel.
-     *
-     * @return $this
-     */
-    public function setSshserver(?\SimplyCom\Model\SshServer $sshserver): static
-    {
-        if (is_null($sshserver)) {
-            array_push($this->openAPINullablesSetToNull, 'sshserver');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sshserver', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['sshserver'] = $sshserver;
+        $this->container['messages'] = $messages;
 
         return $this;
     }

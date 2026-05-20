@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainAvailability
+ * GetInvoices200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * DomainAvailability Class Doc Comment
+ * GetInvoices200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializable
+class GetInvoices200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'DomainAvailability';
+    protected static string $openAPIModelName = 'getInvoices_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'name' => 'string',
-        'extension' => 'string',
-        'status' => 'string',
-        'available' => 'bool',
-        'canregister' => 'bool',
-        'cantransfer' => 'bool'
+        'status' => 'int',
+        'message' => 'string',
+        'invoices' => '\SimplyCom\Model\GetInvoices200ResponseInvoicesInner[]'
     ];
 
     /**
@@ -72,12 +69,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'name' => null,
-        'extension' => null,
         'status' => null,
-        'available' => null,
-        'canregister' => null,
-        'cantransfer' => null
+        'message' => null,
+        'invoices' => null
     ];
 
     /**
@@ -86,12 +80,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'name' => false,
-        'extension' => false,
         'status' => false,
-        'available' => false,
-        'canregister' => false,
-        'cantransfer' => false
+        'message' => false,
+        'invoices' => false
     ];
 
     /**
@@ -170,12 +161,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'name' => 'name',
-        'extension' => 'extension',
         'status' => 'status',
-        'available' => 'available',
-        'canregister' => 'canregister',
-        'cantransfer' => 'cantransfer'
+        'message' => 'message',
+        'invoices' => 'invoices'
     ];
 
     /**
@@ -184,12 +172,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $setters = [
-        'name' => 'setName',
-        'extension' => 'setExtension',
         'status' => 'setStatus',
-        'available' => 'setAvailable',
-        'canregister' => 'setCanregister',
-        'cantransfer' => 'setCantransfer'
+        'message' => 'setMessage',
+        'invoices' => 'setInvoices'
     ];
 
     /**
@@ -198,12 +183,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $getters = [
-        'name' => 'getName',
-        'extension' => 'getExtension',
         'status' => 'getStatus',
-        'available' => 'getAvailable',
-        'canregister' => 'getCanregister',
-        'cantransfer' => 'getCantransfer'
+        'message' => 'getMessage',
+        'invoices' => 'getInvoices'
     ];
 
     /**
@@ -238,23 +220,6 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    public const STATUS_AVAILABLE = 'available';
-    public const STATUS_TAKEN = 'taken';
-    public const STATUS_ERROR = 'error';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_AVAILABLE,
-            self::STATUS_TAKEN,
-            self::STATUS_ERROR,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -270,12 +235,9 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('extension', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('available', $data ?? [], null);
-        $this->setIfExists('canregister', $data ?? [], null);
-        $this->setIfExists('cantransfer', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('invoices', $data ?? [], null);
     }
 
     /**
@@ -303,33 +265,6 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['extension'] === null) {
-            $invalidProperties[] = "'extension' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        $allowedValues = self::getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['available'] === null) {
-            $invalidProperties[] = "'available' can't be null";
-        }
-        if ($this->container['canregister'] === null) {
-            $invalidProperties[] = "'canregister' can't be null";
-        }
-        if ($this->container['cantransfer'] === null) {
-            $invalidProperties[] = "'cantransfer' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -343,65 +278,11 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
 
 
     /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The checked domain name (IDN format)
-     *
-     * @return $this
-     */
-    public function setName(string $name): static
-    {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets extension
-     *
-     * @return string
-     */
-    public function getExtension(): string
-    {
-        return $this->container['extension'];
-    }
-
-    /**
-     * Sets extension
-     *
-     * @param string $extension The domain extension/TLD
-     *
-     * @return $this
-     */
-    public function setExtension(string $extension): static
-    {
-        if (is_null($extension)) {
-            throw new InvalidArgumentException('non-nullable extension cannot be null');
-        }
-        $this->container['extension'] = $extension;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getStatus(): string
+    public function getStatus(): ?int
     {
         return $this->container['status'];
     }
@@ -409,24 +290,14 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets status
      *
-     * @param string $status Domain status
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setStatus(string $status): static
+    public function setStatus(?int $status): static
     {
         if (is_null($status)) {
             throw new InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = self::getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['status'] = $status;
 
@@ -434,82 +305,55 @@ class DomainAvailability implements ModelInterface, ArrayAccess, JsonSerializabl
     }
 
     /**
-     * Gets available
+     * Gets message
      *
-     * @return bool
+     * @return string|null
      */
-    public function getAvailable(): bool
+    public function getMessage(): ?string
     {
-        return $this->container['available'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets available
+     * Sets message
      *
-     * @param bool $available Whether the domain is available for registration
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setAvailable(bool $available): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($available)) {
-            throw new InvalidArgumentException('non-nullable available cannot be null');
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['available'] = $available;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets canregister
+     * Gets invoices
      *
-     * @return bool
+     * @return \SimplyCom\Model\GetInvoices200ResponseInvoicesInner[]|null
      */
-    public function getCanregister(): bool
+    public function getInvoices(): ?array
     {
-        return $this->container['canregister'];
+        return $this->container['invoices'];
     }
 
     /**
-     * Sets canregister
+     * Sets invoices
      *
-     * @param bool $canregister Whether the domain can be registered
+     * @param \SimplyCom\Model\GetInvoices200ResponseInvoicesInner[]|null $invoices Array of invoices
      *
      * @return $this
      */
-    public function setCanregister(bool $canregister): static
+    public function setInvoices(?array $invoices): static
     {
-        if (is_null($canregister)) {
-            throw new InvalidArgumentException('non-nullable canregister cannot be null');
+        if (is_null($invoices)) {
+            throw new InvalidArgumentException('non-nullable invoices cannot be null');
         }
-        $this->container['canregister'] = $canregister;
-
-        return $this;
-    }
-
-    /**
-     * Gets cantransfer
-     *
-     * @return bool
-     */
-    public function getCantransfer(): bool
-    {
-        return $this->container['cantransfer'];
-    }
-
-    /**
-     * Sets cantransfer
-     *
-     * @param bool $cantransfer Whether the domain can be transferred
-     *
-     * @return $this
-     */
-    public function setCantransfer(bool $cantransfer): static
-    {
-        if (is_null($cantransfer)) {
-            throw new InvalidArgumentException('non-nullable cantransfer cannot be null');
-        }
-        $this->container['cantransfer'] = $cantransfer;
+        $this->container['invoices'] = $invoices;
 
         return $this;
     }

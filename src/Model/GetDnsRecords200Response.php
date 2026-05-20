@@ -1,6 +1,6 @@
 <?php
 /**
- * Product
+ * GetDnsRecords200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * Product Class Doc Comment
+ * GetDnsRecords200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class Product implements ModelInterface, ArrayAccess, JsonSerializable
+class GetDnsRecords200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'Product';
+    protected static string $openAPIModelName = 'getDnsRecords_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'object' => 'string',
-        'objectUri' => 'string',
-        'name' => 'string',
-        'cancelled' => 'bool',
-        'domain' => '\SimplyCom\Model\ProductDomain',
-        'product' => '\SimplyCom\Model\ProductService',
-        'servers' => '\SimplyCom\Model\ProductServers',
-        'usernames' => '\SimplyCom\Model\ProductUsernames'
+        'status' => 'int',
+        'message' => 'string',
+        'records' => '\SimplyCom\Model\GetDnsRecords200ResponseRecordsInner[]'
     ];
 
     /**
@@ -74,14 +69,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'object' => null,
-        'objectUri' => null,
-        'name' => null,
-        'cancelled' => null,
-        'domain' => null,
-        'product' => null,
-        'servers' => null,
-        'usernames' => null
+        'status' => null,
+        'message' => null,
+        'records' => null
     ];
 
     /**
@@ -90,14 +80,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'object' => false,
-        'objectUri' => false,
-        'name' => false,
-        'cancelled' => false,
-        'domain' => false,
-        'product' => false,
-        'servers' => false,
-        'usernames' => true
+        'status' => false,
+        'message' => false,
+        'records' => false
     ];
 
     /**
@@ -176,14 +161,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'object' => 'object',
-        'objectUri' => 'object_uri',
-        'name' => 'name',
-        'cancelled' => 'cancelled',
-        'domain' => 'domain',
-        'product' => 'product',
-        'servers' => 'servers',
-        'usernames' => 'usernames'
+        'status' => 'status',
+        'message' => 'message',
+        'records' => 'records'
     ];
 
     /**
@@ -192,14 +172,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'object' => 'setObject',
-        'objectUri' => 'setObjectUri',
-        'name' => 'setName',
-        'cancelled' => 'setCancelled',
-        'domain' => 'setDomain',
-        'product' => 'setProduct',
-        'servers' => 'setServers',
-        'usernames' => 'setUsernames'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'records' => 'setRecords'
     ];
 
     /**
@@ -208,14 +183,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'object' => 'getObject',
-        'objectUri' => 'getObjectUri',
-        'name' => 'getName',
-        'cancelled' => 'getCancelled',
-        'domain' => 'getDomain',
-        'product' => 'getProduct',
-        'servers' => 'getServers',
-        'usernames' => 'getUsernames'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'records' => 'getRecords'
     ];
 
     /**
@@ -265,14 +235,9 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('objectUri', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('cancelled', $data ?? [], null);
-        $this->setIfExists('domain', $data ?? [], null);
-        $this->setIfExists('product', $data ?? [], null);
-        $this->setIfExists('servers', $data ?? [], null);
-        $this->setIfExists('usernames', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('records', $data ?? [], null);
     }
 
     /**
@@ -300,27 +265,6 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['objectUri'] === null) {
-            $invalidProperties[] = "'objectUri' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['cancelled'] === null) {
-            $invalidProperties[] = "'cancelled' can't be null";
-        }
-        if ($this->container['domain'] === null) {
-            $invalidProperties[] = "'domain' can't be null";
-        }
-        if ($this->container['product'] === null) {
-            $invalidProperties[] = "'product' can't be null";
-        }
-        if ($this->container['servers'] === null) {
-            $invalidProperties[] = "'servers' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -334,224 +278,82 @@ class Product implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets object
+     * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getObject(): string
+    public function getStatus(): ?int
     {
-        return $this->container['object'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets object
+     * Sets status
      *
-     * @param string $object Product identifier to be used in further API calls (e.g., for DNS endpoints)
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setObject(string $object): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($object)) {
-            throw new InvalidArgumentException('non-nullable object cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['object'] = $object;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets objectUri
+     * Gets message
      *
-     * @return string
+     * @return string|null
      */
-    public function getObjectUri(): string
+    public function getMessage(): ?string
     {
-        return $this->container['objectUri'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets objectUri
+     * Sets message
      *
-     * @param string $objectUri The base URL for the product object in API calls
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setObjectUri(string $objectUri): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($objectUri)) {
-            throw new InvalidArgumentException('non-nullable objectUri cannot be null');
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['objectUri'] = $objectUri;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets records
      *
-     * @return string
+     * @return \SimplyCom\Model\GetDnsRecords200ResponseRecordsInner[]|null
      */
-    public function getName(): string
+    public function getRecords(): ?array
     {
-        return $this->container['name'];
+        return $this->container['records'];
     }
 
     /**
-     * Sets name
+     * Sets records
      *
-     * @param string $name Product name/handle
+     * @param \SimplyCom\Model\GetDnsRecords200ResponseRecordsInner[]|null $records Array of DNS records in the zone
      *
      * @return $this
      */
-    public function setName(string $name): static
+    public function setRecords(?array $records): static
     {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($records)) {
+            throw new InvalidArgumentException('non-nullable records cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets cancelled
-     *
-     * @return bool
-     */
-    public function getCancelled(): bool
-    {
-        return $this->container['cancelled'];
-    }
-
-    /**
-     * Sets cancelled
-     *
-     * @param bool $cancelled Whether the product has been cancelled
-     *
-     * @return $this
-     */
-    public function setCancelled(bool $cancelled): static
-    {
-        if (is_null($cancelled)) {
-            throw new InvalidArgumentException('non-nullable cancelled cannot be null');
-        }
-        $this->container['cancelled'] = $cancelled;
-
-        return $this;
-    }
-
-    /**
-     * Gets domain
-     *
-     * @return \SimplyCom\Model\ProductDomain
-     */
-    public function getDomain(): \SimplyCom\Model\ProductDomain
-    {
-        return $this->container['domain'];
-    }
-
-    /**
-     * Sets domain
-     *
-     * @param \SimplyCom\Model\ProductDomain $domain domain
-     *
-     * @return $this
-     */
-    public function setDomain(\SimplyCom\Model\ProductDomain $domain): static
-    {
-        if (is_null($domain)) {
-            throw new InvalidArgumentException('non-nullable domain cannot be null');
-        }
-        $this->container['domain'] = $domain;
-
-        return $this;
-    }
-
-    /**
-     * Gets product
-     *
-     * @return \SimplyCom\Model\ProductService
-     */
-    public function getProduct(): \SimplyCom\Model\ProductService
-    {
-        return $this->container['product'];
-    }
-
-    /**
-     * Sets product
-     *
-     * @param \SimplyCom\Model\ProductService $product product
-     *
-     * @return $this
-     */
-    public function setProduct(\SimplyCom\Model\ProductService $product): static
-    {
-        if (is_null($product)) {
-            throw new InvalidArgumentException('non-nullable product cannot be null');
-        }
-        $this->container['product'] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Gets servers
-     *
-     * @return \SimplyCom\Model\ProductServers
-     */
-    public function getServers(): \SimplyCom\Model\ProductServers
-    {
-        return $this->container['servers'];
-    }
-
-    /**
-     * Sets servers
-     *
-     * @param \SimplyCom\Model\ProductServers $servers servers
-     *
-     * @return $this
-     */
-    public function setServers(\SimplyCom\Model\ProductServers $servers): static
-    {
-        if (is_null($servers)) {
-            throw new InvalidArgumentException('non-nullable servers cannot be null');
-        }
-        $this->container['servers'] = $servers;
-
-        return $this;
-    }
-
-    /**
-     * Gets usernames
-     *
-     * @return \SimplyCom\Model\ProductUsernames|null
-     */
-    public function getUsernames(): ?\SimplyCom\Model\ProductUsernames
-    {
-        return $this->container['usernames'];
-    }
-
-    /**
-     * Sets usernames
-     *
-     * @param \SimplyCom\Model\ProductUsernames|null $usernames Service access usernames (only present for hosting products)
-     *
-     * @return $this
-     */
-    public function setUsernames(?\SimplyCom\Model\ProductUsernames $usernames): static
-    {
-        if (is_null($usernames)) {
-            array_push($this->openAPINullablesSetToNull, 'usernames');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('usernames', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['usernames'] = $usernames;
+        $this->container['records'] = $records;
 
         return $this;
     }

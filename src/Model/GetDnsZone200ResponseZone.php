@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDnsRecordsResponse
+ * GetDnsZone200ResponseZone
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetDnsRecordsResponse Class Doc Comment
+ * GetDnsZone200ResponseZone Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetDnsZone200ResponseZone implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetDnsRecordsResponse';
+    protected static string $openAPIModelName = 'getDnsZone_200_response_zone';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'records' => '\SimplyCom\Model\DnsRecord[]'
+        'name' => 'string'
     ];
 
     /**
@@ -69,9 +67,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'records' => null
+        'name' => null
     ];
 
     /**
@@ -80,9 +76,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'records' => false
+        'name' => false
     ];
 
     /**
@@ -161,9 +155,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'records' => 'records'
+        'name' => 'name'
     ];
 
     /**
@@ -172,9 +164,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'records' => 'setRecords'
+        'name' => 'setName'
     ];
 
     /**
@@ -183,9 +173,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'records' => 'getRecords'
+        'name' => 'getName'
     ];
 
     /**
@@ -235,9 +223,7 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('records', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -265,15 +251,6 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['records'] === null) {
-            $invalidProperties[] = "'records' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +264,28 @@ class GetDnsRecordsResponse implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets status
+     * Gets name
      *
-     * @return int
+     * @return string|null
      */
-    public function getStatus(): int
+    public function getName(): ?string
     {
-        return $this->container['status'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets status
+     * Sets name
      *
-     * @param int $status status
+     * @param string|null $name The domain name of the DNS zone
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setName(?string $name): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage(): string
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return $this
-     */
-    public function setMessage(string $message): static
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets records
-     *
-     * @return \SimplyCom\Model\DnsRecord[]
-     */
-    public function getRecords(): array
-    {
-        return $this->container['records'];
-    }
-
-    /**
-     * Sets records
-     *
-     * @param \SimplyCom\Model\DnsRecord[] $records Array of DNS records in the zone
-     *
-     * @return $this
-     */
-    public function setRecords(array $records): static
-    {
-        if (is_null($records)) {
-            throw new InvalidArgumentException('non-nullable records cannot be null');
-        }
-        $this->container['records'] = $records;
+        $this->container['name'] = $name;
 
         return $this;
     }

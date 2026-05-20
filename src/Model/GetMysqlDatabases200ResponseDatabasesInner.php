@@ -1,6 +1,6 @@
 <?php
 /**
- * WebServer
+ * GetMysqlDatabases200ResponseDatabasesInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * WebServer Class Doc Comment
+ * GetMysqlDatabases200ResponseDatabasesInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
+class GetMysqlDatabases200ResponseDatabasesInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'WebServer';
+    protected static string $openAPIModelName = 'getMysqlDatabases_200_response_databases_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'hostname' => 'string',
-        'ip' => 'string'
+        'port' => 'int',
+        'username' => 'string',
+        'database' => 'string'
     ];
 
     /**
@@ -69,7 +71,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPIFormats = [
         'hostname' => null,
-        'ip' => null
+        'port' => null,
+        'username' => null,
+        'database' => null
     ];
 
     /**
@@ -79,7 +83,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPINullables = [
         'hostname' => false,
-        'ip' => false
+        'port' => false,
+        'username' => false,
+        'database' => false
     ];
 
     /**
@@ -159,7 +165,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $attributeMap = [
         'hostname' => 'hostname',
-        'ip' => 'ip'
+        'port' => 'port',
+        'username' => 'username',
+        'database' => 'database'
     ];
 
     /**
@@ -169,7 +177,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $setters = [
         'hostname' => 'setHostname',
-        'ip' => 'setIp'
+        'port' => 'setPort',
+        'username' => 'setUsername',
+        'database' => 'setDatabase'
     ];
 
     /**
@@ -179,7 +189,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $getters = [
         'hostname' => 'getHostname',
-        'ip' => 'getIp'
+        'port' => 'getPort',
+        'username' => 'getUsername',
+        'database' => 'getDatabase'
     ];
 
     /**
@@ -230,7 +242,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('hostname', $data ?? [], null);
-        $this->setIfExists('ip', $data ?? [], null);
+        $this->setIfExists('port', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('database', $data ?? [], null);
     }
 
     /**
@@ -258,12 +272,6 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['hostname'] === null) {
-            $invalidProperties[] = "'hostname' can't be null";
-        }
-        if ($this->container['ip'] === null) {
-            $invalidProperties[] = "'ip' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -279,9 +287,9 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets hostname
      *
-     * @return string
+     * @return string|null
      */
-    public function getHostname(): string
+    public function getHostname(): ?string
     {
         return $this->container['hostname'];
     }
@@ -289,11 +297,11 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets hostname
      *
-     * @param string $hostname Server hostname
+     * @param string|null $hostname hostname
      *
      * @return $this
      */
-    public function setHostname(string $hostname): static
+    public function setHostname(?string $hostname): static
     {
         if (is_null($hostname)) {
             throw new InvalidArgumentException('non-nullable hostname cannot be null');
@@ -304,28 +312,82 @@ class WebServer implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets ip
+     * Gets port
      *
-     * @return string
+     * @return int|null
      */
-    public function getIp(): string
+    public function getPort(): ?int
     {
-        return $this->container['ip'];
+        return $this->container['port'];
     }
 
     /**
-     * Sets ip
+     * Sets port
      *
-     * @param string $ip Server IP address
+     * @param int|null $port port
      *
      * @return $this
      */
-    public function setIp(string $ip): static
+    public function setPort(?int $port): static
     {
-        if (is_null($ip)) {
-            throw new InvalidArgumentException('non-nullable ip cannot be null');
+        if (is_null($port)) {
+            throw new InvalidArgumentException('non-nullable port cannot be null');
         }
-        $this->container['ip'] = $ip;
+        $this->container['port'] = $port;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string|null
+     */
+    public function getUsername(): ?string
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string|null $username username
+     *
+     * @return $this
+     */
+    public function setUsername(?string $username): static
+    {
+        if (is_null($username)) {
+            throw new InvalidArgumentException('non-nullable username cannot be null');
+        }
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets database
+     *
+     * @return string|null
+     */
+    public function getDatabase(): ?string
+    {
+        return $this->container['database'];
+    }
+
+    /**
+     * Sets database
+     *
+     * @param string|null $database database
+     *
+     * @return $this
+     */
+    public function setDatabase(?string $database): static
+    {
+        if (is_null($database)) {
+            throw new InvalidArgumentException('non-nullable database cannot be null');
+        }
+        $this->container['database'] = $database;
 
         return $this;
     }

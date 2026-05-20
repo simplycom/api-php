@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductService
+ * Domaincheck200ResponseDomain
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ProductService Class Doc Comment
+ * Domaincheck200ResponseDomain Class Doc Comment
  *
+ * @description Domain availability information
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
+class Domaincheck200ResponseDomain implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'ProductService';
+    protected static string $openAPIModelName = 'domaincheck_200_response_domain';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +59,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'id' => 'int',
         'name' => 'string',
-        'dateCreated' => '\DateTime',
-        'dateExpire' => '\DateTime'
+        'extension' => 'string',
+        'status' => 'string',
+        'available' => 'bool',
+        'canregister' => 'bool',
+        'cantransfer' => 'bool'
     ];
 
     /**
@@ -70,10 +73,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'id' => null,
         'name' => null,
-        'dateCreated' => 'date-time',
-        'dateExpire' => 'date-time'
+        'extension' => null,
+        'status' => null,
+        'available' => null,
+        'canregister' => null,
+        'cantransfer' => null
     ];
 
     /**
@@ -82,10 +87,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'id' => false,
         'name' => false,
-        'dateCreated' => false,
-        'dateExpire' => true
+        'extension' => false,
+        'status' => false,
+        'available' => false,
+        'canregister' => false,
+        'cantransfer' => false
     ];
 
     /**
@@ -164,10 +171,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'dateCreated' => 'date_created',
-        'dateExpire' => 'date_expire'
+        'extension' => 'extension',
+        'status' => 'status',
+        'available' => 'available',
+        'canregister' => 'canregister',
+        'cantransfer' => 'cantransfer'
     ];
 
     /**
@@ -176,10 +185,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'dateCreated' => 'setDateCreated',
-        'dateExpire' => 'setDateExpire'
+        'extension' => 'setExtension',
+        'status' => 'setStatus',
+        'available' => 'setAvailable',
+        'canregister' => 'setCanregister',
+        'cantransfer' => 'setCantransfer'
     ];
 
     /**
@@ -188,10 +199,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'dateCreated' => 'getDateCreated',
-        'dateExpire' => 'getDateExpire'
+        'extension' => 'getExtension',
+        'status' => 'getStatus',
+        'available' => 'getAvailable',
+        'canregister' => 'getCanregister',
+        'cantransfer' => 'getCantransfer'
     ];
 
     /**
@@ -226,6 +239,23 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STATUS_AVAILABLE = 'available';
+    public const STATUS_TAKEN = 'taken';
+    public const STATUS_ERROR = 'error';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public static function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_AVAILABLE,
+            self::STATUS_TAKEN,
+            self::STATUS_ERROR,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -241,10 +271,12 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('dateCreated', $data ?? [], null);
-        $this->setIfExists('dateExpire', $data ?? [], null);
+        $this->setIfExists('extension', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('available', $data ?? [], null);
+        $this->setIfExists('canregister', $data ?? [], null);
+        $this->setIfExists('cantransfer', $data ?? [], null);
     }
 
     /**
@@ -272,15 +304,15 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        $allowedValues = self::getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['dateCreated'] === null) {
-            $invalidProperties[] = "'dateCreated' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -294,38 +326,11 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id Service ID
-     *
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        if (is_null($id)) {
-            throw new InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->container['name'];
     }
@@ -333,11 +338,11 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Service name
+     * @param string|null $name The checked domain name (IDN format)
      *
      * @return $this
      */
-    public function setName(string $name): static
+    public function setName(?string $name): static
     {
         if (is_null($name)) {
             throw new InvalidArgumentException('non-nullable name cannot be null');
@@ -348,62 +353,146 @@ class ProductService implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets dateCreated
+     * Gets extension
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getDateCreated(): \DateTime
+    public function getExtension(): ?string
     {
-        return $this->container['dateCreated'];
+        return $this->container['extension'];
     }
 
     /**
-     * Sets dateCreated
+     * Sets extension
      *
-     * @param \DateTime $dateCreated Product creation date
+     * @param string|null $extension The domain extension/TLD
      *
      * @return $this
      */
-    public function setDateCreated(\DateTime $dateCreated): static
+    public function setExtension(?string $extension): static
     {
-        if (is_null($dateCreated)) {
-            throw new InvalidArgumentException('non-nullable dateCreated cannot be null');
+        if (is_null($extension)) {
+            throw new InvalidArgumentException('non-nullable extension cannot be null');
         }
-        $this->container['dateCreated'] = $dateCreated;
+        $this->container['extension'] = $extension;
 
         return $this;
     }
 
     /**
-     * Gets dateExpire
+     * Gets status
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getDateExpire(): ?\DateTime
+    public function getStatus(): ?string
     {
-        return $this->container['dateExpire'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets dateExpire
+     * Sets status
      *
-     * @param \DateTime|null $dateExpire Product expiration date (null for products without expiration)
+     * @param string|null $status Domain status
      *
      * @return $this
      */
-    public function setDateExpire(?\DateTime $dateExpire): static
+    public function setStatus(?string $status): static
     {
-        if (is_null($dateExpire)) {
-            array_push($this->openAPINullablesSetToNull, 'dateExpire');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dateExpire', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['dateExpire'] = $dateExpire;
+        $allowedValues = self::getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets available
+     *
+     * @return bool|null
+     */
+    public function getAvailable(): ?bool
+    {
+        return $this->container['available'];
+    }
+
+    /**
+     * Sets available
+     *
+     * @param bool|null $available Whether the domain is available for registration
+     *
+     * @return $this
+     */
+    public function setAvailable(?bool $available): static
+    {
+        if (is_null($available)) {
+            throw new InvalidArgumentException('non-nullable available cannot be null');
+        }
+        $this->container['available'] = $available;
+
+        return $this;
+    }
+
+    /**
+     * Gets canregister
+     *
+     * @return bool|null
+     */
+    public function getCanregister(): ?bool
+    {
+        return $this->container['canregister'];
+    }
+
+    /**
+     * Sets canregister
+     *
+     * @param bool|null $canregister Whether the domain can be registered
+     *
+     * @return $this
+     */
+    public function setCanregister(?bool $canregister): static
+    {
+        if (is_null($canregister)) {
+            throw new InvalidArgumentException('non-nullable canregister cannot be null');
+        }
+        $this->container['canregister'] = $canregister;
+
+        return $this;
+    }
+
+    /**
+     * Gets cantransfer
+     *
+     * @return bool|null
+     */
+    public function getCantransfer(): ?bool
+    {
+        return $this->container['cantransfer'];
+    }
+
+    /**
+     * Sets cantransfer
+     *
+     * @param bool|null $cantransfer Whether the domain can be transferred
+     *
+     * @return $this
+     */
+    public function setCantransfer(?bool $cantransfer): static
+    {
+        if (is_null($cantransfer)) {
+            throw new InvalidArgumentException('non-nullable cantransfer cannot be null');
+        }
+        $this->container['cantransfer'] = $cantransfer;
 
         return $this;
     }

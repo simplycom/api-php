@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMysqlDatabasesResponse
+ * AddDnsRecord200ResponseRecord
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetMysqlDatabasesResponse Class Doc Comment
+ * AddDnsRecord200ResponseRecord Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class AddDnsRecord200ResponseRecord implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetMysqlDatabasesResponse';
+    protected static string $openAPIModelName = 'addDnsRecord_200_response_record';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'databases' => '\SimplyCom\Model\MysqlDatabase[]'
+        'id' => 'int'
     ];
 
     /**
@@ -69,9 +67,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'databases' => null
+        'id' => null
     ];
 
     /**
@@ -80,9 +76,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'databases' => false
+        'id' => false
     ];
 
     /**
@@ -161,9 +155,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'databases' => 'databases'
+        'id' => 'id'
     ];
 
     /**
@@ -172,9 +164,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'databases' => 'setDatabases'
+        'id' => 'setId'
     ];
 
     /**
@@ -183,9 +173,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'databases' => 'getDatabases'
+        'id' => 'getId'
     ];
 
     /**
@@ -235,9 +223,7 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('databases', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -265,15 +251,6 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['databases'] === null) {
-            $invalidProperties[] = "'databases' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +264,28 @@ class GetMysqlDatabasesResponse implements ModelInterface, ArrayAccess, JsonSeri
 
 
     /**
-     * Gets status
+     * Gets id
      *
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getId(): ?int
     {
-        return $this->container['status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status
+     * Sets id
      *
-     * @param int $status status
+     * @param int|null $id ID of the newly created record
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setId(?int $id): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($id)) {
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage(): string
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return $this
-     */
-    public function setMessage(string $message): static
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets databases
-     *
-     * @return \SimplyCom\Model\MysqlDatabase[]
-     */
-    public function getDatabases(): array
-    {
-        return $this->container['databases'];
-    }
-
-    /**
-     * Sets databases
-     *
-     * @param \SimplyCom\Model\MysqlDatabase[] $databases databases
-     *
-     * @return $this
-     */
-    public function setDatabases(array $databases): static
-    {
-        if (is_null($databases)) {
-            throw new InvalidArgumentException('non-nullable databases cannot be null');
-        }
-        $this->container['databases'] = $databases;
+        $this->container['id'] = $id;
 
         return $this;
     }

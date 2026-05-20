@@ -1,6 +1,6 @@
 <?php
 /**
- * DnsZoneInfo
+ * Domaincheck200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * DnsZoneInfo Class Doc Comment
+ * Domaincheck200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
+class Domaincheck200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'DnsZoneInfo';
+    protected static string $openAPIModelName = 'domaincheck_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'name' => 'string'
+        'status' => 'int',
+        'message' => 'string',
+        'domain' => '\SimplyCom\Model\Domaincheck200ResponseDomain'
     ];
 
     /**
@@ -67,7 +69,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'name' => null
+        'status' => null,
+        'message' => null,
+        'domain' => null
     ];
 
     /**
@@ -76,7 +80,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'name' => false
+        'status' => false,
+        'message' => false,
+        'domain' => false
     ];
 
     /**
@@ -155,7 +161,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'name' => 'name'
+        'status' => 'status',
+        'message' => 'message',
+        'domain' => 'domain'
     ];
 
     /**
@@ -164,7 +172,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'name' => 'setName'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'domain' => 'setDomain'
     ];
 
     /**
@@ -173,7 +183,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'name' => 'getName'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'domain' => 'getDomain'
     ];
 
     /**
@@ -223,7 +235,9 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('domain', $data ?? [], null);
     }
 
     /**
@@ -251,9 +265,6 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -267,28 +278,82 @@ class DnsZoneInfo implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getName(): string
+    public function getStatus(): ?int
     {
-        return $this->container['name'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets name
+     * Sets status
      *
-     * @param string $name The domain name of the DNS zone
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setName(string $name): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage(): ?string
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return $this
+     */
+    public function setMessage(?string $message): static
+    {
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return \SimplyCom\Model\Domaincheck200ResponseDomain|null
+     */
+    public function getDomain(): ?\SimplyCom\Model\Domaincheck200ResponseDomain
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param \SimplyCom\Model\Domaincheck200ResponseDomain|null $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain(?\SimplyCom\Model\Domaincheck200ResponseDomain $domain): static
+    {
+        if (is_null($domain)) {
+            throw new InvalidArgumentException('non-nullable domain cannot be null');
+        }
+        $this->container['domain'] = $domain;
 
         return $this;
     }

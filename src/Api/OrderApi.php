@@ -135,12 +135,12 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response|null
      */
     public function orderDnsService(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
-    ): \SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response|null
     {
         list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServicePayload, $contentType);
         return $response;
@@ -156,7 +156,7 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\OrderDnsServiceResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderDnsServiceWithHttpInfo(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
@@ -190,13 +190,13 @@ class OrderApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\OrderDnsServiceResponse',
+                        '\SimplyCom\Model\OrderDnsService200Response',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\OrderDnsService400Response',
                         $request,
                         $response,
                     );
@@ -217,7 +217,7 @@ class OrderApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Model\OrderDnsServiceResponse',
+                '\SimplyCom\Model\OrderDnsService200Response',
                 $request,
                 $response,
             );
@@ -226,7 +226,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\OrderDnsServiceResponse',
+                        '\SimplyCom\Model\OrderDnsService200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -234,7 +234,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\ErrorResponse',
+                        '\SimplyCom\Model\OrderDnsService400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,7 +285,7 @@ class OrderApi
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Model\OrderDnsServiceResponse';
+        $returnType = '\SimplyCom\Model\OrderDnsService200Response';
         $request = $this->orderDnsServiceRequest($orderDnsServicePayload, $contentType);
 
         return $this->client

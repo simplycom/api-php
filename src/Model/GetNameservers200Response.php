@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductUsernames
+ * GetNameservers200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ProductUsernames Class Doc Comment
+ * GetNameservers200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
+class GetNameservers200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'ProductUsernames';
+    protected static string $openAPIModelName = 'getNameservers_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'ftp' => 'string',
-        'ssh' => 'string',
-        'mysql' => 'string',
-        'mssql' => 'string'
+        'status' => 'int',
+        'message' => 'string',
+        'nameservers' => 'string[]'
     ];
 
     /**
@@ -70,10 +69,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'ftp' => null,
-        'ssh' => null,
-        'mysql' => null,
-        'mssql' => null
+        'status' => null,
+        'message' => null,
+        'nameservers' => null
     ];
 
     /**
@@ -82,10 +80,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'ftp' => false,
-        'ssh' => false,
-        'mysql' => false,
-        'mssql' => false
+        'status' => false,
+        'message' => false,
+        'nameservers' => false
     ];
 
     /**
@@ -164,10 +161,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'ftp' => 'ftp',
-        'ssh' => 'ssh',
-        'mysql' => 'mysql',
-        'mssql' => 'mssql'
+        'status' => 'status',
+        'message' => 'message',
+        'nameservers' => 'nameservers'
     ];
 
     /**
@@ -176,10 +172,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'ftp' => 'setFtp',
-        'ssh' => 'setSsh',
-        'mysql' => 'setMysql',
-        'mssql' => 'setMssql'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'nameservers' => 'setNameservers'
     ];
 
     /**
@@ -188,10 +183,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'ftp' => 'getFtp',
-        'ssh' => 'getSsh',
-        'mysql' => 'getMysql',
-        'mssql' => 'getMssql'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'nameservers' => 'getNameservers'
     ];
 
     /**
@@ -241,10 +235,9 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('ftp', $data ?? [], null);
-        $this->setIfExists('ssh', $data ?? [], null);
-        $this->setIfExists('mysql', $data ?? [], null);
-        $this->setIfExists('mssql', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('nameservers', $data ?? [], null);
     }
 
     /**
@@ -272,18 +265,6 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['ftp'] === null) {
-            $invalidProperties[] = "'ftp' can't be null";
-        }
-        if ($this->container['ssh'] === null) {
-            $invalidProperties[] = "'ssh' can't be null";
-        }
-        if ($this->container['mysql'] === null) {
-            $invalidProperties[] = "'mysql' can't be null";
-        }
-        if ($this->container['mssql'] === null) {
-            $invalidProperties[] = "'mssql' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,109 +278,82 @@ class ProductUsernames implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets ftp
+     * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getFtp(): string
+    public function getStatus(): ?int
     {
-        return $this->container['ftp'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets ftp
+     * Sets status
      *
-     * @param string $ftp FTP username
+     * @param int|null $status status
      *
      * @return $this
      */
-    public function setFtp(string $ftp): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($ftp)) {
-            throw new InvalidArgumentException('non-nullable ftp cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['ftp'] = $ftp;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets ssh
+     * Gets message
      *
-     * @return string
+     * @return string|null
      */
-    public function getSsh(): string
+    public function getMessage(): ?string
     {
-        return $this->container['ssh'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets ssh
+     * Sets message
      *
-     * @param string $ssh SSH username
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setSsh(string $ssh): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($ssh)) {
-            throw new InvalidArgumentException('non-nullable ssh cannot be null');
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['ssh'] = $ssh;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets mysql
+     * Gets nameservers
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getMysql(): string
+    public function getNameservers(): ?array
     {
-        return $this->container['mysql'];
+        return $this->container['nameservers'];
     }
 
     /**
-     * Sets mysql
+     * Sets nameservers
      *
-     * @param string $mysql MySQL username
+     * @param string[]|null $nameservers Nameservers reported by the registry
      *
      * @return $this
      */
-    public function setMysql(string $mysql): static
+    public function setNameservers(?array $nameservers): static
     {
-        if (is_null($mysql)) {
-            throw new InvalidArgumentException('non-nullable mysql cannot be null');
+        if (is_null($nameservers)) {
+            throw new InvalidArgumentException('non-nullable nameservers cannot be null');
         }
-        $this->container['mysql'] = $mysql;
-
-        return $this;
-    }
-
-    /**
-     * Gets mssql
-     *
-     * @return string
-     */
-    public function getMssql(): string
-    {
-        return $this->container['mssql'];
-    }
-
-    /**
-     * Sets mssql
-     *
-     * @param string $mssql MSSQL username
-     *
-     * @return $this
-     */
-    public function setMssql(string $mssql): static
-    {
-        if (is_null($mssql)) {
-            throw new InvalidArgumentException('non-nullable mssql cannot be null');
-        }
-        $this->container['mssql'] = $mssql;
+        $this->container['nameservers'] = $nameservers;
 
         return $this;
     }

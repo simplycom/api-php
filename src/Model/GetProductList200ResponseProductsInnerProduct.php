@@ -1,6 +1,6 @@
 <?php
 /**
- * GetDnssecKeysResponse
+ * GetProductList200ResponseProductsInnerProduct
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetDnssecKeysResponse Class Doc Comment
+ * GetProductList200ResponseProductsInnerProduct Class Doc Comment
  *
+ * @description Product service information
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class GetProductList200ResponseProductsInnerProduct implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'GetDnssecKeysResponse';
+    protected static string $openAPIModelName = 'getProductList_200_response_products_inner_product';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +59,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'dnssecKeys' => '\SimplyCom\Model\DnssecKey[]'
+        'id' => 'int',
+        'name' => 'string',
+        'dateCreated' => '\DateTime',
+        'dateExpire' => '\DateTime'
     ];
 
     /**
@@ -69,9 +71,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'dnssecKeys' => null
+        'id' => null,
+        'name' => null,
+        'dateCreated' => 'date-time',
+        'dateExpire' => 'date-time'
     ];
 
     /**
@@ -80,9 +83,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'dnssecKeys' => false
+        'id' => false,
+        'name' => false,
+        'dateCreated' => false,
+        'dateExpire' => true
     ];
 
     /**
@@ -161,9 +165,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'dnssecKeys' => 'dnssec_keys'
+        'id' => 'id',
+        'name' => 'name',
+        'dateCreated' => 'date_created',
+        'dateExpire' => 'date_expire'
     ];
 
     /**
@@ -172,9 +177,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'dnssecKeys' => 'setDnssecKeys'
+        'id' => 'setId',
+        'name' => 'setName',
+        'dateCreated' => 'setDateCreated',
+        'dateExpire' => 'setDateExpire'
     ];
 
     /**
@@ -183,9 +189,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'dnssecKeys' => 'getDnssecKeys'
+        'id' => 'getId',
+        'name' => 'getName',
+        'dateCreated' => 'getDateCreated',
+        'dateExpire' => 'getDateExpire'
     ];
 
     /**
@@ -235,9 +242,10 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('dnssecKeys', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('dateCreated', $data ?? [], null);
+        $this->setIfExists('dateExpire', $data ?? [], null);
     }
 
     /**
@@ -265,15 +273,6 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['dnssecKeys'] === null) {
-            $invalidProperties[] = "'dnssecKeys' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -287,82 +286,116 @@ class GetDnssecKeysResponse implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets status
+     * Gets id
      *
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getId(): ?int
     {
-        return $this->container['status'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets status
+     * Sets id
      *
-     * @param int $status status
+     * @param int|null $id Service ID
      *
      * @return $this
      */
-    public function setStatus(int $status): static
+    public function setId(?int $id): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($id)) {
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets name
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getName(): ?string
     {
-        return $this->container['message'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets message
+     * Sets name
      *
-     * @param string $message message
+     * @param string|null $name Service name
      *
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setName(?string $name): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets dnssecKeys
+     * Gets dateCreated
      *
-     * @return \SimplyCom\Model\DnssecKey[]
+     * @return \DateTime|null
      */
-    public function getDnssecKeys(): array
+    public function getDateCreated(): ?\DateTime
     {
-        return $this->container['dnssecKeys'];
+        return $this->container['dateCreated'];
     }
 
     /**
-     * Sets dnssecKeys
+     * Sets dateCreated
      *
-     * @param \SimplyCom\Model\DnssecKey[] $dnssecKeys DNSSEC keys published at the registry
+     * @param \DateTime|null $dateCreated Product creation date
      *
      * @return $this
      */
-    public function setDnssecKeys(array $dnssecKeys): static
+    public function setDateCreated(?\DateTime $dateCreated): static
     {
-        if (is_null($dnssecKeys)) {
-            throw new InvalidArgumentException('non-nullable dnssecKeys cannot be null');
+        if (is_null($dateCreated)) {
+            throw new InvalidArgumentException('non-nullable dateCreated cannot be null');
         }
-        $this->container['dnssecKeys'] = $dnssecKeys;
+        $this->container['dateCreated'] = $dateCreated;
+
+        return $this;
+    }
+
+    /**
+     * Gets dateExpire
+     *
+     * @return \DateTime|null
+     */
+    public function getDateExpire(): ?\DateTime
+    {
+        return $this->container['dateExpire'];
+    }
+
+    /**
+     * Sets dateExpire
+     *
+     * @param \DateTime|null $dateExpire Product expiration date (null for products without expiration)
+     *
+     * @return $this
+     */
+    public function setDateExpire(?\DateTime $dateExpire): static
+    {
+        if (is_null($dateExpire)) {
+            array_push($this->openAPINullablesSetToNull, 'dateExpire');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dateExpire', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dateExpire'] = $dateExpire;
 
         return $this;
     }

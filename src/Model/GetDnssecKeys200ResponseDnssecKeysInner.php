@@ -1,6 +1,6 @@
 <?php
 /**
- * NewDnsRecord
+ * GetDnssecKeys200ResponseDnssecKeysInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * NewDnsRecord Class Doc Comment
+ * GetDnssecKeys200ResponseDnssecKeysInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
+class GetDnssecKeys200ResponseDnssecKeysInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'NewDnsRecord';
+    protected static string $openAPIModelName = 'getDnssecKeys_200_response_dnssec_keys_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'id' => 'int'
+        'type' => 'string',
+        'data' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'id' => null
+        'type' => null,
+        'data' => null
     ];
 
     /**
@@ -76,7 +78,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'id' => false
+        'type' => false,
+        'data' => false
     ];
 
     /**
@@ -155,7 +158,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'id' => 'id'
+        'type' => 'type',
+        'data' => 'data'
     ];
 
     /**
@@ -164,7 +168,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'id' => 'setId'
+        'type' => 'setType',
+        'data' => 'setData'
     ];
 
     /**
@@ -173,7 +178,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'id' => 'getId'
+        'type' => 'getType',
+        'data' => 'getData'
     ];
 
     /**
@@ -208,6 +214,21 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DS = 'ds';
+    public const TYPE_DNSKEY = 'dnskey';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public static function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DS,
+            self::TYPE_DNSKEY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -223,7 +244,8 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -251,9 +273,15 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        $allowedValues = self::getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -267,28 +295,65 @@ class NewDnsRecord implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets type
      *
-     * @return int
+     * @return string|null
      */
-    public function getId(): int
+    public function getType(): ?string
     {
-        return $this->container['id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets id
+     * Sets type
      *
-     * @param int $id ID of the newly created record
+     * @param string|null $type Record type
      *
      * @return $this
      */
-    public function setId(int $id): static
+    public function setType(?string $type): static
     {
-        if (is_null($id)) {
-            throw new InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($type)) {
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['id'] = $id;
+        $allowedValues = self::getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return string|null
+     */
+    public function getData(): ?string
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param string|null $data Zone-file formatted record data
+     *
+     * @return $this
+     */
+    public function setData(?string $data): static
+    {
+        if (is_null($data)) {
+            throw new InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
 
         return $this;
     }

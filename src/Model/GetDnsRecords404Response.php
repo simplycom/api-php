@@ -1,6 +1,6 @@
 <?php
 /**
- * SshServer
+ * GetDnsRecords404Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * SshServer Class Doc Comment
+ * GetDnsRecords404Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
+class GetDnsRecords404Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'SshServer';
+    protected static string $openAPIModelName = 'getDnsRecords_404_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'auth' => 'string',
-        'username' => 'string',
-        'hostname' => 'string',
-        'ip' => 'string'
+        'error' => 'string'
     ];
 
     /**
@@ -70,10 +67,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'auth' => null,
-        'username' => null,
-        'hostname' => null,
-        'ip' => null
+        'error' => null
     ];
 
     /**
@@ -82,10 +76,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'auth' => false,
-        'username' => false,
-        'hostname' => false,
-        'ip' => false
+        'error' => false
     ];
 
     /**
@@ -164,10 +155,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'auth' => 'auth',
-        'username' => 'username',
-        'hostname' => 'hostname',
-        'ip' => 'ip'
+        'error' => 'error'
     ];
 
     /**
@@ -176,10 +164,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'auth' => 'setAuth',
-        'username' => 'setUsername',
-        'hostname' => 'setHostname',
-        'ip' => 'setIp'
+        'error' => 'setError'
     ];
 
     /**
@@ -188,10 +173,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'auth' => 'getAuth',
-        'username' => 'getUsername',
-        'hostname' => 'getHostname',
-        'ip' => 'getIp'
+        'error' => 'getError'
     ];
 
     /**
@@ -241,10 +223,7 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('auth', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('hostname', $data ?? [], null);
-        $this->setIfExists('ip', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
     }
 
     /**
@@ -272,18 +251,6 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['auth'] === null) {
-            $invalidProperties[] = "'auth' can't be null";
-        }
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
-        }
-        if ($this->container['hostname'] === null) {
-            $invalidProperties[] = "'hostname' can't be null";
-        }
-        if ($this->container['ip'] === null) {
-            $invalidProperties[] = "'ip' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,109 +264,28 @@ class SshServer implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets auth
+     * Gets error
      *
-     * @return string
+     * @return string|null
      */
-    public function getAuth(): string
+    public function getError(): ?string
     {
-        return $this->container['auth'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets auth
+     * Sets error
      *
-     * @param string $auth Authentication method
+     * @param string|null $error error
      *
      * @return $this
      */
-    public function setAuth(string $auth): static
+    public function setError(?string $error): static
     {
-        if (is_null($auth)) {
-            throw new InvalidArgumentException('non-nullable auth cannot be null');
+        if (is_null($error)) {
+            throw new InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['auth'] = $auth;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string
-     */
-    public function getUsername(): string
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string $username SSH username
-     *
-     * @return $this
-     */
-    public function setUsername(string $username): static
-    {
-        if (is_null($username)) {
-            throw new InvalidArgumentException('non-nullable username cannot be null');
-        }
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets hostname
-     *
-     * @return string
-     */
-    public function getHostname(): string
-    {
-        return $this->container['hostname'];
-    }
-
-    /**
-     * Sets hostname
-     *
-     * @param string $hostname Server hostname
-     *
-     * @return $this
-     */
-    public function setHostname(string $hostname): static
-    {
-        if (is_null($hostname)) {
-            throw new InvalidArgumentException('non-nullable hostname cannot be null');
-        }
-        $this->container['hostname'] = $hostname;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip
-     *
-     * @return string
-     */
-    public function getIp(): string
-    {
-        return $this->container['ip'];
-    }
-
-    /**
-     * Sets ip
-     *
-     * @param string $ip Server IP address
-     *
-     * @return $this
-     */
-    public function setIp(string $ip): static
-    {
-        if (is_null($ip)) {
-            throw new InvalidArgumentException('non-nullable ip cannot be null');
-        }
-        $this->container['ip'] = $ip;
+        $this->container['error'] = $error;
 
         return $this;
     }
