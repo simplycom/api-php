@@ -281,6 +281,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
      * Gets status
      *
      * @return int|null
+     * @deprecated
      */
     public function getStatus(): ?int
     {
@@ -290,9 +291,10 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
     /**
      * Sets status
      *
-     * @param int|null $status status
+     * @param int|null $status Deprecated. Mirrors the HTTP status code and will be removed in a future API version. Read the HTTP status code instead.
      *
      * @return $this
+     * @deprecated
      */
     public function setStatus(?int $status): static
     {
@@ -308,6 +310,7 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
      * Gets message
      *
      * @return string|null
+     * @deprecated
      */
     public function getMessage(): ?string
     {
@@ -317,9 +320,10 @@ class GetServerStatusMessages200Response implements ModelInterface, ArrayAccess,
     /**
      * Sets message
      *
-     * @param string|null $message message
+     * @param string|null $message Deprecated. Always \"success\" on 2xx responses and will be removed in a future API version.
      *
      * @return $this
+     * @deprecated
      */
     public function setMessage(?string $message): static
     {
