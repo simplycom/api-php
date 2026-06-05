@@ -20,7 +20,6 @@ src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/AddDnsRecord200Response.php
 src/Model/AddDnsRecord200ResponseRecord.php
-src/Model/AddDnsRecord400Response.php
 src/Model/AddDnsSecKeyPayload.php
 src/Model/AddMailAccountPayload.php
 src/Model/DnsRecordPayload.php
@@ -54,7 +53,6 @@ src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/ModelInterface.php
 src/Model/OrderDnsService200Response.php
 src/Model/OrderDnsService200ResponseOrder.php
-src/Model/OrderDnsService400Response.php
 src/Model/OrderDnsServicePayload.php
 src/Model/SetNameserversPayload.php
 src/Model/SuccessResponse.php
