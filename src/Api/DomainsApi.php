@@ -72,7 +72,7 @@ class DomainsApi
      */
     protected int $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /** @var array<string,string[]> $contentTypes **/
     public const contentTypes = [
         'domaincheck' => [
             'application/json',
@@ -195,7 +195,6 @@ class DomainsApi
                         $response,
                     );
             }
-            
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(

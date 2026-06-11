@@ -72,7 +72,7 @@ class BillingApi
      */
     protected int $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /** @var array<string,string[]> $contentTypes **/
     public const contentTypes = [
         'getInvoices' => [
             'application/json',
@@ -191,7 +191,6 @@ class BillingApi
                         $response,
                     );
             }
-            
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
