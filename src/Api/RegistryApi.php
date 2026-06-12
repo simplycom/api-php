@@ -31,7 +31,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -40,7 +39,6 @@ use Psr\Http\Message\ResponseInterface;
 use SimplyCom\ApiException;
 use SimplyCom\Configuration;
 use SimplyCom\HeaderSelector;
-use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
@@ -148,13 +146,13 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse
      */
     public function addDnssecKey(
         string $object,
         \SimplyCom\Model\AddDnsSecKeyPayload $addDnsSecKeyPayload,
         string $contentType = self::contentTypes['addDnssecKey'][0]
-    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse
     {
         list($response) = $this->addDnssecKeyWithHttpInfo($object, $addDnsSecKeyPayload, $contentType);
         return $response;
@@ -171,7 +169,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function addDnssecKeyWithHttpInfo(
         string $object,
@@ -359,14 +357,12 @@ class RegistryApi
         string $contentType = self::contentTypes['addDnssecKey'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $object when calling addDnssecKey'
             );
         }
-
         // verify the required parameter 'addDnsSecKeyPayload' is set
         if ($addDnsSecKeyPayload === null || (is_array($addDnsSecKeyPayload) && count($addDnsSecKeyPayload) === 0)) {
             throw new InvalidArgumentException(
@@ -374,10 +370,8 @@ class RegistryApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/registry/dnssec/';
         $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -421,7 +415,7 @@ class RegistryApi
                     }
                 }
                 // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
@@ -468,12 +462,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\GetDnssecKeys200Response|null
+     * @return \SimplyCom\Model\GetDnssecKeys200Response
      */
     public function getDnssecKeys(
         string $object,
         string $contentType = self::contentTypes['getDnssecKeys'][0]
-    ): ?\SimplyCom\Model\GetDnssecKeys200Response
+    ): \SimplyCom\Model\GetDnssecKeys200Response
     {
         list($response) = $this->getDnssecKeysWithHttpInfo($object, $contentType);
         return $response;
@@ -489,7 +483,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\GetDnssecKeys200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\GetDnssecKeys200Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function getDnssecKeysWithHttpInfo(
         string $object,
@@ -656,7 +650,6 @@ class RegistryApi
         string $contentType = self::contentTypes['getDnssecKeys'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -664,10 +657,7 @@ class RegistryApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/registry/dnssec/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -690,30 +680,6 @@ class RegistryApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -751,12 +717,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\GetNameservers200Response|null
+     * @return \SimplyCom\Model\GetNameservers200Response
      */
     public function getNameservers(
         string $object,
         string $contentType = self::contentTypes['getNameservers'][0]
-    ): ?\SimplyCom\Model\GetNameservers200Response
+    ): \SimplyCom\Model\GetNameservers200Response
     {
         list($response) = $this->getNameserversWithHttpInfo($object, $contentType);
         return $response;
@@ -772,7 +738,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\GetNameservers200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\GetNameservers200Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function getNameserversWithHttpInfo(
         string $object,
@@ -939,7 +905,6 @@ class RegistryApi
         string $contentType = self::contentTypes['getNameservers'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -947,10 +912,7 @@ class RegistryApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/registry/nameservers/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -973,30 +935,6 @@ class RegistryApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -1034,12 +972,12 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|null
+     * @return \SimplyCom\Model\SuccessResponse
      */
     public function removeDnssec(
         string $object,
         string $contentType = self::contentTypes['removeDnssec'][0]
-    ): ?\SimplyCom\Model\SuccessResponse
+    ): \SimplyCom\Model\SuccessResponse
     {
         list($response) = $this->removeDnssecWithHttpInfo($object, $contentType);
         return $response;
@@ -1055,7 +993,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function removeDnssecWithHttpInfo(
         string $object,
@@ -1222,7 +1160,6 @@ class RegistryApi
         string $contentType = self::contentTypes['removeDnssec'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -1230,10 +1167,7 @@ class RegistryApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/registry/dnssec/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1256,30 +1190,6 @@ class RegistryApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -1318,13 +1228,13 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse
      */
     public function setNameservers(
         string $object,
         \SimplyCom\Model\SetNameserversPayload $setNameserversPayload,
         string $contentType = self::contentTypes['setNameservers'][0]
-    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse
     {
         list($response) = $this->setNameserversWithHttpInfo($object, $setNameserversPayload, $contentType);
         return $response;
@@ -1341,7 +1251,7 @@ class RegistryApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function setNameserversWithHttpInfo(
         string $object,
@@ -1529,14 +1439,12 @@ class RegistryApi
         string $contentType = self::contentTypes['setNameservers'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $object when calling setNameservers'
             );
         }
-
         // verify the required parameter 'setNameserversPayload' is set
         if ($setNameserversPayload === null || (is_array($setNameserversPayload) && count($setNameserversPayload) === 0)) {
             throw new InvalidArgumentException(
@@ -1544,10 +1452,8 @@ class RegistryApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/registry/nameservers/';
         $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1591,7 +1497,7 @@ class RegistryApi
                     }
                 }
                 // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters

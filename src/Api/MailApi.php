@@ -31,7 +31,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -40,7 +39,6 @@ use Psr\Http\Message\ResponseInterface;
 use SimplyCom\ApiException;
 use SimplyCom\Configuration;
 use SimplyCom\HeaderSelector;
-use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
@@ -136,13 +134,13 @@ class MailApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse
      */
     public function addMailAccount(
         string $object,
         \SimplyCom\Model\AddMailAccountPayload $addMailAccountPayload,
         string $contentType = self::contentTypes['addMailAccount'][0]
-    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse
     {
         list($response) = $this->addMailAccountWithHttpInfo($object, $addMailAccountPayload, $contentType);
         return $response;
@@ -159,7 +157,7 @@ class MailApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\ErrorResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function addMailAccountWithHttpInfo(
         string $object,
@@ -347,14 +345,12 @@ class MailApi
         string $contentType = self::contentTypes['addMailAccount'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $object when calling addMailAccount'
             );
         }
-
         // verify the required parameter 'addMailAccountPayload' is set
         if ($addMailAccountPayload === null || (is_array($addMailAccountPayload) && count($addMailAccountPayload) === 0)) {
             throw new InvalidArgumentException(
@@ -362,10 +358,8 @@ class MailApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/mail/accounts/';
         $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -409,7 +403,7 @@ class MailApi
                     }
                 }
                 // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters

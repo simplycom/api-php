@@ -31,7 +31,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -40,7 +39,6 @@ use Psr\Http\Message\ResponseInterface;
 use SimplyCom\ApiException;
 use SimplyCom\Configuration;
 use SimplyCom\HeaderSelector;
-use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
@@ -135,12 +133,12 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response|null
+     * @return \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response
      */
     public function orderDnsService(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
-    ): \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response|null
+    ): \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response
     {
         list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServicePayload, $contentType);
         return $response;
@@ -156,7 +154,7 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function orderDnsServiceWithHttpInfo(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
@@ -337,7 +335,6 @@ class OrderApi
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): Request
     {
-
         // verify the required parameter 'orderDnsServicePayload' is set
         if ($orderDnsServicePayload === null || (is_array($orderDnsServicePayload) && count($orderDnsServicePayload) === 0)) {
             throw new InvalidArgumentException(
@@ -345,10 +342,8 @@ class OrderApi
             );
         }
 
-
         $resourcePath = '/2/my/order/dnsservice/';
         $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -384,7 +379,7 @@ class OrderApi
                     }
                 }
                 // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters

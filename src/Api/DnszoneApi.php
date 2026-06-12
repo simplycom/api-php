@@ -31,7 +31,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -40,7 +39,6 @@ use Psr\Http\Message\ResponseInterface;
 use SimplyCom\ApiException;
 use SimplyCom\Configuration;
 use SimplyCom\HeaderSelector;
-use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
@@ -157,13 +155,13 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response|null
+     * @return \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response
      */
     public function addDnsRecord(
         string $object,
         \SimplyCom\Model\DnsRecordPayload $dnsRecordPayload,
         string $contentType = self::contentTypes['addDnsRecord'][0]
-    ): \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response|null
+    ): \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response
     {
         list($response) = $this->addDnsRecordWithHttpInfo($object, $dnsRecordPayload, $contentType);
         return $response;
@@ -180,7 +178,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function addDnsRecordWithHttpInfo(
         string $object,
@@ -368,14 +366,12 @@ class DnszoneApi
         string $contentType = self::contentTypes['addDnsRecord'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $object when calling addDnsRecord'
             );
         }
-
         // verify the required parameter 'dnsRecordPayload' is set
         if ($dnsRecordPayload === null || (is_array($dnsRecordPayload) && count($dnsRecordPayload) === 0)) {
             throw new InvalidArgumentException(
@@ -383,10 +379,8 @@ class DnszoneApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/dns/records/';
         $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -430,7 +424,7 @@ class DnszoneApi
                     }
                 }
                 // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
@@ -481,7 +475,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return string|null
+     * @return string
      */
     public function ddnsHelper(
         string $hostname,
@@ -490,7 +484,7 @@ class DnszoneApi
         ?string $myip = null,
         ?int $ttl = 3600,
         string $contentType = self::contentTypes['ddnsHelper'][0]
-    ): ?string
+    ): string
     {
         list($response) = $this->ddnsHelperWithHttpInfo($hostname, $domain, $record, $myip, $ttl, $contentType);
         return $response;
@@ -510,7 +504,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of string|string|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: string, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function ddnsHelperWithHttpInfo(
         string $hostname,
@@ -733,7 +727,6 @@ class DnszoneApi
         string $contentType = self::contentTypes['ddnsHelper'][0]
     ): Request
     {
-
         // verify the required parameter 'hostname' is set
         if ($hostname === null || (is_array($hostname) && count($hostname) === 0)) {
             throw new InvalidArgumentException(
@@ -741,13 +734,7 @@ class DnszoneApi
             );
         }
 
-
-
-
-
-
         $resourcePath = '/2/ddns/';
-        $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
@@ -808,30 +795,6 @@ class DnszoneApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -870,13 +833,13 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|null
+     * @return \SimplyCom\Model\SuccessResponse
      */
     public function deleteDnsRecord(
         string $object,
         int $recordId,
         string $contentType = self::contentTypes['deleteDnsRecord'][0]
-    ): ?\SimplyCom\Model\SuccessResponse
+    ): \SimplyCom\Model\SuccessResponse
     {
         list($response) = $this->deleteDnsRecordWithHttpInfo($object, $recordId, $contentType);
         return $response;
@@ -893,7 +856,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function deleteDnsRecordWithHttpInfo(
         string $object,
@@ -1067,14 +1030,12 @@ class DnszoneApi
         string $contentType = self::contentTypes['deleteDnsRecord'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $object when calling deleteDnsRecord'
             );
         }
-
         // verify the required parameter 'recordId' is set
         if ($recordId === null || (is_array($recordId) && count($recordId) === 0)) {
             throw new InvalidArgumentException(
@@ -1082,10 +1043,7 @@ class DnszoneApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/dns/records/{record_id}/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1116,30 +1074,6 @@ class DnszoneApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -1204,7 +1138,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of string|string|string|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: string, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function dyndnsWithHttpInfo(
         string $hostname,
@@ -1427,7 +1361,6 @@ class DnszoneApi
         string $contentType = self::contentTypes['dyndns'][0]
     ): Request
     {
-
         // verify the required parameter 'hostname' is set
         if ($hostname === null || (is_array($hostname) && count($hostname) === 0)) {
             throw new InvalidArgumentException(
@@ -1435,11 +1368,7 @@ class DnszoneApi
             );
         }
 
-
-
-
         $resourcePath = '/2/dyndns/';
-        $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
@@ -1482,30 +1411,6 @@ class DnszoneApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -1543,12 +1448,12 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\Model\GetDnsRecords404Response|null
+     * @return \SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\Model\GetDnsRecords404Response
      */
     public function getDnsRecords(
         string $object,
         string $contentType = self::contentTypes['getDnsRecords'][0]
-    ): \SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\Model\GetDnsRecords404Response|null
+    ): \SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\Model\GetDnsRecords404Response
     {
         list($response) = $this->getDnsRecordsWithHttpInfo($object, $contentType);
         return $response;
@@ -1564,7 +1469,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\Model\GetDnsRecords404Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\GetDnsRecords200Response|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function getDnsRecordsWithHttpInfo(
         string $object,
@@ -1745,7 +1650,6 @@ class DnszoneApi
         string $contentType = self::contentTypes['getDnsRecords'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -1753,10 +1657,7 @@ class DnszoneApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/dns/records/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1779,30 +1680,6 @@ class DnszoneApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -1840,12 +1717,12 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\GetDnsZone200Response|null
+     * @return \SimplyCom\Model\GetDnsZone200Response
      */
     public function getDnsZone(
         string $object,
         string $contentType = self::contentTypes['getDnsZone'][0]
-    ): ?\SimplyCom\Model\GetDnsZone200Response
+    ): \SimplyCom\Model\GetDnsZone200Response
     {
         list($response) = $this->getDnsZoneWithHttpInfo($object, $contentType);
         return $response;
@@ -1861,7 +1738,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\GetDnsZone200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\GetDnsZone200Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function getDnsZoneWithHttpInfo(
         string $object,
@@ -2028,7 +1905,6 @@ class DnszoneApi
         string $contentType = self::contentTypes['getDnsZone'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -2036,10 +1912,7 @@ class DnszoneApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/dns/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -2062,30 +1935,6 @@ class DnszoneApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -2123,12 +1972,12 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|null
+     * @return \SimplyCom\Model\SuccessResponse
      */
     public function reloadDnsZone(
         string $object,
         string $contentType = self::contentTypes['reloadDnsZone'][0]
-    ): ?\SimplyCom\Model\SuccessResponse
+    ): \SimplyCom\Model\SuccessResponse
     {
         list($response) = $this->reloadDnsZoneWithHttpInfo($object, $contentType);
         return $response;
@@ -2144,7 +1993,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function reloadDnsZoneWithHttpInfo(
         string $object,
@@ -2311,7 +2160,6 @@ class DnszoneApi
         string $contentType = self::contentTypes['reloadDnsZone'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -2319,10 +2167,7 @@ class DnszoneApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/dns/reload/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -2345,30 +2190,6 @@ class DnszoneApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
@@ -2408,14 +2229,14 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response|null
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response
      */
     public function updateDnsRecord(
         string $object,
         int $recordId,
         \SimplyCom\Model\DnsRecordPayload $dnsRecordPayload,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
-    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response|null
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response
     {
         list($response) = $this->updateDnsRecordWithHttpInfo($object, $recordId, $dnsRecordPayload, $contentType);
         return $response;
@@ -2433,7 +2254,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function updateDnsRecordWithHttpInfo(
         string $object,
@@ -2628,21 +2449,18 @@ class DnszoneApi
         string $contentType = self::contentTypes['updateDnsRecord'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $object when calling updateDnsRecord'
             );
         }
-
         // verify the required parameter 'recordId' is set
         if ($recordId === null || (is_array($recordId) && count($recordId) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $recordId when calling updateDnsRecord'
             );
         }
-
         // verify the required parameter 'dnsRecordPayload' is set
         if ($dnsRecordPayload === null || (is_array($dnsRecordPayload) && count($dnsRecordPayload) === 0)) {
             throw new InvalidArgumentException(
@@ -2650,10 +2468,8 @@ class DnszoneApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/dns/records/{record_id}/';
         $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -2705,7 +2521,7 @@ class DnszoneApi
                     }
                 }
                 // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters

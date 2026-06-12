@@ -51,6 +51,7 @@ src/Model/GetProductList200ResponseProductsInnerUsernames.php
 src/Model/GetServerStatusMessages200Response.php
 src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/ModelInterface.php
+src/Model/OneOfInterface.php
 src/Model/OrderDnsService200Response.php
 src/Model/OrderDnsService200ResponseOrder.php
 src/Model/OrderDnsServicePayload.php

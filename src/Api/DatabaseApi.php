@@ -31,7 +31,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -40,7 +39,6 @@ use Psr\Http\Message\ResponseInterface;
 use SimplyCom\ApiException;
 use SimplyCom\Configuration;
 use SimplyCom\HeaderSelector;
-use SimplyCom\FormDataProcessor;
 use SimplyCom\ObjectSerializer;
 
 /**
@@ -135,12 +133,12 @@ class DatabaseApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\GetMysqlDatabases200Response|null
+     * @return \SimplyCom\Model\GetMysqlDatabases200Response
      */
     public function getMysqlDatabases(
         string $object,
         string $contentType = self::contentTypes['getMysqlDatabases'][0]
-    ): ?\SimplyCom\Model\GetMysqlDatabases200Response
+    ): \SimplyCom\Model\GetMysqlDatabases200Response
     {
         list($response) = $this->getMysqlDatabasesWithHttpInfo($object, $contentType);
         return $response;
@@ -156,7 +154,7 @@ class DatabaseApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \SimplyCom\Model\GetMysqlDatabases200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array{0: \SimplyCom\Model\GetMysqlDatabases200Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function getMysqlDatabasesWithHttpInfo(
         string $object,
@@ -323,7 +321,6 @@ class DatabaseApi
         string $contentType = self::contentTypes['getMysqlDatabases'][0]
     ): Request
     {
-
         // verify the required parameter 'object' is set
         if ($object === null || (is_array($object) && count($object) === 0)) {
             throw new InvalidArgumentException(
@@ -331,10 +328,7 @@ class DatabaseApi
             );
         }
 
-
         $resourcePath = '/2/my/products/{object}/databases/mysql/';
-        $formParams = [];
-        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -357,30 +351,6 @@ class DatabaseApi
             $multipart
         );
 
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
 
         // this endpoint requires HTTP basic authentication
         if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
