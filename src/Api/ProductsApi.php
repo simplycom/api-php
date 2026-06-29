@@ -313,6 +313,7 @@ class ProductsApi
     {
 
         $resourcePath = '/2/my/products/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

@@ -329,6 +329,7 @@ class DatabaseApi
         }
 
         $resourcePath = '/2/my/products/{object}/databases/mysql/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

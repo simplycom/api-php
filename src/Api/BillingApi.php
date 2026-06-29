@@ -313,6 +313,7 @@ class BillingApi
     {
 
         $resourcePath = '/2/my/invoices/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

@@ -360,6 +360,7 @@ class MailApi
 
         $resourcePath = '/2/my/products/{object}/mail/accounts/';
         $formParams = [];
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

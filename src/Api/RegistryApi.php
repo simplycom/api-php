@@ -372,6 +372,7 @@ class RegistryApi
 
         $resourcePath = '/2/my/products/{object}/registry/dnssec/';
         $formParams = [];
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -658,6 +659,7 @@ class RegistryApi
         }
 
         $resourcePath = '/2/my/products/{object}/registry/dnssec/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -913,6 +915,7 @@ class RegistryApi
         }
 
         $resourcePath = '/2/my/products/{object}/registry/nameservers/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1168,6 +1171,7 @@ class RegistryApi
         }
 
         $resourcePath = '/2/my/products/{object}/registry/dnssec/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1454,6 +1458,7 @@ class RegistryApi
 
         $resourcePath = '/2/my/products/{object}/registry/nameservers/';
         $formParams = [];
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

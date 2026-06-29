@@ -344,6 +344,7 @@ class OrderApi
 
         $resourcePath = '/2/my/order/dnsservice/';
         $formParams = [];
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

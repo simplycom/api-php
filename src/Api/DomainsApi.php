@@ -329,6 +329,7 @@ class DomainsApi
         }
 
         $resourcePath = '/2/my/domaincheck/{domain}/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

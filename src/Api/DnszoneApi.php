@@ -381,6 +381,7 @@ class DnszoneApi
 
         $resourcePath = '/2/my/products/{object}/dns/records/';
         $formParams = [];
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1044,6 +1045,7 @@ class DnszoneApi
         }
 
         $resourcePath = '/2/my/products/{object}/dns/records/{record_id}/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1658,6 +1660,7 @@ class DnszoneApi
         }
 
         $resourcePath = '/2/my/products/{object}/dns/records/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -1913,6 +1916,7 @@ class DnszoneApi
         }
 
         $resourcePath = '/2/my/products/{object}/dns/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -2168,6 +2172,7 @@ class DnszoneApi
         }
 
         $resourcePath = '/2/my/products/{object}/dns/reload/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
@@ -2470,6 +2475,7 @@ class DnszoneApi
 
         $resourcePath = '/2/my/products/{object}/dns/records/{record_id}/';
         $formParams = [];
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;

@@ -313,6 +313,7 @@ class ServerstatusApi
     {
 
         $resourcePath = '/2/my/serverstatus/messages/';
+        $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
