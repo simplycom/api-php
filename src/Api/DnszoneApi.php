@@ -155,13 +155,13 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response
+     * @return \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\AddDnsRecord400Response
      */
     public function addDnsRecord(
         string $object,
         \SimplyCom\Model\DnsRecordPayload $dnsRecordPayload,
         string $contentType = self::contentTypes['addDnsRecord'][0]
-    ): \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response
+    ): \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\AddDnsRecord400Response
     {
         list($response) = $this->addDnsRecordWithHttpInfo($object, $dnsRecordPayload, $contentType);
         return $response;
@@ -178,7 +178,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array{0: \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @return array{0: \SimplyCom\Model\AddDnsRecord200Response|\SimplyCom\Model\AddDnsRecord400Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function addDnsRecordWithHttpInfo(
         string $object,
@@ -219,7 +219,7 @@ class DnszoneApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\GetDnsRecords404Response',
+                        '\SimplyCom\Model\AddDnsRecord400Response',
                         $request,
                         $response,
                     );
@@ -256,7 +256,7 @@ class DnszoneApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\GetDnsRecords404Response',
+                        '\SimplyCom\Model\AddDnsRecord400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2234,14 +2234,14 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response
+     * @return \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\AddDnsRecord400Response
      */
     public function updateDnsRecord(
         string $object,
         int $recordId,
         \SimplyCom\Model\DnsRecordPayload $dnsRecordPayload,
         string $contentType = self::contentTypes['updateDnsRecord'][0]
-    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response
+    ): \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\AddDnsRecord400Response
     {
         list($response) = $this->updateDnsRecordWithHttpInfo($object, $recordId, $dnsRecordPayload, $contentType);
         return $response;
@@ -2259,7 +2259,7 @@ class DnszoneApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array{0: \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @return array{0: \SimplyCom\Model\SuccessResponse|\SimplyCom\Model\AddDnsRecord400Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function updateDnsRecordWithHttpInfo(
         string $object,
@@ -2301,7 +2301,7 @@ class DnszoneApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\GetDnsRecords404Response',
+                        '\SimplyCom\Model\AddDnsRecord400Response',
                         $request,
                         $response,
                     );
@@ -2338,7 +2338,7 @@ class DnszoneApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\GetDnsRecords404Response',
+                        '\SimplyCom\Model\AddDnsRecord400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

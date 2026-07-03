@@ -133,12 +133,12 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response
+     * @return \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response
      */
     public function orderDnsService(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
-    ): \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response
+    ): \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response
     {
         list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServicePayload, $contentType);
         return $response;
@@ -154,7 +154,7 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array{0: \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\GetDnsRecords404Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @return array{0: \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
     public function orderDnsServiceWithHttpInfo(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
@@ -194,7 +194,7 @@ class OrderApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\GetDnsRecords404Response',
+                        '\SimplyCom\Model\OrderDnsService400Response',
                         $request,
                         $response,
                     );
@@ -231,7 +231,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\GetDnsRecords404Response',
+                        '\SimplyCom\Model\OrderDnsService400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
