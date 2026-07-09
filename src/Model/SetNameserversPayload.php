@@ -296,7 +296,6 @@ class SetNameserversPayload implements ModelInterface, ArrayAccess, JsonSerializ
         if (is_null($nameservers)) {
             throw new InvalidArgumentException('non-nullable nameservers cannot be null');
         }
-
         if ((count($nameservers) > 13)) {
             throw new InvalidArgumentException('invalid value for $nameservers when calling SetNameserversPayload., number of items must be less than or equal to 13.');
         }
