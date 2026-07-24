@@ -23,6 +23,7 @@ src/Model/AddDnsRecord200ResponseRecord.php
 src/Model/AddDnsRecord400Response.php
 src/Model/AddDnsSecKeyPayload.php
 src/Model/AddMailAccountPayload.php
+src/Model/AnyOfInterface.php
 src/Model/DnsRecordPayload.php
 src/Model/DnsRecordType.php
 src/Model/Domaincheck200Response.php
