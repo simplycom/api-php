@@ -72,6 +72,12 @@ class OrderApi
 
     /** @var array<string,string[]> $contentTypes **/
     public const contentTypes = [
+        'createOrder' => [
+            'application/json',
+        ],
+        'getOrderableProducts' => [
+            'application/json',
+        ],
         'orderDnsService' => [
             'application/json',
         ],
@@ -124,6 +130,532 @@ class OrderApi
     }
 
     /**
+     * Operation createOrder
+     *
+     * Order a product with optional domain registration/transfer
+     *
+     * @param  \SimplyCom\Model\OrderPayload $orderPayload orderPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return \SimplyCom\Model\CreateOrder200Response|\SimplyCom\Model\CreateOrder400Response
+     */
+    public function createOrder(
+        \SimplyCom\Model\OrderPayload $orderPayload,
+        string $contentType = self::contentTypes['createOrder'][0]
+    ): \SimplyCom\Model\CreateOrder200Response|\SimplyCom\Model\CreateOrder400Response
+    {
+        list($response) = $this->createOrderWithHttpInfo($orderPayload, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createOrderWithHttpInfo
+     *
+     * Order a product with optional domain registration/transfer
+     *
+     * @param  \SimplyCom\Model\OrderPayload $orderPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return array{0: \SimplyCom\Model\CreateOrder200Response|\SimplyCom\Model\CreateOrder400Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     */
+    public function createOrderWithHttpInfo(
+        \SimplyCom\Model\OrderPayload $orderPayload,
+        string $contentType = self::contentTypes['createOrder'][0]
+    ): array
+    {
+        $request = $this->createOrderRequest($orderPayload, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\Model\CreateOrder200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\Model\CreateOrder400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SimplyCom\Model\CreateOrder200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\Model\CreateOrder200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\Model\CreateOrder400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createOrderAsync
+     *
+     * Order a product with optional domain registration/transfer
+     *
+     * @param  \SimplyCom\Model\OrderPayload $orderPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function createOrderAsync(
+        \SimplyCom\Model\OrderPayload $orderPayload,
+        string $contentType = self::contentTypes['createOrder'][0]
+    ): PromiseInterface
+    {
+        return $this->createOrderAsyncWithHttpInfo($orderPayload, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createOrderAsyncWithHttpInfo
+     *
+     * Order a product with optional domain registration/transfer
+     *
+     * @param  \SimplyCom\Model\OrderPayload $orderPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function createOrderAsyncWithHttpInfo(
+        \SimplyCom\Model\OrderPayload $orderPayload,
+        string $contentType = self::contentTypes['createOrder'][0]
+    ): PromiseInterface
+    {
+        $returnType = '\SimplyCom\Model\CreateOrder200Response';
+        $request = $this->createOrderRequest($orderPayload, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createOrder'
+     *
+     * @param  \SimplyCom\Model\OrderPayload $orderPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createOrderRequest(
+        \SimplyCom\Model\OrderPayload $orderPayload,
+        string $contentType = self::contentTypes['createOrder'][0]
+    ): Request
+    {
+        // verify the required parameter 'orderPayload' is set
+        if ($orderPayload === null || (is_array($orderPayload) && count($orderPayload) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $orderPayload when calling createOrder'
+            );
+        }
+
+        $resourcePath = '/2/my/order/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($orderPayload)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($orderPayload));
+            } else {
+                $httpBody = $orderPayload;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getOrderableProducts
+     *
+     * List the products that can be ordered
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderableProducts'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return \SimplyCom\Model\GetOrderableProducts200Response
+     */
+    public function getOrderableProducts(
+        string $contentType = self::contentTypes['getOrderableProducts'][0]
+    ): \SimplyCom\Model\GetOrderableProducts200Response
+    {
+        list($response) = $this->getOrderableProductsWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getOrderableProductsWithHttpInfo
+     *
+     * List the products that can be ordered
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderableProducts'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return array{0: \SimplyCom\Model\GetOrderableProducts200Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     */
+    public function getOrderableProductsWithHttpInfo(
+        string $contentType = self::contentTypes['getOrderableProducts'][0]
+    ): array
+    {
+        $request = $this->getOrderableProductsRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\Model\GetOrderableProducts200Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SimplyCom\Model\GetOrderableProducts200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\Model\GetOrderableProducts200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getOrderableProductsAsync
+     *
+     * List the products that can be ordered
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderableProducts'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function getOrderableProductsAsync(
+        string $contentType = self::contentTypes['getOrderableProducts'][0]
+    ): PromiseInterface
+    {
+        return $this->getOrderableProductsAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getOrderableProductsAsyncWithHttpInfo
+     *
+     * List the products that can be ordered
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderableProducts'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function getOrderableProductsAsyncWithHttpInfo(
+        string $contentType = self::contentTypes['getOrderableProducts'][0]
+    ): PromiseInterface
+    {
+        $returnType = '\SimplyCom\Model\GetOrderableProducts200Response';
+        $request = $this->getOrderableProductsRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getOrderableProducts'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderableProducts'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getOrderableProductsRequest(
+        string $contentType = self::contentTypes['getOrderableProducts'][0]
+    ): Request
+    {
+
+        $resourcePath = '/2/my/order/products/';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation orderDnsService
      *
      * Order a DNS service with optional domain registration/transfer
@@ -133,12 +665,13 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response
+     * @return \SimplyCom\Model\CreateOrder200Response|\SimplyCom\Model\CreateOrder400Response
+     * @deprecated
      */
     public function orderDnsService(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
-    ): \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response
+    ): \SimplyCom\Model\CreateOrder200Response|\SimplyCom\Model\CreateOrder400Response
     {
         list($response) = $this->orderDnsServiceWithHttpInfo($orderDnsServicePayload, $contentType);
         return $response;
@@ -154,7 +687,8 @@ class OrderApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array{0: \SimplyCom\Model\OrderDnsService200Response|\SimplyCom\Model\OrderDnsService400Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @return array{0: \SimplyCom\Model\CreateOrder200Response|\SimplyCom\Model\CreateOrder400Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @deprecated
      */
     public function orderDnsServiceWithHttpInfo(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
@@ -188,13 +722,13 @@ class OrderApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\OrderDnsService200Response',
+                        '\SimplyCom\Model\CreateOrder200Response',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\OrderDnsService400Response',
+                        '\SimplyCom\Model\CreateOrder400Response',
                         $request,
                         $response,
                     );
@@ -214,7 +748,7 @@ class OrderApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Model\OrderDnsService200Response',
+                '\SimplyCom\Model\CreateOrder200Response',
                 $request,
                 $response,
             );
@@ -223,7 +757,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\OrderDnsService200Response',
+                        '\SimplyCom\Model\CreateOrder200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -231,7 +765,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\OrderDnsService400Response',
+                        '\SimplyCom\Model\CreateOrder400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -252,6 +786,7 @@ class OrderApi
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
+     * @deprecated
      */
     public function orderDnsServiceAsync(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
@@ -276,13 +811,14 @@ class OrderApi
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
+     * @deprecated
      */
     public function orderDnsServiceAsyncWithHttpInfo(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,
         string $contentType = self::contentTypes['orderDnsService'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Model\OrderDnsService200Response';
+        $returnType = '\SimplyCom\Model\CreateOrder200Response';
         $request = $this->orderDnsServiceRequest($orderDnsServicePayload, $contentType);
 
         return $this->client
@@ -329,6 +865,7 @@ class OrderApi
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function orderDnsServiceRequest(
         \SimplyCom\Model\OrderDnsServicePayload $orderDnsServicePayload,

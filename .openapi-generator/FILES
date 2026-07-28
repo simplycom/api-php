@@ -24,6 +24,9 @@ src/Model/AddDnsRecord400Response.php
 src/Model/AddDnsSecKeyPayload.php
 src/Model/AddMailAccountPayload.php
 src/Model/AnyOfInterface.php
+src/Model/CreateOrder200Response.php
+src/Model/CreateOrder200ResponseOrder.php
+src/Model/CreateOrder400Response.php
 src/Model/DnsRecordPayload.php
 src/Model/DnsRecordType.php
 src/Model/Domaincheck200Response.php
@@ -41,6 +44,8 @@ src/Model/GetInvoices200ResponseInvoicesInner.php
 src/Model/GetMysqlDatabases200Response.php
 src/Model/GetMysqlDatabases200ResponseDatabasesInner.php
 src/Model/GetNameservers200Response.php
+src/Model/GetOrderableProducts200Response.php
+src/Model/GetOrderableProducts200ResponseProductsInner.php
 src/Model/GetProductList200Response.php
 src/Model/GetProductList200ResponseProductsInner.php
 src/Model/GetProductList200ResponseProductsInnerDomain.php
@@ -54,10 +59,8 @@ src/Model/GetServerStatusMessages200Response.php
 src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/ModelInterface.php
 src/Model/OneOfInterface.php
-src/Model/OrderDnsService200Response.php
-src/Model/OrderDnsService200ResponseOrder.php
-src/Model/OrderDnsService400Response.php
 src/Model/OrderDnsServicePayload.php
+src/Model/OrderPayload.php
 src/Model/SetNameserversPayload.php
 src/Model/SuccessResponse.php
 src/ObjectSerializer.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsService400Response
+ * CreateOrder200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsService400Response Class Doc Comment
+ * CreateOrder200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSerializable
+class CreateOrder200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'orderDnsService_400_response';
+    protected static string $openAPIModelName = 'createOrder_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'error' => 'string'
+        'status' => 'int',
+        'message' => 'string',
+        'order' => '\SimplyCom\Model\CreateOrder200ResponseOrder'
     ];
 
     /**
@@ -67,7 +69,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'error' => null
+        'status' => null,
+        'message' => null,
+        'order' => null
     ];
 
     /**
@@ -76,7 +80,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'error' => false
+        'status' => false,
+        'message' => false,
+        'order' => true
     ];
 
     /**
@@ -155,7 +161,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'error' => 'error'
+        'status' => 'status',
+        'message' => 'message',
+        'order' => 'order'
     ];
 
     /**
@@ -164,7 +172,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $setters = [
-        'error' => 'setError'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'order' => 'setOrder'
     ];
 
     /**
@@ -173,7 +183,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $getters = [
-        'error' => 'getError'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'order' => 'getOrder'
     ];
 
     /**
@@ -223,7 +235,9 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('order', $data ?? [], null);
     }
 
     /**
@@ -264,28 +278,93 @@ class OrderDnsService400Response implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets error
+     * Gets status
      *
-     * @return string|null
+     * @return int|null
+     * @deprecated
      */
-    public function getError(): ?string
+    public function getStatus(): ?int
     {
-        return $this->container['error'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets error
+     * Sets status
      *
-     * @param string|null $error error
+     * @param int|null $status Deprecated. Mirrors the HTTP status code and will be removed in a future API version. Read the HTTP status code instead.
+     *
+     * @return $this
+     * @deprecated
+     */
+    public function setStatus(?int $status): static
+    {
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     * @deprecated
+     */
+    public function getMessage(): ?string
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Deprecated. Always \"success\" on 2xx responses and will be removed in a future API version.
+     *
+     * @return $this
+     * @deprecated
+     */
+    public function setMessage(?string $message): static
+    {
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets order
+     *
+     * @return \SimplyCom\Model\CreateOrder200ResponseOrder|null
+     */
+    public function getOrder(): ?\SimplyCom\Model\CreateOrder200ResponseOrder
+    {
+        return $this->container['order'];
+    }
+
+    /**
+     * Sets order
+     *
+     * @param \SimplyCom\Model\CreateOrder200ResponseOrder|null $order order
      *
      * @return $this
      */
-    public function setError(?string $error): static
+    public function setOrder(?\SimplyCom\Model\CreateOrder200ResponseOrder $order): static
     {
-        if (is_null($error)) {
-            throw new InvalidArgumentException('non-nullable error cannot be null');
+        if (is_null($order)) {
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['error'] = $error;
+        $this->container['order'] = $order;
 
         return $this;
     }

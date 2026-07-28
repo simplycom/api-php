@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsService200ResponseOrder
+ * GetOrderableProducts200ResponseProductsInner
  *
  * PHP version 8.1
  *
@@ -34,15 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsService200ResponseOrder Class Doc Comment
+ * GetOrderableProducts200ResponseProductsInner Class Doc Comment
  *
- * @description Order information (only present if payment was required)
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, JsonSerializable
+class GetOrderableProducts200ResponseProductsInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'orderDnsService_200_response_order';
+    protected static string $openAPIModelName = 'getOrderableProducts_200_response_products_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'paymentId' => 'int'
+        'product' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -68,7 +68,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'paymentId' => null
+        'product' => null,
+        'name' => null
     ];
 
     /**
@@ -77,7 +78,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'paymentId' => false
+        'product' => false,
+        'name' => false
     ];
 
     /**
@@ -156,7 +158,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'paymentId' => 'payment_id'
+        'product' => 'product',
+        'name' => 'name'
     ];
 
     /**
@@ -165,7 +168,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      * @var array<string, string>
      */
     protected static array $setters = [
-        'paymentId' => 'setPaymentId'
+        'product' => 'setProduct',
+        'name' => 'setName'
     ];
 
     /**
@@ -174,7 +178,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      * @var array<string, string>
      */
     protected static array $getters = [
-        'paymentId' => 'getPaymentId'
+        'product' => 'getProduct',
+        'name' => 'getName'
     ];
 
     /**
@@ -224,7 +229,8 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('paymentId', $data ?? [], null);
+        $this->setIfExists('product', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -265,28 +271,55 @@ class OrderDnsService200ResponseOrder implements ModelInterface, ArrayAccess, Js
 
 
     /**
-     * Gets paymentId
+     * Gets product
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getPaymentId(): ?int
+    public function getProduct(): ?string
     {
-        return $this->container['paymentId'];
+        return $this->container['product'];
     }
 
     /**
-     * Sets paymentId
+     * Sets product
      *
-     * @param int|null $paymentId Payment ID for the order
+     * @param string|null $product Value to send as \"product\" when placing an order
      *
      * @return $this
      */
-    public function setPaymentId(?int $paymentId): static
+    public function setProduct(?string $product): static
     {
-        if (is_null($paymentId)) {
-            throw new InvalidArgumentException('non-nullable paymentId cannot be null');
+        if (is_null($product)) {
+            throw new InvalidArgumentException('non-nullable product cannot be null');
         }
-        $this->container['paymentId'] = $paymentId;
+        $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Human readable product name
+     *
+     * @return $this
+     */
+    public function setName(?string $name): static
+    {
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
 
         return $this;
     }

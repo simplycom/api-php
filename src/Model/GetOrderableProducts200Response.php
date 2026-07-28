@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsServicePayload
+ * GetOrderableProducts200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsServicePayload Class Doc Comment
+ * GetOrderableProducts200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSerializable
+class GetOrderableProducts200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'OrderDnsServicePayload';
+    protected static string $openAPIModelName = 'getOrderableProducts_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'domain' => 'string',
-        'domainaction' => 'string',
-        'authid' => 'string',
-        'coupon' => 'string',
-        'autorenew' => 'bool'
+        'status' => 'int',
+        'message' => 'string',
+        'products' => '\SimplyCom\Model\GetOrderableProducts200ResponseProductsInner[]'
     ];
 
     /**
@@ -71,11 +69,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'domain' => null,
-        'domainaction' => null,
-        'authid' => null,
-        'coupon' => null,
-        'autorenew' => null
+        'status' => null,
+        'message' => null,
+        'products' => null
     ];
 
     /**
@@ -84,11 +80,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'domain' => false,
-        'domainaction' => true,
-        'authid' => true,
-        'coupon' => true,
-        'autorenew' => true
+        'status' => false,
+        'message' => false,
+        'products' => false
     ];
 
     /**
@@ -167,11 +161,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'domain' => 'domain',
-        'domainaction' => 'domainaction',
-        'authid' => 'authid',
-        'coupon' => 'coupon',
-        'autorenew' => 'autorenew'
+        'status' => 'status',
+        'message' => 'message',
+        'products' => 'products'
     ];
 
     /**
@@ -180,11 +172,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $setters = [
-        'domain' => 'setDomain',
-        'domainaction' => 'setDomainaction',
-        'authid' => 'setAuthid',
-        'coupon' => 'setCoupon',
-        'autorenew' => 'setAutorenew'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'products' => 'setProducts'
     ];
 
     /**
@@ -193,11 +183,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      * @var array<string, string>
      */
     protected static array $getters = [
-        'domain' => 'getDomain',
-        'domainaction' => 'getDomainaction',
-        'authid' => 'getAuthid',
-        'coupon' => 'getCoupon',
-        'autorenew' => 'getAutorenew'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'products' => 'getProducts'
     ];
 
     /**
@@ -232,25 +220,6 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const DOMAINACTION_REGISTER = 'register';
-    public const DOMAINACTION_TRANSFER = 'transfer';
-    public const DOMAINACTION_TRANSFERONLY = 'transferonly';
-    public const DOMAINACTION_NONE = 'none';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getDomainactionAllowableValues()
-    {
-        return [
-            self::DOMAINACTION_REGISTER,
-            self::DOMAINACTION_TRANSFER,
-            self::DOMAINACTION_TRANSFERONLY,
-            self::DOMAINACTION_NONE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -266,11 +235,9 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('domain', $data ?? [], null);
-        $this->setIfExists('domainaction', $data ?? [], null);
-        $this->setIfExists('authid', $data ?? [], null);
-        $this->setIfExists('coupon', $data ?? [], null);
-        $this->setIfExists('autorenew', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('products', $data ?? [], null);
     }
 
     /**
@@ -298,18 +265,6 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['domain'] === null) {
-            $invalidProperties[] = "'domain' can't be null";
-        }
-        $allowedValues = self::getDomainactionAllowableValues();
-        if (!is_null($this->container['domainaction']) && !in_array($this->container['domainaction'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'domainaction', must be one of '%s'",
-                $this->container['domainaction'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -323,174 +278,86 @@ class OrderDnsServicePayload implements ModelInterface, ArrayAccess, JsonSeriali
 
 
     /**
-     * Gets domain
+     * Gets status
      *
-     * @return string
+     * @return int|null
+     * @deprecated
      */
-    public function getDomain(): string
+    public function getStatus(): ?int
     {
-        return $this->container['domain'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets domain
+     * Sets status
      *
-     * @param string $domain Fully qualified domain name. Both ASCII and IDN domains are supported.
+     * @param int|null $status Deprecated. Mirrors the HTTP status code and will be removed in a future API version. Read the HTTP status code instead.
      *
      * @return $this
+     * @deprecated
      */
-    public function setDomain(string $domain): static
+    public function setStatus(?int $status): static
     {
-        if (is_null($domain)) {
-            throw new InvalidArgumentException('non-nullable domain cannot be null');
+        if (is_null($status)) {
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['domain'] = $domain;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets domainaction
+     * Gets message
      *
      * @return string|null
+     * @deprecated
      */
-    public function getDomainaction(): ?string
+    public function getMessage(): ?string
     {
-        return $this->container['domainaction'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets domainaction
+     * Sets message
      *
-     * @param string|null $domainaction Action to perform on the domain. Must match domain availability status.
+     * @param string|null $message Deprecated. Always \"success\" on 2xx responses and will be removed in a future API version.
      *
      * @return $this
+     * @deprecated
      */
-    public function setDomainaction(?string $domainaction): static
+    public function setMessage(?string $message): static
     {
-        if (is_null($domainaction)) {
-            array_push($this->openAPINullablesSetToNull, 'domainaction');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('domainaction', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        $allowedValues = self::getDomainactionAllowableValues();
-        if (!is_null($domainaction) && !in_array($domainaction, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'domainaction', must be one of '%s'",
-                    $domainaction,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['domainaction'] = $domainaction;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets authid
+     * Gets products
      *
-     * @return string|null
+     * @return \SimplyCom\Model\GetOrderableProducts200ResponseProductsInner[]|null
      */
-    public function getAuthid(): ?string
+    public function getProducts(): ?array
     {
-        return $this->container['authid'];
+        return $this->container['products'];
     }
 
     /**
-     * Sets authid
+     * Sets products
      *
-     * @param string|null $authid Authorization code for domain transfer (optional)
+     * @param \SimplyCom\Model\GetOrderableProducts200ResponseProductsInner[]|null $products Array of orderable products
      *
      * @return $this
      */
-    public function setAuthid(?string $authid): static
+    public function setProducts(?array $products): static
     {
-        if (is_null($authid)) {
-            array_push($this->openAPINullablesSetToNull, 'authid');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('authid', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($products)) {
+            throw new InvalidArgumentException('non-nullable products cannot be null');
         }
-        $this->container['authid'] = $authid;
-
-        return $this;
-    }
-
-    /**
-     * Gets coupon
-     *
-     * @return string|null
-     */
-    public function getCoupon(): ?string
-    {
-        return $this->container['coupon'];
-    }
-
-    /**
-     * Sets coupon
-     *
-     * @param string|null $coupon Optional coupon code to apply to the order
-     *
-     * @return $this
-     */
-    public function setCoupon(?string $coupon): static
-    {
-        if (is_null($coupon)) {
-            array_push($this->openAPINullablesSetToNull, 'coupon');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('coupon', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['coupon'] = $coupon;
-
-        return $this;
-    }
-
-    /**
-     * Gets autorenew
-     *
-     * @return bool|null
-     */
-    public function getAutorenew(): ?bool
-    {
-        return $this->container['autorenew'];
-    }
-
-    /**
-     * Sets autorenew
-     *
-     * @param bool|null $autorenew Whether to enable automatic renewal for the product
-     *
-     * @return $this
-     */
-    public function setAutorenew(?bool $autorenew): static
-    {
-        if (is_null($autorenew)) {
-            array_push($this->openAPINullablesSetToNull, 'autorenew');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('autorenew', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['autorenew'] = $autorenew;
+        $this->container['products'] = $products;
 
         return $this;
     }

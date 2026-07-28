@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderDnsService200Response
+ * CreateOrder200ResponseOrder
  *
  * PHP version 8.1
  *
@@ -34,14 +34,15 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * OrderDnsService200Response Class Doc Comment
+ * CreateOrder200ResponseOrder Class Doc Comment
  *
+ * @description Order information (only present if payment was required)
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class CreateOrder200ResponseOrder implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'orderDnsService_200_response';
+    protected static string $openAPIModelName = 'createOrder_200_response_order';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +59,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'order' => '\SimplyCom\Model\OrderDnsService200ResponseOrder'
+        'paymentId' => 'int'
     ];
 
     /**
@@ -69,9 +68,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'order' => null
+        'paymentId' => null
     ];
 
     /**
@@ -80,9 +77,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'order' => true
+        'paymentId' => false
     ];
 
     /**
@@ -161,9 +156,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'order' => 'order'
+        'paymentId' => 'payment_id'
     ];
 
     /**
@@ -172,9 +165,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'order' => 'setOrder'
+        'paymentId' => 'setPaymentId'
     ];
 
     /**
@@ -183,9 +174,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'order' => 'getOrder'
+        'paymentId' => 'getPaymentId'
     ];
 
     /**
@@ -235,9 +224,7 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('order', $data ?? [], null);
+        $this->setIfExists('paymentId', $data ?? [], null);
     }
 
     /**
@@ -278,93 +265,28 @@ class OrderDnsService200Response implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets status
+     * Gets paymentId
      *
      * @return int|null
-     * @deprecated
      */
-    public function getStatus(): ?int
+    public function getPaymentId(): ?int
     {
-        return $this->container['status'];
+        return $this->container['paymentId'];
     }
 
     /**
-     * Sets status
+     * Sets paymentId
      *
-     * @param int|null $status Deprecated. Mirrors the HTTP status code and will be removed in a future API version. Read the HTTP status code instead.
-     *
-     * @return $this
-     * @deprecated
-     */
-    public function setStatus(?int $status): static
-    {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getMessage(): ?string
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message Deprecated. Always \"success\" on 2xx responses and will be removed in a future API version.
-     *
-     * @return $this
-     * @deprecated
-     */
-    public function setMessage(?string $message): static
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets order
-     *
-     * @return \SimplyCom\Model\OrderDnsService200ResponseOrder|null
-     */
-    public function getOrder(): ?\SimplyCom\Model\OrderDnsService200ResponseOrder
-    {
-        return $this->container['order'];
-    }
-
-    /**
-     * Sets order
-     *
-     * @param \SimplyCom\Model\OrderDnsService200ResponseOrder|null $order order
+     * @param int|null $paymentId Payment ID for the order
      *
      * @return $this
      */
-    public function setOrder(?\SimplyCom\Model\OrderDnsService200ResponseOrder $order): static
+    public function setPaymentId(?int $paymentId): static
     {
-        if (is_null($order)) {
-            array_push($this->openAPINullablesSetToNull, 'order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($paymentId)) {
+            throw new InvalidArgumentException('non-nullable paymentId cannot be null');
         }
-        $this->container['order'] = $order;
+        $this->container['paymentId'] = $paymentId;
 
         return $this;
     }
