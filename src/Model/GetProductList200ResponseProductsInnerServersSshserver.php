@@ -61,8 +61,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     protected static array $openAPITypes = [
         'auth' => 'string',
         'username' => 'string',
-        'hostname' => 'string',
-        'ip' => 'string'
+        'hostname' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     protected static array $openAPIFormats = [
         'auth' => null,
         'username' => null,
-        'hostname' => null,
-        'ip' => null
+        'hostname' => null
     ];
 
     /**
@@ -85,8 +83,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     protected static array $openAPINullables = [
         'auth' => false,
         'username' => false,
-        'hostname' => false,
-        'ip' => false
+        'hostname' => false
     ];
 
     /**
@@ -167,8 +164,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     protected static array $attributeMap = [
         'auth' => 'auth',
         'username' => 'username',
-        'hostname' => 'hostname',
-        'ip' => 'ip'
+        'hostname' => 'hostname'
     ];
 
     /**
@@ -179,8 +175,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     protected static array $setters = [
         'auth' => 'setAuth',
         'username' => 'setUsername',
-        'hostname' => 'setHostname',
-        'ip' => 'setIp'
+        'hostname' => 'setHostname'
     ];
 
     /**
@@ -191,8 +186,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     protected static array $getters = [
         'auth' => 'getAuth',
         'username' => 'getUsername',
-        'hostname' => 'getHostname',
-        'ip' => 'getIp'
+        'hostname' => 'getHostname'
     ];
 
     /**
@@ -245,7 +239,6 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
         $this->setIfExists('auth', $data ?? [], null);
         $this->setIfExists('username', $data ?? [], null);
         $this->setIfExists('hostname', $data ?? [], null);
-        $this->setIfExists('ip', $data ?? [], null);
     }
 
     /**
@@ -352,7 +345,7 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
     /**
      * Sets hostname
      *
-     * @param string|null $hostname Server hostname
+     * @param string|null $hostname SSH hostname
      *
      * @return $this
      */
@@ -362,33 +355,6 @@ class GetProductList200ResponseProductsInnerServersSshserver implements ModelInt
             throw new InvalidArgumentException('non-nullable hostname cannot be null');
         }
         $this->container['hostname'] = $hostname;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip
-     *
-     * @return string|null
-     */
-    public function getIp(): ?string
-    {
-        return $this->container['ip'];
-    }
-
-    /**
-     * Sets ip
-     *
-     * @param string|null $ip Server IP address
-     *
-     * @return $this
-     */
-    public function setIp(?string $ip): static
-    {
-        if (is_null($ip)) {
-            throw new InvalidArgumentException('non-nullable ip cannot be null');
-        }
-        $this->container['ip'] = $ip;
 
         return $this;
     }
