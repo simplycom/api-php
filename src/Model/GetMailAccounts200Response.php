@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMysqlDatabases200Response
+ * GetMailAccounts200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetMysqlDatabases200Response Class Doc Comment
+ * GetMailAccounts200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'getMysqlDatabases_200_response';
+    protected static string $openAPIModelName = 'getMailAccounts_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     protected static array $openAPITypes = [
         'status' => 'int',
         'message' => 'string',
-        'databases' => '\SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]'
+        'accounts' => '\SimplyCom\Model\GetMailAccounts200ResponseAccountsInner[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     protected static array $openAPIFormats = [
         'status' => null,
         'message' => null,
-        'databases' => null
+        'accounts' => null
     ];
 
     /**
@@ -82,7 +82,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     protected static array $openAPINullables = [
         'status' => false,
         'message' => false,
-        'databases' => false
+        'accounts' => false
     ];
 
     /**
@@ -163,7 +163,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     protected static array $attributeMap = [
         'status' => 'status',
         'message' => 'message',
-        'databases' => 'databases'
+        'accounts' => 'accounts'
     ];
 
     /**
@@ -174,7 +174,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     protected static array $setters = [
         'status' => 'setStatus',
         'message' => 'setMessage',
-        'databases' => 'setDatabases'
+        'accounts' => 'setAccounts'
     ];
 
     /**
@@ -185,7 +185,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     protected static array $getters = [
         'status' => 'getStatus',
         'message' => 'getMessage',
-        'databases' => 'getDatabases'
+        'accounts' => 'getAccounts'
     ];
 
     /**
@@ -237,7 +237,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('databases', $data ?? [], null);
+        $this->setIfExists('accounts', $data ?? [], null);
     }
 
     /**
@@ -336,28 +336,28 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
     }
 
     /**
-     * Gets databases
+     * Gets accounts
      *
-     * @return \SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null
+     * @return \SimplyCom\Model\GetMailAccounts200ResponseAccountsInner[]|null
      */
-    public function getDatabases(): ?array
+    public function getAccounts(): ?array
     {
-        return $this->container['databases'];
+        return $this->container['accounts'];
     }
 
     /**
-     * Sets databases
+     * Sets accounts
      *
-     * @param \SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null $databases databases
+     * @param \SimplyCom\Model\GetMailAccounts200ResponseAccountsInner[]|null $accounts accounts
      *
      * @return $this
      */
-    public function setDatabases(?array $databases): static
+    public function setAccounts(?array $accounts): static
     {
-        if (is_null($databases)) {
-            throw new InvalidArgumentException('non-nullable databases cannot be null');
+        if (is_null($accounts)) {
+            throw new InvalidArgumentException('non-nullable accounts cannot be null');
         }
-        $this->container['databases'] = $databases;
+        $this->container['accounts'] = $accounts;
 
         return $this;
     }

@@ -41,6 +41,8 @@ src/Model/GetDnssecKeys200Response.php
 src/Model/GetDnssecKeys200ResponseDnssecKeysInner.php
 src/Model/GetInvoices200Response.php
 src/Model/GetInvoices200ResponseInvoicesInner.php
+src/Model/GetMailAccounts200Response.php
+src/Model/GetMailAccounts200ResponseAccountsInner.php
 src/Model/GetMysqlDatabases200Response.php
 src/Model/GetMysqlDatabases200ResponseDatabasesInner.php
 src/Model/GetNameservers200Response.php

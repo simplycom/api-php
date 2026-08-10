@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMysqlDatabases200Response
+ * GetMailAccounts200ResponseAccountsInner
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetMysqlDatabases200Response Class Doc Comment
+ * GetMailAccounts200ResponseAccountsInner Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class GetMailAccounts200ResponseAccountsInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'getMysqlDatabases_200_response';
+    protected static string $openAPIModelName = 'getMailAccounts_200_response_accounts_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'databases' => '\SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]'
+        'username' => 'string',
+        'email' => 'string',
+        'suspended' => 'bool',
+        'autoreply' => 'bool',
+        'quotaDiskUsedBytes' => 'int',
+        'quotaDiskLimitBytes' => 'int'
     ];
 
     /**
@@ -69,9 +72,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'databases' => null
+        'username' => null,
+        'email' => null,
+        'suspended' => null,
+        'autoreply' => null,
+        'quotaDiskUsedBytes' => null,
+        'quotaDiskLimitBytes' => null
     ];
 
     /**
@@ -80,9 +86,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'databases' => false
+        'username' => false,
+        'email' => false,
+        'suspended' => false,
+        'autoreply' => false,
+        'quotaDiskUsedBytes' => true,
+        'quotaDiskLimitBytes' => true
     ];
 
     /**
@@ -161,9 +170,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'databases' => 'databases'
+        'username' => 'username',
+        'email' => 'email',
+        'suspended' => 'suspended',
+        'autoreply' => 'autoreply',
+        'quotaDiskUsedBytes' => 'quota_disk_used_bytes',
+        'quotaDiskLimitBytes' => 'quota_disk_limit_bytes'
     ];
 
     /**
@@ -172,9 +184,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'databases' => 'setDatabases'
+        'username' => 'setUsername',
+        'email' => 'setEmail',
+        'suspended' => 'setSuspended',
+        'autoreply' => 'setAutoreply',
+        'quotaDiskUsedBytes' => 'setQuotaDiskUsedBytes',
+        'quotaDiskLimitBytes' => 'setQuotaDiskLimitBytes'
     ];
 
     /**
@@ -183,9 +198,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'databases' => 'getDatabases'
+        'username' => 'getUsername',
+        'email' => 'getEmail',
+        'suspended' => 'getSuspended',
+        'autoreply' => 'getAutoreply',
+        'quotaDiskUsedBytes' => 'getQuotaDiskUsedBytes',
+        'quotaDiskLimitBytes' => 'getQuotaDiskLimitBytes'
     ];
 
     /**
@@ -235,9 +253,12 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('databases', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('suspended', $data ?? [], null);
+        $this->setIfExists('autoreply', $data ?? [], null);
+        $this->setIfExists('quotaDiskUsedBytes', $data ?? [], null);
+        $this->setIfExists('quotaDiskLimitBytes', $data ?? [], null);
     }
 
     /**
@@ -278,86 +299,177 @@ class GetMysqlDatabases200Response implements ModelInterface, ArrayAccess, JsonS
 
 
     /**
-     * Gets status
-     *
-     * @return int|null
-     * @deprecated
-     */
-    public function getStatus(): ?int
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status Deprecated. Mirrors the HTTP status code and will be removed in a future API version. Read the HTTP status code instead.
-     *
-     * @return $this
-     * @deprecated
-     */
-    public function setStatus(?int $status): static
-    {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets username
      *
      * @return string|null
-     * @deprecated
      */
-    public function getMessage(): ?string
+    public function getUsername(): ?string
     {
-        return $this->container['message'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets message
+     * Sets username
      *
-     * @param string|null $message Deprecated. Always \"success\" on 2xx responses and will be removed in a future API version.
+     * @param string|null $username username
      *
      * @return $this
-     * @deprecated
      */
-    public function setMessage(?string $message): static
+    public function setUsername(?string $username): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($username)) {
+            throw new InvalidArgumentException('non-nullable username cannot be null');
         }
-        $this->container['message'] = $message;
+        $this->container['username'] = $username;
 
         return $this;
     }
 
     /**
-     * Gets databases
+     * Gets email
      *
-     * @return \SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null
+     * @return string|null
      */
-    public function getDatabases(): ?array
+    public function getEmail(): ?string
     {
-        return $this->container['databases'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets databases
+     * Sets email
      *
-     * @param \SimplyCom\Model\GetMysqlDatabases200ResponseDatabasesInner[]|null $databases databases
+     * @param string|null $email email
      *
      * @return $this
      */
-    public function setDatabases(?array $databases): static
+    public function setEmail(?string $email): static
     {
-        if (is_null($databases)) {
-            throw new InvalidArgumentException('non-nullable databases cannot be null');
+        if (is_null($email)) {
+            throw new InvalidArgumentException('non-nullable email cannot be null');
         }
-        $this->container['databases'] = $databases;
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets suspended
+     *
+     * @return bool|null
+     */
+    public function getSuspended(): ?bool
+    {
+        return $this->container['suspended'];
+    }
+
+    /**
+     * Sets suspended
+     *
+     * @param bool|null $suspended suspended
+     *
+     * @return $this
+     */
+    public function setSuspended(?bool $suspended): static
+    {
+        if (is_null($suspended)) {
+            throw new InvalidArgumentException('non-nullable suspended cannot be null');
+        }
+        $this->container['suspended'] = $suspended;
+
+        return $this;
+    }
+
+    /**
+     * Gets autoreply
+     *
+     * @return bool|null
+     */
+    public function getAutoreply(): ?bool
+    {
+        return $this->container['autoreply'];
+    }
+
+    /**
+     * Sets autoreply
+     *
+     * @param bool|null $autoreply autoreply
+     *
+     * @return $this
+     */
+    public function setAutoreply(?bool $autoreply): static
+    {
+        if (is_null($autoreply)) {
+            throw new InvalidArgumentException('non-nullable autoreply cannot be null');
+        }
+        $this->container['autoreply'] = $autoreply;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotaDiskUsedBytes
+     *
+     * @return int|null
+     */
+    public function getQuotaDiskUsedBytes(): ?int
+    {
+        return $this->container['quotaDiskUsedBytes'];
+    }
+
+    /**
+     * Sets quotaDiskUsedBytes
+     *
+     * @param int|null $quotaDiskUsedBytes quotaDiskUsedBytes
+     *
+     * @return $this
+     */
+    public function setQuotaDiskUsedBytes(?int $quotaDiskUsedBytes): static
+    {
+        if (is_null($quotaDiskUsedBytes)) {
+            array_push($this->openAPINullablesSetToNull, 'quotaDiskUsedBytes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quotaDiskUsedBytes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['quotaDiskUsedBytes'] = $quotaDiskUsedBytes;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotaDiskLimitBytes
+     *
+     * @return int|null
+     */
+    public function getQuotaDiskLimitBytes(): ?int
+    {
+        return $this->container['quotaDiskLimitBytes'];
+    }
+
+    /**
+     * Sets quotaDiskLimitBytes
+     *
+     * @param int|null $quotaDiskLimitBytes quotaDiskLimitBytes
+     *
+     * @return $this
+     */
+    public function setQuotaDiskLimitBytes(?int $quotaDiskLimitBytes): static
+    {
+        if (is_null($quotaDiskLimitBytes)) {
+            array_push($this->openAPINullablesSetToNull, 'quotaDiskLimitBytes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quotaDiskLimitBytes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['quotaDiskLimitBytes'] = $quotaDiskLimitBytes;
 
         return $this;
     }
