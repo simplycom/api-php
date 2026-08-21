@@ -9,6 +9,7 @@ src/Api/BillingApi.php
 src/Api/DatabaseApi.php
 src/Api/DnszoneApi.php
 src/Api/DomainsApi.php
+src/Api/LogsApi.php
 src/Api/MailApi.php
 src/Api/OrderApi.php
 src/Api/ProductsApi.php
@@ -39,6 +40,7 @@ src/Model/GetDnsZone200Response.php
 src/Model/GetDnsZone200ResponseZone.php
 src/Model/GetDnssecKeys200Response.php
 src/Model/GetDnssecKeys200ResponseDnssecKeysInner.php
+src/Model/GetFirewallLogs200Response.php
 src/Model/GetInvoices200Response.php
 src/Model/GetInvoices200ResponseInvoicesInner.php
 src/Model/GetMailAccounts200Response.php

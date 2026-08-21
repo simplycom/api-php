@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMailAccounts200Response
+ * GetFirewallLogs200Response
  *
  * PHP version 8.1
  *
@@ -34,14 +34,14 @@ use ReturnTypeWillChange;
 use SimplyCom\ObjectSerializer;
 
 /**
- * GetMailAccounts200Response Class Doc Comment
+ * GetFirewallLogs200Response Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class GetFirewallLogs200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      *
      * @var string
      */
-    protected static string $openAPIModelName = 'getMailAccounts_200_response';
+    protected static string $openAPIModelName = 'getFirewallLogs_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'status' => 'int',
-        'message' => 'string',
-        'accounts' => '\SimplyCom\Model\GetMailAccounts200ResponseAccountsInner[]'
+        'timestamp' => '\DateTime',
+        'hostname' => 'string',
+        'uri' => 'string',
+        'clientIp' => 'string',
+        'userAgent' => 'string',
+        'ruleMessages' => 'string[]',
+        'country' => 'string'
     ];
 
     /**
@@ -69,9 +73,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'accounts' => null
+        'timestamp' => 'date-time',
+        'hostname' => null,
+        'uri' => null,
+        'clientIp' => null,
+        'userAgent' => null,
+        'ruleMessages' => null,
+        'country' => null
     ];
 
     /**
@@ -80,9 +88,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'status' => false,
-        'message' => false,
-        'accounts' => false
+        'timestamp' => false,
+        'hostname' => true,
+        'uri' => true,
+        'clientIp' => true,
+        'userAgent' => true,
+        'ruleMessages' => false,
+        'country' => true
     ];
 
     /**
@@ -161,9 +173,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'accounts' => 'accounts'
+        'timestamp' => 'timestamp',
+        'hostname' => 'hostname',
+        'uri' => 'uri',
+        'clientIp' => 'client_ip',
+        'userAgent' => 'user_agent',
+        'ruleMessages' => 'rule_messages',
+        'country' => 'country'
     ];
 
     /**
@@ -172,9 +188,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'accounts' => 'setAccounts'
+        'timestamp' => 'setTimestamp',
+        'hostname' => 'setHostname',
+        'uri' => 'setUri',
+        'clientIp' => 'setClientIp',
+        'userAgent' => 'setUserAgent',
+        'ruleMessages' => 'setRuleMessages',
+        'country' => 'setCountry'
     ];
 
     /**
@@ -183,9 +203,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      * @var array<string, string>
      */
     protected static array $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'accounts' => 'getAccounts'
+        'timestamp' => 'getTimestamp',
+        'hostname' => 'getHostname',
+        'uri' => 'getUri',
+        'clientIp' => 'getClientIp',
+        'userAgent' => 'getUserAgent',
+        'ruleMessages' => 'getRuleMessages',
+        'country' => 'getCountry'
     ];
 
     /**
@@ -235,9 +259,13 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('accounts', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
+        $this->setIfExists('uri', $data ?? [], null);
+        $this->setIfExists('clientIp', $data ?? [], null);
+        $this->setIfExists('userAgent', $data ?? [], null);
+        $this->setIfExists('ruleMessages', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
     }
 
     /**
@@ -278,86 +306,225 @@ class GetMailAccounts200Response implements ModelInterface, ArrayAccess, JsonSer
 
 
     /**
-     * Gets status
+     * Gets timestamp
      *
-     * @return int|null
-     * @deprecated
+     * @return \DateTime|null
      */
-    public function getStatus(): ?int
+    public function getTimestamp(): ?\DateTime
     {
-        return $this->container['status'];
+        return $this->container['timestamp'];
     }
 
     /**
-     * Sets status
+     * Sets timestamp
      *
-     * @param int|null $status Deprecated. Mirrors the HTTP status code and will be removed in a future API version. Read the HTTP status code instead.
+     * @param \DateTime|null $timestamp timestamp
      *
      * @return $this
-     * @deprecated
      */
-    public function setStatus(?int $status): static
+    public function setTimestamp(?\DateTime $timestamp): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($timestamp)) {
+            throw new InvalidArgumentException('non-nullable timestamp cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets hostname
      *
      * @return string|null
-     * @deprecated
      */
-    public function getMessage(): ?string
+    public function getHostname(): ?string
     {
-        return $this->container['message'];
+        return $this->container['hostname'];
     }
 
     /**
-     * Sets message
+     * Sets hostname
      *
-     * @param string|null $message Deprecated. Always \"success\" on 2xx responses and will be removed in a future API version.
+     * @param string|null $hostname hostname
      *
      * @return $this
-     * @deprecated
      */
-    public function setMessage(?string $message): static
+    public function setHostname(?string $hostname): static
     {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+        if (is_null($hostname)) {
+            array_push($this->openAPINullablesSetToNull, 'hostname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hostname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['message'] = $message;
+        $this->container['hostname'] = $hostname;
 
         return $this;
     }
 
     /**
-     * Gets accounts
+     * Gets uri
      *
-     * @return \SimplyCom\Model\GetMailAccounts200ResponseAccountsInner[]|null
+     * @return string|null
      */
-    public function getAccounts(): ?array
+    public function getUri(): ?string
     {
-        return $this->container['accounts'];
+        return $this->container['uri'];
     }
 
     /**
-     * Sets accounts
+     * Sets uri
      *
-     * @param \SimplyCom\Model\GetMailAccounts200ResponseAccountsInner[]|null $accounts accounts
+     * @param string|null $uri uri
      *
      * @return $this
      */
-    public function setAccounts(?array $accounts): static
+    public function setUri(?string $uri): static
     {
-        if (is_null($accounts)) {
-            throw new InvalidArgumentException('non-nullable accounts cannot be null');
+        if (is_null($uri)) {
+            array_push($this->openAPINullablesSetToNull, 'uri');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('uri', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['accounts'] = $accounts;
+        $this->container['uri'] = $uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets clientIp
+     *
+     * @return string|null
+     */
+    public function getClientIp(): ?string
+    {
+        return $this->container['clientIp'];
+    }
+
+    /**
+     * Sets clientIp
+     *
+     * @param string|null $clientIp clientIp
+     *
+     * @return $this
+     */
+    public function setClientIp(?string $clientIp): static
+    {
+        if (is_null($clientIp)) {
+            array_push($this->openAPINullablesSetToNull, 'clientIp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('clientIp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['clientIp'] = $clientIp;
+
+        return $this;
+    }
+
+    /**
+     * Gets userAgent
+     *
+     * @return string|null
+     */
+    public function getUserAgent(): ?string
+    {
+        return $this->container['userAgent'];
+    }
+
+    /**
+     * Sets userAgent
+     *
+     * @param string|null $userAgent userAgent
+     *
+     * @return $this
+     */
+    public function setUserAgent(?string $userAgent): static
+    {
+        if (is_null($userAgent)) {
+            array_push($this->openAPINullablesSetToNull, 'userAgent');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('userAgent', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['userAgent'] = $userAgent;
+
+        return $this;
+    }
+
+    /**
+     * Gets ruleMessages
+     *
+     * @return string[]|null
+     */
+    public function getRuleMessages(): ?array
+    {
+        return $this->container['ruleMessages'];
+    }
+
+    /**
+     * Sets ruleMessages
+     *
+     * @param string[]|null $ruleMessages ruleMessages
+     *
+     * @return $this
+     */
+    public function setRuleMessages(?array $ruleMessages): static
+    {
+        if (is_null($ruleMessages)) {
+            throw new InvalidArgumentException('non-nullable ruleMessages cannot be null');
+        }
+        $this->container['ruleMessages'] = $ruleMessages;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry(): ?string
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country ISO 3166-1 alpha-2 country code.
+     *
+     * @return $this
+     */
+    public function setCountry(?string $country): static
+    {
+        if (is_null($country)) {
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['country'] = $country;
 
         return $this;
     }

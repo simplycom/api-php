@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductsApi
+ * LogsApi
  * PHP version 8.1
  *
  * @package  SimplyCom
@@ -42,13 +42,13 @@ use SimplyCom\HeaderSelector;
 use SimplyCom\ObjectSerializer;
 
 /**
- * ProductsApi Class Doc Comment
+ * LogsApi Class Doc Comment
  *
  * @package  SimplyCom
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProductsApi
+class LogsApi
 {
     /**
      * @var ClientInterface
@@ -72,7 +72,7 @@ class ProductsApi
 
     /** @var array<string,string[]> $contentTypes **/
     public const contentTypes = [
-        'getProductList' => [
+        'getFirewallLogs' => [
             'application/json',
         ],
     ];
@@ -124,40 +124,52 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductList
+     * Operation getFirewallLogs
      *
-     * Retrieve list of products
+     * Stream web application firewall logs for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \DateTime $from Start of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  \DateTime $to End of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFirewallLogs'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \SimplyCom\Model\GetProductList200Response
+     * @return \SimplyCom\Model\GetFirewallLogs200Response|\SimplyCom\Model\ErrorResponse
      */
-    public function getProductList(
-        string $contentType = self::contentTypes['getProductList'][0]
-    ): \SimplyCom\Model\GetProductList200Response
+    public function getFirewallLogs(
+        string $object,
+        \DateTime $from,
+        \DateTime $to,
+        string $contentType = self::contentTypes['getFirewallLogs'][0]
+    ): \SimplyCom\Model\GetFirewallLogs200Response|\SimplyCom\Model\ErrorResponse
     {
-        list($response) = $this->getProductListWithHttpInfo($contentType);
+        list($response) = $this->getFirewallLogsWithHttpInfo($object, $from, $to, $contentType);
         return $response;
     }
 
     /**
-     * Operation getProductListWithHttpInfo
+     * Operation getFirewallLogsWithHttpInfo
      *
-     * Retrieve list of products
+     * Stream web application firewall logs for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \DateTime $from Start of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  \DateTime $to End of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFirewallLogs'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array{0: \SimplyCom\Model\GetProductList200Response, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
+     * @return array{0: \SimplyCom\Model\GetFirewallLogs200Response|\SimplyCom\Model\ErrorResponse, 1: int, 2: array<string, string[]>} [response data, HTTP status code, HTTP response headers]
      */
-    public function getProductListWithHttpInfo(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getFirewallLogsWithHttpInfo(
+        string $object,
+        \DateTime $from,
+        \DateTime $to,
+        string $contentType = self::contentTypes['getFirewallLogs'][0]
     ): array
     {
-        $request = $this->getProductListRequest($contentType);
+        $request = $this->getFirewallLogsRequest($object, $from, $to, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -184,7 +196,13 @@ class ProductsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\SimplyCom\Model\GetProductList200Response',
+                        '\SimplyCom\Model\GetFirewallLogs200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\SimplyCom\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -204,7 +222,7 @@ class ProductsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\SimplyCom\Model\GetProductList200Response',
+                '\SimplyCom\Model\GetFirewallLogs200Response',
                 $request,
                 $response,
             );
@@ -213,7 +231,15 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SimplyCom\Model\GetProductList200Response',
+                        '\SimplyCom\Model\GetFirewallLogs200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SimplyCom\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -225,20 +251,26 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductListAsync
+     * Operation getFirewallLogsAsync
      *
-     * Retrieve list of products
+     * Stream web application firewall logs for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \DateTime $from Start of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  \DateTime $to End of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFirewallLogs'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function getProductListAsync(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getFirewallLogsAsync(
+        string $object,
+        \DateTime $from,
+        \DateTime $to,
+        string $contentType = self::contentTypes['getFirewallLogs'][0]
     ): PromiseInterface
     {
-        return $this->getProductListAsyncWithHttpInfo($contentType)
+        return $this->getFirewallLogsAsyncWithHttpInfo($object, $from, $to, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -247,21 +279,27 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductListAsyncWithHttpInfo
+     * Operation getFirewallLogsAsyncWithHttpInfo
      *
-     * Retrieve list of products
+     * Stream web application firewall logs for a product
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \DateTime $from Start of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  \DateTime $to End of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFirewallLogs'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function getProductListAsyncWithHttpInfo(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getFirewallLogsAsyncWithHttpInfo(
+        string $object,
+        \DateTime $from,
+        \DateTime $to,
+        string $contentType = self::contentTypes['getFirewallLogs'][0]
     ): PromiseInterface
     {
-        $returnType = '\SimplyCom\Model\GetProductList200Response';
-        $request = $this->getProductListRequest($contentType);
+        $returnType = '\SimplyCom\Model\GetFirewallLogs200Response';
+        $request = $this->getFirewallLogsRequest($object, $from, $to, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,30 +338,80 @@ class ProductsApi
     }
 
     /**
-     * Create request for operation 'getProductList'
+     * Create request for operation 'getFirewallLogs'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductList'] to see the possible values for this operation
+     * @param  string $object The product handle/UUID, as found in the /my/products/ endpoint. (required)
+     * @param  \DateTime $from Start of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  \DateTime $to End of the time window, ISO 8601 UTC. The window may not exceed 24 hours. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFirewallLogs'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductListRequest(
-        string $contentType = self::contentTypes['getProductList'][0]
+    public function getFirewallLogsRequest(
+        string $object,
+        \DateTime $from,
+        \DateTime $to,
+        string $contentType = self::contentTypes['getFirewallLogs'][0]
     ): Request
     {
+        // verify the required parameter 'object' is set
+        if ($object === null || (is_array($object) && count($object) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $object when calling getFirewallLogs'
+            );
+        }
+        // verify the required parameter 'from' is set
+        if ($from === null || (is_array($from) && count($from) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $from when calling getFirewallLogs'
+            );
+        }
+        // verify the required parameter 'to' is set
+        if ($to === null || (is_array($to) && count($to) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $to when calling getFirewallLogs'
+            );
+        }
 
-        $resourcePath = '/2/my/products/';
+        $resourcePath = '/2/my/products/{object}/logs/firewall/';
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $from,
+            'from', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $to,
+            'to', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
 
 
+        // path params
+        if ($object !== null) {
+            $resourcePath = str_replace(
+                '{object}',
+                ObjectSerializer::toPathValue($object),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/x-ndjson', 'application/json', ],
             $contentType,
             $multipart
         );
