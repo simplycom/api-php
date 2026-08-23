@@ -24,6 +24,7 @@ src/Model/AddDnsRecord200ResponseRecord.php
 src/Model/AddDnsRecord400Response.php
 src/Model/AddDnsSecKeyPayload.php
 src/Model/AddMailAccountPayload.php
+src/Model/AddMailForwardPayload.php
 src/Model/AnyOfInterface.php
 src/Model/CreateOrder200Response.php
 src/Model/CreateOrder200ResponseOrder.php
@@ -45,6 +46,8 @@ src/Model/GetInvoices200Response.php
 src/Model/GetInvoices200ResponseInvoicesInner.php
 src/Model/GetMailAccounts200Response.php
 src/Model/GetMailAccounts200ResponseAccountsInner.php
+src/Model/GetMailForwards200Response.php
+src/Model/GetMailForwards200ResponseForwardsInner.php
 src/Model/GetMysqlDatabases200Response.php
 src/Model/GetMysqlDatabases200ResponseDatabasesInner.php
 src/Model/GetNameservers200Response.php
