@@ -295,7 +295,7 @@ class DnsRecordPayload implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
-        if (!preg_match("/((?![^[:print:]]).)*/", $this->container['data'])) {
+        if (!is_null($this->container['data']) && !preg_match("/((?![^[:print:]]).)*/", $this->container['data'])) {
             $invalidProperties[] = "invalid value for 'data', must be conform to the pattern /((?![^[:print:]]).)*/.";
         }
 

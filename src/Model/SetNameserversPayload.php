@@ -254,11 +254,11 @@ class SetNameserversPayload implements ModelInterface, ArrayAccess, JsonSerializ
         if ($this->container['nameservers'] === null) {
             $invalidProperties[] = "'nameservers' can't be null";
         }
-        if ((count($this->container['nameservers']) > 13)) {
+        if (!is_null($this->container['nameservers']) && (count($this->container['nameservers']) > 13)) {
             $invalidProperties[] = "invalid value for 'nameservers', number of items must be less than or equal to 13.";
         }
 
-        if ((count($this->container['nameservers']) < 2)) {
+        if (!is_null($this->container['nameservers']) && (count($this->container['nameservers']) < 2)) {
             $invalidProperties[] = "invalid value for 'nameservers', number of items must be greater than or equal to 2.";
         }
 
