@@ -15,6 +15,7 @@ src/Api/OrderApi.php
 src/Api/ProductsApi.php
 src/Api/RegistryApi.php
 src/Api/ServerstatusApi.php
+src/Api/SubdomainsApi.php
 src/ApiException.php
 src/Configuration.php
 src/FormDataProcessor.php
@@ -64,6 +65,8 @@ src/Model/GetProductList200ResponseProductsInnerServersWebserver.php
 src/Model/GetProductList200ResponseProductsInnerUsernames.php
 src/Model/GetServerStatusMessages200Response.php
 src/Model/GetServerStatusMessages200ResponseMessagesInner.php
+src/Model/GetSubdomains200Response.php
+src/Model/GetSubdomains200ResponseSubdomainsInner.php
 src/Model/ModelInterface.php
 src/Model/OneOfInterface.php
 src/Model/OrderDnsServicePayload.php
