@@ -16,6 +16,7 @@ src/Api/ProductsApi.php
 src/Api/RegistryApi.php
 src/Api/ServerstatusApi.php
 src/Api/SubdomainsApi.php
+src/Api/UrlforwardsApi.php
 src/ApiException.php
 src/Configuration.php
 src/FormDataProcessor.php
@@ -26,6 +27,9 @@ src/Model/AddDnsRecord400Response.php
 src/Model/AddDnsSecKeyPayload.php
 src/Model/AddMailAccountPayload.php
 src/Model/AddMailForwardPayload.php
+src/Model/AddUrlForward200Response.php
+src/Model/AddUrlForward200ResponseForward.php
+src/Model/AddUrlForward400Response.php
 src/Model/AnyOfInterface.php
 src/Model/CreateOrder200Response.php
 src/Model/CreateOrder200ResponseOrder.php
@@ -67,10 +71,13 @@ src/Model/GetServerStatusMessages200Response.php
 src/Model/GetServerStatusMessages200ResponseMessagesInner.php
 src/Model/GetSubdomains200Response.php
 src/Model/GetSubdomains200ResponseSubdomainsInner.php
+src/Model/GetUrlForwards200Response.php
+src/Model/GetUrlForwards200ResponseForwardsInner.php
 src/Model/ModelInterface.php
 src/Model/OneOfInterface.php
 src/Model/OrderDnsServicePayload.php
 src/Model/OrderPayload.php
 src/Model/SetNameserversPayload.php
 src/Model/SuccessResponse.php
+src/Model/UrlForwardPayload.php
 src/ObjectSerializer.php
