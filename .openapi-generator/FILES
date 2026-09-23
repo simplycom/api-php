@@ -5,6 +5,7 @@
 composer.json
 git_push.sh
 phpunit.xml.dist
+src/Api/AccountsApi.php
 src/Api/BillingApi.php
 src/Api/DatabaseApi.php
 src/Api/DnszoneApi.php
@@ -39,6 +40,8 @@ src/Model/DnsRecordType.php
 src/Model/Domaincheck200Response.php
 src/Model/Domaincheck200ResponseDomain.php
 src/Model/ErrorResponse.php
+src/Model/GetAccountList200Response.php
+src/Model/GetAccountList200ResponseAccountsInner.php
 src/Model/GetDnsRecords200Response.php
 src/Model/GetDnsRecords200ResponseRecordsInner.php
 src/Model/GetDnsRecords404Response.php
