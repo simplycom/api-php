@@ -21,7 +21,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use SimplyCom\Client;
 
-$simply = new Client('S123456', 'your-api-key');
+$simply = new Client('your-api-key');
 
 $products = $simply->products()->getProductList();
 
@@ -30,21 +30,29 @@ foreach ($products->getProducts() as $product) {
 }
 ```
 
-Username is your Simply.com account name (e.g. `S123456`); password is the API key for that account. See [API authentication](https://www.simply.com/docs/api/#authentication).
+The API key alone identifies the account, and is sent as a Bearer token. See [API authentication](https://www.simply.com/docs/api/#authentication).
 
 ## Available resources
 
+Each API tag in the [OpenAPI specification](https://api.simply.com/2/doc.json) is exposed as a method on `Client`:
+
+<!-- resources -->
 ```php
-$simply->billing()       // invoices
-$simply->database()      // MySQL databases on a product
-$simply->dns()           // DNS zones, records, DDNS
-$simply->domains()       // domain availability checks
-$simply->mail()          // mail accounts on a product
-$simply->order()         // place new orders
-$simply->products()      // list products on the account
-$simply->registry()      // registry-level data (nameservers, DNSSEC)
-$simply->serverStatus()  // public server status messages
+$simply->accounts()     // getAccountList
+$simply->billing()      // getInvoices
+$simply->database()     // getMysqlDatabases
+$simply->dnszone()      // addDnsRecord, ddnsHelper, deleteDnsRecord, dyndns, getDnsRecords, getDnsZone, reloadDnsZone, updateDnsRecord
+$simply->domains()      // domaincheck
+$simply->logs()         // getFirewallLogs
+$simply->mail()         // addMailAccount, addMailForward, getMailAccounts, getMailForwards
+$simply->order()        // createOrder, getOrderableProducts, orderDnsService
+$simply->products()     // getProductList
+$simply->registry()     // addDnssecKey, getDnssecKeys, getNameservers, removeDnssec, setNameservers
+$simply->serverstatus() // getServerStatusMessages
+$simply->subdomains()   // getSubdomains
+$simply->urlforwards()  // addUrlForward, deleteUrlForward, getUrlForwards
 ```
+<!-- /resources -->
 
 ## Examples
 
@@ -53,9 +61,9 @@ $simply->serverStatus()  // public server status messages
 ```php
 use SimplyCom\Client;
 
-$simply = new Client('S123456', 'your-api-key');
+$simply = new Client('your-api-key');
 
-$response = $simply->dns()->getDnsRecords('example.com');
+$response = $simply->dnszone()->getDnsRecords('example.com');
 
 foreach ($response->getRecords() as $record) {
     printf("%-6s %-30s %s\n", $record->getType(), $record->getName(), $record->getData());
@@ -69,7 +77,7 @@ use SimplyCom\Client;
 use SimplyCom\Model\DnsRecordPayload;
 use SimplyCom\Model\DnsRecordType;
 
-$simply = new Client('S123456', 'your-api-key');
+$simply = new Client('your-api-key');
 
 $payload = new DnsRecordPayload([
     'type' => DnsRecordType::A,
@@ -78,7 +86,7 @@ $payload = new DnsRecordPayload([
     'ttl'  => 3600,
 ]);
 
-$result = $simply->dns()->addDnsRecord('example.com', $payload);
+$result = $simply->dnszone()->addDnsRecord('example.com', $payload);
 
 echo 'Created record id ' . $result->getRecord()->getId() . PHP_EOL;
 ```
@@ -88,7 +96,7 @@ echo 'Created record id ' . $result->getRecord()->getId() . PHP_EOL;
 ```php
 use SimplyCom\Client;
 
-$simply = new Client('S123456', 'your-api-key');
+$simply = new Client('your-api-key');
 
 $check = $simply->domains()->domaincheck('example.com')->getDomain();
 
@@ -106,7 +114,7 @@ if ($check->getAvailable()) {
 ```php
 use SimplyCom\Client;
 
-$simply = new Client('S123456', 'your-api-key');
+$simply = new Client('your-api-key');
 
 foreach ($simply->billing()->getInvoices()->getInvoices() as $invoice) {
     printf("%s  %s %s  %s\n",
@@ -126,10 +134,10 @@ API errors are thrown as `SimplyCom\ApiException`. The exception exposes the HTT
 use SimplyCom\Client;
 use SimplyCom\ApiException;
 
-$simply = new Client('S123456', 'your-api-key');
+$simply = new Client('your-api-key');
 
 try {
-    $simply->dns()->getDnsRecords('not-your-domain.com');
+    $simply->dnszone()->getDnsRecords('not-your-domain.com');
 } catch (ApiException $e) {
     echo $e->getCode() . ': ' . $e->getMessage() . PHP_EOL;
     echo $e->getResponseBody();
@@ -145,7 +153,7 @@ use GuzzleHttp\Client as Guzzle;
 use SimplyCom\Client;
 
 $http = new Guzzle(['timeout' => 10.0]);
-$simply = new Client('S123456', 'your-api-key', $http);
+$simply = new Client('your-api-key', $http);
 ```
 
 ## License

@@ -23,6 +23,9 @@ jobs:
           openapi-url: https://api.simply.com/2/doc.json
           command-args: -o . --global-property=apiDocs=false,modelDocs=false,apiTests=false,modelTests=false
 
+      - name: Generate Client and README resources
+        run: php bin/generate-client.php
+
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
