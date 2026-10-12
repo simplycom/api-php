@@ -1,5 +1,8 @@
 # simplycom/api-php
 
+> [!WARNING]
+> **This repository is archived and no longer maintained.** Use the [Simply.com REST API](https://www.simply.com/docs/api/) directly.
+
 Official PHP client for the [Simply.com API](https://www.simply.com/docs/api/).
 
 ## Requirements
