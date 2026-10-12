@@ -19,6 +19,7 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: php-nextgen
+          generator-tag: v7.26.0
           config-file: php-generator-config.yml
           openapi-url: https://api.simply.com/2/doc.json
           command-args: -o . --global-property=apiDocs=false,modelDocs=false,apiTests=false,modelTests=false
