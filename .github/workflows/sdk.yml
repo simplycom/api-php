@@ -7,10 +7,10 @@ on:
 
 jobs:
   generate-sdk:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Cleanup old client
         run: rm -rf src/Api src/Model docs
@@ -27,6 +27,6 @@ jobs:
         run: php bin/generate-client.php
 
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Update API
